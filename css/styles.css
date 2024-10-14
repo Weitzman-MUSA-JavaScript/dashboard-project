@@ -1,0 +1,315 @@
+/* stylelint-disable color-function-notation */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap|Roboto');
+
+body {
+  margin: 0;
+  font-family: Roboto, sans-serif;
+  font-size: 0.7vw;
+}
+  
+main {
+  display: grid;
+  grid-template-columns: 44vw 18vw 18vw auto; 
+  grid-template-rows: 8vh 22vh 34vh 32vh; 
+  height: 100vh;
+  width:100vw;
+  box-sizing: border-box;
+  background-color: #e4e4e4;
+
+
+}
+  
+
+ 
+img{
+  grid-column: 4 / 5;
+  grid-row: 1 / 2;
+  width: 60px;
+  height: auto;
+  margin-left: 10px;
+}
+
+.header-container {
+  grid-column: 1 / 5; 
+  grid-row: 1 / 2;
+  background-color: rgb(30, 30, 32)	; 
+  position: relative; 
+  display:flex;
+}
+
+h1 {
+  font-size: 2.7vw;
+  letter-spacing: 0.3vw;
+  font-family: 'Bebas Neue', cursive;
+  color:#fcfafa;
+  margin: 0; 
+  padding-left: 10px;
+  padding-top: 10px;
+  position: relative; 
+  z-index: 1; 
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+h1 {
+  filter: drop-shadow(1px 1px 2px rgba(74, 72, 72, 50%)) 
+          drop-shadow(0 -5px 1px hsl(0deg, 54%, 36%));
+}
+
+h1:hover {
+  animation: glitch .3s linear infinite;
+  cursor: pointer;
+}
+
+@keyframes glitch {
+  0% {
+      transform: translate(0);
+  }
+
+  20% {
+      transform: translate(-2px, 2px);
+  }
+
+  40% {
+      transform: translate(-2px, -2px);
+  }
+
+  60% {
+      transform: translate(2px, 2px);
+  }
+
+  80% {
+      transform: translate(2px, -2px);
+  }
+
+  100% {
+      transform: translate(0);
+  }
+}
+
+
+h3 { 
+  font-size: 1.15vw;
+  font-family:  Roboto, sans-serif;
+  letter-spacing: 0.01vw;
+  margin: 0;
+  padding-left: 0.8vw;
+  padding-top: 0.5vw;
+}
+
+h4 {
+  font-size: 1vw;
+  font-family:  Roboto, sans-serif;
+  letter-spacing: 0.01vw;
+  margin: 0;
+  padding-left: 1vw;
+  padding-top: 0.5vw;
+  padding-bottom: 0.5vw
+
+}
+
+
+#tooltip {
+  position: absolute;
+  visibility: hidden;
+  background-color: white;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  font-family: Roboto, sans-serif; 
+  font-size: 12px; 
+  z-index: 10; 
+}
+
+
+#globe-container {
+  grid-column: 1 / 2; 
+  grid-row: 2 / 5;
+  position: relative; 
+  height: 100%; 
+  background-color: #f8f7f7;
+}
+
+#globe {
+  width: 100%; 
+  height: 100%; 
+  background-color: #f8f7f7;
+}
+  
+#volcano-type {
+  position: absolute; 
+  top: 0.7vw; 
+  right: 1vw; 
+  z-index: 1; 
+  padding: 4px 2px;
+  font-size: 0.7vw;
+  background-color: grey;
+  color: white; 
+  border: 1px solid #ccc;
+  border-radius: 5px; 
+}
+
+
+#volcano-type:hover {
+  background-color: rgb(255, 171, 171);
+}
+
+#note {
+  position: absolute; 
+  font-size: 0.7vw;
+  top: 1.8vw; 
+  padding-left: 0.6vw;
+}
+  
+.yellow-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background-color: #16335D; 
+  border-radius: 50%; 
+  margin-right: 5px;
+}
+
+.copyright {
+  position: absolute; 
+  font-size: 0.7vw; 
+  color: #666; 
+  z-index: 1;
+  padding-top: 85vh; 
+  padding-left: 0.6vw;
+
+}
+
+  
+#donut1 {
+  grid-column: 2 / 3; 
+  grid-row: 3 / 4; 
+  margin-left: 5px;
+
+}
+
+#donut2 {
+  grid-column: 3 / 4; 
+  grid-row: 3 / 4; 
+  margin-left: 2px;
+
+}
+
+
+#lollipop-container {
+  grid-column: 2 / 5; 
+  grid-row: 4 / 5; 
+  flex-direction: column; 
+  padding: 0.8vw;
+
+}
+
+
+#small-globe {
+  grid-column: 4 / 5;
+  grid-row: 3 / 4; 
+  width: 100%; 
+  height: 100%; 
+  margin-top: -10px;
+
+}
+
+#selection {
+  grid-column: 4 / 5;
+  grid-row: 2 / 3;
+  display: flex;
+  flex-direction: column; 
+}
+
+.selection-group {
+  display: flex; 
+  align-items: center;
+  padding-left: 1vw;
+  padding-bottom: 0.4vw;
+}
+
+
+.selection-group label {
+  margin-right: 6px; 
+  font-size: 0.8vw; 
+}
+
+#country-select, #year-select {
+  padding: 1px, 2px;
+  font-size: 0.7vw; 
+  background-color: #808080; 
+  color: white; 
+  border: 1px solid #ccc; 
+  border-radius: 5px; 
+}
+
+#country-select:hover {
+  background-color: rgb(255, 171, 171); /* Color change on hover */
+}
+
+#year-select:hover {
+  background-color: rgb(255, 171, 171); /* Color change on hover */
+}
+
+p {
+  letter-spacing: 0.01vw;
+  margin: 0.7vw;
+}
+
+#info-display {
+  line-height: 0.7; 
+  padding-left: 0.42vw;
+
+}
+
+.eruption-info {
+  font-size: 0.75vw;
+  font-family: Roboto, sans-serif; 
+  color: #070707; 
+  margin:0;
+}
+
+#description{
+  font-size: 0.8vw;
+  letter-spacing: 0.01vw;
+  line-height: 20.5px;
+  grid-column: 2 / 4;
+  grid-row: 2 / 3;
+  margin-top: 0%;
+  padding: 0.6vw;
+}
+
+#button-container {
+  display: flex; 
+  gap: 20px; 
+}
+
+button {
+  background-color: grey; 
+  border: none; 
+  color: white; 
+  padding: 1px 25px; 
+  text-align: center; 
+  text-decoration: none; 
+  display: inline-block; 
+  font-size: 0.7vw; 
+  border-radius: 5px; 
+  cursor: pointer; 
+  height: 25px;
+  margin-top: 0.6vw;
+  transition: background-color 0.3s, transform 0.2s; 
+}
+
+button:hover {
+  background-color: rgb(255, 171, 171);
+  transform: translateY(-2px);
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+button:focus {
+  outline: none;
+}
+
