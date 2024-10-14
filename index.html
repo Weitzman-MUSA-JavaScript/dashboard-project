@@ -1,0 +1,87 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+    <title>Dashboard</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+  <main>
+    <div class="header-container">
+      <h1>Volcanoes Watch: A Global Dashboard of Eruptions and Impacts</h1>
+      <img class="logo" src="assets/volcano.svg" alt="triangle with all three sides equal" height="100" width="100" />
+    </div>
+
+
+
+    <!-- Code for drawing the globe -->
+    <div id="globe-container">
+      <h3 id="globe-title">Spatial Distribution of Global Active Volcanoes</h3>
+      <select id="volcano-type">
+        <option value="All">All</option>
+        <option value="Caldera & Complex">Caldera & Complex</option>
+        <option value="Cone Types">Cone Types</option>
+        <option value="Shield & Stratovolcanoes">Shield & Stratovolcanoes</option>
+        <option value="Submarine & Subglacial">Submarine & Subglacial</option>
+        <option value="Explosive & Crater Features">Explosive & Crater Features</option>
+      </select>
+      <p id="note"><span class="yellow-dot"></span>dots represent submarine volcanoes</p>
+      <div class="copyright">© 2024 Emily Zhou. All rights reserved.</div>
+      <div id="globe"></div>
+    </div>
+    <div id="tooltip"></div>
+    
+    
+    <!-- Code for drawing donut chart -->
+    <div id="donut1"></div>
+    <div id="donut2"></div>
+    
+    <div id="selection">
+      <h4>View Eruption Events</h4>
+      <div class="selection-group">
+          <label for="country-select">Nation:</label>
+          <select id="country-select"></select>
+      </div>
+        
+      <div class="selection-group">
+          <label for="year-select">Year:</label>
+          <select id="year-select"></select>
+      </div>
+
+      <div id="info-display"></div>
+
+    </div>
+
+     <canvas id="small-globe"></canvas>
+
+    <!-- Code for drawing the lollipop chart -->
+    <div id="lollipop-container">
+      <div id="button-container">
+        <h3 id="lollipop-title">Severity of Volcanic Eruptions by Volcano Type</h3>
+        <button id="button1">VEI</button>
+        <button id="button2">Deaths</button>
+      </div>
+      <div id="lollipop"></div>
+    </div>
+
+     <p id = "description">
+      Welcome to the Volcano Explorer Dashboard! 
+      At the heart of the dashboard, you'll find an interactive 3D globe displaying the spatial distribution of volcanoes worldwide. 
+      Two donut charts provide a breakdown of volcanoes by continent and by type, 
+      giving insights into regional distribution and geological classifications. 
+      Additionally, a lollipop chart highlights the impact of volcanoes by illustrating the number of deaths and the Volcanic Explosivity Index (VEI) 
+      across different eruption types. You can also browse a timeline of major historical eruptions, filtered by year and country, 
+      to explore significant volcanic events and their global impact.</p>
+
+  </main>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="https://d3js.org/d3.v6.min.js"></script>
+  <script src="https://d3js.org/topojson.v3.min.js"></script>
+  <script src="js/main.js" type="module"></script>
+  
+</body>
+</html>
