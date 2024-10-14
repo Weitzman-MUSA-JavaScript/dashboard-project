@@ -16,10 +16,12 @@ main {
   box-sizing: border-box;
   background-color: #e4e4e4;
 
-
 }
   
-
+p {
+  letter-spacing: 0.01vw;
+  margin: 0.7vw;
+}
  
 img{
   grid-column: 4 / 5;
@@ -171,13 +173,18 @@ h4 {
 }
 
 .copyright {
+  text-align: left;
   position: absolute; 
   font-size: 0.7vw; 
   color: #666; 
   z-index: 1;
-  padding-top: 85vh; 
+  padding-top: 79vh; 
   padding-left: 0.6vw;
 
+}
+
+.copyright p {
+  margin: 5px 0; /* Adjust this value to change the spacing */
 }
 
   
@@ -246,17 +253,14 @@ h4 {
 }
 
 #country-select:hover {
-  background-color: rgb(255, 171, 171); /* Color change on hover */
+  background-color: rgb(255, 171, 171); 
 }
 
 #year-select:hover {
-  background-color: rgb(255, 171, 171); /* Color change on hover */
+  background-color: rgb(255, 171, 171); 
 }
 
-p {
-  letter-spacing: 0.01vw;
-  margin: 0.7vw;
-}
+
 
 #info-display {
   line-height: 0.7; 
