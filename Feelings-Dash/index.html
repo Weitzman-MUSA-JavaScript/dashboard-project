@@ -5,8 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Feelings Map</title>
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js"></script>
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css" rel="stylesheet" />
-    
+    <script src="https://unpkg.com/@turf/turf@6/turf.min.js"></script>
+    <script src="https://unpkg.com/geojson-vt/geojson-vt.js"></script>
     <link rel="stylesheet" href="css/style.css" />
     <script>
         /*to prevent Firefox FOUC, this must be here*/
@@ -14,25 +16,29 @@
     </script>
 </head>
 <body>
-    <ul class="controls"> 
-        <li class ='Feeling Selector'>
-            Feeling: 
-        <select id="feeling-select">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <!-- Add more feelings as necessary -->
-        </select>
-        </li> 
-        
-        <li>
-            
-        </li>
+    <div class="sidebar">
+        <ul>
+            <li>
+            Sentiment:
+            <select  id="sentiment-selector" ></select>
+         </li>
+         <li>
+            Question:
+            <select  id="question-selector" ></select></li>
+        </ul>
+    </div>
+    <div class="chart">
+        Pressing issues
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
-    </ul>
+    </div>
+    <div class="info">
+        Mouseover information
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
+    </div>
     <div id="map"></div>
-
+    
 
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js"></script>
     <script src="js/script.js"></script>
