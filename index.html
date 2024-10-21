@@ -1,19 +1,60 @@
 <!doctype html>
 
 <html lang="en">
-    <head>
-        <title> Philadelphia Community Fridges</title>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
-        <link rel="stylesheet" href="css/style.css">
-    </head>
+    <title> Philadelphia Community Fridges</title>
 
-    <body>
-        <main>
-            <div class="map" id="fridgeMap"></div>
-        </main>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <link rel="stylesheet" href="css/style.css">
+  </head>
 
-        <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-        <script type="module" src="js/main.js"></script>
-    </body>
+  <body>
+    <main>
+      <section class="map-section">
+        <fieldset class="map-search-controls">
+          <input type="text" name="zip-search" placeholder="Find fridge by ZIP code">
+        </fieldset>
+
+        <div class="map" id="fridgeMap">Map</div>
+      </section>
+
+      <section class="fridge-list-section">
+        <div class="fridge-list-header">
+          <h4>Fridges</h4>
+        
+          <fieldset class="fridge-search-controls">
+            <label for="fridge-type">Fridge type:</label>
+            <select name="fridge-type" id="fridge-type">
+              <option value="fridge" selected>Fridge</option>
+              <option value="pantry">Pantry</option>
+              <option value="donationHub">Donation Hub</option>
+            </select>
+          </fieldset>
+        </div>
+
+        <ul class="fridge-list">
+          <li class="fridge">
+            <a href="https://www.mamateefridge.com/" class="fridge-name">Mama Tee - Alchemy Hair Lab</a>
+            <span class="fridge-distance">(~ 0.2 mi)</span>
+            <span class="fridge-address">2401 E Letterly St</span>
+          </li>
+          <li class="fridge">
+            <a href="https://www.mamateefridge.com/" class="fridge-name">Long Fridge Name To See How It Behaves With Text Wrapping</a>
+            <span class="fridge-distance">(~ 0.2 mi)</span>
+            <span class="fridge-address">2401 E Letterly St</span>
+          </li>
+          <li class="fridge">
+            <a href="https://www.mamateefridge.com/" class="fridge-name">Mama Tee - Alchemy Hair Lab</a>
+            <span class="fridge-distance">(~ 0.2 mi)</span>
+            <span class="fridge-address">2401 E Letterly St</span>
+          </li>
+        </ul>
+
+    </main>
+    
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script type="module" src="js/main.js"></script>
+  </body>
 </html>
