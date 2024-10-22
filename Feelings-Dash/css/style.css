@@ -36,11 +36,10 @@ h1 {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
 }
 .sidebar {
-    position:absolute ;
+    position:relative ;
     top: 60px;
-    
-    width: fit-content;
-    right: 5px;
+    width: 300px;
+    left: 10px;
     z-index: 1;
     background-color: white;
     padding: 10px;
@@ -50,38 +49,31 @@ h1 {
        
 }
 
-.chart {
-  position:relative ;
-  top: 60px;
-  width: 300px;
-  left: 5px;
-  z-index: 1;
-  background-color: white;
-  padding: 10px;
-  border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(69, 66, 66, 0.5);
-  list-style-type: none;
-     
+canvas {
+  margin:auto;
 }
-.info {
+.chart {
+  text-align: center;
   position:relative ;
   top: 65px;
   width: 300px;
-  left: 5px;
+  height: 300px;
+  left: 10px;
   z-index: 1;
-  height: fit-content;
   background-color: white;
   padding: 10px;
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(69, 66, 66, 0.5);
   list-style-type: none;
+  
      
 }
+
 .choropleth {
   position:relative ;
   top: 70px;
   width: 300px;
-  left: 5px;
+  left: 10px;
   height: fit-content;
   z-index: 1;
   background-color: white;

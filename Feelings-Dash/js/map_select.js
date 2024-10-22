@@ -1,5 +1,5 @@
 
-async function importmapSelector(params) {
+async function importmapSelector(url) {
   
 mapboxgl.accessToken = 'pk.eyJ1IjoieGxsZWUiLCJhIjoiY20weTQ3M2VvMGt0MzJsb21lZXc1YTdpMCJ9.F1PUTPRCUtzGAEE3X8JNTg';
 
@@ -13,7 +13,8 @@ const map = new mapboxgl.Map({
     maxPitch: 60
 });
 
-fetch ('./data/layers/emotions_main.geojson')
+
+fetch (url)
 .then(response => response.json())
 .then(geojson=> {
   // GeoJSON content loaded and parsed
@@ -182,6 +183,7 @@ populatesentiment();
   });
 
 })
+
 .catch(error => console.error('Error loading GeoJSON:', error));
 }
 

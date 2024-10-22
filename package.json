@@ -16,5 +16,8 @@
     "eslint-config-google": "^0.14.0",
     "stylelint": "^15.10.3",
     "stylelint-config-standard": "^34.0.0"
+  },
+  "dependencies": {
+    "chart.js": "^4.4.5"
   }
 }
