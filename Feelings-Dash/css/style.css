@@ -1,4 +1,6 @@
-
+.mapboxgl-ctrl-logo {
+  display: none !important;
+}
 
 body {
     margin: 0;
@@ -63,9 +65,24 @@ h1 {
 }
 .info {
   position:relative ;
+  top: 65px;
+  width: 300px;
+  left: 5px;
+  z-index: 1;
+  height: fit-content;
+  background-color: white;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(69, 66, 66, 0.5);
+  list-style-type: none;
+     
+}
+.choropleth {
+  position:relative ;
   top: 70px;
   width: 300px;
   left: 5px;
+  height: fit-content;
   z-index: 1;
   background-color: white;
   padding: 10px;

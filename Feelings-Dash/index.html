@@ -7,8 +7,7 @@
     <title>Feelings Map</title>
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js"></script>
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css" rel="stylesheet" />
-    <script src="https://unpkg.com/@turf/turf@6/turf.min.js"></script>
-    <script src="https://unpkg.com/geojson-vt/geojson-vt.js"></script>
+    <script src="https://unpkg.com/chart.js@4.2.0/dist/chart.umd.js"></script>
     <link rel="stylesheet" href="css/style.css" />
     <script>
         /*to prevent Firefox FOUC, this must be here*/
@@ -29,11 +28,11 @@
     </div>
     <div class="chart">
         Pressing issues
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br><br>
 
     </div>
-    <div class="info">
-        Mouseover information
+    <div class="choropleth">
+        feeling map (choropleth)
         <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
     </div>
@@ -41,7 +40,8 @@
     
 
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js"></script>
-    <script src="js/script.js"></script>
+    <script type="module" src="js/main.js"></script>
+   
   
 </body>
 </html>
