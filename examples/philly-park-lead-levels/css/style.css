@@ -1,0 +1,253 @@
+/* at the start of CSS, make sure design go to the edge of the browser */
+html,
+body {
+    padding: 0;
+    /* border-box doesn't include margin, only padding */
+    margin: 0;
+    height: 100%;
+}
+
+/* layout style */
+html {
+    font-family: sans-serif;
+    box-sizing: border-box;
+    height: 100%;
+    /* overflow: hidden; */
+}
+
+header {
+    height: 9vh;
+    font-size: 12px;
+    box-sizing: border-box;
+    background-image: url("../img/lead-h1-background.png");
+    background-size: 100% 100%;
+    /* background-size: cover;  This option do not reshape img*/
+    /* background-position: bottom; */
+    /* background-image: url(https://cdn.freecodecamp.org/curriculum/css-cafe/beans.jpg) */
+}
+
+h1 {
+    color: #577446;
+    height: 100%;
+    padding: 2vh;
+    margin: 0;
+    box-sizing: border-box;
+    /* adjust background image transparency */
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+main {
+    display:flex;
+    box-sizing: border-box;
+    flex-direction: row;
+    height: 88vh;
+    padding: 1vh;
+}
+
+footer {
+    height: 3vh;
+    font-size: 12px;
+    box-sizing: border-box;
+}
+
+#footnote {
+    margin: 0;
+    margin-left: 1%;
+    box-sizing: border-box;
+}
+
+/* specify link color  */
+a {
+    color: black;
+  }
+  
+  a:visited {
+    color: black;
+  }
+  
+  a:hover {
+    color: brown;
+  }
+  
+  a:active {
+    color: brown;
+  }
+/* specify link color end  */
+
+/* style of each componet */
+.map {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.right-side {
+    /* border: 1px solid blue; */
+    width: 500px;
+    padding: 2vh;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+.address-section {
+    /* border: 1px solid green; */
+    height: 17%;
+    min-height: calc(70px + 2vh);
+    max-height: 140px;
+    padding: 1vh;
+    box-sizing: border-box;
+}
+
+.park-list-section {
+    /* border: 1px solid orange; */
+    height: calc(100% - min(140px, 17%) - min(220px, 30%)); /* use address-section and lead-level-chart-wrapper height to specify park-section height */
+    min-height: 150px;
+    padding: 1vh;
+    box-sizing: border-box;
+    /* flexbox is easy to fill the mother componet */
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.park-list {
+    /* overflow will add scroll bar */
+    overflow: auto;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.lead-level-chart-wrapper {
+    /* border: 1px solid pink; */
+    height: 30%;
+    /* min-height: 150px; */
+    max-height: 220px;
+    width: 100%;
+    box-sizing: border-box;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    left: 0;
+}
+
+/* define "remove" status */
+.hidden {
+    display: none;
+  }
+
+.fold {
+    display: none;
+}
+
+
+/* mobile compatibility */
+/* phone vertical */
+@media screen and (width <= 450px) {
+
+    header {
+        background-size: 150% 100%;
+        height: 7vh;
+    }
+
+    main {
+      flex-direction: column;
+      height: 89vh;
+    }
+
+    footer {
+        height: 4vh;
+        font-size: 10.5px;
+        box-sizing: border-box;
+        padding: 4px;
+    }
+
+    h1 {
+        font-size: 17px;
+        padding: 1.5vh;
+    }
+  
+    #map {
+      height: 50vh;
+    }
+
+    .right-side {
+        width: 100%;
+        height: 39vh;
+        padding: 1vh;
+        overflow: auto;
+    }
+
+    .address-section {
+        height: calc(40% - 8px - 2.5vh);
+    }
+
+    .fold {
+        display: flex;
+        justify-content: space-between;
+        height: 16px;
+        padding: 1vh;
+        border: 1px solid rgba(182, 182, 182, 0.8);
+        border-radius: 5px;
+        margin-top: 1vh;
+        margin-bottom: 1vh;
+    }
+
+    .park-list-section {
+        display: none;
+    }
+
+    .lead-level-chart-wrapper {
+        height: calc(60% - 8px - 2.5vh);
+        min-height: 150px;
+    }
+}
+
+/* phone horizontal, except iPad vertical */
+@media screen and (max-width: 1000px) and (min-width: 450px) and (max-height: 700px) {
+
+    .address-section {
+        /* height: 85px; */
+        min-height: 85px;
+    }
+
+    .fold {
+        display: flex;
+        justify-content: space-between;
+        height: 16px;
+        padding: 1vh;
+        border: 1px solid rgba(182, 182, 182, 0.8);
+        border-radius: 5px;
+        margin-top: 1vh;
+        margin-bottom: 1vh;
+    }
+
+    .park-list-section {
+        display: none;
+    }
+
+    .lead-level-chart-wrapper {
+        height: 60%;
+    }
+
+    .right-side {
+        overflow: auto;
+    }
+}
+
+/* iPad vertical */
+@media screen and (max-width: 1000px) and (min-width: 450px) and (max-height: 1000px) {
+
+    .address-section {
+        /* height: 85px; */
+        min-height: 85px;
+    }
+
+    .lead-level-chart-wrapper {
+        height: 60%;
+    }
+
+    .right-side {
+        overflow: auto;
+    }
+}
