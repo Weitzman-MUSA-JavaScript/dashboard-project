@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>October 2024 BTO Dashboard</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Mapbox GL JS CSS -->
+    <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v3.6.0/mapbox-gl.css" rel="stylesheet">
+    
+    <!-- Add the Barlow font from Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">    
+    
+    <!-- Custom stylesheet -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-2 sidebar d-flex flex-column p-4">
+                <!-- Site Name and Icon -->
+                <div class="text-left mb-4 site-icon" id="siteIcon">
+                    <div id="funIcon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-house-down" viewBox="0 0 16 16">
+                            <path d="M7.293 1.5a1 1 0 0 1 1.414 0L11 3.793V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v3.293l2.354 2.353a.5.5 0 0 1-.708.708L8 2.207l-5 5V13.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 1 0 1h-4A1.5 1.5 0 0 1 2 13.5V8.207l-.646.647a.5.5 0 1 1-.708-.708z"/>
+                            <path d="M12.5 9a3.5 3.5 0 1 1 0 7 3.5 3.5 0 0 1 0-7m.354 5.854 1.5-1.5a.5.5 0 0 0-.708-.707l-.646.646V10.5a.5.5 0 0 0-1 0v2.793l-.646-.646a.5.5 0 0 0-.708.707l1.5 1.5a.5.5 0 0 0 .708 0"/>
+                          </svg>
+                    </div>
+                    <h5 class="mt-3">BYRON'S BUYER GUIDE ✨</h5>
+                </div>
+
+                <!-- Modal -->
+                <div id="myModal" class="modal">
+                    <div class="modal-content" style="font-size: 1.15em;">
+                        <span class="close">&times;</span>
+                        <p>Decided?<br>Book your next home here:<br><a href="https://homes.hdb.gov.sg/home/landing" target="_blank" style="color: #838077;">https://homes.hdb.gov.sg/home/landing</a></p>
+                        <a href="https://homes.hdb.gov.sg/home/landing" target="_blank">
+                            <img src="./assets/images/hdb3.png" alt="HDB Image" style="width: 15%; height: auto; margin-top: 0px;">
+                        </a>
+                    </div>
+                </div>
+            
+                <!-- Sidebar Buttons -->
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <button class="btn btn-secondary mb-2 w-100" data-section="explore">
+                            <i class="bi bi-search icon"></i>
+                            <header class="sidebar-header">Explore Sites</header>
+                        </button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="btn btn-secondary mb-2 w-100" data-section="nature">
+                            <i class="bi bi-tree-fill icon"></i>
+                            <header class="sidebar-header">Nature</header>
+                        </button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="btn btn-secondary mb-2 w-100" data-section="transport">
+                            <i class="bi bi-train-lightrail-front icon"></i>
+                            <header class="sidebar-header">Transport</header>
+                        </button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="btn btn-secondary mb-2 w-100" data-section="amenities">
+                            <i class="bi bi-shop icon"></i>
+                            <header class="sidebar-header">Amenities</header>
+                        </button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="btn btn-secondary mb-2 w-100" data-section="compare">
+                            <i class="bi bi-layout-split icon"></i>
+                            <header class="sidebar-header">Compare Sites</header>
+                        </button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="btn btn-secondary mb-2 w-100" data-section="game">
+                            <i class="bi bi-controller icon"></i>
+                        </button>
+                    </li>
+                </ul>
+
+                <div id="reset-button" class="floating-button">Reset View</div>
+
+                <div class="mt-auto"> <!-- Ensures this content stays at the bottom -->
+                    <i class="fas fa-info-circle" data-toggle="tooltip" title="This is some important information!" style="cursor: pointer;"></i>
+                </div>
+            </div>
+
+            <!-- Description Panel -->
+            <div class="col-3 content-panel p-4" id="description-panel">
+                <!-- Initial content or default view -->
+                <h3>Welcome to the Dashboard</h3>
+                <p>Select a category from the sidebar to explore.</p>
+            </div>
+
+            <!-- Map Panel -->
+            <div class="col-7" id="map">
+            </div>
+        </div>
+
+        <div id="score-counter">Score: 0</div>
+    </div>
+
+    <!-- Bootstrap JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Mapbox GL JS -->
+    <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v3.6.0/mapbox-gl.js"></script>
+
+    <!-- D3 JS-->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+
+    <!-- GSAP JS -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+
+    <!-- Scripts for different sections -->
+    <script src="js/map.js"></script>
+    <script src="js/game_ballot.js"></script>
+    <script src="js/explore.js"></script>
+    <script src="js/nature.js"></script>
+    <script src="js/transport.js"></script>
+    <script src="js/amenities.js"></script>
+    <script src="js/compare.js"></script>
+    <script src="js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
+</body>
+</html>

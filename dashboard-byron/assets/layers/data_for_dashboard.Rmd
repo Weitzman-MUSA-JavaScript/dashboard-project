@@ -1,0 +1,142 @@
+---
+title: "Dashboard_Data"
+author: "Byron Huang"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tidyverse)
+library(lubridate)
+```
+
+## Import raw csv
+
+```{r}
+sites <- read.csv("Sites_v6_original.csv")
+```
+
+## Rank
+
+```{r}
+sites <- sites %>%
+  mutate(
+    rank_Units = rank(-Units),  # highest to lowest
+    rank_NEAR_HAWKER = rank(NEAR_HAWKER),  # lowest to highest
+    rank_NEAR_MRT = rank(NEAR_MRT),  # lowest to highest
+    rank_NParks_KM2 = rank(-NParks_KM2),  # highest to lowest
+    rank_NEAR_LIB = rank(NEAR_LIB),  # lowest to highest
+    rank_CYCLE_M = rank(-CYCLE_M),  # highest to lowest
+    rank_MATURE_KM2 = rank(-MATURE_KM2)  # highest to lowest
+  )
+```
+
+## Save data
+
+```{r}
+write_csv(sites, "sites_v7_ranked.csv")
+```
+
+[1] "OBJECTID" "Project_Name" "Units" "NEAR_HAWKER" "NEAR_MRT"\
+[6] "NParks_KM2" "NEAR_LIB" "CYCLE_M" "MATURE_KM2" "Shape_Length"\
+[11] "Shape_Area" "rank_Units" "rank_NEAR_HAWKER" "rank_NEAR_MRT" "rank_NParks_KM2" [16] "rank_NEAR_LIB" "rank_CYCLE_M" "rank_MATURE_KM2"\\
+
+# Resale data
+
+```{r}
+resale <- read.csv("resale.csv")
+
+to_title_case <- function(x) {
+  str_to_title(x)  # Converts to title case
+}
+
+# Update the $TOWN column in resale to title case
+resale <- resale %>%
+  mutate(town = to_title_case(town))
+
+```
+
+```{r}
+resale_summary <- resale %>%
+  mutate(psf = resale_price / floor_area_sqm) %>%  # Create new column psf
+  filter(flat_type %in% c("4 ROOM", "3 ROOM")) %>%  # Keep only specified flat types
+  group_by(town, month) %>%  # Group by town and month
+  summarize(mean_psf = mean(psf, na.rm = TRUE))  # Calculate mean psf
+
+```
+
+```{r}
+# Ensure month is in a suitable date format (e.g., "YYYY-MM")
+resale_summary$month <- as.Date(paste0(resale_summary$month, "-01"))  # Assuming month is in "YYYY-MM" format
+
+# Plotting
+ggplot(resale_summary, aes(x = month, y = mean_psf, color = town)) +
+  geom_line(size = 1) +  # Add lines for the trend
+  labs(title = "Trend of Mean PSF Over Months",
+       x = "Month",
+       y = "Mean PSF") +
+  theme_minimal() +  # Use a minimal theme
+  theme(legend.title = element_blank(),  # Optionally remove the legend title
+        axis.text.x = element_text(angle = 45, hjust = 1)) +  # Angle x-axis labels for better visibility
+  scale_x_date(date_labels = "%b %Y")  # Format x-axis labels for better readability
+```
+
+```{r}
+new_summary <- resale_summary %>%
+  mutate(year = year(month)) %>%  # Extract the year from month
+  group_by(town, year) %>%  # Group by town and year
+  summarize(mean_psf = mean(mean_psf, na.rm = TRUE))  # Calculate mean psf for each group
+
+```
+
+```{r}
+ggplot(new_summary, aes(x = year, y = mean_psf, color = town)) +
+  geom_line(size = 1) +  # Add lines for the trend
+  labs(title = "Trend of Mean PSF Over Years",
+       x = "Year",
+       y = "Mean PSF") +
+  theme_minimal() +  # Use a minimal theme
+  theme(legend.title = element_blank())  # Optionally remove the legend title
+```
+
+```{r}
+rebased_summary <- new_summary %>%
+  group_by(town) %>%  # Group by town
+  mutate(rebased_psf = (mean_psf / mean_psf[year == 2017]) * 100)  # Rebase to 2017
+
+singapore_summary <- rebased_summary %>%
+  group_by(year) %>%
+  summarize(town = "Singapore", rebased_psf = mean(rebased_psf, na.rm = TRUE)) %>%
+  ungroup()
+
+final_summary <- bind_rows(rebased_summary, singapore_summary)
+
+```
+
+```{r}
+ggplot(final_summary, aes(x = year, y = rebased_psf, color = town)) +
+  geom_line(size = 1) +  # Add lines for the trend
+  labs(title = "Rebased Trend of Mean PSF Over Years (2017 = 100)",
+       x = "Year",
+       y = "Rebased Mean PSF") +
+  theme_minimal() +  # Use a minimal theme
+  theme(legend.title = element_blank())  # Optionally remove the legend title
+```
+
+```{r}
+towns_to_filter <- c("Ang Mo Kio", "Bedok", "Bukit Batok", 
+                     "Geylang", "Jurong West", 
+                     "Kallang/Whampoa", "Pasir Ris", 
+                     "Sengkang", "Woodlands", 
+                     "Singapore")
+
+# Filter final_summary to include only specified towns
+filtered_summary <- final_summary %>%
+  filter(town %in% towns_to_filter)
+
+# Write the filtered dataframe to a CSV file
+write.csv(filtered_summary, "price_index.csv", row.names = FALSE)
+
+```
