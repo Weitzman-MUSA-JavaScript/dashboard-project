@@ -10,6 +10,6 @@ async function downloadFridgeData() {
   const fridges = fridgeData.features;
 
   return { hoods, fridges };
-};
+}
 
 export { downloadFridgeData };

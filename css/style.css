@@ -23,7 +23,7 @@ html {
 .map-search-controls {
   position: absolute; 
   z-index: 10; 
-  background-color: rgba(255, 255, 255, 0); 
+  background-color: rgba(255 255 255 0); 
   border: transparent;
   top: 2px; 
   left: 35px;
@@ -46,7 +46,7 @@ html {
 
 .fridge-list-section {
   background-color: beige;
-  color: rgb(66, 31, 9);
+  color: rgb(66 31 9);
   height: 50vh;
   display: flex;
   flex-direction: column;
@@ -76,8 +76,8 @@ html {
 }
 
 #fridge-type {
-  color: rgb(66, 31, 9); 
-  border-color: rgb(66, 31, 9);
+  color: rgb(66 31 9); 
+  border-color: rgb(66 31 9);
 }
 
 .fridge-list {
@@ -97,7 +97,7 @@ html {
   grid-template-columns: 1fr 1fr 1fr 1fr;
 
   padding: 0.5rem;
-  border-bottom: 1px solid rgb(66, 31, 9);
+  border-bottom: 1px solid rgb(66 31 9);
 }
 
 .fridge-list .fridge .fridge-name {
@@ -130,9 +130,9 @@ html {
 }
 
 .user-location-icon .pulse-outline{
-  stroke: rgb(66, 31, 9);
+  stroke: rgb(66 31 9);
 }
 
 .user-location-icon .center-circle{
-  fill: rgb(66, 31, 9);
+  fill: rgb(66 31 9);
 }

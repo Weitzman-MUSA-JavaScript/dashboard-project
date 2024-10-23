@@ -1,6 +1,6 @@
 function initMap(el, events) {
   // Create the map
-  var map = L.map(el).setView([39.9530, -75.1636], 12); // map centered at city hall
+  const map = L.map(el).setView([39.9530, -75.1636], 12); // map centered at city hall
 
   const mapboxKey = 'pk.eyJ1IjoiY2hpYmlha2kiLCJhIjoiY20xODh2NTNqMTBvaDJqb2ptbjM4ZGViayJ9.un9M1_-S6kI8M0ktqZLz_Q';
   const mapboxStyle = 'mapbox/streets-v11';
