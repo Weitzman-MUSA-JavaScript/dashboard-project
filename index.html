@@ -20,11 +20,11 @@
         <ul>
             <li>
             Sentiment:
-            <select  id="sentiment-selector" ></select>
+            <select  id="sentiment-selector", class="custom-select" ></select>
          </li>
          <li>
             Questions:
-            <select  id="question-selector" ></select></li>
+            <select  id="question-selector",, class="custom-select" ></select></li>
         </ul>
     </div>
     <div class="chart", id="chart", aria-label="chart">
@@ -33,8 +33,9 @@
         
 
     </div>
-    <div class="legend", id="legend">
-        <ul>
+    <div class="legend", id="legend"> 
+        
+        <ul > <div style="font-weight:600; text-align: center;">Legend</div>
             <li>Happy <div id="circle", style="background-color: #56949A"></div></li>
             <li>Unhappy <div id="circle", style="background-color: #D7677B"></div></li>
             <li>Proud <div id="circle", style="background-color: #6E88B1"></div></li>

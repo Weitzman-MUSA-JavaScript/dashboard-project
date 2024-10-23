@@ -6,12 +6,12 @@ mapboxgl.accessToken = 'pk.eyJ1IjoieGxsZWUiLCJhIjoiY20weTQ3M2VvMGt0MzJsb21lZXc1Y
 const map = new mapboxgl.Map({
     container: 'map', // container ID
     style: "mapbox://styles/xllee/cm1wx9fej00og01pgfmx363w6", // style URL
-    center: [14.476, 50.10], // starting position [lng, lat]
+    center: [14.40, 50.07], // starting position [lng, lat]
     zoom: 11, // starting zoom
     maxZoom: 15,
-    minZoom: 11,
+    minZoom: 10,
     maxPitch: 60,
-    Pitch: 45
+    pitch: 35
     
 });
 
@@ -138,8 +138,8 @@ populatesentiment();
         data: geojson
       },
       paint: {
-        'circle-radius': 2.5,
-        'circle-opacity': 0.4,
+        'circle-radius': 2,
+        'circle-opacity': 0.7,
         'circle-color': ['match', ['get', 'sentiment'], // get the property
         'Happy', '#56949A',
         'Unhappy', '#D7677B',
