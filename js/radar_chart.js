@@ -16,8 +16,8 @@ function radar(data){
       
       var labels = result.map(item=>item.sentiment)
       var data = result.map(item=>item.count)
-      
-   
+      let maxfeeling = result.reduce((max, res) => max.count > res.count ? max : res);
+      console.log('top feeling', maxfeeling)
     
       let radarChart = new Chart(chrt, {
         type: 'radar',

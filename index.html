@@ -27,21 +27,36 @@
             <select  id="question-selector",, class="custom-select" ></select></li>
         </ul>
     </div>
+    <div class="qnslist">
+        <div style="font-weight:600;font-size: larger; text-align: left; padding-bottom: 10px">What does Opiniate do?</div>
+        <div style="padding-bottom:10px; text-align: justify;line-height: 1.5;"> Opiniate allows you to explore the feelings and opinions of thousand of others in your city, and identify the places people love, 
+            hate or have mixed feelings. Besides providing an overview of the current mood of the city, the dashboard also details the specific comments people have about certain locations.
+            Start by choosing an overall feeling you would like to explore and perhaps even zoom in into a specific aspect if you like! <br><br></div>
+        <div style="font-weight:600; text-align: left; padding:top 10px;">Questions/ Statements</div>
+        <ul>
+            <li style="padding:6px;"> <div id="circle", style="background-color: #56949A"></div>&nbsp 1: This is where I spend my free time</li>
+            <li style="padding:6px;"><div id="circle", style="background-color: #6E88B1"></div>&nbsp 2: I would show this place to a visitor</li>
+            <li style="padding:6px;"><div id="circle", style="background-color: #D7677B"></div>&nbsp 3: This place is neglected & needs renovation</li>
+            <li style="padding:6px;"><div id="circle", style="background-color: #B87BA0"></div>&nbsp 4: I don't feel safe here</li>
+            <li style="padding:6px;"><div id="circle", style="background-color: #DD7E6F"></div>&nbsp 5: There is a traffic hazard here</li>
+            <li style="padding:6px;"><div id="circle", style="background-color: #DD7E6F"></div>&nbsp 6: There are parking problems</li>
+            <li style="padding:6px;"><div id="circle", style="background-color: #D7677B"></div>&nbsp 7: I would like more green space here</li>
+            <li style="padding:6px;"><div id="circle", style="background-color: #CE9C80"></div>&nbsp 8: There is often overflowing waste here</li>
+        </ul>
+    </div>
     <div class="chart", id="chart", aria-label="chart">
-        Current Mood
+  <div style="font-weight:600; text-align: left; padding-bottom: 5px;">Current Mood</div>
         <canvas , id= 'chartId', aria-label="chart", height="300" width="300"></canvas>
-        
-
     </div>
     <div class="legend", id="legend"> 
         
-        <ul > <div style="font-weight:600; text-align: center;">Legend</div>
-            <li>Happy <div id="circle", style="background-color: #56949A"></div></li>
-            <li>Unhappy <div id="circle", style="background-color: #D7677B"></div></li>
-            <li>Proud <div id="circle", style="background-color: #6E88B1"></div></li>
-            <li>Dissatisfied (Transport) <div id="circle", style="background-color: #DD7E6F"></div></li>
-            <li>Disgust <div id="circle", style="background-color: #CE9C80"></div></li>
-            <li>Unsafe <div id="circle", style="background-color: #B87BA0"></div></li>
+        <ul > <div style="font-weight:600; text-align: left; padding-bottom:10px;">Legend</div>
+            <li id= 'legend-item', style="padding:6px;">Happy <div id="circle", style="background-color: #56949A"></div></li>
+            <li id= 'legend-item'style="padding:6px;">Unhappy <div id="circle", style="background-color: #D7677B"></div></li>
+            <li id= 'legend-item'style="padding:6px;">Proud <div id="circle", style="background-color: #6E88B1"></div></li>
+            <li id= 'legend-item'style="padding:6px;">Dissatisfied (Transport) <div id="circle", style="background-color: #DD7E6F"></div></li>
+            <li id= 'legend-item'style="padding:6px;">Disgust <div id="circle", style="background-color: #CE9C80"></div></li>
+            <li id= 'legend-item'style="padding:6px;">Unsafe <div id="circle", style="background-color: #B87BA0"></div></li>
         </ul>
 
     </div>

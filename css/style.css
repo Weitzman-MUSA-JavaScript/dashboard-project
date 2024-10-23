@@ -25,10 +25,21 @@ ul {
   flex-direction: column;
   
 }
+
+
 li {
   display: flex;
   flex-direction: row;
-  padding: 10px;
+  padding:1px;
+  margin: 0;
+  align-items: center;
+  justify-content:start;
+  margin-bottom: 1px;
+}
+#legend-item {
+  display: flex;
+  flex-direction: row;
+  padding:1px;
   margin: 0;
   align-items: center;
   justify-content: space-between;
@@ -51,7 +62,7 @@ h1 {
 .sidebar {
     position:relative ;
     top: 60px;
-    width: 270px;
+    width: 300px;
     left: 7px;
     z-index: 1;
     background-color: white;
@@ -62,6 +73,19 @@ h1 {
        
 }
 
+.qnslist {
+  position:absolute ;
+  top: 60px;
+  width: 300px;
+  right: 7px;
+  z-index: 1;
+  background-color: white;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(69, 66, 66, 0.5);
+  list-style-type: none;
+     
+}
 canvas {
   margin:auto;
 }
@@ -69,8 +93,8 @@ canvas {
   text-align: center;
   position:relative ;
   top: 65px;
-  width: 270px;
-  height: 270px;
+  width: 300px;
+  height: auto;
   left: 7px;
   z-index: 1;
   background-color: white;
@@ -86,7 +110,7 @@ canvas {
 .legend {
   position:relative ;
   top: 70px;
-  width: 270px;
+  width: 300px;
   
   left: 7px;
   height: fit-content;
@@ -96,6 +120,8 @@ canvas {
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(69, 66, 66, 0.5);
   list-style-type: none;
+  padding: 10px;
+  
      
 }
 
@@ -103,8 +129,6 @@ canvas {
   width: 10px;
   height: 10px;
   border-radius: 50%;
- 
-
 }
 
 /* Styling the select elements */
