@@ -7,10 +7,12 @@ const map = new mapboxgl.Map({
     container: 'map', // container ID
     style: "mapbox://styles/xllee/cm1wx9fej00og01pgfmx363w6", // style URL
     center: [14.476, 50.10], // starting position [lng, lat]
-    zoom: 10, // starting zoom
+    zoom: 11, // starting zoom
     maxZoom: 15,
-    minZoom: 10,
-    maxPitch: 60
+    minZoom: 11,
+    maxPitch: 60,
+    Pitch: 45
+    
 });
 
 
@@ -136,8 +138,17 @@ populatesentiment();
         data: geojson
       },
       paint: {
-        'circle-radius': 1,
-        'circle-color': 'black'
+        'circle-radius': 2.5,
+        'circle-opacity': 0.4,
+        'circle-color': ['match', ['get', 'sentiment'], // get the property
+        'Happy', '#56949A',
+        'Unhappy', '#D7677B',
+        'Proud', '#6E88B1',
+        'Dissatisfied (Transport)', '#DD7E6F',
+        'Disgust', '#CE9C80',
+        'Unsafe', '#B87BA0',              // if 'GP' then yellow
+                      // if 'XX' then black 
+        'white']   
       }
       
     });

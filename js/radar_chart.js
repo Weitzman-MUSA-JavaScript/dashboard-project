@@ -27,9 +27,9 @@ function radar(data){
                 label: 'Sentiment Counts',
                 data : data,
                 fill: true,
-                backgroundColor: 'rgb(163, 201, 207,0.3)',
+                backgroundColor: 'rgb(170,170,170,0.3)',
                 borderColor: 'rgb(54, 162, 235,0)',
-                pointBackgroundColor: 'rgb(121, 176, 185, 1)',
+                pointBackgroundColor: 'rgb(79,79,79, 0.8)',
                 pointBorderColor: '#fff',
                 pointHoverBackgroundColor: '#fff',
                 pointHoverBorderColor: 'rgb(188, 216, 220)',
@@ -63,7 +63,7 @@ function radar(data){
             scales: {
                     r: {
                         ticks: {
-                            maxTicksLimit:5,
+                            maxTicksLimit:7,
                            
                         },
                         grid: {
@@ -74,7 +74,7 @@ function radar(data){
                             // Show grid lines
                             display: true,
                             // Do not draw lines beside the ticks
-                            drawTicks: true,
+                            drawTicks: false,
                             // Set grid line width
                             lineWidth: 1,
                             // Set grid line length 
