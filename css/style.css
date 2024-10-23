@@ -95,6 +95,7 @@ html {
   font-weight: bold;
   color: darkgoldenrod;
   text-align: left;
+  flex: 1;
 }
 
 .fridge-list .fridge .fridge-distance {
