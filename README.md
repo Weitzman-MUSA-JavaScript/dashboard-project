@@ -1,5 +1,5 @@
 
-## Opiniate: the urban community sentiment dashboard
+## Opiniate: the community sentiment dashboard
 Opiniate allows you to explore the feelings and opinions of thousand of others in your city, and identify the places people love, hate or have mixed feelings. Besides providing an overview of the current mood of the city, the dashboard also details the specific comments people have about certain locations.It is possible to select the type of feeling for closer examination
 
 ### Data
