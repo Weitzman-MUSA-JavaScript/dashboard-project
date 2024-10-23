@@ -33,7 +33,11 @@ function calculateDistances() {
     const distanceInMiles = distance * 69;
 
     Object.assign(fridge.properties, { distanceInMiles });
+
+    // console.log(fridge.properties['name'], distanceInMiles, fridge.properties['distanceInMiles']);
   }
+
+  fridges.sort((a, b) => a.properties['distanceInMiles'] - b.properties['distanceInMiles']);
 }
 
 function updateFridgeList(el) {
@@ -42,6 +46,7 @@ function updateFridgeList(el) {
   el.innerHTML = ''; // Clear existing list
 
   for (const fridge of fridges) {
+    // console.log(fridge.properties['name'], fridge.properties['distanceInMiles']);
     el.innerHTML += `
       <li class="fridge">
         <a href="${fridge.properties['website']}" class="fridge-name">${fridge.properties['name']}</a>

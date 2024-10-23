@@ -15,14 +15,11 @@ downloadFridgeData().then((fridges) => {
 });
 
 // 3. Add search bar for zip code or neighborhood
-// 4. Add list of fridges
+// Add list of fridges
 const fridgeListEl = document.querySelector('#fridge-list');
 initFridgeList(fridgeListEl, events);
 
-// 5. Add tooltip with fridge name, address, and contact info
-
-
-// 6. Get user's location and zoom in to include nearest fridges
+// Get user's location and zoom in to include nearest fridges
 navigator.geolocation.getCurrentPosition((pos) => {
   const evt = new CustomEvent('positionfound', { detail: pos });
   events.dispatchEvent(evt);

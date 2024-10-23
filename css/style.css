@@ -1,11 +1,15 @@
 body {
   margin: 0; 
   padding: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 html {
   font-size: 24px;
   font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  flex-direction: column;
 }
 
 .map-section {
@@ -13,6 +17,7 @@ html {
   width: 100%;
   height: 50vh; 
   background-color: beige;
+  flex: 1;
 }
 
 .map-search-controls {
@@ -42,12 +47,20 @@ html {
 .fridge-list-section {
   background-color: beige;
   color: rgb(66, 31, 9);
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .fridge-list-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.fridge-list-container {
+  flex: 1;
+  overflow-y: auto;
 }
 
 .fridge-list-section h4 {
@@ -73,8 +86,6 @@ html {
   margin: 0;
   width: 100%;
   height: 100%;
-  display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: left;
 }
