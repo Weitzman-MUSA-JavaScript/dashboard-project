@@ -7,5 +7,7 @@ Currently the data is from the Emotional Map of Prague dataset from Panek et. al
 https://www.sciencedirect.com/science/article/pii/S2352340921009240#sec0008
 
 ### Future additions
-A hexgrid map which aggregates feelings within neighbourhood districts will be added in the near future.
+1. Toggleable hexgrid map which aggregates feelings within neighbourhood districts will be added in the near future.
+2. Toggle for hiding sidebar for more immersive experience
+3. Color radar chart according to top feeling
 
