@@ -20,6 +20,22 @@ function initMap(el, events) {
     popupAnchor: [0, -40],
   });
 
+  // Define custom user location icon
+  const userLocIcon = L.divIcon({
+    html: `
+      <svg width="30" height="30" viewbox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+        <circle class="pulse-outline" cx="20" cy="20" fill="none" r="10" stroke-width="2">
+          <animate attributeName="r" from="8" to="20" dur="1.5s" begin="0s" repeatCount="indefinite"/>
+          <animate attributeName="opacity" from="1" to="0" dur="1.5s" begin="0s" repeatCount="indefinite"/>
+        </circle>
+        <circle class="center-circle" cx="20" cy="20" r="10"/>
+      </svg>
+    `,
+    className: 'user-location-icon',
+    iconAnchor: [10, 10],
+  });
+  const positionMarker = L.marker([0, 0], { icon: userLocIcon });
+
   // Listen for fridgedataready event
   // Add fridge data to map
   let fridgeLayer;
@@ -66,13 +82,8 @@ function initMap(el, events) {
     const pos = evt.detail;
     const lat = pos.coords.latitude;
     const long = pos.coords.longitude;
-    const userLocation = L.circleMarker([lat, long], {
-      radius: 5,
-      color: 'red',
-      fillColor: 'red',
-      fillOpcaity: 0.8,
-    });
-    userLocation.addTo(map);
+    positionMarker.setLatLng([lat, long]);
+    positionMarker.addTo(map);
     map.setView([lat, long], 15);
   });
 }

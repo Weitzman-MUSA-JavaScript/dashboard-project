@@ -128,3 +128,11 @@ html {
   overflow-wrap: break-word; 
   position: relative;
 }
+
+.user-location-icon .pulse-outline{
+  stroke: rgb(66, 31, 9);
+}
+
+.user-location-icon .center-circle{
+  fill: rgb(66, 31, 9);
+}
