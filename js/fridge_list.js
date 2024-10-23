@@ -2,6 +2,8 @@
 let fridges;
 let pos = null;
 
+const mapboxKey = 'pk.eyJ1IjoiY2hpYmlha2kiLCJhIjoiY20xODh2NTNqMTBvaDJqb2ptbjM4ZGViayJ9.un9M1_-S6kI8M0ktqZLz_Q';
+
 function initFridgeList(el, events) {
   el.innerHTML = '';
 
@@ -14,16 +16,45 @@ function initFridgeList(el, events) {
   // Add event listener for positionfound event
   events.addEventListener('positionfound', (evt) => {
     pos = evt.detail;
-    calculateDistances();
+    const userLat = pos.coords.latitude;
+    const userLong = pos.coords.longitude;
+    calculateDistances(userLat, userLong);
     updateFridgeList(el);
+  });
+
+  // Add event listener for search-zip button
+  document.getElementById('search-zip').addEventListener('click', () => {
+    const zipCode = document.getElementById('zip-search').value;
+    searchZipCode(zipCode, el, events);
   });
 }
 
-function calculateDistances() {
-  if (!pos || !fridges.length) return;
+function searchZipCode(zipCode, el, events) {
+  const geocodingUrl = `https://api.mapbox.com/geocoding/v5/mapbox.places/${zipCode}.json?access_token=${mapboxKey}`;
 
-  const lat = pos.coords.latitude;
-  const long = pos.coords.longitude;
+  fetch(geocodingUrl)
+    .then((response) => response.json())
+    .then((data) => {
+      if (data.features.length > 0) {
+        const center = data.features[0].center;
+        const lat = center[1];
+        const long = center[0];
+
+        // Zoom the map to the coordinates of the zip code
+        events.dispatchEvent(new CustomEvent('zoomto', { detail: { lat, long } }));
+
+        // Calculate distances and update the fridge list
+        calculateDistances(lat, long);
+        updateFridgeList(el);
+      } else {
+        alert('ZIP code not found.');
+      }
+    })
+    .catch((error) => console.error('Error fetching geocoding data:', error));
+}
+
+function calculateDistances(lat, long) {
+  if (!fridges.length) return;
 
   for (const fridge of fridges) {
     const fridgeLat = fridge.geometry.coordinates[1];

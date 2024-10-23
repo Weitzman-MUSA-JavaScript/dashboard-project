@@ -31,6 +31,12 @@ function initMap(el, events) {
     });
   });
 
+  // Listen for zoomto event
+  events.addEventListener('zoomto', (evt) => {
+    const { lat, long } = evt.detail;
+    map.setView([lat, long], 15); // Zoom to the coordinates
+  });
+
   // Listen for positionfound event
   // when event is fired, get the position from the event and zoom in to user's location
   events.addEventListener('positionfound', (evt) => {
