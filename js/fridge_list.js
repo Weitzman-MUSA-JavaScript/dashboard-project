@@ -1,6 +1,7 @@
 // define fridges as a global variable so i can use it in initFridgeList
 let fridges;
 let pos = null;
+let filteredFridges = [];
 
 const mapboxKey = 'pk.eyJ1IjoiY2hpYmlha2kiLCJhIjoiY20xODh2NTNqMTBvaDJqb2ptbjM4ZGViayJ9.un9M1_-S6kI8M0ktqZLz_Q';
 
@@ -10,7 +11,7 @@ function initFridgeList(el, events) {
   // Add event listener for fridgedataready event
   events.addEventListener('fridgedataready', (evt) => {
     fridges = evt.detail.fridges; // Populate fridges with the event detail
-    updateFridgeList(el);
+    updateFridgeList(el, fridges, events);
   });
 
   // Add event listener for positionfound event
@@ -19,7 +20,13 @@ function initFridgeList(el, events) {
     const userLat = pos.coords.latitude;
     const userLong = pos.coords.longitude;
     calculateDistances(userLat, userLong);
-    updateFridgeList(el);
+    updateFridgeList(el, fridges, events);
+  });
+
+  // Add event listener for fridge type selector
+  document.getElementById('fridge-type').addEventListener('change', () => {
+    const filteredFridges = filterFridges();
+    updateFridgeList(el, filteredFridges, events);
   });
 
   // Add event listener for search-zip button
@@ -41,7 +48,7 @@ function searchZipCode(zipCode, el, events) {
         const long = center[0];
 
         // Zoom the map to the coordinates of the zip code
-        events.dispatchEvent(new CustomEvent('zoomto', { detail: { lat, long } }));
+        events.dispatchEvent(new CustomEvent('zoomtozip', { detail: { lat, long } }));
 
         // Calculate distances and update the fridge list
         calculateDistances(lat, long);
@@ -71,20 +78,43 @@ function calculateDistances(lat, long) {
   fridges.sort((a, b) => a.properties['distanceInMiles'] - b.properties['distanceInMiles']);
 }
 
-function updateFridgeList(el) {
+function filterFridges() {
+  const selectedType = document.getElementById('fridge-type').value;
+  if (selectedType === 'all') {
+    filteredFridges = fridges;
+  } else {
+    filteredFridges = fridges.filter((fridge) => fridge.properties.type === selectedType);
+  }
+  return filteredFridges;
+}
+
+function updateFridgeList(el, fridges, events) {
   if (!fridges.length) return;
 
   el.innerHTML = ''; // Clear existing list
 
   for (const fridge of fridges) {
     // console.log(fridge.properties['name'], fridge.properties['distanceInMiles']);
-    el.innerHTML += `
-      <li class="fridge">
-        <a href="${fridge.properties['website']}" class="fridge-name">${fridge.properties['name']}</a>
-        <span class="fridge-distance">${fridge.properties['distanceInMiles'] ? fridge.properties['distanceInMiles'].toFixed(2) : 'N/A'} mi</span>
-        <span class="fridge-address">${fridge.properties['addressStreet']}</span>
-      </li>
+    const listItem = document.createElement('li');
+    listItem.className = 'fridge';
+    listItem.innerHTML = `
+      <a href="${fridge.properties['website']}" class="fridge-name">${fridge.properties['name']}</a>
+      <span class="fridge-distance">${fridge.properties['distanceInMiles'] ? fridge.properties['distanceInMiles'].toFixed(2) : 'N/A'} miles</span>
+      <span class="fridge-address">${fridge.properties['addressStreet']}</span>
     `;
+
+    // Add event listener to zoom in on the fridge when clicked
+    listItem.addEventListener('click', () => {
+      const evt = new CustomEvent('zoomtofridge', {
+        detail: {
+          lat: fridge.geometry.coordinates[1],
+          long: fridge.geometry.coordinates[0],
+        },
+      });
+      events.dispatchEvent(evt);
+    });
+
+    el.appendChild(listItem);
   }
 }
 

@@ -12,11 +12,24 @@ function initMap(el, events) {
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
   }).addTo(map);
 
+  // Define custom fridge icon
+  const fridgeIcon = L.icon({
+    iconUrl: '../icons/noun-fridge-3453702.png',
+    iconSize: [40, 40],
+    iconAnchor: [20, 20],
+    popupAnchor: [0, -40],
+  });
+
   // Listen for fridgedataready event
   // Add fridge data to map
+  let fridgeLayer;
   events.addEventListener('fridgedataready', (evt) => {
     const { fridges } = evt.detail;
-    const fridgeLayer = L.geoJSON(fridges);
+    fridgeLayer = L.geoJSON(fridges, {
+      pointToLayer: (feature, latlng) => {
+        return L.marker(latlng, { icon: fridgeIcon });
+      },
+    });
     fridgeLayer.addTo(map);
 
     // add tooltip to each fridge
@@ -25,16 +38,26 @@ function initMap(el, events) {
       const name = fridgeProperties['name'];
       const address = fridgeProperties['addressStreet'];
       const email = fridgeProperties['contactEmail'];
-      return `${name}<br>Address: ${address} <br>Email: ${email}`;
+      return `
+      <strong>${name}</strong><br>
+      Address: ${address}<br>
+      Email: ${email}
+      `;
     }, {
       className: 'fridge-tooltip',
     });
   });
 
-  // Listen for zoomto event
-  events.addEventListener('zoomto', (evt) => {
+  // Listen for zoomtozip event
+  events.addEventListener('zoomtozip', (evt) => {
     const { lat, long } = evt.detail;
     map.setView([lat, long], 15); // Zoom to the coordinates
+  });
+
+  // Listen for zoomtofridge event
+  events.addEventListener('zoomtofridge', (evt) => {
+    const { lat, long } = evt.detail;
+    map.setView([lat, long], 15); // Zoom in closer to the fridge
   });
 
   // Listen for positionfound event
