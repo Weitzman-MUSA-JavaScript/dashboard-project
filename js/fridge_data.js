@@ -7,8 +7,9 @@ async function downloadFridgeData() {
   // Load philadelphia fridge data...
   const fridgeResponse = await fetch('../data/philadelphia-fridge.geojson');
   const fridgeData = await fridgeResponse.json();
+  const fridges = fridgeData.features;
 
-  return { hoods, fridgeData };
+  return { hoods, fridges };
 };
 
 export { downloadFridgeData };

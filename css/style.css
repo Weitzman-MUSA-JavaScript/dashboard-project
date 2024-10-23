@@ -76,7 +76,7 @@ html {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: left;
 }
 
 .fridge-list .fridge {
@@ -108,4 +108,12 @@ html {
   grid-area: address;
   font-size: small;
   text-align: left;
+}
+
+.custom-tooltip {
+  max-width: 75%; 
+  white-space: normal; 
+  word-wrap: break-word;
+  overflow-wrap: break-word; 
+  position: relative;
 }
