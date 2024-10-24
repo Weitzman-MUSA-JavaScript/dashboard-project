@@ -171,8 +171,8 @@ populatesentiment();
         data: geojson
       },
       paint: {
-        'circle-radius': 3,
-        'circle-opacity': 0.5,
+        'circle-radius': ['interpolate', ['linear'], ['zoom'], 10, 1.5, 15, 4],
+        'circle-opacity': ['interpolate', ['linear'], ['zoom'], 10, 0.5, 15, 0.8],
         'circle-color': ['match', ['get', 'sentiment'], // get the property
         'Happy', '#56949A',
         'Unhappy', '#D7677B',
