@@ -1,0 +1,177 @@
+.mapboxgl-ctrl-logo {
+  display: none !important;
+}
+
+h1 {
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+  position:absolute;
+  width: calc( 100% - 20px );;
+  z-index: 1;
+  background-color: white;
+  padding-top: 10px;
+padding-right: 10px;
+padding-bottom: 10px;
+padding-left: 10px;
+  border-radius: 0px;
+  margin-top: 0em;
+
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-size: small;
+    font-family: Helvetica, sans-serif;
+}
+
+#map {
+    position:absolute;
+    top: 0px;
+    bottom: 0;
+    width: 100%;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  
+}
+
+
+li {
+  display: flex;
+  flex-direction: row;
+  padding:1px;
+  margin: 0;
+  align-items: center;
+  justify-content:start;
+  margin-bottom: 1px;
+}
+#legend-item {
+  display: flex;
+  flex-direction: row;
+  padding:1px;
+  margin: 0;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 3px;
+}
+
+
+.sidebar {
+    position:relative ;
+    top: 60px;
+    width: 300px;
+    left: 7px;
+    z-index: 1;
+    background-color: white;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(69, 66, 66, 0.5);
+    list-style-type: none;
+       
+}
+
+.qnslist {
+  position:absolute ;
+  top: 60px;
+  width: 300px;
+  right: 7px;
+  z-index: 1;
+  background-color: white;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(69, 66, 66, 0.5);
+  list-style-type: none;
+     
+}
+canvas {
+  margin:auto;
+}
+.chart {
+  text-align: center;
+  position:relative ;
+  top: 65px;
+  width: 300px;
+  height: auto;
+  left: 7px;
+  z-index: 1;
+  background-color: white;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(69, 66, 66, 0.5);
+  list-style-type: none;
+  font-weight: 600;
+  
+     
+}
+
+.legend {
+  position:relative ;
+  top: 70px;
+  width: 300px;
+  
+  left: 7px;
+  height: fit-content;
+  z-index: 1;
+  background-color: white;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(69, 66, 66, 0.5);
+  list-style-type: none;
+  padding: 10px;
+  
+     
+}
+
+#circle {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+/* Styling the select elements */
+.custom-select {
+  width: 70%;
+  padding-left:10px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  color: #333;
+  appearance: none; /* Removes the default arrow icon */
+  -webkit-appearance: none; /* For Safari */
+  -moz-appearance: none; /* For Firefox */
+  position: relative;
+  display: flex;
+  flex-direction: row;
+    align-items: center;
+
+    
+}
+
+
+
+/* Styling the dropdown options */
+.custom-select option {
+  padding: 10px;
+  background-color: #fff;
+}
+
+/* Hover effect for dropdown */
+.custom-select:hover {
+  border-color: #777;
+}
+
+/* Focus state */
+.custom-select:focus {
+  outline: none;
+  border-color: #999; /* Green border when focused */
+  box-shadow: 0 0 5px #999; /* Soft shadow when focused */
+}
