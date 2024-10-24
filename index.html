@@ -1,0 +1,58 @@
+<!doctype html>
+
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Penn Football Strength Benchmarking</title>
+        <link rel="stylesheet" href="css/styles.css">
+    </head>
+
+    <body>
+        <main role="main">
+            <div class="header" role="banner">
+                <img src="www/penn_shield.svg" alt="Penn Football Logo" aria-label="Penn Football Logo">
+                <p id="page-name">Penn Football Athlete Benchmarking</p>
+            </div>
+
+        <section class="benchmark-page">
+            <section class="benchmark-menu" aria-labelledby="athlete-stats">
+                <fieldset id="athlete-stats">  
+                    <p>Select athlete position</p>
+                    <div class="radio-group">
+                    </div>
+                    <p>Enter athlete stats to benchmark against position group</p>
+                    <ul id="stats-list">
+                        <li>
+                            <label for="bench-stat">
+                                Bench
+                                <div class="input-wrapper">
+                                    <input type="number" id="bench-stat" class="stat-input" name="bench" aria-label="Bench press weight">
+                                    <span class="unit">pounds</span>
+                                </div>
+                            </label>
+                        </li>
+                        <li>
+                            <label for="wingspan-stat">
+                                Wingspan
+                                <div class="input-wrapper">
+                                    <input type="number" id="wingspan-stat" class="stat-input" name="wingspan" aria-label="Wingspan measurement in inches">
+                                    <span class="unit">inches</span>
+                                </div>
+                            </label>
+                        </li>
+                    </ul>
+                </fieldset>
+            </section>
+            
+            <section class="benchmark-chart-area" id="stat-charts" aria-live="polite">
+                <h2 id="position-title">Select a position group to start</h2>
+                <div>
+                    <canvas id="percentile-chart" aria-label="Percentile Chart"></canvas>
+                </div>
+            </section>
+        </section>
+        </main>
+
+        <script src="js/main.js" type="module"></script>
+    </body>
+</html>
