@@ -1,6 +1,8 @@
+import {getData} from "./main.js"
+import {radar, updatechart, radarChart} from "./radar_chart.js";
+var url = './data/layers/emotions_main.geojson';
 
-async function importmapSelector(url) {
-  
+
 mapboxgl.accessToken = 'pk.eyJ1IjoieGxsZWUiLCJhIjoiY20weTQ3M2VvMGt0MzJsb21lZXc1YTdpMCJ9.F1PUTPRCUtzGAEE3X8JNTg';
 
 const map = new mapboxgl.Map({
@@ -14,14 +16,45 @@ const map = new mapboxgl.Map({
     pitch: 35
     
 });
-
-
-fetch (url)
-.then(response => response.json())
-.then(geojson=> {
+const geojson = await getData(url);
   // GeoJSON content loaded and parsed
  
   console.log("GeoJSONdata:", geojson);
+  radar(geojson)
+
+map.on('idle', () => {
+  let canvas = map.getCanvas()
+  let w = canvas.width/window.devicePixelRatio;
+  let h = canvas.height/window.devicePixelRatio;
+  let cUL = map.unproject ([0,0]).toArray()
+  let cUR = map.unproject ([w,0]).toArray()
+  let cLR = map.unproject ([w,h]).toArray()
+  let cLL = map.unproject ([0,h]).toArray()
+ var coordinates = [cUL,cUR,cLR,cLL,cUL]
+  localStorage.setItem('box', JSON.stringify(coordinates))
+  console.log('A resize event occurred.');
+  var bboxpoly  = turf.polygon(
+    [
+      coordinates
+    ],
+    { name: "bounds" },
+  );
+  console.log('polygon created',bboxpoly)
+
+   let rendered_points = turf.pointsWithinPolygon(geojson, bboxpoly);
+    console.log('rendered points filtered', rendered_points)
+  updatechart(radarChart,rendered_points )
+  
+  });
+  // const storedcoordinates = localStorage.getItem('box')
+  // const coordinates = JSON.parse(storedcoordinates)
+  // console.log('box', coordinates)
+  // return coordinates
+  
+
+
+
+
   
   
   // Now you can process the GeoJSON further if needed
@@ -185,17 +218,13 @@ populatesentiment();
       map.getCanvas().style.cursor = '';
       popup.remove();
   });
+  });
 
-    
+
 
 
   
 
-  });
+  
 
-})
 
-.catch(error => console.error('Error loading GeoJSON:', error));
-}
-
-export {importmapSelector};

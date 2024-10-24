@@ -1,6 +1,10 @@
+var radarChart
 function radar(data){ 
     
     var chrt = document.getElementById("chartId").getContext("2d");
+    
+
+//-
     console.log('data ready for chart', data)
     
     
@@ -19,7 +23,7 @@ function radar(data){
       let maxfeeling = result.reduce((max, res) => max.count > res.count ? max : res);
       console.log('top feeling', maxfeeling)
     
-      let radarChart = new Chart(chrt, {
+       radarChart = new Chart(chrt, {
         type: 'radar',
         data: {
             labels : labels,
@@ -88,7 +92,7 @@ function radar(data){
         elements: {
             line: {
                 // Line curve tension
-                tension: 0.7,
+                tension: 0.5,
             },
         
         },
@@ -100,5 +104,35 @@ function radar(data){
 
 }
 
+function updatechart(chart, data) {
+    const result = [...data.features
+        .reduce((r, { properties: { sentiment } }) => {
+          const cat = r.get(sentiment);
+          cat ? cat.count++ : r.set(sentiment, { sentiment, count: 1 });
+          return r;
+        }, new Map())
+        .values()
+      ];
 
-export{radar};
+      
+      var labels = result.map(item=>item.sentiment)
+      var data = result.map(item=>item.count)
+      let maxfeeling = result.reduce((max, res) => max.count > res.count ? max : res);
+    chart.data.datasets.pop();
+    chart.data.datasets.push({
+        label: 'Sentiment Counts',
+        data : data,
+        fill: true,
+        backgroundColor: 'rgb(170,170,170,0.3)',
+        borderColor: 'rgb(54, 162, 235,0)',
+        pointBackgroundColor: 'rgb(79,79,79, 0.8)',
+        pointBorderColor: '#fff',
+        pointHoverBackgroundColor: '#fff',
+        pointHoverBorderColor: 'rgb(188, 216, 220)',
+        borderWidth: 0.1
+    });
+    chart.update();
+  }
+
+
+export{radar, updatechart, radarChart};
