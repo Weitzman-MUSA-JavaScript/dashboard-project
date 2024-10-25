@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" name="viewport" content="initial-scale=1.0,maximum-scale=1,user-scalable=no" />
+    <title>Defense Board By Youngsang Jun</title>
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Add the Open Sans font from Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Open%20Sans:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet" />
+
+    <!-- Add the Mapbox GL JS CSS and JS files -->
+    <link href="https://api.mapbox.com/mapbox-gl-js/v3.7.0/mapbox-gl.css" rel="stylesheet" />
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.7.0/mapbox-gl.js"></script>
+</head>
+
+<body>
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.3/mapbox-gl-geocoder.min.js"></script>
+    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.3/mapbox-gl-geocoder.css" type="text/css" />
+    <main>
+      
+        <section class="map-section">
+            <div class="map" id="map">Map</div>    
+        </section> 
+        <div class="map-overlay">
+            <div id="geocoder" class="geocoder">Find Locations</div>
+            
+            <fieldset>
+                Military Installations
+                <input id="feature-filter" type="text" placeholder="Filter results by base name">
+            </fieldset>
+            <div id="feature-listing" class="listing"></div>
+            <div id="budget-info" class="budget">Budget Information
+                <div class="group-toggle" id="groupToggleContainer"></div> 
+            </div>
+            <div id="backgroundmap" class="backgroundmap">Map Mode
+                <label for="satellite-streets-v12" class="mapmoderadio">
+                <input id="satellite-streets-v12" type="radio" name="rtoggle" value="satellite" checked="checked">
+                <span class="mapmoderamark">Satellite streets</span></label>
+                <!-- See a list of Mapbox-hosted public styles at -->
+                <!-- https://docs.mapbox.com/api/maps/styles/#mapbox-styles -->
+                <label for="light-v11" class="mapmoderadio">
+                <input id="light-v11" type="radio" name="rtoggle" value="light">
+                <span class="mapmoderamark">Light</span></label>
+                <label for="dark-v11" class="mapmoderadio">
+                <input id="dark-v11" type="radio" name="rtoggle" value="dark">
+                <span class="mapmoderamark">Dark</span></label>
+                <label for="streets-v12" class="mapmoderadio">
+                <input id="streets-v12" type="radio" name="rtoggle" value="streets">
+                <span class="mapmoderamark">Streets</span></label>
+                <label for="outdoors-v12" class="mapmoderadio">
+                <input id="outdoors-v12" type="radio" name="rtoggle" value="outdoors">
+                <span class="mapmoderamark">Outdoors</span></label>
+            </div>
+        </div>
+    </main>
+
+        <script type="module" src="js/map.js"></script>
+    </body>
+</html>
