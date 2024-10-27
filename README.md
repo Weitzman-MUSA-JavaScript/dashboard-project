@@ -1,20 +1,10 @@
 # Vrinda-Uber-Dashboard-Project
 
-The idea is simple: rather than just going from point A to point B, why not explore all the interesting spots along the way? This dashboard lets users plan a journey while discovering restaurants, landmarks, and attractions nearby—essentially combining a ride-hailing service with a mini travel guide.
 
 Google Maps is at the core of this project—it's the canvas for planning trips and visualizing stops.
 I've used the Google Maps API for displaying the map, calculating routes, and providing directions.
 Users can interact with the map directly, select their starting point, destinations, add stops, and calculate the complete route with an estimated fare.
 
-Google Places Autocomplete:
-
-To make it easy for users to enter locations, I've added the Google Places Autocomplete feature.
-This feature helps users type in locations, with auto-suggestions, making it faster and more accurate.
-Area Drawing & Restaurant Search Using Yelp:
-
-One of the features I tried to add was a Drawing Manager—you might have seen this on real estate websites where you can mark an area of interest. I wanted to bring that to this dashboard to let users draw around a specific neighborhood and get restaurant suggestions.
-
-I used Yelp’s API for this to fetch local businesses, including ratings, reviews, and more. While I faced some challenges implementing it due to authentication complexities and CORS issues, the structure for it is in place, and I'll be coming back to it. Integrating Yelp's API for things like restaurant details wasn't as straightforward as I hoped. The main obstacles were related to handling authentication securely and getting past CORS restrictions without having a dedicated backend yet.
 
 Add Stops & Custom Itineraries:
 
