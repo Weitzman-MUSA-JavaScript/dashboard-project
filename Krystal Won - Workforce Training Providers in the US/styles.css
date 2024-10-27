@@ -1,0 +1,266 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+
+#map {
+    position: relative;  
+    width: 100vw;
+    height: 100vh;  
+    margin-top: 0;
+    box-sizing: border-box;
+}
+
+#sidebar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 25vw; 
+    max-width: 350px; 
+    height: 100vh; 
+    background-color: rgba(14, 14, 14, 0.735); 
+    padding: 15px;
+    color: #ECF0F1;
+    font-family: 'Source Code Pro', monospace;
+    font-weight: 200;
+    z-index: 1;
+    overflow-y: auto;
+    box-sizing: border-box;
+}
+
+
+#scroll-down-arrow {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 18px;
+    font-family: 'Source Code Pro', monospace;
+    color: #0c1120ee;
+    cursor: pointer;
+    z-index: 2;
+    padding: 10px;
+    background-color: rgba(251, 248, 248, 0.7);
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+}
+
+#scroll-down-arrow:hover {
+    background-color: #DAA520;
+    font-size: 20px;
+}
+
+#about-section {
+    width: 100vw;
+    height: 100vh;   
+    color: #ecf0f1c2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+    font-family: 'Source Code Pro', monospace;
+    padding: 15px;
+    z-index: 1;
+    box-sizing: border-box;
+}
+
+#about-section h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #DAA520;
+}
+
+#about-section p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+#about-section a {
+    color: #A3D2CA; 
+    text-decoration: none; 
+}
+
+#about-section a:hover {
+    color: #DAA520; 
+}
+
+#project-description {
+    padding: 30px;
+    background-color: rgb(64, 62, 62); 
+    color: #ECF0F1; 
+    font-family: 'Source Code Pro', monospace;
+    text-align: left;
+    width: 100%; 
+    position: relative; 
+}
+
+#project-description h2 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    font-family: 'Source Code Pro', monospace;
+}
+
+#project-description p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    color: #cfd8dc;
+}
+
+h3 {
+    font-size: 1.5rem; 
+    word-wrap: break-word; 
+    margin: 15px 0; 
+}
+
+input[type="text"] {
+    width: 100%; 
+    padding: 15px; 
+    font-size: 1rem; /* Responsive font size */
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+/* Style for the section divider */
+.divider {
+    border-bottom: 1px dashed #f5f5f5;
+    margin:auto !important;
+}
+
+/* Style for the dropdown */
+select {
+    appearance: none;
+    background-color: #fff;
+    color: #333;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px;
+    width: 100%;
+    font-size: 14px;
+    margin-top: 15px;
+    margin-bottom: 12px;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+select:hover {
+    border-color: #888;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Adding some space between the dropdown and the state info */
+#state-info {
+    margin-top: 15px;
+}
+
+#organization-types label {
+    font-size: 14px;
+    line-height: 18px;  
+    display: flex;
+    align-items: center;
+    margin-top: 6px;
+    margin-bottom: 6px; 
+    color: #f5f5f5; 
+}
+
+#organization-types input[type=checkbox] {
+    appearance: none;  
+    width: 15px;
+    height: 15px;
+    border: 1px solid #f5f5f5;  
+    background-color: rgba(93, 101, 109, 0.221); 
+    margin-right: 15px;  
+    cursor: pointer;
+}
+
+#organization-types input[type=checkbox]:checked {
+    background-color: #f5f5f5;  
+    color: #000;
+    display: inline-block;
+    position: relative;
+}
+
+#organization-types input[type=checkbox]:checked::before {
+    content: '✔';  
+    color: #000;  
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    font-size: 11px;
+}
+
+.dot {
+    height: 13px;
+    width: 13px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 8px; 
+}
+
+
+.circle-sketch-highlight {
+    position: relative;
+    font-size: 20px;
+    font-weight: 600;
+    color: #f5f5f5; 
+    text-align: center;
+}
+
+.circle-sketch-highlight {
+    position: relative;
+}
+
+.circle-sketch-highlight:before {
+    content: "";
+    z-index: -1;
+    left: -0.5em;
+    top: -0.2em;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #bbbd71;
+    position: absolute;
+    border-right-color: transparent;
+    width: 100%;
+    height: 1.5em;
+    transform: rotate(2deg);
+    opacity: 0.7;
+    border-radius: 50%;
+    padding: 0.1em 0.25em;
+}
+
+.circle-sketch-highlight:after {
+    content: "";
+    z-index: -1;
+    left: -0.5em;
+    top: 0.1em;
+    padding: 0.1em 0.25em;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #bbbd71;
+    border-left-color: transparent;
+    border-top-color: transparent;
+    position: absolute;
+    width: 100%;
+    height: 1.5em;
+    transform: rotate(-1deg);
+    opacity: 0.7;
+    border-radius: 50%;
+}
+
+#state-info p {
+    font-family: 'Source Code Pro', monospace;
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem 0;
+}
+
+.state-value {
+    font-weight: bold;
+    color: #BBBD71; /* Change this to the desired color */
+    text-align: right;
+}
