@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Travel Dashboard - Uber Style</title>
+
+  <!-- FontAwesome for checkbox icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+  <!-- Custom CSS for Uber-style design -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Map Section -->
+  <div id="map"></div>
+
+  <!-- Main Dashboard Container -->
+  <div class="dashboard-container">
+    <div class="box-form">
+
+      <h3 class="dashboard-title">Plan Your Trip</h3>
+
+      <!-- Section: Starting and Destination Locations -->
+      <div class="trip-locations">
+        <div class="location-section">
+          <input type="text" id="start" class="search-bar" placeholder="Enter Starting Location">
+          <select class="duration-selector" id="startDuration" title="Starting Duration">
+            <option value="0">0 hrs</option>
+            <option value="1">1 hr</option>
+            <option value="2">2 hrs</option>
+            <option value="3">3 hrs</option>
+          </select>
+        </div>
+
+        <div class="location-section">
+          <input type="text" id="destination" class="search-bar" placeholder="Enter Destination">
+          <select class="duration-selector" id="destinationDuration" title="Destination Duration">
+            <option value="0">0 hrs</option>
+            <option value="1">1 hr</option>
+            <option value="2">2 hrs</option>
+            <option value="3">3 hrs</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Section: Add Stop -->
+      <div class="add-stop-section">
+        <h4>Stops</h4>
+        <button id="addStop" class="uber-btn"><i class="fas fa-plus"></i> Add Stop</button>
+        <div id="extraStopsContainer"></div>
+      </div>
+  <!-- Section: Find Restaurants by Marking Area -->
+      <div class="search-section">
+        <h4>Find Restaurants by Area</h4>
+        <button id="drawArea" class="uber-btn">Draw Area on Map</button>
+      </div>
+
+      <!-- Section for displaying restaurant results -->
+      <div id="restaurantResultsContainer"></div>
+      <!-- Section: Search Bar for Restaurants with Filters -->
+      <div class="search-section">
+        <h4>Find Local Restaurants</h4>
+        <input type="text" id="restaurantSearch" class="search-bar" placeholder="Search for restaurants...">
+        <select id="restaurantFilter" class="filter-dropdown" title="Restaurant Filter">
+          <option value="">Filter by Cuisine</option>
+          <option value="italian">Italian</option>
+          <option value="chinese">Chinese</option>
+          <option value="mexican">Mexican</option>
+          <option value="indian">Indian</option>
+        </select>
+        <button id="searchRestaurant" class="uber-btn">Search</button>
+      </div>
+
+      <!-- Section: Tourist Spots Around You -->
+      <div class="search-section">
+        <h4>Find Tourist Spots</h4>
+        <input type="text" id="touristSearch" class="search-bar" placeholder="Search for tourist spots...">
+        <select id="touristFilter" class="filter-dropdown" title="Tourist Filter">
+          <option value="">Filter by Type</option>
+          <option value="museum">Museums</option>
+          <option value="park">Parks</option>
+          <option value="landmark">Landmarks</option>
+          <option value="historical">Historical Sites</option>
+        </select>
+        <button id="searchTourist" class="uber-btn">Search</button>
+      </div>
+<!-- Section: Search Bar for Restaurants with Filters -->
+<div class="search-section">
+    <h4>Find Local Restaurants</h4>
+    <input type="text" id="restaurantSearch" class="search-bar" placeholder="Search for restaurants...">
+    <select id="restaurantFilter" class="filter-dropdown" title="Restaurant Filter">
+      <option value="">Filter by Cuisine</option>
+      <option value="italian">Italian</option>
+      <option value="chinese">Chinese</option>
+      <option value="mexican">Mexican</option>
+      <option value="indian">Indian</option>
+    </select>
+    <button id="searchRestaurant" class="uber-btn">Search</button>
+  </div>
+  
+  <!-- Section for displaying restaurant results -->
+  <div id="extraStopsContainer"></div>
+  
+      <!-- Section: Itinerary Table -->
+      <div class="itinerary-section">
+        <h4>Your Trip Itinerary</h4>
+        <table class="itinerary-table">
+          <thead>
+            <tr>
+              <th>Stop</th>
+              <th>Location</th>
+              <th>Duration</th>
+            </tr>
+          </thead>
+          <tbody id="itineraryTableBody">
+            <!-- Dynamic rows will be added here -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Calculate Trip and Fare -->
+      <button id="calculateFare" class="uber-btn">Calculate Full Trip</button>
+      <button id="clearTrip" class="uber-btn">Clear Trip</button>
+    </div>
+  </div>
+
+  <!-- Google Maps API with your API key and callback to initMap -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDBZiGN9A5tC-P3aCyNhuE9x9P2N8Fk9so&libraries=places&callback=initMap" async defer></script>
+
+  <!-- Script for Map and Functionality -->
+  <script src="app.js"></script>
+</body>
+</html>
