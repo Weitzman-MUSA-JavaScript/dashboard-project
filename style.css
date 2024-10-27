@@ -1,0 +1,139 @@
+/* General Reset and Styling */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    background-color: #2C2C2C; /* Dark gray background */
+    font-family: "Open Sans", sans-serif;
+    color: #ffffff;
+    display: flex;
+    justify-content: center; /* Center the map and dashboard */
+    align-items: center;
+    height: 100vh;
+    padding: 0 20px;
+  }
+  
+  /* Map container */
+  #map {
+    height: 80vh; /* 80% of the viewport height */
+    width: 60vw;  /* 60% of the viewport width */
+    border-radius: 15px;
+    border: 2px solid #444;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Main Dashboard Container */
+  .dashboard-container {
+    position: absolute;
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 400px;
+    background: #FFFFFF;
+    border-radius: 15px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    overflow-y: auto;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Uber-style buttons */
+  .uber-btn {
+    background-color: #000000;
+    color: #FFFFFF;
+    font-size: 14px;
+    padding: 10px 20px;
+    border-radius: 6px;
+    border: none;
+    margin-top: 15px;
+    cursor: pointer;
+    text-align: center;
+    width: 100%;
+  }
+  
+  .uber-btn:hover {
+    background-color: #333333;
+  }
+  
+  /* Section Titles */
+  .dashboard-title, .search-section h4, .itinerary-section h4 {
+    margin-top: 0;
+    color: #333333;
+    font-weight: 700;
+    font-size: 18px;
+    margin-bottom: 15px;
+  }
+  
+  /* Input fields for search bars */
+  .search-bar {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    border: 1px solid #E0E0E0;
+    border-radius: 10px;
+    background-color: #F9F9F9;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Filter Dropdowns */
+  .filter-dropdown {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    border: 1px solid #E0E0E0;
+    border-radius: 10px;
+    background-color: #F9F9F9;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Table for Itinerary */
+  .itinerary-section {
+    margin-top: 20px;
+  }
+  
+  .itinerary-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #F9F9F9;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .itinerary-table th, .itinerary-table td {
+    padding: 12px;
+    border-bottom: 1px solid #E0E0E0;
+    text-align: left;
+  }
+  
+  .itinerary-table th {
+    background-color: #444;
+    color: #FFF;
+  }
+  
+  .itinerary-table td {
+    background-color: #FFF;
+  }
+  
+  /* Misc */
+  .extra-stop-container {
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+  }
+  
+  .inputs input, .duration-selector {
+    width: 70%;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #E0E0E0;
+    border-radius: 10px;
+    background-color: #F9F9F9;
+  }
+  
