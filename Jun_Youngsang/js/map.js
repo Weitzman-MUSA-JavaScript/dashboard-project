@@ -19,22 +19,22 @@ mapboxgl.accessToken = 'pk.eyJ1IjoieWptYXJrIiwiYSI6ImNtMHlwOG81NTBxZ2kya3BsZXp5M
     // Holds visible airport features for filtering
     map.addControl(nav, 'top-left');
     
-    //  const popup = new mapboxgl.Popup({ closeOnClick: false })
-    //  .setLngLat([-96, 62.8])
-    //  .setHTML(`
-    //         <h1>DefenseBoard</h1>
-    //         <h2>About DefenseBoard</h2>
-    //         <p>- DefenseBoard is a dashboard that uses spatial data to link various types of attributes in the defense sector such as military personnel, facilities, budget, logistics, etc. </p>
-    //         <p>- The map on the right displays publicly accessible base locations across the United States, while on the left, users can view attribute data by base, military unit, or region.</p>
-    //         <p>- Users can also access congressional inquiries and related laws and regulations via links.</p>
-    //         <h2>Notes</h2>
-    //         <p>- The DoD installations are commonly referred to as a base, camp, post, station, yard, center, homeport facility for any ship, or other activity under the jurisdiction, custody, control of the DoD. Publicly releasable locations of DoD Sites in the 50 states, Puerto Rico, and Guam available through data.gov.</p>
-    //         <p>- This dataset was created from source data provided by the four Military Service Component headquarters and was compiled by the Defense Installation Spatial Data Infrastructure (DISDI) Program within the Office of the Deputy Under Secretary of Defense for Installations and Environment, Business Enterprise Integration Directorate. Sites were selected from the 2009 Base Structure Report (BSR), a summary of the DoD Real Property Inventory.</p>
-    //         <p>- The military facility budgets per base for 2023-2025 used in DefenseBoard are fictitious and do not reflect actual data.</p>
-    //         <h2>Reference</h2>
-    //         <p>https://comptroller.defense.gov/Budget-Materials/Budget2025/#press</p>
-    //     `)
-    //  .addTo(map);
+    const popup = new mapboxgl.Popup({ closeOnClick: false })
+    .setLngLat([-96, 62.8])
+    .setHTML(`
+        <h1>DefenseBoard</h1>
+        <h2>About DefenseBoard</h2>
+        <p>- DefenseBoard is a dashboard that uses spatial data to link various types of attributes in the defense sector such as military personnel, facilities, budget, logistics, etc. </p>
+        <p>- The map on the right displays publicly accessible base locations across the United States, while on the left, users can view attribute data by base, military unit, or region.</p>
+        <p>- Users can also access congressional inquiries and related laws and regulations via links.</p>
+        <h2>Notes</h2>
+        <p>- The DoD installations are commonly referred to as a base, camp, post, station, yard, center, homeport facility for any ship, or other activity under the jurisdiction, custody, control of the DoD. Publicly releasable locations of DoD Sites in the 50 states, Puerto Rico, and Guam available through data.gov.</p>
+        <p>- This dataset was created from source data provided by the four Military Service Component headquarters and was compiled by the Defense Installation Spatial Data Infrastructure (DISDI) Program within the Office of the Deputy Under Secretary of Defense for Installations and Environment, Business Enterprise Integration Directorate. Sites were selected from the 2009 Base Structure Report (BSR), a summary of the DoD Real Property Inventory.</p>
+        <p>- The military facility budgets per base for 2023-2025 used in DefenseBoard are fictitious and do not reflect actual data.</p>
+        <h2>Reference</h2>
+        <p>https://comptroller.defense.gov/Budget-Materials/Budget2025/#press</p>
+    `)
+    .addTo(map);
 
     const filterEl = document.getElementById('feature-filter');
     const listingEl = document.getElementById('feature-listing');
@@ -511,6 +511,40 @@ mapboxgl.accessToken = 'pk.eyJ1IjoieWptYXJrIiwiYSI6ImNtMHlwOG81NTBxZ2kya3BsZXp5M
                 }
             );
         });
+        map.on('click', 'clusters2024', (e) => {
+            const features = map.queryRenderedFeatures(e.point, {
+                layers: ['clusters2024']
+            });
+            const clusterId = features[0].properties.cluster_id;
+            map.getSource('bases_point').getClusterExpansionZoom(
+                clusterId,
+                (err, zoom) => {
+                    if (err) return;
+
+                    map.easeTo({
+                        center: features[0].geometry.coordinates,
+                        zoom: zoom
+                    });
+                }
+            );
+        });
+        map.on('click', 'clusters2023', (e) => {
+            const features = map.queryRenderedFeatures(e.point, {
+                layers: ['clusters2023']
+            });
+            const clusterId = features[0].properties.cluster_id;
+            map.getSource('bases_point').getClusterExpansionZoom(
+                clusterId,
+                (err, zoom) => {
+                    if (err) return;
+
+                    map.easeTo({
+                        center: features[0].geometry.coordinates,
+                        zoom: zoom
+                    });
+                }
+            );
+        });
 
         // When a click event occurs on a feature in
         // the unclustered-point layer, open a popup at
@@ -538,6 +572,18 @@ mapboxgl.accessToken = 'pk.eyJ1IjoieWptYXJrIiwiYSI6ImNtMHlwOG81NTBxZ2kya3BsZXp5M
         map.on('mouseleave', 'clusters2025', () => {
             map.getCanvas().style.cursor = '';
         });
+        map.on('mouseenter', 'clusters2024', () => {
+            map.getCanvas().style.cursor = 'pointer';
+        });
+        map.on('mouseleave', 'clusters2024', () => {
+            map.getCanvas().style.cursor = '';
+        });
+        map.on('mouseenter', 'clusters2023', () => {
+            map.getCanvas().style.cursor = 'pointer';
+        });
+        map.on('mouseleave', 'clusters2023', () => {
+            map.getCanvas().style.cursor = '';
+        });
         
     }
 
@@ -547,7 +593,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoieWptYXJrIiwiYSI6ImNtMHlwOG81NTBxZ2kya3BsZXp5M
         const button = document.createElement('button');
         button.textContent = `View/hide ${groupName}`;
         button.onclick = () => toggleGroupVisibility(layerIds);
-        button.classList.add('toggleButton');
+        button.classList.add('toggle-button');
         container.appendChild(button);
     }
     
@@ -570,25 +616,25 @@ mapboxgl.accessToken = 'pk.eyJ1IjoieWptYXJrIiwiYSI6ImNtMHlwOG81NTBxZ2kya3BsZXp5M
         addLayers();
     });
 
-        // Add the control to the map.
-        const geocoder = new MapboxGeocoder({
-            accessToken: mapboxgl.accessToken,
-            language: 'en-US',
-            countries: 'us',
-            mapboxgl: mapboxgl
-        });
+    // Add the control to the map.
+    const geocoder = new MapboxGeocoder({
+        accessToken: mapboxgl.accessToken,
+        language: 'en-US',
+        countries: 'us',
+        mapboxgl: mapboxgl
+    });
     
-        document.getElementById('geocoder').appendChild(geocoder.onAdd(map));
+    document.getElementById('geocoder').appendChild(geocoder.onAdd(map));
 
-            // 레이어 선택을 위한 버튼 설정
-            const layerList = document.getElementById('backgroundmap');
-            const inputs = layerList.getElementsByTagName('input');
-            for (const input of inputs) {
-                input.onclick = (layer) => {
-                    const layerId = layer.target.id;
-                    map.setStyle('mapbox://styles/mapbox/' + layerId);
-                };
-            }
+    // 레이어 선택을 위한 버튼 설정
+    const layerList = document.getElementById('backgroundmap');
+    const inputs = layerList.getElementsByTagName('input');
+    for (const input of inputs) {
+        input.onclick = (layer) => {
+            const layerId = layer.target.id;
+            map.setStyle('mapbox://styles/mapbox/' + layerId);
+        };
+    }
 
     // 레이어 토글 버튼 생성
     createGroupToggleButton('Installations', ['base-borders', 'base-fills']);

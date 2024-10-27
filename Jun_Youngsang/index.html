@@ -34,28 +34,41 @@
             <div id="budget-info" class="budget">Budget Information
                 <div class="group-toggle" id="groupToggleContainer"></div> 
             </div>
+            
             <div id="backgroundmap" class="backgroundmap">Map Mode
-                <label for="satellite-streets-v12" class="mapmoderadio">
-                <input id="satellite-streets-v12" type="radio" name="rtoggle" value="satellite" checked="checked">
-                <span class="mapmoderamark">Satellite streets</span></label>
-                <!-- See a list of Mapbox-hosted public styles at -->
-                <!-- https://docs.mapbox.com/api/maps/styles/#mapbox-styles -->
-                <label for="light-v11" class="mapmoderadio">
-                <input id="light-v11" type="radio" name="rtoggle" value="light">
-                <span class="mapmoderamark">Light</span></label>
-                <label for="dark-v11" class="mapmoderadio">
-                <input id="dark-v11" type="radio" name="rtoggle" value="dark">
-                <span class="mapmoderamark">Dark</span></label>
-                <label for="streets-v12" class="mapmoderadio">
-                <input id="streets-v12" type="radio" name="rtoggle" value="streets">
-                <span class="mapmoderamark">Streets</span></label>
-                <label for="outdoors-v12" class="mapmoderadio">
-                <input id="outdoors-v12" type="radio" name="rtoggle" value="outdoors">
-                <span class="mapmoderamark">Outdoors</span></label>
+                <label class="mapmoderadio">
+                    <input id="satellite-streets-v12" type="radio" name="rtoggle" value="satellite" checked>
+                    <span class="mapmoderamark"></span>
+                    Satellite streets
+                </label>
+        
+                <label class="mapmoderadio">
+                    <input id="light-v11" type="radio" name="rtoggle" value="light">
+                    <span class="mapmoderamark"></span>
+                    Light
+                </label>
+        
+                <label class="mapmoderadio">
+                    <input id="dark-v11" type="radio" name="rtoggle" value="dark">
+                    <span class="mapmoderamark"></span>
+                    Dark
+                </label>
+        
+                <label class="mapmoderadio">
+                    <input id="streets-v12" type="radio" name="rtoggle" value="streets">
+                    <span class="mapmoderamark"></span>
+                    Streets
+                </label>
+        
+                <label class="mapmoderadio">
+                    <input id="outdoors-v12" type="radio" name="rtoggle" value="outdoors">
+                    <span class="mapmoderamark"></span>
+                    Outdoors
+                </label>
             </div>
         </div>
     </main>
 
-        <script type="module" src="js/map.js"></script>
+        <script type="module" src="js/main.js"></script>
     </body>
 </html>

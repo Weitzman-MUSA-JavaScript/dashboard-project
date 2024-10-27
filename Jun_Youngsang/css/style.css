@@ -34,6 +34,7 @@
         Helvetica,
         sans-serif;
 }
+
 .map-overlay fieldset {
     display: none;
     background: #ddd;
@@ -52,9 +53,11 @@
     left: 0;
     top: 0;
 }
+
 .map-overlay .mapboxgl-ctrl-geocoder {
     max-width: 100%;
 }
+
 .map-overlay input {
     display: block;
     border: none;
@@ -103,16 +106,16 @@
 .group-toggle { 
     margin-top: 30px; 
     position: absolute; 
-    top: 0px; 
-    left: 0px; 
+    top: 0; 
+    left: 0; 
     background: #f0f0f0; 
-    padding: 0px; 
+    padding: 0; 
     
     height: 100%;
     z-index: 1; 
 }
 
-.toggleButton {
+.toggle-button {
     margin: 5px;
     background-color: #ddd; /* 배경색 */
     color: #003764; /* 텍스트 색상 */
@@ -126,12 +129,9 @@
 }
 
 /* 버튼 호버 효과 */
-.toggleButton:hover {
+.toggle-button:hover {
     background-color: #ccc; /* 호버 시 배경색 변경 */
 }
-
-
-
 
 .map-overlay .backgroundmap {
     position: absolute;
@@ -146,10 +146,6 @@
     flex-direction: column;
 }
 
-.mapmoderadio input[type="radio"] {
-    display: none;
-}
-
 /* 라벨 스타일 */
 .mapmoderadio {
     display: flex;
@@ -157,6 +153,11 @@
     cursor: pointer;
     font-size: 12px;
     margin-bottom: 10px;
+}
+
+/* 기본 라디오 버튼 숨김 */
+.mapmoderadio input[type="radio"] {
+    display: none;
 }
 
 /* 커스텀 라디오 마크 스타일 */
@@ -170,8 +171,8 @@
     transition: background-color 0.3s;
 }
 
-/* 선택된 상태에서 내부 마크 표시 */
-.mapmoderamark:after {
+/* 체크된 상태에서 내부 마크 표시 */
+.mapmoderamark::after {
     content: "";
     position: absolute;
     top: 50%;
@@ -184,11 +185,9 @@
     display: none; /* 초기 상태에서 숨김 */
 }
 
-/* 체크된 상태에서 라디오 마크 스타일 변경 */
-.mapmoderadio input[type="radio"]:checked + .mapmoderamark {
-    background-color: #ccc;
-}
-
-.mapmoderadio input[type="radio"]:checked + .mapmoderamark:after {
+/* 체크된 상태에서 커스텀 라디오 마크 스타일 변경 */
+.mapmoderadio input[type="radio"]:checked + .mapmoderamark::after {
     display: block; /* 체크된 상태에서 내부 마크 표시 */
 }
+
+
