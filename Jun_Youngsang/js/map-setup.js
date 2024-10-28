@@ -8,9 +8,6 @@ function setupMap() {
     zoom: 3,
   });
 
-  const hoveredPolygonId = null;
-  const bases = [];
-
   // 내비게이션 및 스케일 컨트롤 추가
   const nav = new mapboxgl.NavigationControl();
   map.addControl(nav, 'top-left');
