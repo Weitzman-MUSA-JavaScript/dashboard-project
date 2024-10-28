@@ -1,10 +1,10 @@
 mapboxgl.accessToken = 'pk.eyJ1Ijoic3lsdmlhdXBlbm4iLCJhIjoiY20weTdodGpiMGt4MDJsb2UzbzZnd2FmMyJ9.H6mn-LOHFUdv7swHpM7enA'
 
 const map = new mapboxgl.Map({
-  container: 'map', // container ID
-  style: 'mapbox://styles/mapbox/outdoors-v12', // style URL
-  center: [140, -40], // starting position [lng, lat]
-  zoom: 3, // starting zoom
+  container: 'map', 
+  style: 'mapbox://styles/mapbox/outdoors-v12',
+  center: [140, -40], 
+  zoom: 3, 
 });
 
 // Add geojson file
@@ -20,7 +20,7 @@ const map = new mapboxgl.Map({
         },
         paint: {
             'circle-opacity': 1,
-            'circle-color': '#4a0fd4'
+            'circle-color': '#b744d6'
         }
 
       });
@@ -35,7 +35,7 @@ const map = new mapboxgl.Map({
       },
       paint: {
           'circle-opacity': 1,
-          'circle-color': '#a164db'
+          'circle-color': '#b744d6'
       }
 
     });
@@ -55,22 +55,7 @@ const map = new mapboxgl.Map({
 
   });
 
-  // 4. blueFinWhale (point)
-  map.addLayer({
-    id: "blueFinWhale-layer",
-    type: "circle",
-    source: {
-      type: 'geojson',
-      data: 'data/blueFinWhale.geojson'
-    },
-    paint: {
-      'circle-opacity': 1,
-      'circle-color': '#b744d6'
-    }
-
-});
-
-  // 5. blueWhale (point)
+  // 4. blueWhale (point)
   map.addLayer({
     id: "blueWhale-layer",
     type: "circle",
@@ -85,7 +70,7 @@ const map = new mapboxgl.Map({
 
 });
 
-  // 6. bowheadWhale (point)
+  // 5. bowheadWhale (point)
   map.addLayer({
     id: "bowheadWhale-layer",
     type: "circle",
@@ -100,7 +85,7 @@ const map = new mapboxgl.Map({
 
 });
 
-  // 7. falseKillerWhale (point)
+  // 6. falseKillerWhale (point)
   map.addLayer({
     id: "falseKillerWhale-layer",
     type: "circle",
@@ -115,7 +100,7 @@ const map = new mapboxgl.Map({
 
 });
 
-  // 8. finWhale (point)
+  // 7. finWhale (point)
   map.addLayer({
     id: "finWhale-layer",
     type: "circle",
@@ -130,7 +115,7 @@ const map = new mapboxgl.Map({
 
 });
 
-  // 9. spermWhale (point)
+  // 8. spermWhale (point)
   map.addLayer({
     id: "spermWhale-layer",
     type: "circle",
@@ -142,18 +127,25 @@ const map = new mapboxgl.Map({
       'circle-opacity': 1,
       'circle-color': '#b744d6'
     }
-
 });
 
   const whaleButtons = document.querySelectorAll('.whaleButton');
   whaleButtons.forEach(button => {
     button.addEventListener('click', (event) => {
 
+      whaleButtons.forEach(btn => btn.classList.remove('activeButton'));
+      button.classList.add('activeButton');
+
+      const lat = button.getAttribute('data-lat');
+      const lon = button.getAttribute('data-lon');
+      fetchWeatherData(lat, lon);
+
       changeWhaleTab(event);
 
       const species = button.getAttribute('data-species');
+      updateWhaleStatus(species);
+
       updateImage(species);
-      updateText(species);
 
     });
   });
@@ -163,7 +155,6 @@ const map = new mapboxgl.Map({
   const whaleSharkCoords = [-87, 25];
   const humpbackWhaleCoords = [160,-40];
   const pilotWhaleCoords = [-74, 35];
-  const blueFinWhaleCoords = [-119, 33];
   const blueWhaleCoords = [170,-64];
   const bowheadWhaleCoords = [-85, 71];
   const falseKillerWhaleCoords = [-160, 23];
@@ -178,7 +169,6 @@ const map = new mapboxgl.Map({
       map.setLayoutProperty('humpbackWhale-layer', 'visibility', 'none');
       map.setLayoutProperty('whaleShark-layer', 'visibility', 'none');
       map.setLayoutProperty('shortFinnedPilotWhale-layer', 'visibility', 'none');
-      map.setLayoutProperty('blueFinWhale-layer', 'visibility', 'none');
       map.setLayoutProperty('blueWhale-layer', 'visibility', 'none');
       map.setLayoutProperty('bowheadWhale-layer', 'visibility', 'none');
       map.setLayoutProperty('falseKillerWhale-layer', 'visibility', 'none');
@@ -198,10 +188,6 @@ const map = new mapboxgl.Map({
           case 'pilotWhale':
               map.setLayoutProperty('shortFinnedPilotWhale-layer', 'visibility', 'visible');
               map.flyTo({center: pilotWhaleCoords, zoom: 4});
-              break;
-          case 'blueFinWhale':
-              map.setLayoutProperty('blueFinWhaleCoords-layer', 'visibility', 'visible');
-              map.flyTo({center: blueFinWhaleCoords, zoom: 5});
               break;
           case 'blueWhale':
               map.setLayoutProperty('blueWhale-layer', 'visibility', 'visible');
@@ -229,95 +215,207 @@ const map = new mapboxgl.Map({
   
   }
 
-  // Create function for changing image
+// Create function to update images
   function updateImage(species) {
-      const whaleImage = document.getElementById('whaleImage');
-      let imageUrl;
-  
-      // Define the image based on species
-      switch (species) {
-          case 'humpbackWhale':
-              imageUrl = './data/humpbackWhale.jpg'; 
-              break;
-          case 'whaleShark':
-              imageUrl = './data/whaleShark.jpg'; 
-              break;
-          case 'pilotWhale':
-              imageUrl = './data/shortFinnedPilotWhale.jpg';
-              break;
-          case 'blueFinWhale':
-              imageUrl = './data/blueFinWhale.jpg'; 
-              break;
-          case 'blueWhale':
-              imageUrl = './data/blueWhale.jpg'; 
-              break;
-          case 'bowheadWhale':
-              imageUrl = './data/bowheadWhale.jpg'; 
-              break;
-          case 'falseKillerWhale':
-              imageUrl = './data/falseKillerWhale.jpg';
-              break;
-          case 'finWhale':
-              imageUrl = './data/finWhale.jpg'; 
-              break;
-          case 'spermWhale':
-              imageUrl = './data/spermWhale.jpg'; 
-              break;
-          default:
-              imageUrl = ''; // Default case
-      }
-
-      if (imageUrl) {
-        whaleImage.src = imageUrl;
-        whaleImage.style.display = 'block'; // Show the image
-    } else {
-        whaleImage.style.display = 'none'; // Hide if no valid species
+    const whaleImages = {
+      humpbackWhale: [
+        './data/humpbackWhale.jpg',
+      ],
+      whaleShark: [
+        './data/whaleShark2.png',
+      ],
+      pilotWhale: [
+        './data/pilotWhale.jpg',
+      ],
+      blueWhale: [
+        './data/blueWhale.jpg',
+      ],
+      bowheadWhale: [
+        './data/bowheadWhale.jpg',
+      ],
+      falseKillerWhale: [
+        './data/falseKillerWhale.jpg',
+      ],
+      finWhale: [
+        './data/finWhale.jpg',
+      ],
+      spermWhale: [
+        './data/spermWhale.jpg',
+      ],
     }
+
+    const whaleImageContainer = document.getElementById('whaleImageContainer'); // A container for the images
+    whaleImageContainer.innerHTML = ''; // Clear previous images
+
+    const images = whaleImages[species];
+    if (images) {
+        images.forEach(src => {
+            const img = document.createElement('img');
+            img.src = src;
+            img.alt = `${species} image`;
+            img.style.width = '100%'; 
+            img.style.marginBottom = '10px'; 
+            whaleImageContainer.appendChild(img); 
+        });
+    }
+
   }
 
-  // Create function for updating text 
-  function updateText(species) {
-    const whaleDescription = document.getElementById('whaleDescription');
-    const descriptions = {
-        humpbackWhale: "Humpback whales are known for their long migrations and complex songs.",
-        whaleShark: "Whale sharks are the largest fish species in the world and are gentle giants.",
-        pilotWhale: "Short-finned pilot whales are known for their strong social bonds and intelligence.",
-        blueFinWhale: "Blue fin whales are one of the largest whale species, known for their immense size.",
-        blueWhale: "Blue whales are the largest animals ever known to have existed.",
-        bowheadWhale: "Bowhead whales are known for their bow-shaped skulls and are found in Arctic waters.",
-        falseKillerWhale: "False killer whales are known for their social behavior and close-knit pods.",
-        finWhale: "Fin whales are the second-largest species of whale, known for their speed and grace.",
-        spermWhale: "Sperm whales are known for their deep diving abilities and large heads."
+  // Create function for updating status indicator
+  function updateWhaleStatus(species) {
+    const whaleSpecies = [
+      { name: "humpbackWhale", iucnStatus: "LC" },
+      { name: "whaleShark", iucnStatus: "NT" },
+      { name: "pilotWhale", iucnStatus: "VU" },
+      { name: "blueWhale", iucnStatus: "CR" },
+      { name: "bowheadWhale", iucnStatus: "LC" },
+      { name: "falseKillerWhale", iucnStatus: "EN" },
+      { name: "finWhale", iucnStatus: "LC" },
+      { name: "spermWhale", iucnStatus: "LC" }
+    ];
+    
+    const iucnDescriptions = {
+    "LC": { text: "Least Concern", color: "lightgreen" },
+    "NT": { text: "Near Threatened", color: "yellow" },
+    "VU": { text: "Vulnerable", color: "orange" },
+    "EN": { text: "Endangered", color: "#f15757" },
+    "CR": { text: "Critically Endangered", color: "red" },
+    "EW": { text: "Extinct in the Wild", color: "gray" },
+    "EX": { text: "Extinct", color: "black" }
     };
-  
-    whaleDescription.textContent = descriptions[species] || "No description available.";
-    document.getElementById('whaleInfo').style.display = 'block';
+
+    const speciesName = whaleSpecies.find(s => s.name === species);
+    if (!speciesName) {
+      console.error('Species not found:', species);
+      return;
   }
 
+  const statusInfo = iucnDescriptions[speciesName.iucnStatus];
+  if (statusInfo) {
+
+      const statusElement = document.querySelector('.statusText');
+        statusElement.innerText = statusInfo.text;
+        statusElement.style.color = statusInfo.color;
+
+  } else {
+      console.error('Status information not found for:', speciesName.iucnStatus);
+  }
+}
+
+function fetchWeatherData(lat, lon) {
+  const apikey = '320ee3652da3b3be6fc3d5423df006cf';
+  const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apikey}&units=metric`;
+  
+  fetch(weatherUrl)
+      .then(response => response.json())
+      .then(data => {
+          const windSpeed = data.wind.speed; // Wind speed in m/s
+          const windDirection = data.wind.deg; // Wind direction in degrees
+          const weatherDescription = data.weather[0].description; // Weather description
+          
+          updateWeatherInfo(windSpeed, windDirection, weatherDescription);
+          updateWindRoseChart(windSpeed, windDirection); // Update the wind rose chart
+      })
+      .catch(error => console.error('Error fetching weather data:', error));
+}
+
+let windRoseChart; // Declare it globally
+let windRoseData = [0, 0, 0, 0, 0, 0, 0, 0];
+
+function initializeWindRoseChart() {
+    const ctx = document.getElementById('windRoseChart').getContext('2d');
+    windRoseChart = new Chart(ctx, {
+        type: 'polarArea',
+        data: {
+            labels: ['N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW'],
+            datasets: [{
+                label: 'Wind Speed (m/s)',
+                data: [0, 0, 0, 0, 0, 0, 0, 0], // Initial data
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    // ... other colors
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    // ... other colors
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                r: {
+                    beginAtZero: true,
+                }
+            }
+        }
+    });
+}
+
+function updateWindRoseChart(windSpeed, windDirection) {
+  const index = Math.floor((windDirection % 360) / 45);
+  windRoseData[index] += windSpeed; // Update data
+
+  // Only attempt to destroy if windRoseChart is defined
+  if (windRoseChart) {
+      windRoseChart.destroy(); // Destroy the existing chart
+  }
+
+  // Re-initialize the chart
+  const windSpeeds = [5, 15, 25, 35]; // Example wind speed data
+const colors = windSpeeds.map(speed => {
+    if (speed <= 10) return 'rgba(0, 255, 0, 0.6)'; // Light Green for low speed
+    if (speed <= 20) return 'rgba(255, 255, 0, 0.6)'; // Yellow for moderate speed
+    return 'rgba(255, 0, 0, 0.6)'; // Red for high speed
+});
+
+// Sample wind direction labels
+const directions = ['N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW'];
+  const ctx = document.getElementById('windRoseChart').getContext('2d');
+  windRoseChart = new Chart(ctx, {
+      type: 'polarArea',
+      data: {
+          labels: ['N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW'],
+          datasets: [{
+              label: 'Wind Speed (m/s)',
+              data: windRoseData, // Use updated data
+              backgroundColor: [
+                  'rgba(255, 99, 132, 0.2)',
+                  'rgba(54, 162, 235, 0.2)',
+                  // ... other colors
+              ],
+              borderColor: 'white',
+              borderWidth: 1
+          }]
+      },
+      options: {
+          responsive: true,
+          scales: {
+              r: {
+                beginAtZero: true,
+                grid: {
+                  color: 'white'
+                }
+              }
+            },
+          plugins: {
+            legend: {
+              labels: {
+                color: 'white' 
+                }
+            }
+          }
+      }
+  });
+}
 
 
-// Geolocation handling (this is an aspirational step)
-// if (navigator.geolocation) {
-//   navigator.geolocation.watchPosition(position => {
-//       const { latitude, longitude, heading } = position.coords;
-
-//       // Update map view and compass
-//       map.setView([latitude, longitude], 12);
-//       compassControl.update(heading); 
-//   }, error => {
-//       console.error(error);
-//   });
-// } else {
-//   console.error('Geolocation is not supported by this browser.');
-// }
-
-// Writing a code to find the current location of user 
-// function handlePositionSuccess(pos) {
-//   console.log('Successfuly got position!', pos);
-//   const evt = new CustomEvent('positionfound')
-// }
-// function handlePositionError(err) {
-//   console.error('Failed to get position!', err);
-// }
-// navigator.geolocation.getCurrentPosition(handlePositionSuccess, handlePositionError, {enableHighAccuracy: true});
+function updateWeatherInfo(speed, direction, description) {
+  document.getElementById('windSpeed').innerText = `Wind Speed: ${speed} m/s`;
+  document.getElementById('windDirection').innerText = `Wind Direction: ${direction}°`;
+  document.getElementById('weatherDescription').innerText = `Weather: ${description}`;
+}
 
