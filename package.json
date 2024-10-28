@@ -12,8 +12,9 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "eslint": "^8.48.0",
+    "eslint": "^8.57.1",
     "eslint-config-google": "^0.14.0",
+    "eslint-plugin-vue": "^9.29.1",
     "stylelint": "^15.10.3",
     "stylelint-config-standard": "^34.0.0"
   }
