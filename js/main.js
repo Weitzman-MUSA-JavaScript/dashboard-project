@@ -1,4 +1,4 @@
-mapboxgl.accessToken = config.mapboxKey
+mapboxgl.accessToken = 'pk.eyJ1Ijoic3lsdmlhdXBlbm4iLCJhIjoiY20weTdodGpiMGt4MDJsb2UzbzZnd2FmMyJ9.H6mn-LOHFUdv7swHpM7enA'
 
 const map = new mapboxgl.Map({
   container: 'map', 
@@ -303,7 +303,7 @@ const map = new mapboxgl.Map({
 }
 
 function fetchWeatherData(lat, lon) {
-  const apikey = config.weatherKey;
+  const apikey = '320ee3652da3b3be6fc3d5423df006cf';
   const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apikey}&units=metric`;
   
   fetch(weatherUrl)
