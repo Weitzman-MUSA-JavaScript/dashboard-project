@@ -12,7 +12,6 @@ new mapboxgl.Popup({ closeOnClick: false })
     <h2>About DefenseBoard</h2>
     <p>- DefenseBoard is a dashboard that uses spatial data to link various types of attributes in the defense sector such as military personnel, facilities, budget, logistics, etc. </p>
     <p>- The map on the right displays publicly accessible base locations across the United States, while on the left, users can view attribute data by base, military unit, or region.</p>
-    <p>- Users can also access congressional inquiries and related laws and regulations via links.</p>
     <h2>Notes</h2>
     <p>- The DoD installations are commonly referred to as a base, camp, post, station, yard, center, homeport facility for any ship, or other activity under the jurisdiction, custody, control of the DoD. Publicly releasable locations of DoD Sites in the 50 states, Puerto Rico, and Guam available through data.gov.</p>
     <p>- This dataset was created from source data provided by the four Military Service Component headquarters and was compiled by the Defense Installation Spatial Data Infrastructure (DISDI) Program within the Office of the Deputy Under Secretary of Defense for Installations and Environment, Business Enterprise Integration Directorate. Sites were selected from the 2009 Base Structure Report (BSR), a summary of the DoD Real Property Inventory.</p>
