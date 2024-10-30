@@ -1,0 +1,62 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <title>PMA Dashboard</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/main-stat-style.css">
+    <link rel="stylesheet" href="css/sec-stat-style.css">
+  </head>
+
+  <body>
+    <header>
+      <h1>Property Model Assessment Dashboard</h1>
+    </header>
+
+    <main>
+      <div id="dashboard">
+          <section id="map-section">
+            <div class="map" id="map"></section>
+          </section>
+          <section id="main-stat-section">
+            <div id="main-stat-search-section">
+              Neighborhood:
+              <select id = "neigh-select"></select>
+            </div>
+            <div id="main-stat-display-section">
+              <p class="stat-display" id = "main-stat-mae">MAE: $0</p>
+              <p class="stat-display" id = "main-stat-mape">MAPE: 0%</p>
+            </div>
+            <div id="main-stat-graph">
+              <strong id="chart-title">Residual Distribution</strong>
+              <div id="error-hist"></div>
+            </div>
+          </section>
+
+          <section id="sec-stat-section">
+            <div id="neigh-stat">
+              Neighborhood Demographics:
+              <p class="stat-display" id = "sec-stat-bach">Bachelor Degree Rate: 0%</p>
+              <p class="stat-display" id = "sec-stat-unemploy">Unemployment Rate: 0%</p>
+            </div>
+          </section>
+
+          <section id="footer-section">
+            <span> 
+              Property Data obtained from <a href="https://data.gov.sg/" title="data.gov">data.gov.sg</a> and <a href="https://ura.gov.sg/" title="ura.gov">ura.gov.sg</a>.<br>
+              <a href="https://www.flaticon.com/free-icons/home" title="home icons">Home icons created by Aswell Studio - Flaticon</a>
+            </span>
+          </section>
+      </div>
+    </main>
+
+    <footer>
+      
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script type="module" src="js/Observation.js"></script>
+    <script type="module" src="js/main.js"></script>
+  </body>
+</html>
