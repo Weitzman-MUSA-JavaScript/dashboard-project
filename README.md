@@ -1,5 +1,7 @@
 Dashboards are the bread and butter of spatial data displays. They are highly interactive websites, usually with real-time updates that show data in an accessible way.
 
+**Complete by October 23**
+
 
 ## Examples
 
@@ -11,13 +13,9 @@ Dashboards are the bread and butter of spatial data displays. They are highly in
 
 ### Step 1: Choose a topic
 
-Choose a topic that is fruitfully explained with some combination of narrative and geographic elements. Think about what data you want to tell a story about, and what kind of decisions you want to support through the use of your dashboard. Evaluate any dataset or interactive element you add to your dashboard on whether it makes it actually supports making those decisions.
+Choose a topic that is fruitfully explained with some combination of narrative and geographic elements. Stick with the data domain that you chose for your story map if you can. Think about what kind of decisions you want to support through the use of your dashboard. Evaluate any dataset or interactive element you add to your dashboard on whether it makes it actually supports making those decisions.
 
-Whatever data you use, **be sure to include citations somewhere in your app interface**. You can choose a dataset from any of a number of sources, for example:
-
-* Use data you've been working with for another class
-* Create your own dataset (check out [geojson.io](https://geojson.io))
-* Find data from an open data repository...
+Whatever data you use, **be sure to include citations somewhere in your app interface**.
 
 ### Step 2: Create a map on your browser
 
