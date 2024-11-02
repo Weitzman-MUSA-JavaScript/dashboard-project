@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="css/map.css">
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Itim&family=Quicksand:wght@300..700&family=Shadows+Into+Light&display=swap" rel="stylesheet">
+    <script defer src="js/main.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <h1>DC Summer Teenager Meal Program</h1>
+
+            <div class="zip-filter">
+                <h3>Search by ZIP Code</h3>
+                <input type="text" class="searchbox" id="zipInput" placeholder="Enter ZIP Code to search...">
+                <button class= "filterbutton" id="zipFilterButton">Search</button>
+                <button class= "filterbutton-reset" id="resetZipButton">Reset</button>
+            </div>
+            
+            <div class="name-filter">
+                <h3>Search by Name</h3>
+                <input type="text" class="searchbox" id="nameInput" placeholder="Enter Name to search...">
+                <button class= "filterbutton" id="nameFilterButton">Search</button>
+                <button class= "filterbutton-reset" id="resetNameButton">Reset</button>
+            </div>
+            
+            <div class="days-open">
+                <h3>Days Open</h3>
+                <div>
+                    <label>
+                        <input type="checkbox" value="M" class="day-checkbox"> Monday
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <input type="checkbox" value="T" class="day-checkbox"> Tuesday
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <input type="checkbox" value="W" class="day-checkbox"> Wednesday
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <input type="checkbox" value="TH" class="day-checkbox"> Thursday
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <input type="checkbox" value="F" class="day-checkbox"> Friday
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <input type="checkbox" value="SA" class="day-checkbox"> Saturday
+                    </label>
+                </div>
+            </div>
+
+            <div class="meal-types">
+                <h3>Meal Types</h3>
+                <label>
+                    <input type="checkbox" value="B" class="meal-checkbox"> Breakfast
+                </label>
+                <label>
+                    <input type="checkbox" value="L" class="meal-checkbox"> Lunch
+                </label>
+                <label>
+                    <input type="checkbox" value="S" class="meal-checkbox"> Afternoon Tea
+                </label>
+                <label>
+                    <input type="checkbox" value="A" class="meal-checkbox"> Supper
+                </label>
+            </div>
+
+            <div class="site-list">
+                <!-- Grab from js -->
+            </div>
+
+        </div>
+        <div id="map"></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,135 @@
+body {
+    margin: 0;
+    font-family: Quicksand, serif;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar {
+    width: 400px;
+    padding: 20px;
+    background: linear-gradient(to bottom, #fff 40%, #d0d0d0);
+    overflow-y: auto;
+}
+
+#map {
+    flex-grow: 1;
+    height: 100vh;
+    width: auto;
+}
+
+h1 {
+    font-size: 35px;
+    padding: 10px;
+    border-radius: 5px;
+    color: rgb(27 65 35);
+    font-weight: bold;
+}
+
+h3 {
+    font-size: 25px;
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-radius: 5px;
+    color: rgb(96 119 80);
+}
+
+.searchbox {
+    width: 60%;
+    height: 35px;
+    padding: 10px;
+    border: 2px solid #9da7a1;
+    border-radius: 10px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+
+.filterbutton {
+    padding: 8px 12px;
+    font-size: 14px;
+    background-color: #4a8d60;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.filterbutton:hover {
+    background-color: #2d6436;
+}
+
+.filterbutton-reset{
+    padding: 8px 12px;
+    font-size: 14px;
+    border: none;
+    background-color: #e0e0e0;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.filterbutton-reset:hover{
+    background-color: #afafaf;
+}
+
+input[type="checkbox"] {
+    transform: scale(1.5);
+    margin-right: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.reset-button {
+    padding: 8px 12px;
+    font-size: 14px;
+    background-color: #4a8d60;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.reset-button:hover {
+    background-color: #2d6436;
+}
+
+.meal-types label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.days-open label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.site-list {
+    font-family: Itim, cursive;
+    margin-top: 20px;
+}
+
+.site-item {
+    margin-bottom: 5px;
+    padding: 5px;
+    border-radius: 8px;
+    background-color: #e0e0e0;
+    transition: background-color 0.3s;
+}
+
+.site-item:hover {
+    background-color: #e0faea;
+}
+
+.site-name {
+    font-size: 18px;
+    font-weight: bold;
+    color: #000;
+}
+
+.site-address {
+    font-size: 14px;
+    color: #888;
+}
