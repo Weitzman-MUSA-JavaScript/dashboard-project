@@ -1,0 +1,141 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [-75.1667441, 39.9554087]
+        },
+        "properties": {
+          "site_name": "Appletree Family Center",
+          "Type": "Daytime Center",
+          "Eligibility": "All",
+          "Address": "1430 Cherry St",
+          "Hours": "Mon.–Fri., 7 a.m.–5 p.m.",
+          "phone_number": "215-686-7150, 215-686-7151, 215-686-7153"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [-75.1629825, 39.9681941]
+        },
+        "properties": {
+          "site_name": "Roosevelt Darby Center",
+          "Type": "Daytime Center",
+          "Eligibility": "All",
+          "Address": "804 N. Broad St.",
+          "Hours": "Mon.–Fri., 7 a.m.–5 p.m.",
+          "phone_number": "215-685-3700"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [-75.1487857, 39.954749]
+        },
+        "properties": {
+          "site_name": "The Veterans Multi-Service Center",
+          "Type": "Daytime Center",
+          "Eligibility": "Veterans",
+          "Address": "213-217 N. 4th St.",
+          "Hours": "Tues. and Thurs., 9 a.m.–2 p.m.",
+          "phone_number": "215-923-2600"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [-75.1626373, 39.9676477]
+        },
+        "properties": {
+          "site_name": "Red Shield Family Residence",
+          "Type": "After-hours Center",
+          "Eligibility": "Family",
+          "Address": "715 N. Broad St.",
+          "Hours": "5 p.m.–7 a.m. and holidays and weekends",
+          "phone_number": "215-787-2887"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [-75.1666462, 40.0559377]
+        },
+        "properties": {
+          "site_name": "ACTS After Hour Intake Site",
+          "Type": "After-hours Center",
+          "Eligibility": "Family",
+          "Address": "1300 E Tulpehocken St.",
+          "Hours": "5 p.m.–7 a.m. on Mon.–Fri., 24 hours on holidays and weekends",
+          "phone_number": "267-297-7870"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [-75.1625853, 39.99481]
+        },
+        "properties": {
+          "site_name": "Mike Hinson Resource Center",
+          "Type": "After-hours Center",
+          "Eligibility": "Single man",
+          "Address": "1701 W. Lehigh Ave.",
+          "Hours": "3 p.m.–7 a.m. and holidays and weekends",
+          "phone_number": "267-737-9099"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [-75.2206558, 39.9645958]
+        },
+        "properties": {
+          "site_name": "Gaudenzia’s House of Passage",
+          "Type": "After-hours Center",
+          "Eligibility": "Single woman",
+          "Address": "111 N. 49th St.",
+          "Hours": "5 p.m.–7 a.m. and holidays and weekends",
+          "phone_number": "267-713-7778"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [-75.1575831, 39.9887545]
+        },
+        "properties": {
+          "site_name": "Eddie’s House",
+          "Type": "Youth access point",
+          "Eligibility": "Youth",
+          "Address": "2321 N. Broad St.",
+          "Hours": "Mon.–Fri., 10 a.m.–5 p.m.",
+          "phone_number": "215-921-8375, 215-307-3273"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [-75.1737432, 39.9541549]
+        },
+        "properties": {
+          "site_name": "Synergy Project at Valley Youth House (11 Nov 24 Onwards)",
+          "Type": "Youth access point",
+          "Eligibility": "Youth",
+          "Address": "1880 JFK Blvd., Suite 660",
+          "Hours": "Mon.–Thurs., 8:30 a.m.–5:30 p.m.",
+          "phone_number": "888-468-7315, 215-925-3180"
+        }
+      }
+    ]
+  }
+  
