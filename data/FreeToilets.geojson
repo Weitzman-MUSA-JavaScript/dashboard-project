@@ -1,0 +1,269 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+   {
+     "type": "Feature",
+     "geometry": {
+        "type": "Point",
+        "coordinates":  [ -75.150201,39.950796 ]
+     },
+     "properties": {
+     "site_name":"Independence Visitor Center",
+     "Address":"599 Market St, Philadelphia, PA 19106"
+     }
+   },
+   {
+     "type": "Feature",
+     "geometry": {
+        "type": "Point",
+        "coordinates":  [ -75.14889245,39.95271328571429 ]
+     },
+     "properties": {
+     "site_name":"Independence Transportation Center",
+     "Address":"525 Arch St, Philadelphia, PA 19106"
+     }
+   },
+   {
+     "type": "Feature",
+     "geometry": {
+        "type": "Point",
+        "coordinates":  [ -75.149591,39.954779 ]
+     },
+     "properties": {
+     "site_name":"Franklin Square",
+     "Address":"200 N 6th St, Philadelphia, PA 19106"
+     }
+   },
+   {
+     "type": "Feature",
+     "geometry": {
+        "type": "Point",
+        "coordinates":  [ -75.148286,39.949767 ]
+     },
+     "properties": {
+     "site_name":"The Bourse Food Hall",
+     "Address":"111 S Independence Mall E, Philadelphia, PA 19106"
+     }
+   },
+   {
+     "type": "Feature",
+     "geometry": {
+        "type": "Point",
+        "coordinates":  [ -75.16465,39.954664 ]
+     },
+     "properties": {
+     "site_name":"Philly Phlush",
+     "Address":"Arch St & N 15th St, Philadelphia, PA 19102"
+     }
+   },
+   {
+     "type": "Feature",
+     "geometry": {
+        "type": "Point",
+        "coordinates":  [ -75.16849989,39.95471565 ]
+     },
+     "properties": {
+     "site_name":"The Concourse at the Comcast Center",
+     "Address":"Comcast Center Concourse, 1701 John F Kennedy Blvd, Philadelphia, PA 19103"
+     }
+   },
+   {
+     "type": "Feature",
+     "geometry": {
+        "type": "Point",
+        "coordinates":  [ -75.170482,39.959192 ]
+     },
+     "properties": {
+     "site_name":"Free Library of Philadelphia - Parkway Central Library",
+     "Address":"1901 Vine St, Philadelphia, PA 19103"
+     }
+   },
+   {
+     "type": "Feature",
+     "geometry": {
+        "type": "Point",
+        "coordinates":  [ -75.16764259,39.95140491836735 ]
+     },
+     "properties": {
+     "site_name":"The Shops at Liberty Place",
+     "Address":"1625 Chestnut St, Philadelphia, PA 19103"
+     }
+   },
+   {
+     "type": "Feature",
+     "geometry": {
+        "type": "Point",
+        "coordinates":  [ -75.155298,39.951427 ]
+     },
+     "properties": {
+     "site_name":"Fashion District Philadelphia",
+     "Address":"901 Market St, Philadelphia, PA 19107"
+     }
+   },
+   {
+     "type": "Feature",
+     "geometry": {
+        "type": "Point",
+        "coordinates":  [ -75.15870781,39.953774980215336 ]
+     },
+     "properties": {
+     "site_name":"Reading Terminal Market",
+     "Address":"1136 Arch St, Philadelphia, PA 19107"
+     }
+   },
+   {
+     "type": "Feature",
+     "geometry": {
+        "type": "Point",
+        "coordinates":  [ -75.141859,39.944005 ]
+     },
+     "properties": {
+     "site_name":"Penn's Landing Operations Center",
+     "Address":"301 S Christopher Columbus Blvd, Philadelphia, PA 19106"
+     }
+   },
+   {
+     "type": "Feature",
+     "geometry": {
+        "type": "Point",
+        "coordinates":  [ -75.141105,39.947876 ]
+     },
+     "properties": {
+     "site_name":"Great Plaza at Penn's Landing",
+     "Address":"101 S Christopher Columbus Blvd, Philadelphia, PA 19106"
+     }
+   },
+   {
+     "type": "Feature",
+     "geometry": {
+        "type": "Point",
+        "coordinates":  [ -75.14039791,39.95267532138696 ]
+     },
+     "properties": {
+     "site_name":"Cherry Street Pier",
+     "Address":"121 N Christopher Columbus Blvd, Philadelphia, PA 19106"
+     }
+   },
+   {
+     "type": "Feature",
+     "geometry": {
+        "type": "Point",
+        "coordinates":  [ -75.185235,39.968996 ]
+     },
+     "properties": {
+     "site_name":"Lloyd Hall Recreation Center",
+     "Address":"1 Boathouse Row, Philadelphia, PA 19130"
+     }
+   },
+   {
+     "type": "Feature",
+     "geometry": {
+        "type": "Point",
+        "coordinates":  [ -75.1861774,39.9696231 ]
+     },
+     "properties": {
+     "site_name":"East Park Canoe House",
+     "Address":"2400 Kelly Dr, Philadelphia, PA 19129"
+     }
+   },
+   {
+     "type": "Feature",
+     "geometry": {
+        "type": "Point",
+        "coordinates":  [ -75.15783643,39.93842215 ]
+     },
+     "properties": {
+     "site_name":"Italian Market Visitor Center",
+     "Address":"919 S 9th St, Philadelphia, PA 19147"
+     }
+   },
+   {
+     "type": "Feature",
+     "geometry": {
+        "type": "Point",
+        "coordinates":  [ -75.1699165,39.8938275 ]
+     },
+     "properties": {
+     "site_name":"Central Green at The Navy Yard",
+     "Address":"Rouse Blvd, Philadelphia, PA 19112"
+     }
+   },
+   {
+     "type": "Feature",
+     "geometry": {
+        "type": "Point",
+        "coordinates":  [ -75.1925145,39.9530359 ]
+     },
+     "properties": {
+     "site_name":"Franklin's Table Food Hall",
+     "Address":"University of Pennsylvania, 3401 Walnut St, Philadelphia, PA 19104"
+     }
+   },
+   {
+     "type": "Feature",
+     "geometry": {
+        "type": "Point",
+        "coordinates":  [ -75.185711,39.951927 ]
+     },
+     "properties": {
+     "site_name":"Penn Park Softball Stadium",
+     "Address":"3000 Walnut St, Philadelphia, PA 19104"
+     }
+   },
+   {
+     "type": "Feature",
+     "geometry": {
+        "type": "Point",
+        "coordinates":  [ -75.18109,39.95564 ]
+     },
+     "properties": {
+     "site_name":"William H. Gray III 30th Street Station",
+     "Address":"2955 Market St, Philadelphia, PA 19104"
+     }
+   },
+   {
+     "type": "Feature",
+     "geometry": {
+        "type": "Point",
+        "coordinates":  [ -75.18373714,39.95283228571429 ]
+     },
+     "properties": {
+     "site_name":"Cira Green",
+     "Address":"129 S 30th St, Philadelphia, PA 19104"
+     }
+   },
+   {
+     "type": "Feature",
+     "geometry": {
+        "type": "Point",
+        "coordinates":  [ -75.224418,39.953223 ]
+     },
+     "properties": {
+     "site_name":"Malcolm X Memorial Park",
+     "Address":"5100 Pine St, Philadelphia, PA 19143"
+     }
+   },
+   {
+     "type": "Feature",
+     "geometry": {
+        "type": "Point",
+        "coordinates":  [ -75.215549,39.933341 ]
+     },
+     "properties": {
+     "site_name":"Bartram’s Garden",
+     "Address":"5400 Lindbergh Blvd., Philadelphia, PA 19143"
+     }
+   },
+   {
+     "type": "Feature",
+     "geometry": {
+        "type": "Point",
+        "coordinates":  [ -75.159022,39.9913542 ]
+     },
+     "properties": {
+     "site_name":"Philly Phlush in North Philly",
+     "Address":"W Cumberland St, Philadelphia, PA 19133"
+     }
+   }
+ ]
+ }
