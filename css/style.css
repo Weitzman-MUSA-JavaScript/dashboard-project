@@ -3,7 +3,7 @@ body {
     color: #FAFFFD;
     margin: 0; 
     padding: 0;
-    font-family: 'Poppins';
+    font-family: 'Barlow';
     font-weight: 100;
 }
 
@@ -36,7 +36,7 @@ body {
     gap: 10px;
     padding: 10px 10px;
     border-radius: 5px;
-    font-family: 'Poppins';
+    font-family: 'Barlow';
 }
 
 #sidebar {
@@ -63,7 +63,7 @@ body {
 
 .whaleButton {
     font-size: 18px;
-    font-family: "Poppins";
+    font-family: "Barlow";
     color: #FAFFFD;
     border-radius: 5px;
     border: none;
