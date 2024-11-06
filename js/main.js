@@ -3,7 +3,7 @@ const map = L.map(mapElement).setView([38.9072, -77.0369], 13);
 
 // Map Style
 const mapboxKey = 'pk.eyJ1IjoiZWNoaW5saSIsImEiOiJjbTEybWVsY3kwZW1nMmxwbTY4bGx1dDM1In0.Cncmmjeonp1yp1AXZrOqvQ';
-const mapboxStyle = 'echinli/cm1h3iqj5012y01qk46i24fdk';
+const mapboxStyle = 'echinli/cm36cc1uc014n01qk9ysq22e4';
 
 // The Base Tile Layer
 const baseTileLayer = L.tileLayer(`http://api.mapbox.com/styles/v1/${mapboxStyle}/tiles/512/{z}/{x}/{y}?access_token=${mapboxKey}`, {
