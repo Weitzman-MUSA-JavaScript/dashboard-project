@@ -1,3 +1,4 @@
+// import { app, analytics } from './firebase.js';
 import { initMap } from './fridge_map.js';
 import { downloadFridgeData } from './fridge_data.js';
 import { initFridgeList } from './fridge_list.js';
