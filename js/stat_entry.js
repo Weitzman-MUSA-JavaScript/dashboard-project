@@ -9,16 +9,16 @@ function initStatEntry(statListEl, positionRadioEl, stats, positions, events) {
   });
 
   const orderedStats = [
-      'Bench', 'Squat', 'Power Clean', '225lb Bench', 
-      '10-Yard Dash', 'Vertical Jump (vertec)', 'Vertical Jump (mat)', 'Broad Jump', '60-Yard Shuttle', 'L Drill', 'Pro Agility', 'Flying 10', 
+      'Bench', 'Squat', 'Power Clean', 'Hang Clean', '225lb Bench', 
+      '10-Yard Sprint', 'Vertical Jump', 'Broad Jump', '60-Yard Shuttle', 'L Drill', 'Pro Agility', 'Flying 10', 
       'Height', 'Weight', 'Wingspan'
   ];
 
   const unitMapping = {
-      pounds: ['Bench', 'Squat', 'Power Clean', 'Weight'],
+      pounds: ['Bench', 'Squat', 'Power Clean', 'Hang Clean', 'Weight'],
       reps: ['225lb Bench'],
-      inches: ['Vertical Jump (vertec)', 'Vertical Jump (mat)', 'Broad Jump', 'Height', 'Wingspan'],
-      seconds: ['10-Yard Dash', '60-Yard Shuttle', 'L Drill', 'Pro Agility', 'Flying 10']
+      inches: ['Vertical Jump', 'Broad Jump', 'Height', 'Wingspan'],
+      seconds: ['10-Yard Sprint', '60-Yard Shuttle', 'L Drill', 'Pro Agility', 'Flying 10']
   };
 
   function getUnit(stat) {

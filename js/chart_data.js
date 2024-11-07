@@ -7,7 +7,7 @@ function calculateChartData(indivStats, events) {
     let playerPercentiles = [];
 
     const inversePercentileStats = [
-        'Flying 10', '10-Yard Dash', '60-Yard Shuttle', 'L Drill', 'Pro Agility'
+        'Flying 10', '10-Yard Sprint', '60-Yard Shuttle', 'L Drill', 'Pro Agility'
     ];
 
     function getPercentiles() {

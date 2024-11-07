@@ -1,9 +1,10 @@
 import { initChart } from './barchart.js';
 import { initStatEntry } from './stat_entry.js';
 import { calculateChartData } from './chart_data.js';
+//import { getStationReports } from './firebase.js';
 
 // Fetch data
-const indivStatsResponse = await fetch('data/stats_2024.json');
+const indivStatsResponse = await fetch('data/stats_2020_2024.json');
 const indivStats = await indivStatsResponse.json();
 
 const events = new EventTarget();
