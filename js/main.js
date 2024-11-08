@@ -1,6 +1,7 @@
-import { initChart } from './barchart.js';
+import { initBar } from './barchart.js';
 import { initStatEntry } from './stat_entry.js';
 import { calculateChartData } from './chart_data.js';
+import { initRadar } from './radar.js';
 //import { getStationReports } from './firebase.js';
 
 // Fetch data
@@ -22,13 +23,24 @@ initStatEntry(statListEl, positionDropdownEl, statNames, positions, events);
 let chartData = calculateChartData(indivStats, events);
 
 // Get chart elements
-const pctChartEl = document.querySelector('#percentile-chart');
+const strengthEl = document.querySelector('#strength-chart');
+const powerEl = document.querySelector('#power-chart');
+const speedEl = document.querySelector('#speed-chart');
+const agilityEl = document.querySelector('#agility-chart');
+const anthroEl = document.querySelector('#anthro-chart');
+const radarEl = document.querySelector('#radar-chart');
 
 // Render charts
 function updateCharts() {
     const { positionMedians, playerPercentiles, playerStats, playerStatsValues } = chartData.getCalculatedData();
 
-    initChart(pctChartEl, positionMedians, playerStats, playerStatsValues, playerPercentiles);
+    initBar(strengthEl, positionMedians, playerStats, playerStatsValues, playerPercentiles);
+    initBar(powerEl, positionMedians, playerStats, playerStatsValues, playerPercentiles);
+    initBar(speedEl, positionMedians, playerStats, playerStatsValues, playerPercentiles);
+    initBar(agilityEl, positionMedians, playerStats, playerStatsValues, playerPercentiles);
+    initBar(anthroEl, positionMedians, playerStats, playerStatsValues, playerPercentiles);
+
+    initRadar(radarEl, positionMedians, statNames, playerStats, playerPercentiles);
 }
 
 // Listen for changes in stat or position

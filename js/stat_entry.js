@@ -89,7 +89,7 @@ function initStatEntry(statListEl, positionRadioEl, stats, positions, events) {
       }
   }
 
-  function populateDropdown(positions) {
+  function populateDropdown() {
       radioEl.innerHTML = '';
 
       const dropdown = initDropdownItems();
@@ -98,18 +98,20 @@ function initStatEntry(statListEl, positionRadioEl, stats, positions, events) {
       dropdown.addEventListener('change', handleDropdownChange);
   }
 
-  populateDropdown(positions);
+  populateDropdown();
   populateList(stats);
 
+  // Handle stat entry
   function handleNumEntry(evt) {
       const numInput = evt.target;
       const statName = numInput.name;
-      const filled = numInput.value !== '' && numInput.value !== null && numInput.value > 0;
+      //const filled = numInput.value !== '' && numInput.value !== null && numInput.value > 0;
+      const filled = numInput.value.trim() !== '' && parseFloat(numInput.value) > 0;
       const statValue = filled ? parseFloat(numInput.value) : null;
 
       numInput.setCustomValidity('');
 
-      if (!numInput.checkValidity() || numInput.value <= 0) {
+      if (!numInput.checkValidity() || parseFloat(numInput.value) <= 0) {
           numInput.setCustomValidity('Please enter a valid number');
           numInput.reportValidity();
           return;
@@ -121,6 +123,7 @@ function initStatEntry(statListEl, positionRadioEl, stats, positions, events) {
       events.dispatchEvent(event);
   }
 
+  // Handle position selection
   function handleDropdownChange(evt) {
       const selectedPosition = evt.target.value;
 

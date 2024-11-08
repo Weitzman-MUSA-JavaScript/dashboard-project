@@ -1,136 +1,115 @@
-import { Chart } from 'https://cdn.jsdelivr.net/npm/chart.js@4.4.4/auto/+esm';
-import { bb } from 'https://cdn.jsdelivr.net/npm/billboard.js@3.14.0/+esm';
+const barInstances = {};
 
-const chartInstances = {};
+function initBar(barEl, positionMedians, statNames, playerStats, playerPercentiles) {
 
-function initChart(chartEl, positionMedians, statNames, playerStats, playerPercentiles) {
+    const statCategories = {
+        speed: ['10-Yard Sprint', 'Flying 10'],
+        agility: ['Pro Agility', 'L Drill', '60-Yard Shuttle'],
+        power: ['Vertical Jump', 'Broad Jump', 'Hang Clean', 'Power Clean'],
+        strength: ['Squat', 'Bench', '225lb Bench'],
+        anthro: ['Weight', 'Height', 'Wingspan']
+    };
 
-    if (chartInstances[chartEl.id]) {
-        chartInstances[chartEl.id].destroy();
+    const category = barEl.id.replace('-chart', '').toLowerCase();
+    const metrics = statCategories[category];
+
+    const filteredStatNames = [];
+    const filteredPositionMedians = [];
+    const filteredPlayerStats = [];
+    const filteredPlayerPercentiles = [];
+
+    statNames.forEach((statName, index) => {
+        if (metrics.includes(statName)) {
+            filteredStatNames.push(statName);
+            filteredPositionMedians.push(positionMedians[index]);
+            filteredPlayerStats.push(playerStats[index]);
+            filteredPlayerPercentiles.push(playerPercentiles[index]);
+        }
+    });
+
+    let columns = [
+        ['x', ...filteredStatNames],
+        ['Player Percentiles', ...filteredPlayerPercentiles]
+    ];
+
+    if (barInstances[barEl.id]) {
+        console.log(`Destroying chart with id: ${barEl.id}`);
+        barInstances[barEl.id].destroy();
     }
 
-    const data = {
-        labels: statNames,
-        datasets: [
-            {
-                label: 'Player Percentiles',
-                data: playerPercentiles,
-                backgroundColor: getColor(),
-                borderColor: getColor(),
-                borderWidth: 1,
-                barThickness: 'flex',
-                maxBarThickness: 70,
-                borderRadius: 10,
-                borderSkipped: false,
-                minBarLength: 10
-            }
-        ]
-    };
+    const colors = getColor(filteredPlayerPercentiles);
 
-    const options = {
-        plugins: {
-            title: {
-                display: true,
-                text: "Athlete Percentiles",
-            },
-            legend: {
-                display: true,
-                labels: {
-                    generateLabels: function (chart) {
-                        return [
-                            {
-                                text: '80+ Percentile',
-                                fillStyle: 'rgba(0, 139, 139, 0.5)',
-                                strokeStyle: 'rgba(0, 139, 139, 0.5)',
-                                lineWidth: 1
-                            },
-                            {
-                                text: '60-79 Percentile',
-                                fillStyle: 'rgba(60, 179, 113, 0.5)',
-                                strokeStyle: 'rgba(60, 179, 113, 0.5)',
-                                lineWidth: 1
-                            },
-                            {
-                                text: '40-59 Percentile',
-                                fillStyle: 'rgba(255, 215, 0, 0.5)',
-                                strokeStyle: 'rgba(255, 215, 0, 0.5)',
-                                lineWidth: 1
-                            },
-                            {
-                                text: '20-39 Percentile',
-                                fillStyle: 'rgba(250, 128, 114, 0.5)',
-                                strokeStyle: 'rgba(250, 128, 114, 0.5)',
-                                lineWidth: 1
-                            },
-                            {
-                                text: '0-19 Percentile',
-                                fillStyle: 'rgba(220, 20, 60, 0.5)',
-                                strokeStyle: 'rgba(220, 20, 60, 0.5)',
-                                lineWidth: 1
-                            }
-                        ];
-                    }
+    barInstances[barEl.id] = bb.generate({
+        title: {
+            text: category.charAt(0).toUpperCase() + category.slice(1).toUpperCase()
+          },
+        data: {
+            x: 'x',
+            columns: columns,
+            type: 'bar',
+            color: function (color, d) {
+                if (d && d.index !== undefined) {
+                    return colors[d.index];
                 }
+                return color;
+            }
+        },
+        transition: {
+            duration: 100
+          },
+        bar: {
+            padding: 1,
+            radius: {
+                ratio: 0.2
             },
-            tooltip: {
-                usePointStyle: true,
-                callbacks: {
-                    label: function (context) {
-                        const index = context.dataIndex;
-                        const statName = context.label;
-                        const playerStat = playerStats[index];
-                        const positionMedian = positionMedians[index];
-                        const percentile = playerPercentiles[index];
-
-                        return [
-                            `${statName}`,
-                            `Player Stat: ${playerStat}`,
-                            `Position Median: ${positionMedian}`,
-                            `Percentile: ${percentile}%`
-                        ];
-                    },
-                    labelPointStyle: function (context) {
-                        return {
-                            pointStyle: 'star'
-                        };
+            width: {
+                ratio: 0.5,
+                max: 50,
+            }
+        },
+        axis: {
+            rotated: false,
+            x: {show: true,
+                type: 'category',
+                categories: filteredStatNames,
+            },
+            y: {
+                show: false,
+                max: 100,
+                padding: {
+                    top: 0,
+                    bottom: 0
+                },
+                tick: {
+                    show: true,
+                    text: {
+                      show: false
                     }
-                }
+                  }
             }
         },
-        indexAxis: 'y',
-        aspectRatio: 2,
-        scales: {
-            x: {
-                beginAtZero: true,
-                min: 0,
-                max: 100
-            }
+        legend: {
+            show: false
         },
-        elements: {
-            bar: {
-                minBarLength: 40
-            }
-        },
-        responsive: true
-    };
+        bindto: barEl
+    });
 
-    chartInstances[chartEl.id] = new Chart(chartEl, { type: 'bar', data, options });
-
-    function getColor() {
-        return playerPercentiles.map(percentile => {
+    function getColor(percentiles) {
+        return percentiles.map(percentile => {
             if (percentile >= 80) {
-                return 'rgba(0, 139, 139, 0.5)';
+                // darkcyan
+                return 'rgba(0, 139, 139, 0.7)';
             } else if (percentile >= 60) {
-                return 'rgba(60, 179, 113, 0.5)';
+                // gold
+                return 'rgba(255, 215, 0, 0.7)';
             } else if (percentile >= 40) {
-                return 'rgba(255, 215, 0, 0.5)';
-            } else if (percentile >= 20) {
-                return 'rgba(250, 128, 114, 0.5)';
+                // salmon
+                return 'rgba(250, 128, 114, 0.7)';
             } else {
-                return 'rgba(220, 20, 60, 0.5)';
+                return 'rgba(211, 211, 211, 0.7)';
             }
         });
     }
 }
 
-export { initChart };
+export { initBar };

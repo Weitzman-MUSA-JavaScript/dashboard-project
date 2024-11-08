@@ -4,7 +4,7 @@ body {
 }
 
 #page-name {
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: 100;
   color: #011f5b;
   margin-left: 1rem;
@@ -16,21 +16,21 @@ body {
   align-items: center;  
   justify-content: flex-start;
   color: #011f5b;
-  font-size: 0.6rem;
 }
 
 .header img {
   margin-left: 1rem;
-  width: 4rem;
+  margin-right: 1rem;
+  width: 3rem;
   align-self: center;
 }
 
 .benchmark-page {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: repeat(4, min-content);
-  gap: 40px;
+  grid-template-rows: repeat(4, 1fr);
   align-content: flex-start;
+  gap: 1rem;
 }
 
 .benchmark-menu {
@@ -38,7 +38,6 @@ body {
 }
 
 fieldset {
-  width: 100%;
   height: auto;
   text-align: left;
   text-justify: auto;
@@ -58,7 +57,7 @@ fieldset {
 }
 
 select {
-  width: 100%;
+  width: 60%;
   padding: 0.5rem;
   font-size: 1rem;
   font-weight: 100;
@@ -103,15 +102,26 @@ input[type="number"] {
 }
 
 .benchmark-chart-area {
+  display: grid;
+  grid-column: 2 / 6; 
+  grid-row: 1 / 4; 
+  grid-template-columns: repeat(3, 1fr); 
+  grid-template-rows: repeat(2, 1fr);   
+  height: 70vh;       
+  gap: 1.5rem;                                        
+}
+
+.pct-chart {
   display: flex;
   flex-direction: column;
-  grid-column: 2 / 7; 
-  grid-row: 1 / 4; 
-  justify-content: flex-start;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1rem;
+  background-color: white;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
 }
 
 #position-title {
-  margin-left: 5rem;
   font-size: 2rem;
   font-weight: 100;
   color: #011f5b;

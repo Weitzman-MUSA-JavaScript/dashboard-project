@@ -1,5 +1,5 @@
 function calculateChartData(indivStats, events) {
-    let playerPosition = "Defensive Back";  
+    let playerPosition = "DB";  
     let playerStats = [];
     let playerStatsValues = [];
     let positionStatsValues = [];
@@ -95,6 +95,9 @@ function calculateChartData(indivStats, events) {
     });
 
     function getCalculatedData() {
+
+        console.log("Player Stats", playerStats);
+        console.log("Player Percentiles", playerPercentiles);
         return {
             positionMedians,
             playerPercentiles,
