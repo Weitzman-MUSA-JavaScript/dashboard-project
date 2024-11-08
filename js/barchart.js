@@ -1,4 +1,5 @@
 import { Chart } from 'https://cdn.jsdelivr.net/npm/chart.js@4.4.4/auto/+esm';
+import { bb } from 'https://cdn.jsdelivr.net/npm/billboard.js@3.14.0/+esm';
 
 const chartInstances = {};
 
@@ -38,25 +39,34 @@ function initChart(chartEl, positionMedians, statNames, playerStats, playerPerce
                     generateLabels: function (chart) {
                         return [
                             {
-                                text: '75-100th Percentile',
+                                text: '80+ Percentile',
                                 fillStyle: 'rgba(0, 139, 139, 0.5)',
-                                strokeStyle: 'rgba(0, 139, 139, 1)',
-                                lineWidth: 1,
-                                hidden: false
+                                strokeStyle: 'rgba(0, 139, 139, 0.5)',
+                                lineWidth: 1
                             },
                             {
-                                text: '50-75th Percentile',
+                                text: '60-79 Percentile',
+                                fillStyle: 'rgba(60, 179, 113, 0.5)',
+                                strokeStyle: 'rgba(60, 179, 113, 0.5)',
+                                lineWidth: 1
+                            },
+                            {
+                                text: '40-59 Percentile',
                                 fillStyle: 'rgba(255, 215, 0, 0.5)',
-                                strokeStyle: 'rgba(255, 215, 0, 1)',
-                                lineWidth: 1,
-                                hidden: false
+                                strokeStyle: 'rgba(255, 215, 0, 0.5)',
+                                lineWidth: 1
                             },
                             {
-                                text: '0-50th Percentile',
+                                text: '20-39 Percentile',
                                 fillStyle: 'rgba(250, 128, 114, 0.5)',
-                                strokeStyle: 'rgba(250, 128, 114, 1)',
-                                lineWidth: 1,
-                                hidden: false
+                                strokeStyle: 'rgba(250, 128, 114, 0.5)',
+                                lineWidth: 1
+                            },
+                            {
+                                text: '0-19 Percentile',
+                                fillStyle: 'rgba(220, 20, 60, 0.5)',
+                                strokeStyle: 'rgba(220, 20, 60, 0.5)',
+                                lineWidth: 1
                             }
                         ];
                     }
@@ -108,12 +118,16 @@ function initChart(chartEl, positionMedians, statNames, playerStats, playerPerce
 
     function getColor() {
         return playerPercentiles.map(percentile => {
-            if (percentile >= 75) {
+            if (percentile >= 80) {
                 return 'rgba(0, 139, 139, 0.5)';
-            } else if (percentile >= 50) {
+            } else if (percentile >= 60) {
+                return 'rgba(60, 179, 113, 0.5)';
+            } else if (percentile >= 40) {
                 return 'rgba(255, 215, 0, 0.5)';
-            } else {
+            } else if (percentile >= 20) {
                 return 'rgba(250, 128, 114, 0.5)';
+            } else {
+                return 'rgba(220, 20, 60, 0.5)';
             }
         });
     }
