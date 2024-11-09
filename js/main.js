@@ -2,7 +2,6 @@ import { initBar } from './barchart.js';
 import { initStatEntry } from './stat_entry.js';
 import { calculateChartData } from './chart_data.js';
 import { initRadar } from './radar.js';
-//import { getStationReports } from './firebase.js';
 
 // Fetch data
 const indivStatsResponse = await fetch('data/stats_2020_2024.json');
@@ -32,7 +31,7 @@ const radarEl = document.querySelector('#radar-chart');
 
 // Render charts
 function updateCharts() {
-    const { positionMedians, playerPercentiles, playerStats, playerStatsValues } = chartData.getCalculatedData();
+    const { positionMedians, playerPercentiles, playerStats, playerStatsValues, categoryPercentiles } = chartData.getCalculatedData();
 
     initBar(strengthEl, positionMedians, playerStats, playerStatsValues, playerPercentiles);
     initBar(powerEl, positionMedians, playerStats, playerStatsValues, playerPercentiles);
@@ -40,7 +39,7 @@ function updateCharts() {
     initBar(agilityEl, positionMedians, playerStats, playerStatsValues, playerPercentiles);
     initBar(anthroEl, positionMedians, playerStats, playerStatsValues, playerPercentiles);
 
-    initRadar(radarEl, positionMedians, statNames, playerStats, playerPercentiles);
+    initRadar(radarEl, categoryPercentiles);
 }
 
 // Listen for changes in stat or position

@@ -5,11 +5,42 @@ function calculateChartData(indivStats, events) {
     let positionStatsValues = [];
     let positionMedians = [];
     let playerPercentiles = [];
+    let categoryPercentiles = [];
 
+    // Stats that are better when lower
     const inversePercentileStats = [
         'Flying 10', '10-Yard Sprint', '60-Yard Shuttle', 'L Drill', 'Pro Agility'
     ];
 
+    // Stat categories
+    const statCategories = {
+        speed: ['10-Yard Sprint', 'Flying 10'],
+        agility: ['Pro Agility', 'L Drill', '60-Yard Shuttle'],
+        power: ['Vertical Jump', 'Broad Jump', 'Hang Clean', 'Power Clean'],
+        strength: ['Squat', 'Bench', '225lb Bench']
+    };
+
+    // Calculate mean player percentile within each stat category
+    function getCategoryPercentiles() {
+        categoryPercentiles = [];
+        for (const category in statCategories) {
+        const statNames = statCategories[category];
+        const statIndexes = statNames.map(name => playerStats.indexOf(name));
+        const percentiles = statIndexes
+        .map(index => playerPercentiles[index])
+        .filter(value => value !== undefined);
+
+        const mean = percentiles.reduce((a, b) => a + b, 0) / percentiles.length;
+        let categoryPercentile = Math.round(mean);
+        // only return if there are defined values
+        if (!isNaN(categoryPercentile)) {
+        categoryPercentiles.push(categoryPercentile);
+    }
+}
+        return categoryPercentiles;
+    }
+
+    // Calculate player percentiles within position group
     function getPercentiles() {
         playerPercentiles = [];
       
@@ -32,6 +63,7 @@ function calculateChartData(indivStats, events) {
         return playerPercentiles;
     }
 
+    // Calculate position group medians (2020-2024)
     function getMedians() {
         positionMedians = [];
     
@@ -51,6 +83,7 @@ function calculateChartData(indivStats, events) {
         return positionMedians;
     }
 
+    // Handle stat changes
     function updatePositionStatsValues() {
         positionStatsValues = playerStats.map(statName => {
             return indivStats[playerPosition].map(item => item[statName]);
@@ -59,6 +92,7 @@ function calculateChartData(indivStats, events) {
         positionStatsValues = positionStatsValues.map(statArray => statArray.flat(1));
         getMedians();
         getPercentiles();
+        getCategoryPercentiles();
     }
 
     events.addEventListener('positionSelected', (evt) => {
@@ -92,17 +126,17 @@ function calculateChartData(indivStats, events) {
         positionStatsValues = positionStatsValues.map(statArray => statArray.flat(1));
         getMedians();
         getPercentiles();
+        getCategoryPercentiles();
     });
 
+    // Return calculated data for bar and radar chart render
     function getCalculatedData() {
-
-        console.log("Player Stats", playerStats);
-        console.log("Player Percentiles", playerPercentiles);
         return {
             positionMedians,
             playerPercentiles,
             playerStats,
             playerStatsValues,
+            categoryPercentiles
         };
     }
 

@@ -12,7 +12,6 @@ function initBar(barEl, positionMedians, statNames, playerStats, playerPercentil
 
     const category = barEl.id.replace('-chart', '').toLowerCase();
     const metrics = statCategories[category];
-
     const filteredStatNames = [];
     const filteredPositionMedians = [];
     const filteredPlayerStats = [];
@@ -33,7 +32,6 @@ function initBar(barEl, positionMedians, statNames, playerStats, playerPercentil
     ];
 
     if (barInstances[barEl.id]) {
-        console.log(`Destroying chart with id: ${barEl.id}`);
         barInstances[barEl.id].destroy();
     }
 
@@ -54,9 +52,6 @@ function initBar(barEl, positionMedians, statNames, playerStats, playerPercentil
                 return color;
             }
         },
-        transition: {
-            duration: 100
-          },
         bar: {
             padding: 1,
             radius: {

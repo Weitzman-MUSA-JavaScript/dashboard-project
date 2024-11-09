@@ -1,25 +1,39 @@
-//const radarInstances = {};
+const radarInstances = {};
 
-function initRadar(radarEl, positionMedians, statNames, playerStats, playerPercentiles) {
+function initRadar(radarEl, categoryPercentiles) {
 
+console.log("Category Percentiles", categoryPercentiles);
 
-//radarInstances[radarEl.id] 
-//= 
-bb.generate({
+let columns;
+
+if (categoryPercentiles.length < 4) {
+    columns = [
+        ['x', 'SPEED', 'AGILITY', 'POWER', 'STRENGTH'],
+        ['Position Group', 50, 50, 50, 50]
+    ];
+} else {
+columns = [
+    ['x', 'SPEED', 'AGILITY', 'POWER', 'STRENGTH'],
+    ['Athlete', ...categoryPercentiles]
+    ['Position Group', 50, 50, 50, 50]
+];
+}
+
+if (radarInstances[radarEl.id]) {
+    radarInstances[radarEl.id].destroy();
+} 
+
+radarInstances[radarEl.id] = bb.generate({
     title: {
         text: "ATHLETE PROFILE"
       },
         data: {
           x: "x",
-          columns: [
-          ["x", "Strength", "Power", "Speed", "Agility"],
-          ["Athlete", 80, 60, 30, 55],
-          ["Position Median", 50, 50, 50, 50],
-          ],
+          columns: columns,
           type: "radar", 
           labels: true,
           colors: {
-            "Position Median": "lightgray",
+            "Position Group": "lightgray",
             "Athlete": "magenta"
           }
         },
@@ -36,10 +50,6 @@ bb.generate({
         },
         bindto: "#radar-chart"
       });
-
-/*     if (radarInstances[radarEl.id]) {
-        radarInstances[radarEl.id].destroy();
-    } */
 
 }
 
