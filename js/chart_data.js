@@ -32,9 +32,11 @@ function calculateChartData(indivStats, events) {
 
         const mean = percentiles.reduce((a, b) => a + b, 0) / percentiles.length;
         let categoryPercentile = Math.round(mean);
-        // only return if there are defined values
+        // only return defined values
         if (!isNaN(categoryPercentile)) {
         categoryPercentiles.push(categoryPercentile);
+    } else {
+        categoryPercentiles.push(0);
     }
 }
         return categoryPercentiles;

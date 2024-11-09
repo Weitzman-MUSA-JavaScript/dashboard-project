@@ -3,12 +3,6 @@ body {
   color: #011f5b;
 }
 
-#page-name {
-  font-size: 2rem;
-  font-weight: 100;
-  color: #011f5b;
-  margin-left: 1rem;
-}
 
 .header {
   display: flex;
@@ -38,12 +32,8 @@ body {
 }
 
 fieldset {
-  height: auto;
   text-align: left;
-  text-justify: auto;
-  display: flex;
-  flex-direction: column;
-  background-color: rgba(0, 0, 0, 0.05);
+  justify-items: left;
   border-color: transparent;
   border-radius: 0.5em;
 }
@@ -51,14 +41,14 @@ fieldset {
 .benchmark-menu input {
   border-color: transparent;
   font-size: 1rem;
-  color: gray;
-  opacity: 0.5;
+  background-color: rgb(241, 241, 241);
+  border-radius: 0.5em;
   font-weight:lighter;
 }
 
 select {
-  width: 60%;
-  padding: 0.5rem;
+  width: 40%;
+  padding: 0.2rem;
   font-size: 1rem;
   font-weight: 100;
   color: #011f5b;
@@ -70,14 +60,11 @@ ul {
   list-style-type: none;
   font-weight: 100;
   font-size: 1rem;
-  text-align: left;
 }
 
 .input-wrapper {
   position: relative;
   width: 60%;
-  display: flex;
-  flex-direction: row;
   align-items: center;
   background-color: white;
   opacity: 0.75;
@@ -86,7 +73,6 @@ ul {
 
 input[type="number"] {
   width: 100%;
-  padding-right: 4rem;  
   box-sizing: border-box; 
   appearance: textfield;
 }
@@ -94,11 +80,8 @@ input[type="number"] {
 .unit {
   position: absolute;
   right: 0;  
-  width: 4rem;
-  color: #cdcbcb;
-  pointer-events: none;  
-  font-size: 0.9em;
-  z-index: 1;
+  width: 5rem;
+  color: #cdcbcb; 
 }
 
 .benchmark-chart-area {
@@ -129,4 +112,20 @@ input[type="number"] {
 
 input[type="number"]:invalid {
   color: red;
+}
+
+/* Billboard Charts */
+.bb-axis.bb-axis-x path.domain {
+    opacity: 0;
+}
+
+#radar-chart .bb-axis text {
+  fill: gray;
+  font-size: 0.8rem;
+  text-anchor: middle;
+}
+
+.bb-title {
+  fill: #011f5b;    
+  font-weight: 100;    
 }

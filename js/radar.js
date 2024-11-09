@@ -14,8 +14,8 @@ if (categoryPercentiles.length < 4) {
 } else {
 columns = [
     ['x', 'SPEED', 'AGILITY', 'POWER', 'STRENGTH'],
-    ['Athlete', ...categoryPercentiles],
-    ['Position Group', 50, 50, 50, 50]
+    ['Position Group', 50, 50, 50, 50],
+    ['Athlete', ...categoryPercentiles]
 ];
 }
 
@@ -33,8 +33,8 @@ radarInstances[radarEl.id] = bb.generate({
           type: "radar", 
           labels: true,
           colors: {
-            "Position Group": "darkcyan",
-            "Athlete": "salmon"
+            "Position Group": "black",
+            "Athlete": "darkcyan"
           }
         },
         radar: {
