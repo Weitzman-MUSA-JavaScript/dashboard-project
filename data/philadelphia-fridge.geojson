@@ -1,0 +1,750 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+      {
+        "type": "Feature",
+        "properties": {
+          "id": 1,
+          "type": "fridge",
+          "operatingStatus": "OPEN",
+          "nameNoSpace": "MAMA_TEE_ALCHEMY",
+          "name": "Mama Tee - Alchemy Hair Lab",
+          "addressStreet": "2401 E Letterly St",
+          "addressZIP": 19125,
+          "neighborhood": "Kensginton",
+          "website": "https://www.mamateefridge.com/",
+          "instagram": "https://www.instagram.com/mamateefridge/",
+          "contactPhone": "(215)585-2767",
+          "contactEmail": "hello@mama-tee.com"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -75.1228347703964,
+            39.979158941901254
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "id": 2,
+          "type": "donationHub",
+          "operatingStatus": "OPEN",
+          "nameNoSpace": "MAMA_TEE_NLNA",
+          "name": "Mama Tee - Northern Liberties Neighbors Association",
+          "addressStreet": "700 N 3rd St",
+          "addressZIP": 19123,
+          "neighborhood": "Northern Liberties",
+          "website": "https://www.mamateefridge.com/",
+          "instagram": "https://www.instagram.com/mamateefridge/",
+          "contactPhone": "(215)585-2767",
+          "contactEmail": "hello@mama-tee.com"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -75.14315843583583,
+            39.96253767988788
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "id": 3,
+          "type": "fridge",
+          "operatingStatus": "OPEN",
+          "nameNoSpace": "MAMA_TEE_MARTHA",
+          "name": "Mama Tee - Martha",
+          "addressStreet": "2113 E York St",
+          "addressZIP": 19125,
+          "neighborhood": "Kensington",
+          "website": "https://www.mamateefridge.com/",
+          "instagram": "https://www.instagram.com/mamateefridge/",
+          "contactPhone": "(215)585-2767",
+          "contactEmail": "hello@mama-tee.com"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -75.12810824257532,
+            39.982246744199394
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "id": 4,
+          "type": "fridge",
+          "operatingStatus": "OPEN",
+          "nameNoSpace": "MAMA_TEE_YMCA",
+          "name": "Mama Tee - YMCA",
+          "addressStreet": "1400 N Broad St",
+          "addressZIP": 19121,
+          "neighborhood": "North Philadelphia",
+          "website": "https://www.mamateefridge.com/",
+          "instagram": "https://www.instagram.com/mamateefridge/",
+          "contactPhone": "(215)585-2767",
+          "contactEmail": "hello@mama-tee.com"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -75.15919506877385,
+            39.97541941391065
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "id": 5,
+          "type": "fridge",
+          "operatingStatus": "OPEN",
+          "nameNoSpace": "MAMA_TEE_ST_CHRIS",
+          "name": "Mama Tee - St. Christopher's Hospital for Children",
+          "addressStreet": "160 E. Erie Ave",
+          "addressZIP": 19134,
+          "neighborhood": "North Philadelphia",
+          "website": "https://www.mamateefridge.com/",
+          "instagram": "https://www.instagram.com/mamateefridge/",
+          "contactPhone": "(215)585-2767",
+          "contactEmail": "hello@mama-tee.com"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -75.12544135598739,
+            40.006365284513834
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "id": 6,
+          "type": "fridge",
+          "operatingStatus": "OPEN",
+          "nameNoSpace": "MAMA_TEE_CASTELLINOS",
+          "name": "Mama Tee - Castellino's Italian Market",
+          "addressStreet": "1255 E Palmer St",
+          "addressZIP": 19125,
+          "neighborhood": "Fishtown",
+          "website": "https://www.mamateefridge.com/",
+          "instagram": "https://www.instagram.com/mamateefridge/",
+          "contactPhone": "(215)585-2767",
+          "contactEmail": "hello@mama-tee.com"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -75.12907057034919,
+            39.9723540223076
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "id": 7,
+          "type": "fridge",
+          "operatingStatus": "OPEN",
+          "nameNoSpace": "MAMA_TEE_CARIBE",
+          "name": "Mama Tee - Caribe Towers",
+          "addressStreet": "3231 N 2nd St",
+          "addressZIP": 19140,
+          "neighborhood": "Fairhill",
+          "website": "https://www.mamateefridge.com/",
+          "instagram": "https://www.instagram.com/mamateefridge/",
+          "contactPhone": "(215)585-2767",
+          "contactEmail": "hello@mama-tee.com"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -75.13293190325584,
+            40.00021056526235
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "id": 8,
+          "type": "fridge",
+          "operatingStatus": "OPEN",
+          "nameNoSpace": "MAMA_TEE_OPPTOWERS_I_II",
+          "name": "Mama Tee - Opportunity Towers I & II",
+          "addressStreet": "1717-27 W Hunting Park Ave",
+          "addressZIP": 19140,
+          "neighborhood": "Nicetown",
+          "website": "https://www.mamateefridge.com/",
+          "instagram": "https://www.instagram.com/mamateefridge/",
+          "contactPhone": "(215)585-2767",
+          "contactEmail": "hello@mama-tee.com"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -75.15604376797265,
+            40.01567635803588
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "id": 9,
+          "type": "fridge",
+          "operatingStatus": "OPEN",
+          "nameNoSpace": "MAMA_TEE_OPPTOWERS_III",
+          "name": "Mama Tee - Opportunity Towers III",
+          "addressStreet": "5524 Haverford Ave #60",
+          "addressZIP": 19139,
+          "neighborhood": "West Philadelphia",
+          "website": "https://www.mamateefridge.com/",
+          "instagram": "https://www.instagram.com/mamateefridge/",
+          "contactPhone": "(215)585-2767",
+          "contactEmail": "hello@mama-tee.com"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -75.23163388344318,
+            39.96830205162347
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "id": 10,
+          "type": "fridge",
+          "operatingStatus": "OPEN",
+          "nameNoSpace": "MAMA_TEE_HUE_BOBA",
+          "name": "Mama Tee - Hue Boba Cafe",
+          "addressStreet": "4600 Woodland Ave",
+          "addressZIP": 19143,
+          "neighborhood": "West Philadelphia",
+          "website": "https://www.mamateefridge.com/",
+          "instagram": "https://www.instagram.com/mamateefridge/",
+          "contactPhone": "(215)585-2767",
+          "contactEmail": "hello@mama-tee.com"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -75.2096614233497,
+            39.94435980184017
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "id": 11,
+          "type": "fridge",
+          "operatingStatus": "RELOCATING",
+          "nameNoSpace": "MAMA_TEE_308N",
+          "name": "Mama Tee - 308 N 39th St",
+          "addressStreet": "308 N 39th St",
+          "addressZIP": 19104,
+          "neighborhood": "West Philadelphia",
+          "website": "https://www.mamateefridge.com/",
+          "instagram": "https://www.instagram.com/mamateefridge/",
+          "contactPhone": "(215)585-2767",
+          "contactEmail": "hello@mama-tee.com"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -75.20009767116436,
+            39.95992291915161
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "id": 12,
+          "type": "fridge",
+          "operatingStatus": "OUT OF ORDER",
+          "nameNoSpace": "MAMA_TEE_234WINOA",
+          "name": "Mama Tee - 234 Winona St",
+          "addressStreet": "234 Winona St",
+          "addressZIP": 19144,
+          "neighborhood": "Germantown",
+          "website": "https://www.mamateefridge.com/",
+          "instagram": "https://www.instagram.com/mamateefridge/",
+          "contactPhone": "(215)585-2767",
+          "contactEmail": "hello@mama-tee.com"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -75.17645090006106,
+            40.028929797664
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "id": 13,
+          "type": "fridge",
+          "operatingStatus": "OUT OF ORDER",
+          "nameNoSpace": "MAMA_TEE_FAIRMOUNT_BICYCLES",
+          "name": "Mama Tee - Fairmount Bicycles",
+          "addressStreet": "2015 Fairmount Ave",
+          "addressZIP": 19130,
+          "neighborhood": "Fairmount",
+          "website": "https://www.mamateefridge.com/",
+          "instagram": "https://www.instagram.com/mamateefridge/",
+          "contactPhone": "(215)585-2767",
+          "contactEmail": "hello@mama-tee.com"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -75.17080491358195,
+            39.96763395338904
+          ]
+        },
+        "id": 12
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "id": 14,
+          "type": "fridge",
+          "operatingStatus": "OUT OF ORDER",
+          "nameNoSpace": "MAMA_TEE_MYERS",
+          "name": "Mama Tee - Myers Recreation Center",
+          "addressStreet": "5801 Kingsessing Ave",
+          "addressZIP": 19143,
+          "neighborhood": "Kingsessing",
+          "website": "https://www.mamateefridge.com/",
+          "instagram": "https://www.instagram.com/mamateefridge/",
+          "contactPhone": "(215)585-2767",
+          "contactEmail": "hello@mama-tee.com"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -75.22754377918093,
+            39.934848312100904
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "id": 15,
+          "type": "fridge",
+          "operatingStatus": "RELOCATING",
+          "nameNoSpace": "MAMA_TEE_PORCOS",
+          "name": "Mama Tee - Porcos",
+          "addressStreet": "2204 Washington Ave",
+          "addressZIP": 19146,
+          "neighborhood": "Point Breeze",
+          "website": "https://www.mamateefridge.com/",
+          "instagram": "https://www.instagram.com/mamateefridge/",
+          "contactPhone": "(215)585-2767",
+          "contactEmail": "hello@mama-tee.com"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -75.17892641458727,
+            39.9395039471014
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "id": 16,
+          "type": "pantry",
+          "operatingStatus": "OPEN",
+          "nameNoSpace": "SPCF_MIFFLIN_SQ_PARK",
+          "name": "S. Philly Community Fridge - Mifflin Square Park",
+          "addressStreet": "516 Wolf St",
+          "addressZIP": 19148,
+          "neighborhood": "Whitman",
+          "website": "https://southphillyfridge.com/",
+          "instagram": "https://www.instagram.com/southphlcommunityfridge/",
+          "contactPhone": null,
+          "contactEmail": "southphlcommunityfridge@gmail.com"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -75.15649237796072,
+            39.9196495972157
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "id": 17,
+          "type": "fridge",
+          "operatingStatus": "OPEN",
+          "nameNoSpace": "SPCF_BOK",
+          "name": "S. Philly Community Fridge - Bok Building",
+          "addressStreet": "1901 S 9th Street",
+          "addressZIP": 19148,
+          "neighborhood": "Wharton",
+          "website": "https://southphillyfridge.com/",
+          "instagram": "https://www.instagram.com/southphlcommunityfridge/",
+          "contactPhone": null,
+          "contactEmail": "southphlcommunityfridge@gmail.com"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -75.16026974055386,
+            39.927239629774775
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "id": 18,
+          "type": "fridge",
+          "operatingStatus": "OPEN",
+          "nameNoSpace": "SPCF_PEOPLES_KITCHEN",
+          "name": "S. Philly Community Fridge - The People's Kitchen",
+          "addressStreet": "1149 S 9th Street",
+          "addressZIP": 19147,
+          "neighborhood": "Little Saigon",
+          "website": "https://southphillyfridge.com/",
+          "instagram": "https://www.instagram.com/southphlcommunityfridge/",
+          "contactPhone": null,
+          "contactEmail": "southphlcommunityfridge@gmail.com"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -75.15854322751281,
+            39.93497097577099
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "id": 19,
+          "type": "pantry",
+          "operatingStatus": "OPEN",
+          "nameNoSpace": "SPCF_GROWING_TOGETHER",
+          "name": "S. Philly Community Fridge - Growing Together Garden",
+          "addressStreet": "2550 Reed Street",
+          "addressZIP": 19146,
+          "neighborhood": "Grays Ferry",
+          "website": "https://southphillyfridge.com/",
+          "instagram": "https://www.instagram.com/southphlcommunityfridge/",
+          "contactPhone": null,
+          "contactEmail": "southphlcommunityfridge@gmail.com"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -75.18731910826465,
+            39.93475787995097
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "id": 20,
+          "type": "pantry",
+          "operatingStatus": "OPEN",
+          "nameNoSpace": "SPCF_PORCOS",
+          "name": "S. Philly Community Fridge - Porco's",
+          "addressStreet": "1100 S 22nd Street",
+          "addressZIP": 19146,
+          "neighborhood": "Point Breeze",
+          "website": "https://southphillyfridge.com/",
+          "instagram": "https://www.instagram.com/southphlcommunityfridge/",
+          "contactPhone": null,
+          "contactEmail": "southphlcommunityfridge@gmail.com"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -75.18014594556378,
+            39.93965745838928
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "id": 21,
+          "type": "fridge",
+          "operatingStatus": "OPEN",
+          "nameNoSpace": "SPCF_LUHV",
+          "name": "S. Philly Community Fridge - LUHV Vegan Bistro",
+          "addressStreet": "1131 S 19th St",
+          "addressZIP": 19146,
+          "neighborhood": "Point Breeze",
+          "website": "https://southphillyfridge.com/",
+          "instagram": "https://www.instagram.com/southphlcommunityfridge/",
+          "contactPhone": null,
+          "contactEmail": "southphlcommunityfridge@gmail.com"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -75.17468179998701,
+            39.93778547959819
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "id": 22,
+          "type": "fridge",
+          "operatingStatus": "OPEN",
+          "nameNoSpace": "SPCF_DISILVESTRO",
+          "name": "S. Philly Community Fridge - DiSilvestro Playground",
+          "addressStreet": "1701 S 15th St",
+          "addressZIP": 19145,
+          "neighborhood": "Newbold",
+          "website": "https://southphillyfridge.com/",
+          "instagram": "https://www.instagram.com/southphlcommunityfridge/",
+          "contactPhone": null,
+          "contactEmail": "southphlcommunityfridge@gmail.com"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -75.17002823690957,
+            39.929984947690485
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "id": 22,
+          "type": "fridge",
+          "operatingStatus": "OPEN",
+          "nameNoSpace": "SPCF_DISILVESTRO",
+          "name": "S. Philly Community Fridge - DiSilvestro Playground",
+          "addressStreet": "1701 S 15th St",
+          "addressZIP": 19145,
+          "neighborhood": "Newbold",
+          "website": "https://southphillyfridge.com/",
+          "instagram": "https://www.instagram.com/southphlcommunityfridge/",
+          "contactPhone": null,
+          "contactEmail": "southphlcommunityfridge@gmail.com"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -75.17002823690957,
+            39.929984947690485
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "id": 23,
+          "type": "fridge",
+          "operatingStatus": "OPEN",
+          "nameNoSpace": "FAF_TEMPLE",
+          "name": "Fridges and Family - Temple University",
+          "addressStreet": "1940 Liacouras Walk",
+          "addressZIP": 19122,
+          "neighborhood": "North Philadelphia",
+          "website": "https://www.fridgesandfamily.com/",
+          "instagram": "https://www.instagram.com/fridgesandfamily/",
+          "contactPhone": null,
+          "contactEmail": null
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -75.15632593728832,
+            39.98317091993203
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "id": 24,
+          "type": "fridge",
+          "operatingStatus": "OPEN",
+          "nameNoSpace": "FAF_PEOPLES_KITCHEN",
+          "name": "Fridges and Family - People's Kitchen",
+          "addressStreet": "1149 S Ninth St",
+          "addressZIP": 19147,
+          "neighborhood": "North Philadelphia",
+          "website": "https://www.fridgesandfamily.com/",
+          "instagram": "https://www.instagram.com/fridgesandfamily/",
+          "contactPhone": null,
+          "contactEmail": null
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -75.158630629101,
+            39.93673497937184
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "id": 25,
+          "type": "fridge",
+          "operatingStatus": "OPEN",
+          "nameNoSpace": "GF_ARMAT",
+          "name": "Germantown Fridge - Armat St",
+          "addressStreet": "20 W Armat St",
+          "addressZIP": 19144,
+          "neighborhood": "Germantown",
+          "website": "https://www.germantowncommunityfridge.com/",
+          "instagram": "https://www.instagram.com/germantownfridge/",
+          "contactPhone": null,
+          "contactEmail": "germantownfridge@gmail.com"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -75.1745198629759,
+            40.03547901535805
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "id": 26,
+          "type": "fridge",
+          "operatingStatus": "OPEN",
+          "nameNoSpace": "GF_HIGH",
+          "name": "Germantown Fridge - High St",
+          "addressStreet": "19 E High St",
+          "addressZIP": 19144,
+          "neighborhood": "Germantown",
+          "website": "https://www.germantowncommunityfridge.com/",
+          "instagram": "https://www.instagram.com/germantownfridge/",
+          "contactPhone": null,
+          "contactEmail": "germantownfridge@gmail.com"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -75.17732834021388,
+            40.04140321264647
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "id": 27,
+          "type": "fridge",
+          "operatingStatus": "OPEN",
+          "nameNoSpace": "CORAL_STREET",
+          "name": "Coral Street Fridge",
+          "addressStreet": "4134 Lancaster Ave",
+          "addressZIP": 19104,
+          "neighborhood": "Haverford North",
+          "website": "https://coralstreetfridge.com/locations",
+          "instagram": "https://www.instagram.com/coralstreetfridge/",
+          "contactPhone": null,
+          "contactEmail": "coralstreetfridge@gmail.com"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -75.20641582171476,
+            39.96560563967202
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "id": 28,
+          "type": "fridge",
+          "operatingStatus": "OPEN",
+          "nameNoSpace": "EAST_FALLS",
+          "name": "East Falls Community Fridge",
+          "addressStreet": "3507 Midvale Ave",
+          "addressZIP": 19129,
+          "neighborhood": "East Falls",
+          "website": "https://eastfallscommunityfridge.com/",
+          "instagram": "https://www.instagram.com/eastfallscommunityfridge/",
+          "contactPhone": null,
+          "contactEmail": "eastfallscommunityfridge@gmail.com"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -75.19288909372281,
+            40.014892838284
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "id": 29,
+          "type": "fridge",
+          "operatingStatus": "OPEN",
+          "nameNoSpace": "UNITY",
+          "name": "commUNITY Fridge",
+          "addressStreet": "5312 Ridge Ave",
+          "addressZIP": 19128,
+          "neighborhood": "Manayunk",
+          "website": "https://unityjava.com/",
+          "instagram": "https://www.instagram.com/UnityJava",
+          "contactPhone": "(267)437-2152",
+          "contactEmail": "hello@unityjava.com"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -75.21030525507328,
+            40.022494725278314
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "id": 30,
+          "type": "fridge",
+          "operatingStatus": "OPEN",
+          "nameNoSpace": "FRIENDS_SELECT",
+          "name": "Friends Select School Fridge",
+          "addressStreet": "1651 Benjamin Franklin Pkwy",
+          "addressZIP": 19103,
+          "neighborhood": "Logan Square",
+          "website": "https://www.friends-select.org/",
+          "instagram": "https://www.instagram.com/friendsselectschool/",
+          "contactPhone": "(215)561-5900",
+          "contactEmail": null
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -75.16705613252189,
+            39.95739131237782
+          ]
+        }
+      }
+    ]
+  }

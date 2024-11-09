@@ -1,0 +1,138 @@
+body {
+  margin: 0; 
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+html {
+  font-size: 24px;
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+.map-section {
+  position: relative;
+  width: 100%;
+  height: 50vh; 
+  background-color: beige;
+  flex: 1;
+}
+
+.map-search-controls {
+  position: absolute; 
+  z-index: 10; 
+  background-color: rgba(255 255 255 0); 
+  border: transparent;
+  top: 2px; 
+  left: 35px;
+}
+
+.map-search-controls input {
+  font-size: medium;
+}
+
+.map {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.fridge-list-section {
+  background-color: beige;
+  color: rgb(66 31 9);
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.fridge-list-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.fridge-list-container {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.fridge-list-section h4 {
+  padding: 0;
+}
+
+.fridge-search-controls {
+  z-index: 10;
+  border: 0;
+  padding: 0;
+  border-color: transparent;
+  font-size: medium;
+}
+
+#fridge-type {
+  color: rgb(66 31 9); 
+  border-color: rgb(66 31 9);
+}
+
+.fridge-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: left;
+}
+
+.fridge-list .fridge {
+  display: grid;
+  grid-template-areas: "header  header  header distance"
+                       "address address blank  blank";
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+
+  padding: 0.5rem;
+  border-bottom: 1px solid rgb(66 31 9);
+}
+
+.fridge-list .fridge .fridge-name {
+  grid-area: header;
+  font-size: medium;
+  font-weight: bold;
+  color: darkgoldenrod;
+  text-align: left;
+  flex: 1;
+}
+
+.fridge-list .fridge .fridge-distance {
+  grid-area: distance;
+  font-size: small;
+  justify-self: end;
+}
+
+.fridge-list .fridge .fridge-address {
+  grid-area: address;
+  font-size: small;
+  text-align: left;
+}
+
+.custom-tooltip {
+  max-width: 75%; 
+  white-space: normal; 
+  word-wrap: break-word;
+  overflow-wrap: break-word; 
+  position: relative;
+}
+
+.user-location-icon .pulse-outline{
+  stroke: rgb(66 31 9);
+}
+
+.user-location-icon .center-circle{
+  fill: rgb(66 31 9);
+}
