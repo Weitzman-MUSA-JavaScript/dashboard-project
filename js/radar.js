@@ -8,13 +8,13 @@ let columns;
 
 if (categoryPercentiles.length < 4) {
     columns = [
-        ['x', 'SPEED', 'AGILITY', 'POWER', 'STRENGTH'],
-        ['Position Group', 50, 50, 50, 50]
+        ['x', 'speed', 'agility', 'power', 'strength'],
+        ['Position Median', 50, 50, 50, 50]
     ];
 } else {
 columns = [
-    ['x', 'SPEED', 'AGILITY', 'POWER', 'STRENGTH'],
-    ['Position Group', 50, 50, 50, 50],
+    ['x', 'speed', 'agility', 'power', 'strength'],
+    ['Position Median', 50, 50, 50, 50],
     ['Athlete', ...categoryPercentiles]
 ];
 }
@@ -25,7 +25,7 @@ if (radarInstances[radarEl.id]) {
 
 radarInstances[radarEl.id] = bb.generate({
     title: {
-        text: "ATHLETE PROFILE"
+        text: "Athlete Profile"
       },
         data: {
           x: "x",
@@ -33,7 +33,7 @@ radarInstances[radarEl.id] = bb.generate({
           type: "radar", 
           labels: true,
           colors: {
-            "Position Group": "black",
+            "Position Median": "black",
             "Athlete": "darkcyan"
           }
         },

@@ -39,7 +39,7 @@ function initBar(barEl, positionMedians, statNames, playerStats, playerPercentil
 
     barInstances[barEl.id] = bb.generate({
         title: {
-            text: category.charAt(0).toUpperCase() + category.slice(1).toUpperCase()
+            text: category.charAt(0).toUpperCase() + category.slice(1)
           },
         data: {
             x: 'x',

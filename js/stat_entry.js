@@ -21,6 +21,9 @@ function initStatEntry(statListEl, positionRadioEl, stats, positions, events) {
       seconds: ['10-Yard Sprint', '60-Yard Shuttle', 'L Drill', 'Pro Agility', 'Flying 10']
   };
 
+  const positionQualities = {
+  };
+
   function getUnit(stat) {
       if (unitMapping.pounds.includes(stat)) {
           return 'pounds';

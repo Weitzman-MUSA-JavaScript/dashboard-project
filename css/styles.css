@@ -3,7 +3,6 @@ body {
   color: #011f5b;
 }
 
-
 .header {
   display: flex;
   flex-direction: row;
@@ -24,7 +23,7 @@ body {
   grid-template-columns: repeat(6, 1fr);
   grid-template-rows: repeat(4, 1fr);
   align-content: flex-start;
-  gap: 1rem;
+  gap: 0rem;
 }
 
 .benchmark-menu {
@@ -32,10 +31,9 @@ body {
 }
 
 fieldset {
-  text-align: left;
-  justify-items: left;
   border-color: transparent;
   border-radius: 0.5em;
+  width: 70%;
 }
 
 .benchmark-menu input {
@@ -58,6 +56,7 @@ select {
 
 ul {
   list-style-type: none;
+  padding-left: 0;
   font-weight: 100;
   font-size: 1rem;
 }
@@ -122,10 +121,25 @@ input[type="number"]:invalid {
 #radar-chart .bb-axis text {
   fill: gray;
   font-size: 0.8rem;
+  font-weight: 100;
   text-anchor: middle;
 }
 
 .bb-title {
   fill: #011f5b;    
   font-weight: 100;    
+}
+
+/* Radar Chart */
+.bb-level > polygon:nth-child(1) {
+  opacity: 0.3;
+}
+
+.bb-axis-0 > line:nth-child(1) {
+  opacity: 0.5;
+}
+
+
+.bb-level > text:nth-child(2) {
+  opacity: 0;
 }
