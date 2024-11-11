@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <title>Inundation Impact in Downtown Montpelier, Vermont</title>
+</head>
+<body>
+    <div id="dashboard-container">
+        <div id="title">
+            <h1>Inundation Impact in Downtown Montpelier, Vermont</h1>
+        </div>
+        <div id="container">
+            <div id="map"></div>
+            <div id="stats-panel">
+                <div id="slider-container">
+                    <label for="water-level-slider">Water Level (feet):</label>
+                    <input type="range" id="water-level-slider" min="515" max="526" step="1" value="515">
+                </div>
+                <div id="info-container">
+                    <p><strong>Hint:</strong> Drag slider to select a flood water level; Click on parcels to show detailed information.</p>
+                    <p><strong>Selected Water Level:</strong> <span id="current-level">515</span> ft</p>
+                    <p><strong>Flood Impacts:</strong> <span id="corresponding-year">Unknown.</span></p>
+                    <p><strong>Total Impacted Parcels:</strong> <span id="inundated-parcels">0</span></p>
+                    <p><strong>Total Impacted Parcel Value:</strong> <span id="total-value">$0</span></p>
+                    <p><strong>For the selected parcel:</strong></p>
+                </div>
+                <div id="parcel-info-table" style="margin-top: 1vh;">                   
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="scripts.js"></script>
+</body>
+</html>
