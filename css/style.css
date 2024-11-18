@@ -1,0 +1,80 @@
+* {
+  box-sizing: border-box;
+  outline: 1px solid red;
+}
+
+html {
+  font-size: 16px;
+  font-family: Roboto, sans-serif;
+}
+
+body {
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+main {
+  display: grid;
+  grid-template-areas: "header header"
+                        "map list"
+                        "map chart";
+  grid-template-rows: auto 0.7fr 0.3fr;
+  grid-template-columns: 0.8fr 0.2fr;
+  height: 100%;
+}
+
+.header {
+  grid-area: header;
+  background-color: black;
+
+  color: white;
+}
+
+.header h1 {
+  padding-left: 1rem;
+}
+
+/*
+// for map section
+*/
+.map {
+  grid-area: map;
+}
+
+.map .type-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+/* 
+// for list section
+*/
+.list {
+  grid-area: list;
+}
+
+.list .poi-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.list .poi-list button {
+  display: grid;
+  grid-template-areas: "name name"
+                        "subcategory time";
+}
+
+/*
+// for chart section
+*/
+.chart {
+  grid-area: chart;
+}
+
+.footnote {
+  position: absolute;
+  margin: 0;
+  bottom: 0;
+}

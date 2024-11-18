@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <!-- Code to fit device access-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Yellow Stone National Park</title>
+    <!-- Link to Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <!-- Link to leaflet CSS file -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""/>
+    <!-- Link to CSS file -->
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+
+  <body>
+    <main>
+      <header class="header">
+        <h1>Yellow Stone National Park</h1>
+      </header>
+
+      <div id="map" class="map">
+        <ul id="type-list" class="type-list">
+          <li>
+            <button class="type" value="Commerce">
+              <img></img>
+              <span>Commerce</span>
+            </button>
+          </li>
+          <li>
+            <button class="type" value="Mountain">
+              <img></img>
+              <span>Mountain</span>
+            </button>
+          </li>
+          <li>
+            <button class="type" value="Recreation">
+              <img></img>
+              <span>Recreation</span>
+            </button>
+          </li>
+          <li>
+            <button class="type" value="Restroom">
+              <img></img>
+              <span>Restroom</span>
+            </button>
+          </li>
+          <li>
+            <button class="type" value="Service">
+              <img></img>
+              <span>Servic</span>
+            </button>
+          </li>
+          <li>
+            <button class="type" value="Tourism">
+              <img></img>
+              <span>Tourism</span>
+            </button>
+          </li>
+          <li>
+            <button class="type" value="Transportation">
+              <img></img>
+              <span>Transportation</span>
+            </button>
+          </li>
+          <li>
+            <button class="type" value="Water">
+              <img></img>
+              <span>Water</span>
+            </button>
+          </li>
+        </ul>
+
+        <div id="map-container" class="map-container"></div>
+      </div>
+
+      <div id="list" class="list">
+        <fieldset>
+          <legend>Choose Filtering Method</legend>
+
+          <input class="poi-search" name="poi-search" aria-label="Search for a point of interest" placeholder="Search for a point of interest...">
+        </fieldset>
+
+        <ul id="poi-list" class="poi-list">
+          <li>
+            <button class="poi" value="Grebe Lake Trailhead Parking">
+              <span class="name">Grebe Lake Trailhead Parking</span>
+              <span class="subcategory">Parking Lot</span>
+              <span class="time">~10mins</span>
+            </button>
+          </li>
+          <li>
+            <button class="poi" value="Grebe Lake Trailhead Parking">
+              <span class="name">Grebe Lake Trailhead Parking</span>
+              <span class="subcategory">Parking Lot</span>
+              <span class="time">~10mins</span>
+            </button>
+          </li>
+          <li>
+            <button class="poi" value="Grebe Lake Trailhead Parking">
+              <span class="name">Grebe Lake Trailhead Parking</span>
+              <span class="subcategory">Parking Lot</span>
+              <span class="time">~10mins</span>
+            </button>
+          </li>
+          <li>
+            <button class="poi" value="Grebe Lake Trailhead Parking">
+              <span class="name">Grebe Lake Trailhead Parking</span>
+              <span class="subcategory">Parking Lot</span>
+              <span class="time">~10mins</span>
+            </button>
+          </li>
+          <li>
+            <button class="poi" value="Grebe Lake Trailhead Parking">
+              <span class="name">Grebe Lake Trailhead Parking</span>
+              <span class="subcategory">Parking Lot</span>
+              <span class="time">~10mins</span>
+            </button>
+          </li>
+          <li>
+            <button class="poi" value="Grebe Lake Trailhead Parking">
+              <span class="name">Grebe Lake Trailhead Parking</span>
+              <span class="subcategory">Parking Lot</span>
+              <span class="time">~10mins</span>
+            </button>
+          </li>
+          <li>
+            <button class="poi" value="Grebe Lake Trailhead Parking">
+              <span class="name">Grebe Lake Trailhead Parking</span>
+              <span class="subcategory">Parking Lot</span>
+              <span class="time">~10mins</span>
+            </button>
+          </li>
+        </ul>
+      </div>
+
+      <div id="chart" class="chart">
+
+      </div>
+    </main>
+
+    <footer>
+      <p id="footnote" class="footnote">
+        <strong>Data Source:</strong>
+      </p>
+    </footer>
+    
+    <!-- Link to leaflet JS file -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""></script>
+    <!-- Link to JS file -->
+    <script type="module" src="js/main.js"></script>
+  </body>
+</html>
