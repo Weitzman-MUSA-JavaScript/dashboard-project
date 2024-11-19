@@ -1,8 +1,15 @@
+/*
+// for universal selector
+*/
 * {
   box-sizing: border-box;
   outline: 1px solid red;
 }
 
+
+/*
+// for html and body
+*/
 html {
   font-size: 16px;
   font-family: Roboto, sans-serif;
@@ -15,16 +22,24 @@ body {
   overflow: hidden;
 }
 
+
+/*
+// for main
+*/
 main {
   display: grid;
   grid-template-areas: "header header"
-                        "map list"
-                        "map chart";
+                        "map-section list-section"
+                        "map-section chart-section";
   grid-template-rows: auto 0.7fr 0.3fr;
   grid-template-columns: 0.8fr 0.2fr;
   height: 100%;
 }
 
+
+/*
+// for header
+*/
 .header {
   grid-area: header;
   background-color: black;
@@ -36,43 +51,52 @@ main {
   padding-left: 1rem;
 }
 
+
 /*
 // for map section
 */
-.map {
-  grid-area: map;
+.map-section {
+  grid-area: map-section;
 }
 
-.map .type-list {
+/* for poi type list */
+.map-section .type-list {
   list-style-type: none;
   padding: 0;
 }
+
 
 /* 
 // for list section
 */
-.list {
-  grid-area: list;
+.list-section {
+  grid-area: list-section;
 }
 
-.list .poi-list {
+/* for poi list */
+.list-section .poi-list {
   list-style-type: none;
   padding: 0;
 }
 
-.list .poi-list button {
+.list-section .poi-list .poi {
   display: grid;
-  grid-template-areas: "name name"
-                        "subcategory time";
+  grid-template-areas: "poi-name poi-name"
+                        "poi-subcategory poi-time";
 }
+
 
 /*
 // for chart section
 */
-.chart {
-  grid-area: chart;
+.chart-section {
+  grid-area: chart-section;
 }
 
+
+/*
+// for footer
+*/
 .footnote {
   position: absolute;
   margin: 0;
