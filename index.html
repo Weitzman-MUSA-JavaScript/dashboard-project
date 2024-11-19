@@ -25,62 +25,62 @@
         <h1>Yellow Stone National Park</h1>
       </header>
 
-      <div id="map" class="map">
-        <ul id="type-list" class="type-list">
+      <section id="map-section" class="map-section" aria-label="Interactive Map Section">
+        <div id="map-container" class="map-container"></div>
+
+        <ul id="type-list" class="type-list" aria-label="Map Filter Options">
           <li>
-            <button class="type" value="Commerce">
-              <img></img>
-              <span>Commerce</span>
+            <button class="type" data-type="Commerce" aria-pressed="false">
+              <img class="button-icon" src="" alt="" aria-hidden="true" />
+              <span class="button-text">Commerce</span>
             </button>
           </li>
           <li>
-            <button class="type" value="Mountain">
-              <img></img>
-              <span>Mountain</span>
+            <button class="type" data-type="Mountain" aria-pressed="false">
+              <img class="button-icon" src="" alt="" aria-hidden="true" />
+              <span class="button-text">Mountain</span>
             </button>
           </li>
           <li>
-            <button class="type" value="Recreation">
-              <img></img>
-              <span>Recreation</span>
+            <button class="type" data-type="Recreation" aria-pressed="false">
+              <img class="button-icon" src="" alt="" aria-hidden="true" />
+              <span class="button-text">Recreation</span>
             </button>
           </li>
           <li>
-            <button class="type" value="Restroom">
-              <img></img>
-              <span>Restroom</span>
+            <button class="type" data-type="Restroom" aria-pressed="false">
+              <img class="button-icon" src="" alt="" aria-hidden="true" />
+              <span class="button-text">Restroom</span>
             </button>
           </li>
           <li>
-            <button class="type" value="Service">
-              <img></img>
-              <span>Servic</span>
+            <button class="type" data-type="Service" aria-pressed="false">
+              <img class="button-icon" src="" alt="" aria-hidden="true" />
+              <span class="button-text">Service</span>
             </button>
           </li>
           <li>
-            <button class="type" value="Tourism">
-              <img></img>
-              <span>Tourism</span>
+            <button class="type" data-type="Tourism" aria-pressed="false">
+              <img class="button-icon" src="" alt="" aria-hidden="true" />
+              <span class="button-text">Tourism</span>
             </button>
           </li>
           <li>
-            <button class="type" value="Transportation">
-              <img></img>
-              <span>Transportation</span>
+            <button class="type" data-type="Transportation" aria-pressed="false">
+              <img class="button-icon" src="" alt="" aria-hidden="true" />
+              <span class="button-text">Transportation</span>
             </button>
           </li>
           <li>
-            <button class="type" value="Water">
-              <img></img>
-              <span>Water</span>
+            <button class="type" data-type="Water" aria-pressed="false">
+              <img class="button-icon" src="" alt="" aria-hidden="true" />
+              <span class="button-text">Water</span>
             </button>
           </li>
         </ul>
+      </section>
 
-        <div id="map-container" class="map-container"></div>
-      </div>
-
-      <div id="list" class="list">
+      <section id="list-section" class="list-section">
         <fieldset>
           <legend>Choose Filtering Method</legend>
 
@@ -90,7 +90,7 @@
         <ul id="poi-list" class="poi-list">
           <li>
             <button class="poi" value="Grebe Lake Trailhead Parking">
-              <span class="name">Grebe Lake Trailhead Parking</span>
+              <span class="name">Grebe Lake Trailhead Parking</span>  
               <span class="subcategory">Parking Lot</span>
               <span class="time">~10mins</span>
             </button>
@@ -138,11 +138,11 @@
             </button>
           </li>
         </ul>
-      </div>
+      </section>
 
-      <div id="chart" class="chart">
+      <section id="chart-section" class="chart-section">
 
-      </div>
+      </section>
     </main>
 
     <footer>
