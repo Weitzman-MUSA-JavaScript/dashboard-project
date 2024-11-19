@@ -5,8 +5,8 @@ async function loadPoisData() {
   const boundary = boundaryCollection.features[0];
 
   // Load the pois data...
-  // The POIs data has been pre-processed in Python and the script is called `pois_data_process.ipynb`.
-  const poisResponse = await fetch('data/YS_POIs.geojson');
+  // The POIs data has been pre-processed in Python and the script is called `data/pois_data_process.ipynb`.
+  const poisResponse = await fetch('data/YS_POIs_Cleaned.geojson');
   const poisCollection = await poisResponse.json();
   const pois = poisCollection.features;
 

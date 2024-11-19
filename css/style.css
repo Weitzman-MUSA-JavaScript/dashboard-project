@@ -59,6 +59,12 @@ main {
   grid-area: map-section;
 }
 
+/* for map */
+.map-section .map-container {
+  height: 100%;
+  width: 100%;
+}
+
 /* for poi type list */
 .map-section .type-list {
   list-style-type: none;

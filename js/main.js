@@ -6,8 +6,8 @@ Custom event types:
 ~~~~~~~~~~~~~~~~~~~
 - typeselected: .
   Detail: {
-    name (string): 
-    selected (boolean): 
+    name (string): x
+    selected (boolean): x
   }
 */
 const events = new EventTarget();
