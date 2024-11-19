@@ -6,7 +6,7 @@
     <!-- Code to fit device access-->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Yellow Stone National Park</title>
+    <title>Yellowstone National Park</title>
     <!-- Link to Google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,7 +22,7 @@
   <body>
     <main>
       <header class="header">
-        <h1>Yellow Stone National Park</h1>
+        <h1>Yellowstone National Park</h1>
       </header>
 
       <section id="map-section" class="map-section" aria-label="Interactive Map Section">
@@ -83,58 +83,30 @@
       <section id="list-section" class="list-section">
         <fieldset>
           <legend>Choose Filtering Method</legend>
-
-          <input class="poi-search" name="poi-search" aria-label="Search for a point of interest" placeholder="Search for a point of interest...">
+          
+          <div class="filter-methods">
+            <label>
+              <input type="radio" name="filter-method" value="name" checked>
+              <span>By POI Name</span>
+            </label>
+            <label>
+              <input type="radio" name="filter-method" value="subcategory">
+              <span>By subcategory</span>
+            </label>
+          </div>
+      
+          <div class="search-container">
+            <input class="poi-search" type="text" name="poi-search" aria-label="Search for a point of interest" placeholder="Search for a point of interest...">
+            <button id="clear-button" type="button" aria-label="Clear text field" &times;></button>
+          </div>
         </fieldset>
 
         <ul id="poi-list" class="poi-list">
           <li>
-            <button class="poi" value="Grebe Lake Trailhead Parking">
-              <span class="name">Grebe Lake Trailhead Parking</span>  
-              <span class="subcategory">Parking Lot</span>
-              <span class="time">~10mins</span>
-            </button>
-          </li>
-          <li>
-            <button class="poi" value="Grebe Lake Trailhead Parking">
-              <span class="name">Grebe Lake Trailhead Parking</span>
-              <span class="subcategory">Parking Lot</span>
-              <span class="time">~10mins</span>
-            </button>
-          </li>
-          <li>
-            <button class="poi" value="Grebe Lake Trailhead Parking">
-              <span class="name">Grebe Lake Trailhead Parking</span>
-              <span class="subcategory">Parking Lot</span>
-              <span class="time">~10mins</span>
-            </button>
-          </li>
-          <li>
-            <button class="poi" value="Grebe Lake Trailhead Parking">
-              <span class="name">Grebe Lake Trailhead Parking</span>
-              <span class="subcategory">Parking Lot</span>
-              <span class="time">~10mins</span>
-            </button>
-          </li>
-          <li>
-            <button class="poi" value="Grebe Lake Trailhead Parking">
-              <span class="name">Grebe Lake Trailhead Parking</span>
-              <span class="subcategory">Parking Lot</span>
-              <span class="time">~10mins</span>
-            </button>
-          </li>
-          <li>
-            <button class="poi" value="Grebe Lake Trailhead Parking">
-              <span class="name">Grebe Lake Trailhead Parking</span>
-              <span class="subcategory">Parking Lot</span>
-              <span class="time">~10mins</span>
-            </button>
-          </li>
-          <li>
-            <button class="poi" value="Grebe Lake Trailhead Parking">
-              <span class="name">Grebe Lake Trailhead Parking</span>
-              <span class="subcategory">Parking Lot</span>
-              <span class="time">~10mins</span>
+            <button class="poi" data-name="Grebe Lake Trailhead Parking" data-subcategory="Parking Lot",>
+              <span class="poi-name">Grebe Lake Trailhead Parking</span>  
+              <span class="poi-subcategory">Parking Lot</span>
+              <span class="poi-time">~10mins</span>
             </button>
           </li>
         </ul>
@@ -145,7 +117,7 @@
       </section>
     </main>
 
-    <footer>
+    <footer role="contentinfo">
       <p id="footnote" class="footnote">
         <strong>Data Source:</strong>
       </p>
