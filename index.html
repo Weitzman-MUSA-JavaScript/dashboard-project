@@ -3,10 +3,10 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <!-- Code to fit device access-->
+    <!-- Responsive design for different devices -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Yellowstone National Park</title>
+    <title>Yellowstone National Park - Visitor Information and Attractions</title>
     <!-- Link to Google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,18 +17,25 @@
     crossorigin=""/>
     <!-- Link to CSS file -->
     <link rel="stylesheet" href="css/style.css">
+
+    <!-- Link to favicon -->
+    <link rel="icon" href="" type="image/x-icon">
   </head>
 
   <body>
     <main>
+      <!-- Add a header for the page title -->
       <header class="header">
         <h1>Yellowstone National Park</h1>
       </header>
 
-      <section id="map-section" class="map-section" aria-label="Interactive Map Section">
+      <!-- Add a section for poi map -->
+      <section id="map-section" class="map-section" aria-label="Yellowstone National Park Interactive Map">
+        <!-- Add a container for the map -->
         <div id="map-container" class="map-container"></div>
 
-        <ul id="type-list" class="type-list" aria-label="Map Filter Options">
+        <!-- Add a list of button for filtering different types of poi -->
+        <ul id="type-list" class="type-list" aria-label="Filter options for the interactive map">
           <li>
             <button class="type" data-type="Commerce" aria-pressed="false">
               <img class="button-icon" src="" alt="" aria-hidden="true" />
@@ -80,7 +87,9 @@
         </ul>
       </section>
 
+      <!-- Add a section for poi list -->
       <section id="list-section" class="list-section">
+        <!-- Add a fieldset for poi filtering method -->
         <fieldset>
           <legend>Choose Filtering Method</legend>
           
@@ -97,13 +106,14 @@
       
           <div class="search-container">
             <input class="poi-search" type="text" name="poi-search" aria-label="Search for a point of interest" placeholder="Search for a point of interest...">
-            <button id="clear-button" type="button" aria-label="Clear text field" &times;></button>
+            <button id="clear-button" type="button" aria-label="Clear text field">&times;</button>
           </div>
         </fieldset>
 
-        <ul id="poi-list" class="poi-list">
+        <!-- Dynamically updated list of Points of Interest (POIs) by JS -->
+        <ul id="poi-list" class="poi-list" aria-label="List of Points of Interest">
           <li>
-            <button class="poi" data-name="Grebe Lake Trailhead Parking" data-subcategory="Parking Lot",>
+            <button class="poi" data-name="Grebe Lake Trailhead Parking" data-subcategory="Parking Lot">
               <span class="poi-name">Grebe Lake Trailhead Parking</span>  
               <span class="poi-subcategory">Parking Lot</span>
               <span class="poi-time">~10mins</span>
@@ -112,12 +122,14 @@
         </ul>
       </section>
 
+      <!-- Add a section for schedule chart -->
       <section id="chart-section" class="chart-section">
 
       </section>
     </main>
 
-    <footer role="contentinfo">
+    <!-- Add a footer for data source-->
+    <footer>
       <p id="footnote" class="footnote">
         <strong>Data Source:</strong>
       </p>
