@@ -19,4 +19,5 @@ const { boundary, pois } = await loadPoisData();
 
 // Create the map...
 const mapEl = document.querySelector('#map-container');
+// eslint-disable-next-line no-unused-vars
 const map = initMap(mapEl, boundary, pois, events);
