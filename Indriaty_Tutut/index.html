@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Land Acquisition Process</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="popup-container" class="popup">
+        <div class="popup-content">
+            <!-- Close button -->
+            <button class="close-btn" id="close-popup">×</button>
+    
+            <!-- Popup content -->
+            <h1>Welcome to Land Acquisition Process Dashboard</h1>
+            <h3>For Serpong-Balaraja Toll Road</h3>
+            <p>The land acquisition progress for each land can be seen by:</p>
+            <ol>
+                <li>Searching the village where your land is located</li>
+                <li>Typing the number of your NUB</li>
+                <li>Clicking the search button to view the details</li>
+            </ol>
+        </div>
+    </div>
+
+    <div id="dashboard">
+        <div id="map-container">
+            <div id="search-container">
+                <label for="village-select">Village Administration:</label>
+                <select id="village-select">
+                    <option value="">--Select Village--</option>
+                </select>
+                <label for="nub-input">ID:</label>
+                <input type="text" id="nub-input" placeholder="Enter ID">
+                <button id="search-btn">Search</button>
+            </div>
+            <div id="map"></div>
+        </div>
+        <div id="info-panel">
+            <h2>Land Description</h2>
+            <p><strong>Village Adm:</strong> <span id="village-info"></span></p>
+            <p><strong>ID:</strong> <span id="id-info"></span></p>
+            <p><strong>Process:</strong> <span id="process-info"></span></p>
+            <p><strong>Area (m²):</strong> <span id="area-info"></span></p>
+            <p><strong>Report/Complaint:</strong></p>
+            <input type="file" id="file-input" accept=".doc, .docx, .pdf">
+            <button id="submit-btn">Submit</button>
+        </div>
+    </div>
+
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
+    <script src="main.js" defer></script>
+</body>
+</html>
