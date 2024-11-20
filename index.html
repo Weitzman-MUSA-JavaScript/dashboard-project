@@ -30,7 +30,7 @@
     </header>
 
     <main>
-      <!-- Add a section for poi map -->
+      <!-- Left part for the map and poi type filtering -->
       <div class="left-part">
         <!-- Add a container for the map -->
         <div id="map" class="map" aria-label="Yellowstone National Park Interactive Map"></div>
@@ -64,6 +64,7 @@
         </ul>
       </div>
 
+      <!-- Right part for the poi list and schedule chart -->
       <div class="right-part">
         <!-- Add a fieldset for poi filtering method -->
         <fieldset class="search-section" aria-labelledby="poi-filter-legend">
@@ -88,7 +89,7 @@
 
         <!-- Add a section for list of poi -->
         <section class="list-section">
-          <!-- Add a heading for the type of POI -->
+          <!-- Add a heading for the type of poi -->
           <div class="section-header" aria-labelledby="poi-list-header">
             <img src="img/test.png" alt="" class="type-logo">
             <h2 id="poi-list-header">Points of Interest</h2>
@@ -108,7 +109,16 @@
 
         <!-- Add a section for schedule chart -->
         <section class="chart-section">
-          
+          <!-- Add a heading for the schedule chart -->
+          <div class="section-header" aria-labelledby="poi-chart-header">
+            <img src="img/test.png" alt="" class="time-logo">
+            <h2 id="poi-chart-header">Schedule Chart</h2>
+          </div>
+
+          <!-- Add a chart for the schedule of selected poi -->
+          <div class="poi-chart">
+
+          </div>
         </section>
       </div>
     </main>
