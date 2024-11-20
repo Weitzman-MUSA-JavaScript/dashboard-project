@@ -1,5 +1,5 @@
 function initMap(mapEl, boundary, pois, events) {
-  const map = L.map(mapEl, { maxZoom: 18, zoomSnap: 0 }).setView([44.588, -110.248], 10);
+  const map = L.map(mapEl, { maxZoom: 18, zoomSnap: 0 }).setView([0, 0], 1);
 
   // Add a base layer to the map
   const mapboxKey = 'pk.eyJ1IjoieHV5YW9oYW4iLCJhIjoiY20xN3l1aDl0MHlhdTJqb3NrN3JzcHZ3ZyJ9.W0K0GomuRMj9lrIY029KoA';
@@ -24,6 +24,59 @@ function initMap(mapEl, boundary, pois, events) {
     },
   });
   boundaryLayer.addTo(map);
+
+  // Adjust the map view to fit the boundary layer
+  function adjustMapView(map, boundaryLayer) {
+    const mapSize = map.getSize();
+    const mapWidth = mapSize.x;
+
+    const padding = mapWidth * 0.05;
+    const panDistance = mapWidth * 0.08;
+
+    if (boundaryLayer && boundaryLayer.getBounds().isValid()) {
+      map.fitBounds(boundaryLayer.getBounds(), {
+        padding: [padding, padding],
+      });
+
+      map.panBy([panDistance, 0]);
+    } else {
+      console.warn('Boundary layer bounds are invalid!');
+    }
+  }
+  adjustMapView(map, boundaryLayer);
+
+  // Add the POIs to the map
+  const poisLayer = L.geoJSON(pois, {
+    pointToLayer: (feature, latlng) => {
+      // 定义八种类型对应的颜色
+      const typeColors = {
+        Commerce: '#F26363', // 红色
+        Mountain: '#947262', // 绿色
+        Recreation: '#D93BAF', // 蓝色
+        Restroom: '#a7a7ad', // 橙色
+        Service: '#919151', // 紫色
+        Tourism: '#008C72', // 青色
+        Transportation: '#ee9f3e', // 黄色
+        Water: '#0099DD', // 灰色
+      };
+
+      // 获取 Type 字段，并设置颜色
+      const type = feature.properties.Type;
+      const color = typeColors[type] || typeColors.default;
+
+      // 返回带颜色的 circleMarker
+      return L.circleMarker(latlng, {
+        radius: 5,
+        color: color,
+        weight: 2.4,
+        opacity: 1,
+        fillOpacity: 0.4,
+      });
+    },
+  });
+
+  // 将 POIs 图层添加到地图
+  poisLayer.addTo(map);
 
   return map;
 }

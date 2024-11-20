@@ -3,7 +3,6 @@
 */
 * {
   box-sizing: border-box;
-  outline: 1px solid red;
 }
 
 
@@ -48,7 +47,7 @@ main {
 }
 
 .header h1 {
-  padding-left: 1rem;
+  padding-left: 2%;
 }
 
 
@@ -57,20 +56,144 @@ main {
 */
 .map-section {
   grid-area: map-section;
+
+  position: relative;
 }
 
 /* for map */
 .map-section .map-container {
   height: 100%;
   width: 100%;
+
+  z-index: 0;
 }
 
 /* for poi type list */
 .map-section .type-list {
+  width: auto;
+  height: auto;
+
+  position: absolute;
+  right: 8%;
+  bottom: 10%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
   list-style-type: none;
   padding: 0;
+  margin: 0;
+
+  z-index: 10;
 }
 
+.map-section .type-list li {
+  width: 100%;
+  margin-bottom: 1.2rem;
+}
+
+.map-section .type-list li:last-child {
+  margin-bottom: 0;
+}
+
+.map-section .type-list button {
+  width: 100%;
+  padding: 0.6rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  white-space: nowrap;
+
+  border-radius: 0.5rem;
+  background-color: white;
+ 
+  font-weight: bold;
+  font-size: 1.2rem;
+
+  cursor: pointer;
+}
+
+/* for button style */
+.map-section .type-list button[data-type="Commerce"] {
+  border: 0.2rem solid #F26363;
+  color: #F26363;
+}
+
+.map-section .type-list button[data-type="Commerce"][aria-pressed="true"] {
+  background-color:#F26363;
+  color: white;
+}
+
+.map-section .type-list button[data-type="Mountain"] {
+  border: 0.2rem solid #947262;
+  color: #947262;
+}
+
+.map-section .type-list button[data-type="Mountain"][aria-pressed="true"] {
+  background-color:#947262;
+  color: white;
+}
+
+.map-section .type-list button[data-type="Recreation"] {
+  border: 0.2rem solid #D93BAF;
+  color: #D93BAF;
+}
+
+.map-section .type-list button[data-type="Recreation"][aria-pressed="true"] {
+  background-color:#D93BAF;
+  color: white;
+}
+
+.map-section .type-list button[data-type="Restroom"] {
+  border: 0.2rem solid #a7a7ad;
+  color: #a7a7ad;
+}
+
+.map-section .type-list button[data-type="Restroom"][aria-pressed="true"] {
+  background-color:#a7a7ad;
+  color: white;
+}
+
+.map-section .type-list button[data-type="Service"] {
+  border: 0.2rem solid #919151;
+  color: #919151;
+}
+
+.map-section .type-list button[data-type="Service"][aria-pressed="true"] {
+  background-color:#919151;
+  color: white;
+}
+
+
+.map-section .type-list button[data-type="Tourism"] {
+  border: 0.2rem solid #008C72;
+  color: #008C72;
+}
+
+.map-section .type-list button[data-type="Tourism"][aria-pressed="true"] {
+  background-color:#008C72;
+  color: white;
+}
+
+.map-section .type-list button[data-type="Transportation"] {
+  border: 0.2rem solid #ee9f3e;
+  color: #ee9f3e;
+}
+
+.map-section .type-list button[data-type="Transportation"][aria-pressed="true"] {
+  background-color:#ee9f3e;
+  color: white;
+}
+
+.map-section .type-list button[data-type="Water"] {
+  border: 0.2rem solid #09D;
+  color: #09D;
+}
+
+.map-section .type-list button[data-type="Water"][aria-pressed="true"] {
+  background-color:#09D;
+  color: white;
+}
 
 /* 
 // for list section
