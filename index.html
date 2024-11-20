@@ -19,23 +19,24 @@
     <link rel="stylesheet" href="css/style.css">
 
     <!-- Link to favicon -->
-    <link rel="icon" href="" type="image/x-icon">
+    <link rel="icon" href="img/test.png" type="image/x-icon">
   </head>
 
   <body>
-    <main>
-      <!-- Add a header for the page title -->
-      <header class="header">
-        <h1>Yellowstone National Park</h1>
-      </header>
+    <!-- Add a header for the page title -->
+    <header class="page-header" aria-label="Yellowstone National Park Header">
+      <img src="img/test.png" alt="Yellowstone National Park Logo" class="logo">
+      <h1>Yellowstone National Park</h1>
+    </header>
 
+    <main>
       <!-- Add a section for poi map -->
-      <section id="map-section" class="map-section" aria-label="Yellowstone National Park Interactive Map">
+      <div class="left-part">
         <!-- Add a container for the map -->
-        <div id="map-container" class="map-container"></div>
+        <div id="map" class="map" aria-label="Yellowstone National Park Interactive Map"></div>
 
         <!-- Add a list of buttons for filtering different types of poi -->
-        <ul id="type-list" class="type-list" aria-label="Filter options for the interactive map">
+        <ul id="poi-type" class="poi-type" aria-label="Filter options for the interactive map">
           <li>
             <button class="type" data-type="Commerce" aria-pressed="false">Commerce</button>
           </li>
@@ -61,13 +62,12 @@
             <button class="type" data-type="Water" aria-pressed="false">Water</button>
           </li>
         </ul>
-      </section>
+      </div>
 
-      <!-- Add a section for poi list -->
-      <section id="list-section" class="list-section">
+      <div class="right-part">
         <!-- Add a fieldset for poi filtering method -->
-        <fieldset class="top-half">
-          <legend>Choose Filtering Method</legend>
+        <fieldset class="search-section" aria-labelledby="poi-filter-legend">
+          <legend id="poi-filter-legend">Choose Filtering Method</legend>
           
           <div class="filter-methods">
             <label>
@@ -81,87 +81,42 @@
           </div>
       
           <div class="search-container">
-            <input class="poi-search" type="text" name="poi-search" aria-label="Search for a poi" placeholder="Search for a poi...">
+            <input class="poi-search" type="text" name="poi-search" aria-label="Search for a point of interest by name or subcategory" placeholder="Search for a poi...">
             <button id="clear-button" type="button" aria-label="Clear text field">&times;</button>
           </div>
         </fieldset>
 
-        <div class="bottom-half">
+        <section class="list-section">
           <!-- Add a heading for the type of POI -->
-          <h2>Points of Interest</h2>
+          <div class="section-header" aria-labelledby="poi-list-header">
+            <img src="img/test.png" alt="" class="logo">
+            <h2 id="poi-list-header">Points of Interest</h2>
+          </div>
 
           <!-- Dynamically updated list of Points of Interest (POI) by JS -->
           <ul id="poi-list" class="poi-list" aria-label="List of Points of Interest">
             <li>
-              <button class="poi" data-name="Grebe Lake Trailhead Parking" data-type="Transportation" data-subcategory="Parking Lot">
-                <span class="poi-name">Grebe Lake Trailhead Parking</span>  
-                <span class="poi-subcategory">Parking Lot</span>
-                <span class="poi-time">~10mins</span>
-              </button>
-            </li>
-            <li>
-              <button class="poi" data-name="Grebe Lake Trailhead Parking" data-type="Transportation" data-subcategory="Parking Lot">
-                <span class="poi-name">Grebe Lake Trailhead Parking</span>  
-                <span class="poi-subcategory">Parking Lot</span>
-                <span class="poi-time">~10mins</span>
-              </button>
-            </li>
-            <li>
-              <button class="poi" data-name="Grebe Lake Trailhead Parking" data-type="Transportation" data-subcategory="Parking Lot">
-                <span class="poi-name">Grebe Lake Trailhead Parking</span>  
-                <span class="poi-subcategory">Parking Lot</span>
-                <span class="poi-time">~10mins</span>
-              </button>
-            </li>
-            <li>
-              <button class="poi" data-name="Grebe Lake Trailhead Parking" data-type="Transportation" data-subcategory="Parking Lot">
-                <span class="poi-name">Grebe Lake Trailhead Parking</span>  
-                <span class="poi-subcategory">Parking Lot</span>
-                <span class="poi-time">~10mins</span>
-              </button>
-            </li>
-            <li>
-              <button class="poi" data-name="Grebe Lake Trailhead Parking" data-type="Transportation" data-subcategory="Parking Lot">
-                <span class="poi-name">Grebe Lake Trailhead Parking</span>  
-                <span class="poi-subcategory">Parking Lot</span>
-                <span class="poi-time">~10mins</span>
-              </button>
-            </li>
-            <li>
-              <button class="poi" data-name="Grebe Lake Trailhead Parking" data-type="Transportation" data-subcategory="Parking Lot">
-                <span class="poi-name">Grebe Lake Trailhead Parking</span>  
-                <span class="poi-subcategory">Parking Lot</span>
-                <span class="poi-time">~10mins</span>
-              </button>
-            </li>
-            <li>
-              <button class="poi" data-name="Grebe Lake Trailhead Parking" data-type="Transportation" data-subcategory="Parking Lot">
-                <span class="poi-name">Grebe Lake Trailhead Parking</span>  
-                <span class="poi-subcategory">Parking Lot</span>
-                <span class="poi-time">~10mins</span>
-              </button>
-            </li>
-            <li>
-              <button class="poi" data-name="Grebe Lake Trailhead Parking" data-type="Transportation" data-subcategory="Parking Lot">
-                <span class="poi-name">Grebe Lake Trailhead Parking</span>  
+              <button class="poi" data-type="Transportation" data-name="Grebe Lake Trailhead Parking" data-subcategory="Parking Lot" aria-pressed="false">
+                <span class="poi-name">Grebe Lake Trailhead Parking</span>
                 <span class="poi-subcategory">Parking Lot</span>
                 <span class="poi-time">~10mins</span>
               </button>
             </li>
           </ul>
-        </div>
-      </section>
+        </section>
 
-      <!-- Add a section for schedule chart -->
-      <section id="chart-section" class="chart-section">
-
-      </section>
+        <!-- Add a section for schedule chart -->
+        <section class="chart-section">
+          
+        </section>
+      </div>
     </main>
 
     <!-- Add a footer for data source -->
     <footer>
       <p id="footnote" class="footnote">
         <strong>Data Source:</strong>
+        <a href="https://www.nps.gov/yell/index.htm" target="_blank" rel="noopener noreferrer">Yellowstone National Park Official Website</a>
       </p>
     </footer>
     
