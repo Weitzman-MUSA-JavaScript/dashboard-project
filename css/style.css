@@ -3,7 +3,7 @@
 */
 * {
   box-sizing: border-box;
-  outline:1px solid red;
+  /* outline:1px solid red; */
 }
 
 * img {
@@ -38,8 +38,11 @@ header {
   width: 100%;
 
   display: flex;
+  flex-direction: row;
   align-items: center;
   gap: 2rem;
+
+  position: relative;
 
   background-color: black;
   color: white;
@@ -53,11 +56,12 @@ main {
   width: 100%;
 
   display: flex;
+  flex-direction: row;
 }
 
 /* footer */
 footer {
-  height: 3.6vh;
+  height: 3vh;
   width: 100%;
 
   display: flex;
@@ -67,7 +71,7 @@ footer {
   bottom: 0;
   left: 0;
 
-  font-size: 0.75rem;
+  font-size: 0.7rem;
 
   background-color: rgb(255 255 255 / 50%);
 }
@@ -142,7 +146,7 @@ footer {
 
 
 /*
-// for left section
+// for left part elements
 */
 
 /* for map */
@@ -171,6 +175,31 @@ footer {
   margin: 0;
 
   z-index: 10;
+}
+
+
+/*
+// for right part elements
+*/
+
+/* for search section */
+.search-section {
+  height: 15%;
+  width: 100%;
+}
+
+/* for list section */
+.list-section {
+  height: 55%;
+  width: 100%;
+
+  overflow-y: auto;
+}
+
+/* for chart section */
+.chart-section {
+  height: 30%;
+  width: 100%;
 }
 
 
@@ -281,4 +310,118 @@ for poi type list
 .poi-type button[data-type="Water"][aria-pressed="true"] {
   background-color:#09D;
   color: white;
+}
+
+
+/* 
+for search section 
+*/
+
+
+
+/* 
+for list section 
+*/
+
+/* for section header */
+.section-header {
+  height: auto;
+  width: 100%;
+
+  margin-bottom: 0.6rem;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.section-header img {
+  height: 1.5rem;
+  width: auto;
+
+  padding: 0;
+  margin: 0;
+}
+
+.section-header h2 {
+  font-size: 1rem;
+  font-family: Merriweather, serif;
+  font-weight: 900;
+
+  padding: 0;
+  margin: 0;
+}
+
+/* for poi list */
+.poi-list {
+  height:auto;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+
+/* 
+for chart section 
+*/
+
+
+/* 
+for poi list
+*/
+
+/* stylelint-disable-next-line no-descending-specificity */
+.poi-list li {
+  height: auto;
+  width: 100%;
+
+  margin-bottom: 1rem;
+}
+
+.poi-list li:last-child {
+  margin-bottom: 0;
+}
+
+/* for each poi element */
+.poi {
+  height: auto;
+  width: 100%;
+
+  display: grid;
+  grid-template-areas: "name name"
+                        "subcategory time";
+  grid-template-columns: 0.7fr 0.3fr;
+
+  border-radius: 4px;
+  border-width: 0.12rem;
+
+  background-color: white;
+}
+
+.poi .poi-name {
+  grid-area: name;
+
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.poi .poi-subcategory {
+  grid-area: subcategory;
+
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.poi .poi-time {
+  grid-area: time;
+
+  font-size: 0.8rem;
+  font-weight: 500;
 }
