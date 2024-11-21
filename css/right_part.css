@@ -23,6 +23,7 @@
   width: 100%;
 }
 
+
 /* 
 for search section 
 */
@@ -93,8 +94,6 @@ for chart section
 /* 
 for poi list
 */
-
-/* stylelint-disable-next-line no-descending-specificity */
 .poi-list li {
   height: auto;
   width: 100%;
@@ -155,65 +154,67 @@ for poi list
 
 .poi[data-type="Commerce"] {
   border: 0.12rem solid #F26363;
+  color: black;
 }
 
-.poi-type button[data-type="Commerce"][aria-pressed="true"] {
+.poi[data-type="Commerce"][aria-pressed="true"] {
   background-color:#F26363;
   color: white;
 }
 
-.poi-type  button[data-type="Mountain"] {
-  border: 0.2rem solid #947262;
-  color: #947262;
+.poi[data-type="Mountain"] {
+  border: 0.12rem solid #947262;
+  color: black;
 }
 
-.poi-type button[data-type="Mountain"][aria-pressed="true"] {
+.poi[data-type="Mountain"][aria-pressed="true"] {
   background-color:#947262;
   color: white;
 }
 
-.poi-type button[data-type="Recreation"] {
-  border: 0.2rem solid #D93BAF;
-  color: #D93BAF;
+.poi[data-type="Recreation"] {
+  border: 0.12rem solid #D93BAF;
+  color: black;
 }
 
-.poi-type button[data-type="Recreation"][aria-pressed="true"] {
+.poi[data-type="Recreation"][aria-pressed="true"] {
   background-color:#D93BAF;
   color: white;
 }
 
-.poi-type button[data-type="Restroom"] {
-  border: 0.2rem solid #a7a7ad;
-  color: #a7a7ad;
+.poi[data-type="Restroom"] {
+  border: 0.12rem solid #a7a7ad;
+  color: black;
 }
 
-.poi-type button[data-type="Restroom"][aria-pressed="true"] {
+.poi[data-type="Restroom"][aria-pressed="true"] {
   background-color:#a7a7ad;
   color: white;
 }
 
-.poi-type button[data-type="Service"] {
-  border: 0.2rem solid #919151;
-  color: #919151;
+.poi[data-type="Service"] {
+  border: 0.12rem solid #919151;
+  color: black;
 }
 
-.poi-type button[data-type="Service"][aria-pressed="true"] {
+.poi[data-type="Service"][aria-pressed="true"] {
   background-color:#919151;
   color: white;
 }
 
-.poi-type button[data-type="Tourism"] {
-  border: 0.2rem solid #008C72;
-  color: #008C72;
+.poi[data-type="Tourism"] {
+  border: 0.12rem solid #008C72;
+  color: black;
 }
 
-.poi-type button[data-type="Tourism"][aria-pressed="true"] {
+.poi[data-type="Tourism"][aria-pressed="true"] {
   background-color:#008C72;
   color: white;
 }
 
 .poi[data-type="Transportation"] {
   border: 0.12rem solid #ee9f3e;
+  color: black;
 }
 
 .poi[data-type="Transportation"][aria-pressed="true"] {
@@ -221,12 +222,12 @@ for poi list
   color: white;
 }
 
-.poi-type button[data-type="Water"] {
-  border: 0.2rem solid #09D;
-  color: #09D;
+.poi[data-type="Water"] {
+  border: 0.12rem solid #09D;
+  color: black;
 }
 
-.poi-type button[data-type="Water"][aria-pressed="true"] {
+.poi[data-type="Water"][aria-pressed="true"] {
   background-color:#09D;
   color: white;
 }
