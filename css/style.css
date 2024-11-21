@@ -3,7 +3,7 @@
 */
 * {
   box-sizing: border-box;
-
+  outline:1px solid red;
 }
 
 * img {
@@ -17,10 +17,6 @@ html {
   font-family: Roboto, sans-serif;
 }
 
-
-/*
-// for body elements
-*/
 body {
   height: 100vh;
   width: 100vw;
@@ -31,6 +27,11 @@ body {
   overflow: hidden;
 }
 
+
+/*
+// for body elements
+*/
+
 /* header */
 header {
   height: 8vh;
@@ -38,7 +39,7 @@ header {
 
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 2rem;
 
   background-color: black;
   color: white;
@@ -56,12 +57,35 @@ main {
 
 /* footer */
 footer {
-  height: 4vh;
+  height: 3.6vh;
   width: 100%;
+
+  display: flex;
+  align-items: center;
 
   position: absolute;
   bottom: 0;
   left: 0;
+
+  font-size: 0.75rem;
+
+  background-color: rgb(255 255 255 / 50%);
+}
+
+
+/*
+// for header elements
+*/
+.page-header img {
+  height: 2rem;
+  width: auto;
+
+  margin-left: 3rem;
+}
+
+.page-header h1 {
+  font-size: 2rem;
+  font-family: Merriweather, serif;
 }
 
 
@@ -90,6 +114,30 @@ footer {
 
   display: flex;
   flex-direction: column;
+}
+
+
+/*
+// for footer elements
+*/
+.footnote {
+  margin: 0;
+  margin-left: 1rem;
+}
+
+.footnote a {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+
+  color: rgb(30 30 30);
+}
+
+.footnote a:last-child {
+  margin-right: 0;
+}
+
+.footnote span {
+  color: rgb(30 30 30);
 }
 
 
@@ -168,4 +216,69 @@ for poi type list
 .poi-type  button[data-type="Mountain"] {
   border: 0.2rem solid #947262;
   color: #947262;
+}
+
+.poi-type button[data-type="Mountain"][aria-pressed="true"] {
+  background-color:#947262;
+  color: white;
+}
+
+.poi-type button[data-type="Recreation"] {
+  border: 0.2rem solid #D93BAF;
+  color: #D93BAF;
+}
+
+.poi-type button[data-type="Recreation"][aria-pressed="true"] {
+  background-color:#D93BAF;
+  color: white;
+}
+
+.poi-type button[data-type="Restroom"] {
+  border: 0.2rem solid #a7a7ad;
+  color: #a7a7ad;
+}
+
+.poi-type button[data-type="Restroom"][aria-pressed="true"] {
+  background-color:#a7a7ad;
+  color: white;
+}
+
+.poi-type button[data-type="Service"] {
+  border: 0.2rem solid #919151;
+  color: #919151;
+}
+
+.poi-type button[data-type="Service"][aria-pressed="true"] {
+  background-color:#919151;
+  color: white;
+}
+
+.poi-type button[data-type="Tourism"] {
+  border: 0.2rem solid #008C72;
+  color: #008C72;
+}
+
+.poi-type button[data-type="Tourism"][aria-pressed="true"] {
+  background-color:#008C72;
+  color: white;
+}
+
+.poi-type button[data-type="Transportation"] {
+  border: 0.2rem solid #ee9f3e;
+  color: #ee9f3e;
+}
+
+.poi-type button[data-type="Transportation"][aria-pressed="true"] {
+  background-color:#ee9f3e;
+  color: white;
+}
+
+.poi-type button[data-type="Water"] {
+  border: 0.2rem solid #09D;
+  color: #09D;
+}
+
+.poi-type button[data-type="Water"][aria-pressed="true"] {
+  background-color:#09D;
+  color: white;
 }
