@@ -3,7 +3,7 @@
 */
 * {
   box-sizing: border-box;
-  /* outline:1px solid red; */
+  outline:1px solid red;
 }
 
 * img {
@@ -88,7 +88,7 @@ footer {
 }
 
 .page-header h1 {
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-family: Merriweather, serif;
 }
 
@@ -113,7 +113,7 @@ footer {
   height: 100%;
   width: 450px;
 
-  padding: 2rem;
+  padding: 2.4rem 3rem;
   margin: 0;
 
   display: flex;
@@ -184,21 +184,22 @@ footer {
 
 /* for search section */
 .search-section {
-  height: 15%;
+  height: 12%;
   width: 100%;
 }
 
 /* for list section */
 .list-section {
-  height: 55%;
+  height: 64%;
   width: 100%;
 
-  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
 }
 
 /* for chart section */
 .chart-section {
-  height: 30%;
+  height: 24%;
   width: 100%;
 }
 
@@ -328,6 +329,7 @@ for list section
   height: auto;
   width: 100%;
 
+  margin-top: 1.5rem;
   margin-bottom: 0.6rem;
 
   display: flex;
@@ -355,7 +357,7 @@ for list section
 
 /* for poi list */
 .poi-list {
-  height:auto;
+  flex-grow: 1;
   width: 100%;
 
   display: flex;
@@ -365,6 +367,8 @@ for list section
   list-style-type: none;
   padding: 0;
   margin: 0;
+
+  overflow-y: auto;
 }
 
 
@@ -394,10 +398,14 @@ for poi list
   height: auto;
   width: 100%;
 
+  padding: 0.5rem 0.8rem;
+
   display: grid;
   grid-template-areas: "name name"
                         "subcategory time";
   grid-template-columns: 0.7fr 0.3fr;
+
+  text-align: left;
 
   border-radius: 4px;
   border-width: 0.12rem;
@@ -407,13 +415,17 @@ for poi list
 
 .poi .poi-name {
   grid-area: name;
+  width: 100%;
 
+  margin-bottom: 0.5rem;
+  
   font-size: 0.85rem;
   font-weight: 700;
 }
 
 .poi .poi-subcategory {
   grid-area: subcategory;
+  width: 100%;
 
   font-size: 0.8rem;
   font-weight: 500;
@@ -421,6 +433,7 @@ for poi list
 
 .poi .poi-time {
   grid-area: time;
+  width: 100%;
 
   font-size: 0.8rem;
   font-weight: 500;
