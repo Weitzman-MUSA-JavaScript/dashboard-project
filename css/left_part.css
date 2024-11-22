@@ -57,6 +57,8 @@ for poi type list
   border-radius: 4px;
 
   background-color: white;
+
+  cursor: pointer;
 }
 
 /* for different poi types */
