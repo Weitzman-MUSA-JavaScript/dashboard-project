@@ -195,6 +195,8 @@ for chart section
 
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  gap: 4rem;
 }
 
 
@@ -207,11 +209,9 @@ for chart section
 
   background-color: white;
 
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   font-weight: 400;
   color: black;
-
-  margin-right: 2rem;
 
   cursor: pointer;
 }
