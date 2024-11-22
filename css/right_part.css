@@ -4,13 +4,21 @@
 
 /* for search section */
 .search-section {
-  height: 12%;
+  height: auto;
   width: 100%;
+
+  padding-left: 1.2rem;
+  padding-right: 1.2rem;
+
+  display: flex;
+  flex-direction: column;
+
+  border: 0.1rem solid #e4e4e4;
 }
 
 /* for list section */
 .list-section {
-  height: 64%;
+  height: 60%;
   width: 100%;
 
   display: flex;
@@ -19,7 +27,7 @@
 
 /* for chart section */
 .chart-section {
-  height: 24%;
+  height: 40%;
   width: 100%;
 }
 
@@ -27,6 +35,75 @@
 /* 
 for search section 
 */
+#poi-filter-legend {
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+/* for filter methods */
+.filter-methods {
+  height: auto;
+  width: 100%;
+
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+
+  display: flex;
+  flex-direction: row;
+}
+
+.filter-methods label:first-child {
+  margin-right: 2rem;
+}
+
+.filter-methods input {
+  height: 0.65rem;
+  width: 0.65rem;
+}
+
+.filter-methods span {
+  font-size: 0.75rem;
+}
+
+/* for search container */
+.search-container {
+  height: auto;
+  width: 100%;
+
+  margin-bottom: 0.8rem;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.search-container input {
+  height: 1.5rem;
+  flex-grow: 1;
+
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+
+  border: 0.08rem solid #999;
+  border-radius: 2.6px;
+
+  font-size: 0.8rem;
+}
+
+.search-container button {
+  height: 1.5rem;
+  width: 1.5rem;
+
+  border: 0.08rem solid #999;
+  border-radius: 2.6px;
+
+  background-color: white;
+
+  font-size: 1.2rem;
+  font-weight: 300;
+  color: rgb(75 75 75);
+}
 
 
 /* 
@@ -98,7 +175,7 @@ for poi list
   height: auto;
   width: 100%;
 
-  margin-bottom: 1rem;
+  margin-bottom: 0.8rem;
 }
 
 .poi-list li:last-child {
