@@ -1,4 +1,45 @@
-function initMap(mapEl, boundary, pois, events) {
+function initMap(leftEl, boundary, pois, events) {
+  const mapEl = leftEl.querySelector('#map');
+  const typeListEl = leftEl.querySelector('#poi-type');
+
+  //
+  // Choose the selected pois type...
+  //
+  const selectedType = [];
+  const typeListItems = typeListEl.querySelectorAll('.type');
+
+  // Add event listener to each type button
+  typeListItems.forEach((item) => {
+    item.addEventListener('click', (evt) => {
+      const type = evt.target.dataset.type;
+
+      if (selectedType.includes(type)) {
+        selectedType.length = 0;
+        evt.target.setAttribute('aria-pressed', 'false');
+      } else {
+        selectedType.length = 0;
+        selectedType.push(type);
+        resetButtonState();
+        evt.target.setAttribute('aria-pressed', 'true');
+      }
+
+      const event = new CustomEvent('typeselected', {
+        detail: { selectedType },
+      });
+      events.dispatchEvent(event);
+    });
+  });
+
+  // Reset the button state
+  function resetButtonState() {
+    typeListItems.forEach((item) => {
+      item.setAttribute('aria-pressed', 'false');
+    });
+  }
+
+  //
+  // Create the map...
+  //
   const map = L.map(mapEl, { maxZoom: 18, zoomSnap: 0 }).setView([0, 0], 1);
 
   // Add a base layer to the map
