@@ -6,7 +6,7 @@ function initPoisList(rightEl, pois, events) {
   // Create the pois list with selected type...
   //
 
-  // Create the list items
+  // Initialize the list items
   const poisListItems = {};
 
   function initListItems() {
@@ -46,6 +46,24 @@ function initPoisList(rightEl, pois, events) {
     }
   }
   populateList(pois);
+
+  // Capture the selected poi type
+  events.addEventListener('typeselected', (evt) => {
+    const { selectedType } = evt.detail;
+    if (selectedType.length === 0) {
+      populateList(pois);
+    } else {
+      const filteredTypePois = pois.filter((poi) => {
+        return selectedType.includes(poi.properties['Type']);
+      });
+      populateList(filteredTypePois);
+    }
+  });
+
+  //
+  // Filter the pois list by search input...
+  //
+  const poisSelectedItems = {};
 }
 
 export { initPoisList };

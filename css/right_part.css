@@ -283,7 +283,7 @@ for poi list
 }
 
 .poi[data-type="Commerce"] {
-  border: 0.12rem solid #F26363;
+  border: 0.14rem solid #F26363;
   color: black;
 }
 
@@ -293,7 +293,7 @@ for poi list
 }
 
 .poi[data-type="Mountain"] {
-  border: 0.12rem solid #947262;
+  border: 0.14rem solid #947262;
   color: black;
 }
 
@@ -303,7 +303,7 @@ for poi list
 }
 
 .poi[data-type="Recreation"] {
-  border: 0.12rem solid #D93BAF;
+  border: 0.14rem solid #D93BAF;
   color: black;
 }
 
@@ -313,7 +313,7 @@ for poi list
 }
 
 .poi[data-type="Restroom"] {
-  border: 0.12rem solid #a7a7ad;
+  border: 0.14rem solid #a7a7ad;
   color: black;
 }
 
@@ -323,7 +323,7 @@ for poi list
 }
 
 .poi[data-type="Service"] {
-  border: 0.12rem solid #919151;
+  border: 0.14rem solid #919151;
   color: black;
 }
 
@@ -333,7 +333,7 @@ for poi list
 }
 
 .poi[data-type="Tourism"] {
-  border: 0.12rem solid #008C72;
+  border: 0.14rem solid #008C72;
   color: black;
 }
 
@@ -343,7 +343,7 @@ for poi list
 }
 
 .poi[data-type="Transportation"] {
-  border: 0.12rem solid #ee9f3e;
+  border: 0.14rem solid #ee9f3e;
   color: black;
 }
 
@@ -353,7 +353,7 @@ for poi list
 }
 
 .poi[data-type="Water"] {
-  border: 0.12rem solid #09D;
+  border: 0.14rem solid #09D;
   color: black;
 }
 
