@@ -66,6 +66,8 @@ for search section
 .filter-methods input {
   height: 0.65rem;
   width: 0.65rem;
+
+  cursor: pointer;
 }
 
 .filter-methods span {

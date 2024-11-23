@@ -35,6 +35,8 @@ header {
   align-items: center;
   gap: 2rem;
 
+  position: relative;
+
   background-color: black;
   color: white;
 
@@ -48,6 +50,8 @@ main {
 
   display: flex;
   flex-direction: row;
+
+  z-index: 0;
 }
 
 /* footer */
@@ -62,6 +66,8 @@ footer {
   font-size: 0.7rem;
 
   background-color: rgb(255 255 255 / 50%);
+  
+  z-index: 50;
 }
 
 
