@@ -39,7 +39,7 @@ function initMap(leftEl, boundary, pois, events) {
   }
 
   //
-  // Create the map...
+  // Create the poi map...
   //
   const map = L.map(mapEl, { maxZoom: 18, zoomSnap: 0 }).setView([0, 0], 1);
 
@@ -57,17 +57,17 @@ function initMap(leftEl, boundary, pois, events) {
     });
   baseLayer.addTo(map);
 
-  // Add the boundary to the map...
+  // Add the Yellowstone boundary to the map
   const boundaryLayer = L.geoJSON(boundary, {
     style: {
-      color: 'rgba(0, 0, 0, 1)',
+      color: 'rgba(140, 140, 140, 1)',
       weight: 2,
       fillOpacity: 0,
     },
   });
   boundaryLayer.addTo(map);
 
-  // Adjust the map view to fit the boundary layer
+  // Adjust the map view to fit the boundary layer (refer to ChatGPT)
   function adjustMapView(map, boundaryLayer) {
     const mapSize = map.getSize();
     const mapWidth = mapSize.x;
@@ -78,47 +78,69 @@ function initMap(leftEl, boundary, pois, events) {
     if (boundaryLayer && boundaryLayer.getBounds().isValid()) {
       map.fitBounds(boundaryLayer.getBounds(), {
         padding: [padding, padding],
+        // animate: false,
       });
 
-      map.panBy([panDistance, 0]);
+      map.panBy([panDistance, 0], { animate: false });
     } else {
       console.warn('Boundary layer bounds are invalid!');
     }
   }
   adjustMapView(map, boundaryLayer);
 
-  // Add the POIs to the map
-  const poisLayer = L.geoJSON(pois, {
-    pointToLayer: (feature, latlng) => {
-      // 定义八种类型对应的颜色
-      const typeColors = {
-        Commerce: '#F26363', // 红色
-        Mountain: '#947262', // 绿色
-        Recreation: '#D93BAF', // 蓝色
-        Restroom: '#a7a7ad', // 橙色
-        Service: '#919151', // 紫色
-        Tourism: '#008C72', // 青色
-        Transportation: '#ee9f3e', // 黄色
-        Water: '#0099DD', // 灰色
-      };
+  //
+  // Add the pois to the map...
+  //
+  const poisLayer = L.layerGroup().addTo(map);
 
-      // 获取 Type 字段，并设置颜色
-      const type = feature.properties.Type;
-      const color = typeColors[type] || typeColors.default;
+  // Initialize the pois on the map
+  function populatePois(pois) {
+    poisLayer.clearLayers();
 
-      // 返回带颜色的 circleMarker
-      return L.circleMarker(latlng, {
-        radius: 5,
-        color: color,
-        weight: 2.4,
-        opacity: 1,
-        fillOpacity: 0.4,
+    // Identify the type of each poi and set the color
+    const typeColors = {
+      Commerce: '#F26363',
+      Mountain: '#947262',
+      Recreation: '#D93BAF',
+      Restroom: '#a7a7ad',
+      Service: '#919151',
+      Tourism: '#008C72',
+      Transportation: '#ee9f3e',
+      Water: '#0099DD',
+    };
+
+    const geoJsonLayer = L.geoJSON(pois, {
+      pointToLayer: (feature, latlng) => {
+        const type = feature.properties.Type;
+        const color = typeColors[type] || '#000000';
+
+        return L.circleMarker(latlng, {
+          radius: 5,
+          color: color,
+          weight: 2,
+          fillOpacity: 0.4,
+        });
+      },
+    });
+
+    geoJsonLayer.eachLayer((layer) => poisLayer.addLayer(layer));
+  }
+  populatePois(pois);
+
+  // Filter the pois based on selected type
+  events.addEventListener('typeselected', (evt) => {
+    const { selectedType } = evt.detail;
+
+    if (selectedType.length === 0) {
+      populatePois(pois);
+    } else {
+      const filteredTypePois = pois.filter((poi) => {
+        return selectedType.includes(poi.properties.Type);
       });
-    },
+      populatePois(filteredTypePois);
+    }
   });
 
-  // 将 POIs 图层添加到地图
-  poisLayer.addTo(map);
 
   //
   // Select pois from the map...

@@ -67,7 +67,7 @@ function initPoisList(rightEl, pois, events) {
       filteredTypePois = pois;
     } else {
       filteredTypePois = pois.filter((poi) => {
-        return selectedType.includes(poi.properties['Type']);
+        return selectedType.includes(poi.properties.Type);
       });
     }
 
