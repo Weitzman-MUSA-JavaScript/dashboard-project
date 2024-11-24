@@ -124,9 +124,13 @@ function initMap(leftEl, boundary, pois, events) {
   // Select pois from the map...
   //
 
+  // Handle click event on each poi point
+
   // Listen for updated selected pois list
   events.addEventListener('selectedlistupdated', (evt) => {
     const { poiSelectedList } = evt.detail;
+
+    // Update map icons based on selection
   });
 
   return map;

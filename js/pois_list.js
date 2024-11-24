@@ -124,10 +124,33 @@ function initPoisList(rightEl, pois, events) {
   //
 
   // Handle click event on each poi button
+  poisListEl.addEventListener('click', (evt) => {
+    const poiButton = evt.target.closest('.poi');
+    if (!poiButton) return;
+
+    const poiName = poiButton.dataset.name;
+    const poi = pois.find((item) => item.properties.Name === poiName);
+
+    if (poi) {
+      events.dispatchEvent(new CustomEvent('poiselected', { detail: { poi } }));
+    }
+  });
 
   // Listen for updated selected pois list
   events.addEventListener('selectedlistupdated', (evt) => {
     const { poiSelectedList } = evt.detail;
+
+    // Update aria-pressed attributes based on selection
+    pois.forEach((poi) => {
+      const poiName = poi.properties.Name;
+      const item = poisListItems[poiName];
+
+      // Check if the poi is selected
+      if (item) {
+        const isSelected = poiSelectedList.some((selected) => selected.properties.Name === poiName);
+        item.querySelector('.poi').setAttribute('aria-pressed', isSelected.toString());
+      }
+    });
   });
 }
 

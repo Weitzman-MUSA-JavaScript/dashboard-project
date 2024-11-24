@@ -40,7 +40,7 @@ events.addEventListener('poiselected', (evt) => {
 
   console.log('Current Selected List:', poiSelectedList);
 
-  events.dispatchEvent(new CustomEvent('selectedlistupdated', { detail: { poiSelectedList }}));
+  events.dispatchEvent(new CustomEvent('selectedlistupdated', { detail: { poiSelectedList } }));
 });
 
 // Load Yellowstone boundary and pois data...
