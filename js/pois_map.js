@@ -103,14 +103,14 @@ function initMap(leftEl, boundary, pois, events) {
 
   // Define the icons and colors for each poi type
   const typeIcons = {
-    Commerce: L.icon({ iconUrl: 'img/Commerce_Logo.png', iconSize: [30, 30] }),
-    Mountain: L.icon({ iconUrl: 'img/Mountain_Logo.png', iconSize: [30, 30] }),
-    Recreation: L.icon({ iconUrl: 'img/Recreation_Logo.png', iconSize: [30, 30] }),
-    Restroom: L.icon({ iconUrl: 'img/Restroom_Logo.png', iconSize: [30, 30] }),
-    Service: L.icon({ iconUrl: 'img/Service_Logo.png', iconSize: [30, 30] }),
-    Tourism: L.icon({ iconUrl: 'img/Tourism_Logo.png', iconSize: [30, 30] }),
-    Transportation: L.icon({ iconUrl: 'img/Transportation_Logo.png', iconSize: [30, 30] }),
-    Water: L.icon({ iconUrl: 'img/Water_Logo.png', iconSize: [30, 30] }),
+    Commerce: L.icon({ iconUrl: 'img/Commerce_Logo.png', iconSize: [32, 32] }),
+    Mountain: L.icon({ iconUrl: 'img/Mountain_Logo.png', iconSize: [32, 32] }),
+    Recreation: L.icon({ iconUrl: 'img/Recreation_Logo.png', iconSize: [32, 32] }),
+    Restroom: L.icon({ iconUrl: 'img/Restroom_Logo.png', iconSize: [32, 32] }),
+    Service: L.icon({ iconUrl: 'img/Service_Logo.png', iconSize: [32, 32] }),
+    Tourism: L.icon({ iconUrl: 'img/Tourism_Logo.png', iconSize: [32, 32] }),
+    Transportation: L.icon({ iconUrl: 'img/Transportation_Logo.png', iconSize: [32, 32] }),
+    Water: L.icon({ iconUrl: 'img/Water_Logo.png', iconSize: [32, 32] }),
   };
   const typeColors = {
     Commerce: '#F26363',
