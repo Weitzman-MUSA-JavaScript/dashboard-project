@@ -2,6 +2,7 @@ function initMap(leftEl, boundary, pois, events) {
   const mapEl = leftEl.querySelector('#map');
   const typeListEl = leftEl.querySelector('#poi-type');
   const typeListItems = typeListEl.querySelectorAll('.type');
+  const resetButton = leftEl.querySelector('#map-reset');
 
   //
   // Choose the selected pois type...
@@ -88,6 +89,11 @@ function initMap(leftEl, boundary, pois, events) {
   }
   adjustMapView(map, boundaryLayer);
 
+  // Add event listener to reset button
+  resetButton.addEventListener('click', (evt) => {
+    adjustMapView(map, boundaryLayer);
+  });
+
   //
   // Add the pois to the map...
   //
@@ -141,6 +147,14 @@ function initMap(leftEl, boundary, pois, events) {
         fillOpacity: 0.4,
       });
 
+      marker.bindTooltip(() => {
+        const name = poi.properties.Name;
+        const type = poi.properties.Type;
+        const subcategory = poi.properties.Subcategory;
+        const time = poi.properties.Time;
+        return `Name: ${name}<br>Type: ${type}<br>Subcategory: ${subcategory}<br>Time: ${time}minutes`;
+      });
+
       marker.on('click', (evt) => {
         const event = new CustomEvent('poiselected', { detail: { poi } });
         events.dispatchEvent(event);
@@ -186,6 +200,14 @@ function initMap(leftEl, boundary, pois, events) {
           const latlng = marker.getLatLng();
 
           const iconMarker = L.marker(latlng, { icon });
+
+          // iconMarker.bindTooltip(() => {
+          //   const name = poi.properties.Name;
+          //   const type = poi.properties.Type;
+          //   const subcategory = poi.properties.Subcategory;
+          //   const time = poi.properties.Time;
+          //   return `Name: ${name}<br>Type: ${type}<br>Subcategory: ${subcategory}<br>Time: ${time} minutes`;
+          // });
 
           iconMarker.on('click', (evt) => {
             const event = new CustomEvent('poiselected', { detail: { poi } });

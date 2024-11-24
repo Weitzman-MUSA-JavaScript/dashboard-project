@@ -10,6 +10,32 @@
   z-index: 0;
 }
 
+/* for reset button */
+.map-reset {
+  height: 2.1rem;
+  width: 2.1rem;
+
+  position: absolute;
+  top: 6rem;
+  left: 0.62rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border: 0.13rem solid #c6c6c6;
+  border-radius: 3.2px;
+
+  background-color: white;
+ 
+  cursor: pointer;
+}
+
+.map-reset img {
+  height: 65%;
+  width: auto;
+}
+
 /* for poi type list */
 .poi-type {
   height: auto;

@@ -43,6 +43,11 @@ events.addEventListener('poiselected', (evt) => {
   events.dispatchEvent(new CustomEvent('selectedlistupdated', { detail: { poiSelectedList } }));
 });
 
+events.addEventListener('resetselectedlist', (evt) => {
+  poiSelectedList.length = 0;
+  events.dispatchEvent(new CustomEvent('selectedlistupdated', { detail: { poiSelectedList } }));
+});
+
 // Load Yellowstone boundary and pois data...
 const { boundary, pois } = await loadPoisData();
 
