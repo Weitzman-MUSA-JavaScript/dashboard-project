@@ -31,7 +31,9 @@ function initPoisList(rightEl, pois, events) {
       poisListItems[poiName] = item;
     }
   }
+
   initListItems();
+  console.log(poisListItems);
 
   // Populate the list of pois
   function populateList(pois) {
@@ -116,6 +118,17 @@ function initPoisList(rightEl, pois, events) {
 
     populateList(finalFilteredPois);
   }
+
+  //
+  // Select pois from the list...
+  //
+
+  // Handle click event on each poi button
+
+  // Listen for updated selected pois list
+  events.addEventListener('selectedlistupdated', (evt) => {
+    const { poiSelectedList } = evt.detail;
+  });
 }
 
 export { initPoisList };

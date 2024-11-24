@@ -120,6 +120,15 @@ function initMap(leftEl, boundary, pois, events) {
   // 将 POIs 图层添加到地图
   poisLayer.addTo(map);
 
+  //
+  // Select pois from the map...
+  //
+
+  // Listen for updated selected pois list
+  events.addEventListener('selectedlistupdated', (evt) => {
+    const { poiSelectedList } = evt.detail;
+  });
+
   return map;
 }
 
