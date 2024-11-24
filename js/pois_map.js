@@ -91,69 +91,117 @@ function initMap(leftEl, boundary, pois, events) {
   //
   // Add the pois to the map...
   //
+
+  // Create a layer group for the pois
   const poisLayer = L.layerGroup().addTo(map);
 
-  // Initialize the pois on the map
+  // Define the icons and colors for each poi type
+  const typeIcons = {
+    Commerce: L.icon({ iconUrl: 'img/Commerce_Logo.png', iconSize: [30, 30] }),
+    Mountain: L.icon({ iconUrl: 'img/Mountain_Logo.png', iconSize: [30, 30] }),
+    Recreation: L.icon({ iconUrl: 'img/Recreation_Logo.png', iconSize: [30, 30] }),
+    Restroom: L.icon({ iconUrl: 'img/Restroom_Logo.png', iconSize: [30, 30] }),
+    Service: L.icon({ iconUrl: 'img/Service_Logo.png', iconSize: [30, 30] }),
+    Tourism: L.icon({ iconUrl: 'img/Tourism_Logo.png', iconSize: [30, 30] }),
+    Transportation: L.icon({ iconUrl: 'img/Transportation_Logo.png', iconSize: [30, 30] }),
+    Water: L.icon({ iconUrl: 'img/Water_Logo.png', iconSize: [30, 30] }),
+  };
+  const typeColors = {
+    Commerce: '#F26363',
+    Mountain: '#947262',
+    Recreation: '#D93BAF',
+    Restroom: '#a7a7ad',
+    Service: '#919151',
+    Tourism: '#008C72',
+    Transportation: '#ee9f3e',
+    Water: '#0099DD',
+  };
+
+  // Create two variables to store the selected type and selected pois list
+  let poiSelectedType = [];
+  let poiSelectedList = [];
+
+  // Create two maps to store the poi markers (refer to ChatGPT)
+  const poiMarkers = new Map();
+  const originalPoiMarkers = new Map();
+
+  // Populate the pois on the map
   function populatePois(pois) {
     poisLayer.clearLayers();
 
-    // Identify the type of each poi and set the color
-    const typeColors = {
-      Commerce: '#F26363',
-      Mountain: '#947262',
-      Recreation: '#D93BAF',
-      Restroom: '#a7a7ad',
-      Service: '#919151',
-      Tourism: '#008C72',
-      Transportation: '#ee9f3e',
-      Water: '#0099DD',
-    };
+    pois.forEach((poi) => {
+      const latlng = [poi.geometry.coordinates[1], poi.geometry.coordinates[0]];
+      const type = poi.properties.Type;
+      const color = typeColors[type] || '#000000';
 
-    const geoJsonLayer = L.geoJSON(pois, {
-      pointToLayer: (feature, latlng) => {
-        const type = feature.properties.Type;
-        const color = typeColors[type] || '#000000';
+      const marker = L.circleMarker(latlng, {
+        radius: 5,
+        color: color,
+        weight: 2.2,
+        fillOpacity: 0.4,
+      });
 
-        return L.circleMarker(latlng, {
-          radius: 5,
-          color: color,
-          weight: 2,
-          fillOpacity: 0.4,
-        });
-      },
+      marker.on('click', (evt) => {
+        const event = new CustomEvent('poiselected', { detail: { poi } });
+        events.dispatchEvent(event);
+      });
+
+      poiMarkers.set(poi.properties.Name, marker);
+      originalPoiMarkers.set(poi.properties.Name, marker);
+      poisLayer.addLayer(marker);
     });
-
-    geoJsonLayer.eachLayer((layer) => poisLayer.addLayer(layer));
   }
   populatePois(pois);
 
   // Filter the pois based on selected type
   events.addEventListener('typeselected', (evt) => {
-    const { selectedType } = evt.detail;
+    poiSelectedType = evt.detail.selectedType;
 
-    if (selectedType.length === 0) {
-      populatePois(pois);
-    } else {
-      const filteredTypePois = pois.filter((poi) => {
-        return selectedType.includes(poi.properties.Type);
-      });
-      populatePois(filteredTypePois);
-    }
+    const filteredTypePois = poiSelectedType.length === 0
+      ? pois : pois.filter((poi) => poiSelectedType.includes(poi.properties.Type));
+
+    updatePoisLayer(filteredTypePois);
   });
-
-
-  //
-  // Select pois from the map...
-  //
-
-  // Handle click event on each poi point
 
   // Listen for updated selected pois list
   events.addEventListener('selectedlistupdated', (evt) => {
-    const { poiSelectedList } = evt.detail;
+    poiSelectedList = evt.detail.poiSelectedList;
 
-    // Update map icons based on selection
+    const filteredTypePois = poiSelectedType.length === 0
+      ? pois : pois.filter((poi) => poiSelectedType.includes(poi.properties.Type));
+
+    updatePoisLayer(filteredTypePois);
   });
+
+  function updatePoisLayer(filteredTypePois) {
+    poisLayer.clearLayers();
+
+    poiMarkers.forEach((marker, name) => {
+      const poi = filteredTypePois.find((item) => item.properties.Name === name);
+
+      if (poi) {
+        if (poiSelectedList.some((selectedPoi) => selectedPoi.properties.Name === name)) {
+          const type = poi.properties.Type;
+          const icon = typeIcons[type];
+          const latlng = marker.getLatLng();
+
+          const iconMarker = L.marker(latlng, { icon });
+
+          iconMarker.on('click', (evt) => {
+            const event = new CustomEvent('poiselected', { detail: { poi } });
+            events.dispatchEvent(event);
+          });
+
+          poiMarkers.set(name, iconMarker);
+          poisLayer.addLayer(iconMarker);
+        } else {
+          const originalMarker = originalPoiMarkers.get(name);
+          poiMarkers.set(name, originalMarker);
+          poisLayer.addLayer(originalMarker);
+        }
+      }
+    });
+  }
 
   return map;
 }

@@ -132,7 +132,8 @@ function initPoisList(rightEl, pois, events) {
     const poi = pois.find((item) => item.properties.Name === poiName);
 
     if (poi) {
-      events.dispatchEvent(new CustomEvent('poiselected', { detail: { poi } }));
+      const event = new CustomEvent('poiselected', { detail: { poi } });
+      events.dispatchEvent(event);
     }
   });
 
