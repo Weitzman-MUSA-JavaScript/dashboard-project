@@ -1,3 +1,5 @@
+import _debounce from 'https://esm.run/lodash/debounce';
+
 function initPoisList(rightEl, pois, events) {
   const poiSearchEl = rightEl.querySelector('.search-section');
   const searchInputEl = poiSearchEl.querySelector('.poi-search');
@@ -69,19 +71,47 @@ function initPoisList(rightEl, pois, events) {
 
     performfiltering();
   });
-  let currentFilterMethod = 'name';
 
   // Capture the filter method
+  let currentFilterMethod = 'name';
+
+  filterMethodsEl.addEventListener('change', (evt) => {
+    if (evt.target.name === 'filter-method') {
+      currentFilterMethod = evt.target.value;
+      performfiltering();
+    }
+  });
 
   // Capture the search input
+  searchInputEl.addEventListener(
+    'input',
+    _debounce((evt) => {
+      performfiltering();
+    }, 300),
+  );
+
+  const clearButton = poiSearchEl.querySelector('#clear-button');
+  clearButton.addEventListener('click', (evt) => {
+    searchInputEl.value = '';
+    performfiltering();
+  });
 
   // Define the filtering function
   function performfiltering() {
     const searchValue = searchInputEl.value.toLowerCase();
+    const finalFilteredPois = filterPois(filteredTypePois, currentFilterMethod, searchValue);
 
-    const finalFilteredPois = filterPois(filteredTypePois, currentFilterMethod);
-    function filterPois(filteredTypePois, currentFilterMethod) {
+    function filterPois(filteredTypePois, currentFilterMethod, searchValue) {
+      return filteredTypePois.filter((poi) => {
+        const poiName = poi.properties['Name'].toLowerCase();
+        const poiSubcategory = poi.properties['Subcategory'].toLowerCase();
 
+        if (currentFilterMethod === 'name') {
+          return poiName.includes(searchValue);
+        } else if (currentFilterMethod === 'subcategory') {
+          return poiSubcategory.includes(searchValue);
+        }
+      });
     }
 
     populateList(finalFilteredPois);
