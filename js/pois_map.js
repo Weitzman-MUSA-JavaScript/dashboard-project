@@ -1,14 +1,15 @@
 function initMap(leftEl, boundary, pois, events) {
   const mapEl = leftEl.querySelector('#map');
   const typeListEl = leftEl.querySelector('#poi-type');
+  const typeListItems = typeListEl.querySelectorAll('.type');
 
   //
   // Choose the selected pois type...
   //
-  const selectedType = [];
-  const typeListItems = typeListEl.querySelectorAll('.type');
 
   // Add event listener to each type button
+  const selectedType = [];
+
   typeListItems.forEach((item) => {
     item.addEventListener('click', (evt) => {
       const type = evt.target.dataset.type;

@@ -1,9 +1,11 @@
 function initPoisList(rightEl, pois, events) {
   const poiSearchEl = rightEl.querySelector('.search-section');
+  const searchInputEl = poiSearchEl.querySelector('.poi-search');
+  const filterMethodsEl = poiSearchEl.querySelector('.filter-methods');
   const poisListEl = rightEl.querySelector('#poi-list');
 
   //
-  // Create the pois list with selected type...
+  // Create the pois list without any filtering...
   //
 
   // Initialize the list items
@@ -47,23 +49,43 @@ function initPoisList(rightEl, pois, events) {
   }
   populateList(pois);
 
+  //
+  // Filter the pois list by multiple criteria...
+  //
+
   // Capture the selected poi type
+  let filteredTypePois = pois;
+
   events.addEventListener('typeselected', (evt) => {
     const { selectedType } = evt.detail;
+
     if (selectedType.length === 0) {
-      populateList(pois);
+      filteredTypePois = pois;
     } else {
-      const filteredTypePois = pois.filter((poi) => {
+      filteredTypePois = pois.filter((poi) => {
         return selectedType.includes(poi.properties['Type']);
       });
-      populateList(filteredTypePois);
     }
-  });
 
-  //
-  // Filter the pois list by search input...
-  //
-  const poisSelectedItems = {};
+    performfiltering();
+  });
+  let currentFilterMethod = 'name';
+
+  // Capture the filter method
+
+  // Capture the search input
+
+  // Define the filtering function
+  function performfiltering() {
+    const searchValue = searchInputEl.value.toLowerCase();
+
+    const finalFilteredPois = filterPois(filteredTypePois, currentFilterMethod);
+    function filterPois(filteredTypePois, currentFilterMethod) {
+
+    }
+
+    populateList(finalFilteredPois);
+  }
 }
 
 export { initPoisList };
