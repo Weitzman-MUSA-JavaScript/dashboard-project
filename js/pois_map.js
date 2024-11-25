@@ -69,6 +69,8 @@ function initMap(leftEl, boundary, pois, events) {
   boundaryLayer.addTo(map);
 
   // Adjust the map view to fit the boundary layer (refer to ChatGPT)
+  let initialView = null;
+
   function adjustMapView(map, boundaryLayer) {
     const mapSize = map.getSize();
     const mapWidth = mapSize.x;
@@ -83,6 +85,11 @@ function initMap(leftEl, boundary, pois, events) {
       });
 
       map.panBy([panDistance, 0], { animate: false });
+
+      initialView = {
+        center: map.getCenter(),
+        zoom: map.getZoom(),
+      };
     } else {
       console.warn('Boundary layer bounds are invalid!');
     }
@@ -91,7 +98,11 @@ function initMap(leftEl, boundary, pois, events) {
 
   // Add event listener to reset button
   resetButton.addEventListener('click', (evt) => {
-    adjustMapView(map, boundaryLayer);
+    if (initialView) {
+      map.setView(initialView.center, initialView.zoom);
+    } else {
+      console.warn('Initial view is not set!');
+    }
   });
 
   //
