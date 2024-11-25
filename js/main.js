@@ -60,7 +60,7 @@ events.addEventListener('resetselectedlist', (evt) => {
 // Load Yellowstone boundary and pois data
 const { boundary, pois } = await loadPoisData();
 
-// Create the map and choose the selected pois type
+// Create the map and choose the pois type
 const leftEl = document.querySelector('.left-part');
 initMap(leftEl, boundary, pois, events);
 
