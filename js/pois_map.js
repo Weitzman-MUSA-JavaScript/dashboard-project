@@ -96,7 +96,7 @@ function initMap(leftEl, boundary, pois, events) {
   }
   adjustMapView(map, boundaryLayer);
 
-  // Add event listener to reset button
+  // Use the reset button to reset the map view
   resetButton.addEventListener('click', (evt) => {
     if (initialView) {
       map.setView(initialView.center, initialView.zoom);
@@ -123,6 +123,7 @@ function initMap(leftEl, boundary, pois, events) {
     Transportation: L.icon({ iconUrl: 'img/Transportation_Logo.png', iconSize: [32, 32] }),
     Water: L.icon({ iconUrl: 'img/Water_Logo.png', iconSize: [32, 32] }),
   };
+
   const typeColors = {
     Commerce: '#F26363',
     Mountain: '#947262',
@@ -158,6 +159,7 @@ function initMap(leftEl, boundary, pois, events) {
         fillOpacity: 0.4,
       });
 
+      // Add tooltip to the marker
       marker.bindTooltip(() => {
         const name = poi.properties.Name;
         const type = poi.properties.Type;
@@ -166,11 +168,13 @@ function initMap(leftEl, boundary, pois, events) {
         return `Name: ${name}<br>Type: ${type}<br>Subcategory: ${subcategory}<br>Time: ${time}minutes`;
       });
 
+      // Add click event to the marker
       marker.on('click', (evt) => {
         const event = new CustomEvent('poiselected', { detail: { poi } });
         events.dispatchEvent(event);
       });
 
+      // Store the marker in the poiMarkers map and originalPoiMarkers map
       poiMarkers.set(poi.properties.Name, marker);
       originalPoiMarkers.set(poi.properties.Name, marker);
       poisLayer.addLayer(marker);
@@ -198,18 +202,21 @@ function initMap(leftEl, boundary, pois, events) {
     updatePoisLayer(filteredTypePois);
   });
 
+  // Update the pois layer based on the selected type
   function updatePoisLayer(filteredTypePois) {
     poisLayer.clearLayers();
 
     poiMarkers.forEach((marker, name) => {
       const poi = filteredTypePois.find((item) => item.properties.Name === name);
 
+      // Check if the poi is selected
       if (poi) {
         if (poiSelectedList.some((selectedPoi) => selectedPoi.properties.Name === name)) {
           const type = poi.properties.Type;
           const icon = typeIcons[type];
           const latlng = marker.getLatLng();
 
+          // Create a new iconMarker
           const iconMarker = L.marker(latlng, { icon });
 
           // iconMarker.bindTooltip(() => {
@@ -220,11 +227,13 @@ function initMap(leftEl, boundary, pois, events) {
           //   return `Name: ${name}<br>Type: ${type}<br>Subcategory: ${subcategory}<br>Time: ${time} minutes`;
           // });
 
+          // Add click event to the iconMarker
           iconMarker.on('click', (evt) => {
             const event = new CustomEvent('poiselected', { detail: { poi } });
             events.dispatchEvent(event);
           });
 
+          // Store the markers in the poiMarkers map and add to the poisLayer
           poiMarkers.set(name, iconMarker);
           poisLayer.addLayer(iconMarker);
         } else {

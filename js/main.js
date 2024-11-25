@@ -22,10 +22,14 @@ Custom event types:
   }
 */
 
-// Define the event target for different modules...
+//
+// Create event target and listener for communication between different modules...
+//
+
+// Define the event target
 const events = new EventTarget();
 
-// Listen for 'poiselected' event to update the selected pois list...
+// Listen for 'poiselected' event to update the selected pois list
 const poiSelectedList = [];
 
 events.addEventListener('poiselected', (evt) => {
@@ -43,22 +47,27 @@ events.addEventListener('poiselected', (evt) => {
   events.dispatchEvent(new CustomEvent('selectedlistupdated', { detail: { poiSelectedList } }));
 });
 
+// Listen for 'resetselectedlist' event to clear the selected pois list
 events.addEventListener('resetselectedlist', (evt) => {
   poiSelectedList.length = 0;
   events.dispatchEvent(new CustomEvent('selectedlistupdated', { detail: { poiSelectedList } }));
 });
 
-// Load Yellowstone boundary and pois data...
+//
+// Load data and create the map, pois list and schedule chart...
+//
+
+// Load Yellowstone boundary and pois data
 const { boundary, pois } = await loadPoisData();
 
-// Create the map and choose the selected pois type...
+// Create the map and choose the selected pois type
 const leftEl = document.querySelector('.left-part');
 initMap(leftEl, boundary, pois, events);
 
-// Create the pois list with selected type...
+// Create the pois list with selected type
 const rightEl = document.querySelector('.right-part');
 initPoisList(rightEl, pois, events);
 
-// Create a schedule chart with selected pois...
+// Create a schedule chart with selected pois
 const chartEl = document.querySelector('.chart-section');
 initPoisChart(chartEl, events);
