@@ -4,17 +4,16 @@ function initPoisChart(chartEl, events) {
   const canvas = chartEl.querySelector('.daily-trip-schedule');
   const ctx = canvas.getContext('2d');
 
-  //
-  // Create the chart for daily trip schedule... (refer to ChatGPT)
-  //
+  // 定义画布参数
+  const maxMinutesPerDay = 480; // 每天最大时间为8小时
+  const barHeight = 26; // 条形图高度
+  const barSpacing = 22; // 条形图间隔
+  const initialDays = 7; // 初始天数
+  const topGap = 5; // 顶部间隔
+  const bottomGap = 5; // 底部间隔
+  const rightGap = 5; // 右侧间隔
 
-  // Define parameters for the chart
-  const maxMinutes = 480; // 8 hours
-  const barHeight = 30;
-  const barSpacing = 20;
-  const initialDays = 5;
-
-  // Define the colormap for the chart
+  // 定义颜色映射表
   const colormap = {
     Commerce: '#F26363',
     Mountain: '#947262',
@@ -24,76 +23,87 @@ function initPoisChart(chartEl, events) {
     Tourism: '#008C72',
     Transportation: '#ee9f3e',
     Water: '#0099DD',
-    default: '#e0e0e0',
+    default: '#ffffff',
   };
 
-  // Adjust the canvas size based on the total days
+  // 动态调整画布大小
   function adjustCanvasSize(totalDays) {
-    const newHeight = totalDays * (barHeight + barSpacing);
-    canvas.height = newHeight;
-    canvas.width = canvas.parentElement.clientWidth;
+    const dpr = window.devicePixelRatio || 1; // 适配高分辨率
+    const newHeight = topGap + totalDays * (barHeight + barSpacing) - barSpacing + bottomGap;
+
+    canvas.width = canvas.parentElement.clientWidth * dpr;
+    canvas.height = newHeight * dpr;
+
+    canvas.style.width = `${canvas.parentElement.clientWidth}px`;
+    canvas.style.height = `${newHeight}px`;
+
+    ctx.scale(dpr, dpr); // 设置缩放以适配高分辨率
   }
 
-  // Draw the placeholder chart without selected pois
+  // 绘制占位图表
   function drawPlaceholder(totalDays) {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.clearRect(0, 0, canvas.width, canvas.height); // 清除画布
+    const drawWidth = canvas.parentElement.clientWidth - 60 - rightGap;
+
     for (let i = 0; i < totalDays; i++) {
-      const yPosition = i * (barHeight + barSpacing);
+      const yPosition = topGap + i * (barHeight + barSpacing);
 
-      ctx.fillStyle = colormap.default;
-      ctx.fillRect(0, yPosition, canvas.width, barHeight);
+      ctx.fillStyle = colormap.default; // 使用默认颜色
+      ctx.fillRect(60, yPosition, drawWidth, barHeight);
 
-      ctx.fillStyle = '#000';
+      ctx.strokeStyle = '#b0b0b0'; // 绘制边框
+      ctx.lineWidth = 1;
+      ctx.strokeRect(60, yPosition, drawWidth, barHeight);
+
+      ctx.fillStyle = '#000000'; // 绘制天数标签
       ctx.font = '14px Roboto';
       ctx.textAlign = 'left';
-      ctx.fillText(`Day ${i + 1}`, 10, yPosition + barHeight / 1.5);
+      ctx.textBaseline = 'middle';
+      ctx.fillText(`Day ${i + 1}`, 10, yPosition + barHeight / 2);
     }
   }
 
-  // Draw the selected pois
+  // 绘制用户选择的POI点
   function drawPoi(poiSelectedList) {
-    let currentDayMinutes = 0;
-    let currentDay = 0;
-    let xOffSet = 0;
+    let currentDayMinutes = 0; // 当前天已使用的分钟数
+    let currentDay = 0; // 当前天数
+    let xOffSet = 60; // 初始x偏移量
 
     poiSelectedList.forEach((poi) => {
-      // Convert the time string to number
-      const timeString = poi.properties.Time;
-      const time = parseInt(timeString.match(/\d+/)[0], 10);
+      const timeString = poi.properties.Time; // 获取时间属性
+      const time = parseInt(timeString.match(/\d+/)[0], 10); // 转换为数字
       console.log(`POI Time: ${time}`);
 
-      const color = colormap[poi.properties.Type] || colormap.default;
+      const color = colormap[poi.properties.Type] || colormap.default; // 获取颜色
 
-      // Check if the current day has more than 480 minutes (8 hours)
-      if (currentDayMinutes + time > maxMinutes) {
+      // 检查是否超出当前天最大时间
+      if (currentDayMinutes + time > maxMinutesPerDay) {
         currentDay++;
         currentDayMinutes = 0;
-        xOffSet = 0;
+        xOffSet = 60; // 重置x偏移量
       }
 
-      // Calculate the width of the bar
-      const availableTime = maxMinutes - currentDayMinutes;
-      const timeToDraw = Math.min(availableTime, time);
-      const barWidth = (timeToDraw / maxMinutes) * canvas.width;
+      const availableTime = maxMinutesPerDay - currentDayMinutes;
+      const timeToDraw = Math.min(availableTime, time); // 当前天可绘制时间
+      const barWidth = (timeToDraw / maxMinutesPerDay) * (canvas.parentElement.clientWidth - 60);
 
-      // Draw the bar for the POI
-      const yPosition = currentDay * (barHeight + barSpacing);
+      const yPosition = topGap + currentDay * (barHeight + barSpacing);
       ctx.fillStyle = color;
-      ctx.fillRect(xOffSet, yPosition, barWidth, barHeight);
+      ctx.fillRect(xOffSet, yPosition, barWidth, barHeight); // 绘制条形图
 
       currentDayMinutes += timeToDraw;
       xOffSet += barWidth;
 
       if (time > availableTime) {
-        // Draw the remaining part of the POIs in the next day
+        // 剩余时间绘制到下一天
         currentDay++;
         currentDayMinutes = 0;
-        xOffSet = 0;
+        xOffSet = 60;
 
         const remainingTime = time - timeToDraw;
-        const remainingBarWidth = (remainingTime / maxMinutes) * canvas.width;
+        const remainingBarWidth = (remainingTime / maxMinutesPerDay) * (canvas.parentElement.clientWidth - 60);
 
-        const nextYPosition = currentDay * (barHeight + barSpacing);
+        const nextYPosition = topGap + currentDay * (barHeight + barSpacing);
         ctx.fillRect(xOffSet, nextYPosition, remainingBarWidth, barHeight);
 
         currentDayMinutes += remainingTime;
@@ -102,16 +112,17 @@ function initPoisChart(chartEl, events) {
     });
   }
 
-  // Draw the main chart with selected pois
+  // 主函数：绘制图表
   function drawChart(poiSelectedList) {
-    let totalDays = 1;
+    let totalDays = 1; // 默认天数为1
     let currentDayMinutes = 0;
 
+    // 根据POI点计算所需天数
     if (poiSelectedList && poiSelectedList.length > 0) {
       poiSelectedList.forEach((poi) => {
         const timeString = poi.properties.Time;
         const time = parseInt(timeString.match(/\d+/)[0], 10);
-        if (currentDayMinutes + time > maxMinutes) {
+        if (currentDayMinutes + time > maxMinutesPerDay) {
           totalDays++;
           currentDayMinutes = time;
         } else {
@@ -120,22 +131,22 @@ function initPoisChart(chartEl, events) {
       });
       totalDays = Math.max(totalDays, initialDays);
     } else {
-      totalDays = initialDays;
+      totalDays = initialDays; // 默认天数
     }
 
-    // Call the functions to draw the chart
-    adjustCanvasSize(totalDays);
-
-    drawPlaceholder(totalDays);
-
-    if (poiSelectedList && poiSelectedList.length > 0) {
-      drawPoi(poiSelectedList);
-    } else {
-      ctx.fillStyle = '#000';
-      ctx.font = '20px Roboto';
-      ctx.fillText('No POIs selected', 10, canvas.height - 20);
-    }
+    adjustCanvasSize(totalDays); // 调整画布大小
+    drawPlaceholder(totalDays); // 绘制占位图
+    drawPoi(poiSelectedList); // 绘制POI
   }
+
+  // 监听事件并重新绘制图表
+  const poiSelectedList = [];
+  canvas.addEventListener('poiUpdated', (event) => {
+    poiSelectedList.push(event.detail.poi); // 将新POI添加到列表
+    drawChart(poiSelectedList); // 重新绘制图表
+  });
+
+  // 初始化绘制
   drawChart([]);
 
   //
