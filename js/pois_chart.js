@@ -35,8 +35,16 @@ function initPoisChart(chartEl, events) {
 
   //
   // Create the chart for daily trip schedule...
-  // Chart drawing on the canvas follows guidance provided by ChatGPT
   //
+
+  /* The logic for drawing the chart is created by myself:
+
+  This chart visualizes the estimated travel time for selected POIs as a bar chart.
+  Each POI's estimated travel time is proportional to the total available time in a day (6 hours or 360 minutes).   Note: This chart does not account for additional factors like traffic, rest, or meals.
+  If a POI's travel time exceeds the remaining time of the current day, the remaining portion is carried over to the next day.
+
+  The chart is drawn using canvas API and most of the code is modified from ChatGPT's example, because I have to draw the chart manually on the canvas.
+  */
 
   // Define parameters for the chart
   const maxMinutesPerDay = 360; // 6 hours per day
