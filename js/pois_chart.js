@@ -5,13 +5,13 @@ function initPoisChart(chartEl, events) {
   const ctx = canvas.getContext('2d');
 
   //
-  // Create the chart for daily trip schedule...
+  // Create the chart for daily trip schedule... (refer to ChatGPT)
   //
 
   // Define parameters for the chart
-  const maxHours = 8;
-  const barHeight = 20;
-  const barSpacing = 10;
+  const maxMinutes = 480; // 8 hours
+  const barHeight = 30;
+  const barSpacing = 20;
   const initialDays = 5;
 
   // Define the colormap for the chart
@@ -27,7 +27,7 @@ function initPoisChart(chartEl, events) {
     default: '#e0e0e0',
   };
 
-  // Modify the canvas size dynamically
+  // Adjust the canvas size based on the total days
   function adjustCanvasSize(totalDays) {
     const newHeight = totalDays * (barHeight + barSpacing);
     canvas.height = newHeight;
@@ -44,7 +44,7 @@ function initPoisChart(chartEl, events) {
       ctx.fillRect(0, yPosition, canvas.width, barHeight);
 
       ctx.fillStyle = '#000';
-      ctx.font = '16px Roboto';
+      ctx.font = '14px Roboto';
       ctx.textAlign = 'left';
       ctx.fillText(`Day ${i + 1}`, 10, yPosition + barHeight / 1.5);
     }
@@ -52,12 +52,89 @@ function initPoisChart(chartEl, events) {
 
   // Draw the selected pois
   function drawPoi(poiSelectedList) {
+    let currentDayMinutes = 0;
+    let currentDay = 0;
+    let xOffSet = 0;
 
+    poiSelectedList.forEach((poi) => {
+      // Convert the time string to number
+      const timeString = poi.properties.Time;
+      const time = parseInt(timeString.match(/\d+/)[0], 10);
+      console.log(`POI Time: ${time}`);
+
+      const color = colormap[poi.properties.Type] || colormap.default;
+
+      // Check if the current day has more than 480 minutes (8 hours)
+      if (currentDayMinutes + time > maxMinutes) {
+        currentDay++;
+        currentDayMinutes = 0;
+        xOffSet = 0;
+      }
+
+      // Calculate the width of the bar
+      const availableTime = maxMinutes - currentDayMinutes;
+      const timeToDraw = Math.min(availableTime, time);
+      const barWidth = (timeToDraw / maxMinutes) * canvas.width;
+
+      // Draw the bar for the POI
+      const yPosition = currentDay * (barHeight + barSpacing);
+      ctx.fillStyle = color;
+      ctx.fillRect(xOffSet, yPosition, barWidth, barHeight);
+
+      currentDayMinutes += timeToDraw;
+      xOffSet += barWidth;
+
+      if (time > availableTime) {
+        // Draw the remaining part of the POIs in the next day
+        currentDay++;
+        currentDayMinutes = 0;
+        xOffSet = 0;
+
+        const remainingTime = time - timeToDraw;
+        const remainingBarWidth = (remainingTime / maxMinutes) * canvas.width;
+
+        const nextYPosition = currentDay * (barHeight + barSpacing);
+        ctx.fillRect(xOffSet, nextYPosition, remainingBarWidth, barHeight);
+
+        currentDayMinutes += remainingTime;
+        xOffSet += remainingBarWidth;
+      }
+    });
   }
 
   // Draw the main chart with selected pois
   function drawChart(poiSelectedList) {
+    let totalDays = 1;
+    let currentDayMinutes = 0;
 
+    if (poiSelectedList && poiSelectedList.length > 0) {
+      poiSelectedList.forEach((poi) => {
+        const timeString = poi.properties.Time;
+        const time = parseInt(timeString.match(/\d+/)[0], 10);
+        if (currentDayMinutes + time > maxMinutes) {
+          totalDays++;
+          currentDayMinutes = time;
+        } else {
+          currentDayMinutes += time;
+        }
+      });
+      totalDays = Math.max(totalDays, initialDays);
+    } else {
+      totalDays = initialDays;
+    }
+
+    // Call the functions to draw the chart
+    adjustCanvasSize(totalDays);
+
+    drawPlaceholder(totalDays);
+
+    if (poiSelectedList && poiSelectedList.length > 0) {
+      drawPoi(poiSelectedList);
+    } else {
+      ctx.fillStyle = '#000';
+      ctx.font = '20px Roboto';
+      ctx.fillText('No POIs selected', 10, canvas.height - 20);
+    }
   }
   drawChart([]);
 

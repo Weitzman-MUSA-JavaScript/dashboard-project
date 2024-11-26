@@ -180,7 +180,7 @@ for chart section
 .schdule-chart {
   flex-grow: 1;
   width: 100%;
-
+  
   margin-bottom: 1rem;
 
   overflow-y: auto;
