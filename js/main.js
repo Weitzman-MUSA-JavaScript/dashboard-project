@@ -20,6 +20,11 @@ Custom event types:
   Detail: {
     poiSelectedList (array): an array of selected poi objects.
   }
+
+  - resetselectedlist: Fired when the reset button is clicked.
+  Detail: {
+    None
+  }
 */
 
 //

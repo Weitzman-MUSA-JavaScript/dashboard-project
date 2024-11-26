@@ -186,8 +186,8 @@ for chart section
   overflow-y: auto;
 }
 
-.schdule-chart img {
-  height: 120%;
+.schdule-chart canvas {
+  height: auto;
   width: 100%;
 }
 
