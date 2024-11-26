@@ -1,0 +1,140 @@
+/*
+// for all elements
+*/
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  font-family: Roboto, sans-serif;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+
+  padding: 0;
+  margin: 0;
+
+  overflow: hidden;
+}
+
+
+/*
+// for body elements
+*/
+
+/* header */
+header {
+  height: 7.5vh;
+  width: 100%;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 2rem;
+
+  position: relative;
+
+  background-color: black;
+  color: white;
+
+  z-index: 100;
+}
+
+/* main */
+main {
+  height: 90vh;
+  width: 100%;
+
+  display: flex;
+  flex-direction: row;
+
+  z-index: 0;
+}
+
+/* footer */
+footer {
+  height: 2.5vh;
+  width: 100%;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  font-size: 0.7rem;
+
+  background-color: rgb(255 255 255 / 50%);
+  
+  z-index: 50;
+}
+
+
+/*
+// for header elements
+*/
+.page-header img {
+  height: 2rem;
+  width: auto;
+
+  margin-left: 3rem;
+}
+
+.page-header h1 {
+  font-size: 1.8rem;
+  font-family: Merriweather, serif;
+}
+
+
+/*
+// for main elements
+*/
+
+/* left section */
+.left-part {
+  height: 100%;
+  flex-grow: 1;
+
+  padding: 0;
+  margin: 0;
+
+  position: relative;
+}
+
+/* right section */
+.right-part {
+  height: 100%;
+  width: 450px;
+
+  padding: 2rem 3rem;
+  padding-bottom: 0;
+  margin: 0;
+
+  display: flex;
+  flex-direction: column;
+}
+
+
+/*
+// for footer elements
+*/
+.footnote {
+  margin: 0;
+  margin-left: 1rem;
+}
+
+.footnote a {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+
+  color: rgb(30 30 30);
+}
+
+.footnote a:last-child {
+  margin-right: 0;
+}
+
+.footnote span {
+  color: rgb(30 30 30);
+}
