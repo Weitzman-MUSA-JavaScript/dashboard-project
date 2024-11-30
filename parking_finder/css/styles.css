@@ -1,0 +1,46 @@
+body {
+    padding: 0;
+    margin: 0;
+  }
+  
+  main {
+    display: grid;
+    grid-template-areas: "header header"
+                          "map address"
+                          "map message"
+                          "map chart";
+    grid-template-rows: auto 1fr 1fr 1fr;
+    grid-template-columns: 2fr 1fr;
+    height: 100vh;
+  }
+  
+  h1 {
+    grid-area: header;
+    color: red;
+  }
+  
+  #map {
+    grid-area: map;
+    background-color: white;
+    border: 1px solid black;
+    height: 100%;
+  }
+
+  #address {
+    grid-area: address;
+    border: 1px solid black;
+  }
+
+  #message {
+    grid-area: message;
+    border: 1px solid black;
+  }
+  
+  #chart {
+    grid-area: chart;
+    border: 1px solid black;
+    height: 300px;
+    width: 100%;
+    margin: 20px 0;
+  }
+  
