@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>PumpPal California</title>
+  <!-- add leaflet map css component -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;1,400&display=swap"
+    rel="stylesheet">
+  <!-- link css file -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+  <header>
+    <img src="./img/TITTLE.png" alt="Title" class="title-image">
+  </header>
+
+  <main>
+    <div id="map" class="map"></div>
+    <div class="right-side">
+      <section class="address-filter">
+        <fieldset>
+          <legend><strong>Search by</strong></legend>
+          
+          <!-- Radio -->
+          <section class="radio">
+            <div class="input-choice">
+              <label><input id="city" type="radio" name="filter">City</label>
+              <label><input id="address" type="radio" name="filter" checked>Address</label>
+            </div>
+
+            <!-- Search-box -->
+            <div class="search-container">
+            <input type="text" id="search-box" placeholder="Type your input here...">
+            <button class="cross-icon" title="Clear input">
+              <svg width="15px" height="15px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                <g id="SVGRepo_iconCarrier">
+                  <path d="M19 5L5 19M5.00001 5L19 19" stroke="#838181" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round"></path>
+                </g>
+              </svg>
+            </button>
+            </div>
+            <ol id="city-choices" class="city-choices hidden"></ol>
+            <ol id="address-choices" class="address-choices hidden"></ol>
+          </section>
+        </fieldset>
+      </section>
+
+      <section class="checkbox">
+        <fieldset>
+          <legend><strong>Select types of gas products</strong></legend>
+      
+          <!-- "Select All" checkbox -->
+          <div>
+            <input type="checkbox" id="SelectAll" value="SelectAll">
+            <label for="SelectAll">Select All</label>
+          </div>
+      
+          <!-- Individual checkboxes -->
+          <div>
+            <input type="checkbox" id="Regular" value="Regular">
+            <label for="Regular">Regular</label>
+          </div>
+          <div>
+            <input type="checkbox" id="Premium" value="Premium">
+            <label for="Premium">Premium</label>
+          </div>
+          <div>
+            <input type="checkbox" id="Midgrade" value="Midgrade">
+            <label for="Midgrade">Midgrade</label>
+          </div>
+          <div>
+            <input type="checkbox" id="Diesel" value="Diesel">
+            <label for="Diesel">Diesel</label>
+          </div>
+          <div>
+            <input type="checkbox" id="E85" value="E85">
+            <label for="E85">E85</label>
+          </div>
+          <div>
+            <input type="checkbox" id="UNL88" value="UNL88">
+            <label for="UNL88">UNL88</label>
+          </div>
+      
+          <!-- Clear All button -->
+          <button type="button" id="ClearAll">Clear All</button>
+        </fieldset>
+      </section>
+
+      <section class="station-list">
+        <fieldset>
+          <legend><strong>Explore Gas Station List</strong></legend>
+        <ol class="station-list">
+          <li id="stationlist-right">
+            <div class="city">Los Angeles</div>
+            <div class="address">1935 E Florence Ave</div>
+            <div class="overall_rating">3.8</div>
+          </li>
+        </ol>
+      </fieldset>
+      </section>
+
+    </div>
+  </main>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script type="module" src="js/map.js"></script>
+  <script type="module" src="js/main.js"></script>
+</body>
+
+</html>
