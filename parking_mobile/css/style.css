@@ -33,6 +33,7 @@ main {
 #header {
     grid-area: header;
     background-color: black;
+    border: none;
     align-self: center;
     align-items: center;
     display: grid;
@@ -79,6 +80,7 @@ main {
 /* css styles for input */
 #userdet {
     grid-area: userdet;
+    border: none;
     display: flex;
     background-color: black;
     align-items: center;
