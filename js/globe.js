@@ -1,15 +1,12 @@
-const width = Math.max(window.innerWidth * 0.43, 0);
-const height = Math.max(window.innerHeight * 0.85, 0);
-
 const config = {
   speed: 0.002,
   verticalTilt: -10,
   horizontalTilt: -23,
 };
 let locations = [];
-const projection = d3.geoOrthographic().scale(width/2.4).translate([width / 2, height / 2]);
-const path = d3.geoPath().projection(projection);
-const center = [width / 2, height / 2];
+let projection = null;
+let path = null;
+let center = null;
 let svg; let markerGroup;
 let selectedVolcanoType = 'All';
 
@@ -18,9 +15,18 @@ document.getElementById('volcano-type').addEventListener('change', (evt) => {
   drawMarkers();
 });
 
+function updateSize(el) {
+  const width = el.node().clientWidth;
+  const height = el.node().clientHeight;
+
+  svg = el.append('svg').attr('width', width).attr('height', height);
+  projection = d3.geoOrthographic().scale(width / 2.4).translate([width / 2, height / 2]);
+  path = d3.geoPath().projection(projection);
+  center = [width / 2, height / 2];
+}
 
 async function globe(el, worldData, locationData) {
-  svg = el.append('svg').attr('width', width).attr('height', height);
+  updateSize(el);
   markerGroup = svg.append('g');
   drawGraticule();
   drawGlobe(worldData, locationData);

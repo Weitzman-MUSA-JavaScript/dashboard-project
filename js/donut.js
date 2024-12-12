@@ -1,12 +1,22 @@
-const height = Math.max(window.innerHeight * 0.18, 0);
-const width = Math.max(window.innerWidth * 0.1, 0);
-const radius = Math.min(width, height) / 2;
-const textSize = radius * 0.11;
-const mouseoverSize = radius * 0.08;
+let height = Math.max(window.innerHeight * 0.18, 0);
+let width = Math.max(window.innerWidth * 0.1, 0);
+let radius = Math.min(width, height) / 2;
+let textSize = radius * 0.11;
+let mouseoverSize = radius * 0.08;
 
 let svg;
 
+function updateSize(el) {
+  width = el.node().clientWidth;
+  height = el.node().clientHeight;
+
+  radius = Math.min(width, height) / 2;
+  textSize = radius * 0.11;
+  mouseoverSize = radius * 0.08;
+}
+
 async function drawDonut(el, input, data, palette) {
+  updateSize(el);
   donutChart(el, input, data, palette);
 }
 

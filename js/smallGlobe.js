@@ -1,10 +1,17 @@
 let canvas;
-const width = Math.max(window.innerWidth * 0.178, 0);
-const height = Math.max(window.innerHeight * 0.315, 0);
+let width = null;
+let height = null;
 const tilt = 20;
 
 
+function updateSize(el) {
+  width = el.node().clientWidth;
+  height = el.node().clientHeight;
+}
+
 async function createRotatingGlobe(countryEL, yearEL, infoEL, smallglobeEL, land, countries, borders, volCountry) {
+  updateSize(smallglobeEL);
+
   const countrySelect = countryEL;
   const uniqueCountries = [...new Set(volCountry.map((vol) => vol.Country))].sort();
   const yearSelect = yearEL;

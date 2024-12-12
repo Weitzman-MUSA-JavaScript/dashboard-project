@@ -4,11 +4,15 @@
 body {
   margin: 0;
   font-family: Roboto, sans-serif;
-  font-size: 0.7vw;
+  font-size: 0.7rem;
 }
   
 main {
   display: grid;
+  grid-template-areas: "header header header header"
+                       "globe description description selection"
+                       "globe donut1 donut2 small-globe"
+                       "globe lollipop lollipop lollipop";
   grid-template-columns: 44vw 18vw 18vw auto; 
   grid-template-rows: 8vh 22vh 34vh 32vh; 
   height: 100vh;
@@ -24,16 +28,13 @@ p {
 }
  
 img{
-  grid-column: 4 / 5;
-  grid-row: 1 / 2;
   width: 60px;
   height: auto;
   margin-left: 10px;
 }
 
 .header-container {
-  grid-column: 1 / 5; 
-  grid-row: 1 / 2;
+  grid-area: header;
   background-color: rgb(30, 30, 32)	; 
   position: relative; 
   display:flex;
@@ -100,7 +101,7 @@ h3 {
 }
 
 h4 {
-  font-size: 1vw;
+  font-size: 1rem;
   font-family:  Roboto, sans-serif;
   letter-spacing: 0.01vw;
   margin: 0;
@@ -125,8 +126,7 @@ h4 {
 
 
 #globe-container {
-  grid-column: 1 / 2; 
-  grid-row: 2 / 5;
+  grid-area: globe;
   position: relative; 
   height: 100%; 
   background-color: #f8f7f7;
@@ -144,7 +144,7 @@ h4 {
   right: 1vw; 
   z-index: 1; 
   padding: 4px 2px;
-  font-size: 0.7vw;
+  font-size: 0.rem;
   background-color: grey;
   color: white; 
   border: 1px solid #ccc;
@@ -158,7 +158,7 @@ h4 {
 
 #note {
   position: absolute; 
-  font-size: 0.7vw;
+  font-size: 0.7rem;
   top: 1.8vw; 
   padding-left: 0.6vw;
 }
@@ -175,10 +175,10 @@ h4 {
 .copyright {
   text-align: left;
   position: absolute; 
-  font-size: 0.7vw; 
+  font-size: 0.7rem;
   color: #666; 
   z-index: 1;
-  padding-top: 79vh; 
+  bottom: 0;
   padding-left: 0.6vw;
 
 }
@@ -187,18 +187,16 @@ h4 {
   margin: 5px 0; /* Adjust this value to change the spacing */
 }
 
-  
+
 #donut1 {
-  grid-column: 2 / 3; 
-  grid-row: 3 / 4; 
+  grid-area: donut1;
   margin-left: 5px;
   margin-top: 1vw;
 
 }
 
 #donut2 {
-  grid-column: 3 / 4; 
-  grid-row: 3 / 4; 
+  grid-area: donut2;
   margin-left: 2px;
   margin-top: 1vw;
 
@@ -206,8 +204,7 @@ h4 {
 
 
 #lollipop-container {
-  grid-column: 2 / 5; 
-  grid-row: 4 / 5; 
+  grid-area: lollipop;
   flex-direction: column; 
   padding: 0.8vw;
 
@@ -215,8 +212,7 @@ h4 {
 
 
 #small-globe {
-  grid-column: 4 / 5;
-  grid-row: 3 / 4; 
+  grid-area: small-globe;
   width: 100%; 
   height: 100%; 
   margin-top: 7px;
@@ -224,8 +220,7 @@ h4 {
 }
 
 #selection {
-  grid-column: 4 / 5;
-  grid-row: 2 / 3;
+  grid-area: selection;
   display: flex;
   flex-direction: column; 
 }
@@ -240,12 +235,12 @@ h4 {
 
 .selection-group label {
   margin-right: 6px; 
-  font-size: 0.8vw; 
+  font-size: 0.8rem;
 }
 
 #country-select, #year-select {
   padding: 1px, 2px;
-  font-size: 0.7vw; 
+  font-size: 0.7rem;
   background-color: #808080; 
   color: white; 
   border: 1px solid #ccc; 
@@ -269,20 +264,18 @@ h4 {
 }
 
 .eruption-info {
-  font-size: 0.75vw;
+  font-size: 0.75rem;
   font-family: Roboto, sans-serif; 
   color: #070707; 
   margin:0;
 }
 
 #description{
-  font-size: 0.8vw;
-  letter-spacing: 0.01vw;
-  line-height: 20.5px;
-  grid-column: 2 / 4;
-  grid-row: 2 / 3;
+  font-size: 0.8rem;
+  line-height: 1.3rem;
+  grid-area: description;
   margin-top: 0%;
-  padding: 0.6vw;
+  padding: 0.6rem;
 }
 
 #button-container {
@@ -298,7 +291,7 @@ button {
   text-align: center; 
   text-decoration: none; 
   display: inline-block; 
-  font-size: 0.7vw; 
+  font-size: 0.7rem;
   border-radius: 5px; 
   cursor: pointer; 
   height: 25px;
@@ -319,3 +312,45 @@ button:focus {
   outline: none;
 }
 
+
+@media screen and (width <= 768px) {
+  main {
+    grid-template-areas: "header header"
+                         "globe globe"
+                         "description description"
+                         "selection small-globe"
+                         "donut1 donut2"
+                         "lollipop lollipop";
+    grid-template-columns: 50vw 50vw;
+    grid-template-rows: 8vh 100vw auto 50vw 50vw 50vw;
+    height: auto;
+  }
+
+  h3 {
+    font-size: 0.6rem;
+  }
+
+  #globe-title {
+    position: relative;
+    z-index: 10;
+  }
+
+  #note {
+    font-size: 0.5rem;
+    top: 0.7rem;
+    z-index: 10;
+  }
+
+  #globe {
+    position: absolute;
+    top: 0;
+  }
+
+  #selection {
+    justify-content: center;
+  }
+
+  #info-display {
+    line-height: 1.2;
+  }
+}
