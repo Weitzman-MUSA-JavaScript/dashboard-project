@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>LandCare Program Explorer</title>
+        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+        crossorigin=""/>
+       <link rel="preconnect" href="https://fonts.googleapis.com">
+       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+       <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+       <link rel="stylesheet" href="css/index.css">
+       <script defer src="js/main.js"></script>
+    </head>
+
+<body>
+
+    <h1 class="main-title">
+        LandCare Program Explorer
+        <img src = "pic/title-1.jpg" alt = "bg" class = "bg">
+    </h1>
+    <div class = "container">
+        <div class = "sidebar">
+            <div class = "zip-filter">
+                <h3>Search by ZIP Code</h3>
+                <input type = "text" class = "searchbox" id = "zipInput" placeholder = "Please enter a ZIP Code">
+                <button class = "filterbutton" id = "zipFilterButton">Search</button>
+                <button class = "filterbutton-reset" id = "resetZipButton">Reset</button>
+            </div>
+            <div class = "address-filter">
+                <input type = "text" class = "searchbox" id="addressInput" placeholder = "Please enter the address">
+                <button class = "filterbutton" id = "addressFilterButton">Search</button>
+                <button class = "filterbutton-reset" id = "resetAddressButton">Reset</button>
+            </div>
+
+            <div class = "program">
+                <h3>Program</h3>
+                <div>
+                    <label>
+                        <input type = "checkbox" value = "PLC" class = "program-checkbox" >PLC
+                    </label>
+                </div>
+
+                <div>
+                    <label>
+                        <input type = "checkbox" value = "CLC" class = "program-checkbox" >CLC
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <input type = "checkbox" value = "MO" class = "program-checkbox" >MO
+                    </label>
+                </div>
+            </div>
+
+            <div class = "Stabilized">
+                <h3>Stabilized or not</h3>
+                <div>
+                <label>
+                    <input type = "checkbox" value = "YES" class = "stabilized-checkbox"> Yes
+                </label>
+                </div>
+                <div>
+                <label>
+                    <input type = "checkbox" value = "NO" class = "stabilized-checkbox"> No
+                </label>
+                </div>
+            </div>
+
+            <div class="site-list">
+                
+            </div>
+
+
+        </div>
+
+        <div id = "map"></div>
+
+
+    </div>
+
+</body>
+
+</html>
