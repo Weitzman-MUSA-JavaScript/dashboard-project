@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+    <link rel="stylesheet" href="assets/css/dashboard.css">
+</head>
+<body>
+    <div class="controls">
+        <!-- Year Selector -->
+        <select id="year-selector">
+            <option value="2024">2024</option>
+            <option value="2023">2023</option>
+            <option value="2022">2022</option>
+            <option value="2021">2021</option>
+            <option value="2020">2020</option>
+            <option value="2019">2019</option>
+            <option value="2018">2018</option>
+        </select>
+    </div>
+
+    <div class="map-info-container">
+        <!-- Map Container -->
+        <div class="map-container">
+            <div id="map"></div>
+        </div>
+
+        <!-- Information Box -->
+        <div class="info-box">
+            <h2>Selected Location Details</h2>
+            <table id="info-table">
+                <tbody>
+                    <tr>
+                        <td colspan="2">Click on map to select a location.</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="chart-item" id="chart1"></div>
+            <div class="chart-item" id="chart2"></div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script type="module" src="assets/js/dashboard.js"></script>
+</body>
+</html>
