@@ -1,0 +1,137 @@
+html {
+  font-size: 24px;
+  font-family: sans-serif;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+.map-section {
+  position: relative;
+  width: 100%;
+  height: 50vh;
+  background-color: silver;
+}
+
+.map-search-controls {
+  display: flex;
+  box-sizing: border-box;
+  margin: 0;
+  border: none;
+  padding: 0.5rem;
+  width: 100%;
+  gap: 0.5rem;
+  justify-content: space-between;
+  position: relative;
+  z-index: 1;
+}
+
+.map-search-controls input {
+  box-sizing: border-box;
+  border: 1px solid gray;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  font-family: monospace;
+}
+
+[name="address-search"] {
+  background-image: url("../img/location.svg");
+  background-size: 1em;
+  background-repeat: no-repeat;
+  background-position: 98% center;
+  padding-right: 1.2em;
+  width: 60%
+}
+
+[name="time-search"] {
+  width: 40%;
+}
+
+.map {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bike-search-controls {
+  border: 0;
+  padding: 0.5rem;
+  display: flex;
+  justify-content: space-between
+}
+
+.station-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.station-list .station {
+  display: grid;
+  grid-template-areas: "name             name"
+                        "blank           distance"
+                        "bikes-info      docks-info"
+                        "drop-off-info   pick-up-info"
+                        "details         details";
+  grid-template-columns: 1fr 1fr;
+
+  padding: 0.5rem;
+  border-bottom: 1px solid black;
+}
+
+.station-list .station:first-child {
+  border-top: 1px solid black;
+}
+
+.station .name {
+  grid-area: name;
+  font-weight: bold;
+}
+
+.station .distance {
+  grid-area: distance;
+  justify-self: end;
+
+  font-size: 0.8em;
+  font-style: italic;
+  padding-bottom: 0.5rem
+}
+
+.station .available-bikes {
+  grid-area: bikes-info;
+}
+
+.station .available-docks {
+  grid-area: docks-info;
+  text-align: right;
+}
+
+.station .next-drop-off-est {
+  grid-area: drop-off-info;
+}
+
+.station .next-pick-up-est {
+  grid-area: pick-up-info;
+  text-align: right;
+}
+
+.station .details {
+  grid-area: details;
+  justify-self: center;
+}
+
+.station .details .chart {
+  box-sizing: border-box;
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  width: 100%;
+  height: 4rem;
+  background-color: silver;
+
+}
