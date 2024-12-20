@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guangzhou Medical Services Dashboard</title>
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+  <script src="https://api.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.js"></script>
+  <link href="https://api.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/@turf/turf@6/turf.min.js"></script>
+  <link rel="stylesheet" href="./css/style.css">
+  </head>
+
+<body>
+<main>
+    <h1>Guangzhou Medical Services Information Dashboard</h1>
+
+    <div id="info-box">
+        <p id="info-text">Click the points to see detailed information.</p>
+    </div>
+    
+    <div class="controls">
+        <select id="neighborhood-search">
+        <option value="">Select Neighborhood</option>
+        </select>
+
+        <select id="service-type-search">
+        <option value="">Select Medical Service Type</option>
+        </select>
+    </div>
+    <div id="map"></div>
+
+    <div id="legend" class="legend"></div>
+</main>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="./js/main.js" type="module"></script>
+</body>
+</html>
