@@ -8,7 +8,7 @@ const mapboxStyle = 'mapbox/satellite-v9';
 // The Base Tile Layer
 const baseTileLayer = L.tileLayer(`http://api.mapbox.com/styles/v1/${mapboxStyle}/tiles/512/{z}/{x}/{y}?access_token=${mapboxKey}`, {
   tileSize: 512,
-  opacity:0.9,
+  opacity:1,
   zoomOffset: -1,
   maxZoom: 16,
   attribution: '&copy; <a href="https://stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://stamen.com/" target="_blank">Stamen Design</a> &copy; <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a>',
@@ -50,22 +50,15 @@ fetch('data/kvarterloeft_fromSHP.geojson')
     .then((response) => response.json())
     .then((data) => {
         L.geoJSON(data, {
-            pointToLayer: (feature, latlng) => {
-                // Create a marker and attach it to the feature
-                const marker = L.marker(latlng);
-                marker.bindPopup(`<strong>${feature.properties.navn || 'Unnamed Project'}</strong>`);
-                feature.marker = marker; // Attach the marker directly to the feature
-                return marker;
-            }
+            onEachFeature: onEachFeature, 
         }).addTo(map);
-
-        displaySidebarList(data); // Populate project list
-    });
+    displaySidebarList(data); 
+  });
 
 // Projects
 function displaySidebarList(geojsonData) {
   const siteList = document.querySelector('.projects');
-  siteList.innerHTML = '<h3>Project List</h3>'; // Reset and add title
+  siteList.innerHTML = '<h3>Project List</h3>'; 
 
   // Reset View Button
   const resetButton = document.createElement('button');
@@ -75,32 +68,31 @@ function displaySidebarList(geojsonData) {
   resetButton.style.display = 'block';
 
   resetButton.addEventListener('click', () => {
-      map.setView(initialCenter, initialZoom); // Reset to initial map view
+    map.setView(initialCenter, initialZoom);
   });
+
   siteList.appendChild(resetButton);
 
   // Populate project list
   geojsonData.features.forEach((feature) => {
-      const projectName = feature.properties.navn || 'Unnamed Project';
+    const projectName = feature.properties.navn || 'Unnamed Project';
 
-      // Create project item
-      const projectItem = document.createElement('div');
-      projectItem.classList.add('site-item');
-      projectItem.innerHTML = `<strong>${projectName}</strong>`;
+    const projectItem = document.createElement('div');
+    projectItem.classList.add('site-item');
+    projectItem.innerHTML = `<strong>${projectName}</strong>`;
 
-      // Add click event to zoom and show popup
-      projectItem.addEventListener('click', () => {
-          if (feature.marker) {
-              map.setView(feature.marker.getLatLng(), 15); // Zoom to marker location
-              feature.marker.openPopup(); // Open marker popup
-          }
-      });
+    // Click event: find the corresponding marker and zoom
+    projectItem.addEventListener('click', () => {
+      const targetMarker = markers.find((m) => m.id === projectName);
+      if (targetMarker) {
+        map.setView(targetMarker.marker.getLatLng(), 15);
+        targetMarker.marker.openPopup();
+      }
+    });
 
-      // Append to the project list
-      siteList.appendChild(projectItem);
+    siteList.appendChild(projectItem);
   });
 }
-
 
 // DOM Elements for Location Name Search
 const locationFilterButton = document.getElementById('locationFilterButton');
