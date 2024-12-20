@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>CPH Area Renewal Dashboard</title>
+    <link rel="stylesheet" href="css/map.css">
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Itim&family=Quicksand:wght@300..700&family=Shadows+Into+Light&display=swap" rel="stylesheet">
+    <script defer src="js/main.js"></script>
+</head>
+<body>
+    <h1 class="main-title">
+        Copenhagen Area Renewal Porjects
+        <img src="image/52262772109_eba1d731e3_h.jpg" alt="Copenhagen Area Renewal Porjects" class="bg">
+    </h1>
+    <div class="container">
+        <div class="sidebar">
+            <div class="location-filter">
+                <h3>Search by Area Name (Omraadenavn)</h3>
+                <input type="text" class="searchbox" id="locationInput" placeholder="Enter Omraadenavn...">
+                <button class= "filterbutton" id="locationFilterButton">Search</button>
+                <button class= "filterbutton-reset" id="resetLocationButton">Reset</button>
+            </div>
+            
+            <div class="project-filter">
+                <h3>Search by Project Name (Navn)</h3>
+                <input type="text" class="searchbox" id="projectInput" placeholder="Enter Project Name...">
+                 <button class="filterbutton" id="projectFilterButton">Search</button>
+                 <button class="filterbutton-reset" id="resetProjectButton">Reset</button>
+            </div>
+            
+            <div class="category-filter">
+                <h3>Filter by Category</h3>
+                <label><input type="checkbox" class="category-checkbox" value="Gader og forbindelser"> Streets & Connections (Gader og forbindelser)</label><br>
+                <label><input type="checkbox" class="category-checkbox" value="Parker"> Parks (Parker)</label><br>
+                <label><input type="checkbox" class="category-checkbox" value="Torve og pladser"> Squares & Plazas (Torve og pladser)</label><br>
+                <label><input type="checkbox" class="category-checkbox" value="Kunstprojekter"> Art Projects (Kunstprojekter)</label><br>
+                <label><input type="checkbox" class="category-checkbox" value="Midlertidige indsatser"> Temporary Initiatives (Midlertidige indsatser)</label><br>
+                <label><input type="checkbox" class="category-checkbox" value="Skoleprojekter og kulturhuse"> Schools & Culture (Skoleprojekter og kulturhuse)</label>
+            </div>
+
+            <div class="status-filter">
+                <h3>Filter by Status</h3>
+                <label><input type="checkbox" class="status-checkbox" value="Projektering"> Planning (Projektering)</label><br>
+                <label><input type="checkbox" class="status-checkbox" value="Idémodning"> Idea Development (Idémodning)</label><br>
+                <label><input type="checkbox" class="status-checkbox" value="Udført"> Completed (Udført)</label><br>
+                <label><input type="checkbox" class="status-checkbox" value="Anlæg"> Construction (Anlæg)</label><br>
+                <label><input type="checkbox" class="status-checkbox" value="Annulleret"> Cancelled (Annulleret)</label>
+            </div>
+            
+
+            <div class="projects">
+                <!-- Grab from js -->
+            </div>
+
+        </div>
+        <div id="map"></div>
+    </div>
+</body>
+</html>
