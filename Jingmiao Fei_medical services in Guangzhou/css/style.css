@@ -1,0 +1,82 @@
+body {
+    margin: 0;
+    overflow: hidden; /* Prevent scrolling */
+}
+
+h1 {
+    position: absolute; /* Positioning to overlay the map */
+    top: 5px;         /* Adjust the title position */
+    left: 50%;         /* Center horizontally */
+    transform: translateX(-50%); /* Adjust for centering */
+    z-index: 1000;    /* Ensure it appears above the map */
+    color: #333;       /* Title color */
+    white-space: nowrap; /* Prevent the title from wrapping */
+    font-size: 36px;   /* Adjust font size as needed */
+    text-align: center; /* Center text alignment */
+}
+
+#info-box {
+    position: absolute;
+    top: 230px; 
+    left: 20px; 
+    background-color: white; 
+    padding: 15px; 
+    border: 1px solid #ccc; 
+    z-index: 1000; /* Ensure it appears above the map */
+    width: 217px; 
+    height: 150px;
+
+}
+
+.controls {
+    position: absolute; /* Positioning to overlay the map */
+    top: 100px;         /* Position from the top */
+    left: 20px;        /* Align to the left */
+    z-index: 1000;    /* Ensure it appears above the map */
+    display: flex;     /* Use flex for alignment */
+    flex-direction: column; /* Stack items vertically */
+    gap: 30px;        /* Space between the controls */
+    color:#ccc;
+}
+
+select {
+    padding: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: white;
+}
+
+#map {
+    width: 100vw;    /* Full width of the viewport */
+    height: 100vh;   /* Full height of the viewport */
+    position: absolute; /* Positioning to ensure it covers the entire screen */
+    top: 0;          /* Align to the top */
+    left: 0;         /* Align to the left */
+    z-index: 1;      /* Set z-index lower than overlays */
+}
+
+
+  
+  .mapboxgl-popup {
+    max-width: 200px;
+    font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  }
+
+  .legend {
+    position: absolute;  /* Ensure it stays in one place relative to the map */
+    bottom: 50px;        /* Adjust positioning as desired */
+    left: 20px;
+    background-color: white;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    line-height: 18px;
+    color: #333;
+    font-size: 12px;
+    z-index: 1000;       /* Higher z-index to place it above the map */
+}
+.legend h4 {
+    margin: 0 0 8px;
+    font-weight: bold;
+}
+  
