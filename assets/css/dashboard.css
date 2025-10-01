@@ -1,0 +1,156 @@
+/* Global Styles */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  font-family: Lato, sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Controls Styles */
+.controls {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  gap: 20px; 
+}
+
+.controls select {
+  padding: 8px;
+  font-size: 16px;
+}
+
+/* Map and Info Box */
+.map-info-container {
+  display: flex;
+  flex: 1;
+  min-height: 600px; 
+}
+
+.map-container {
+  width: 65%; 
+  height: 100%;
+  position: relative;
+}
+
+#map {
+  width: 100%;
+  height: 100%;
+}
+
+.info-box {
+  width: 35%;
+  padding: 20px;
+  flex: 1; 
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+  max-height: 100%;
+  box-sizing: border-box;
+  overflow-y: auto; 
+  position: relative; 
+}
+
+.info-box h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#info-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#info-table th, #info-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#info-table th {
+  background-color: #f2f2f2;
+  text-align: left;
+}
+
+#info-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+#info-table tr:hover {
+  background-color: #ddd;
+}
+
+.chart-item {
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+  min-height: 300px;
+  position: relative;
+  width: 100%;  
+  margin-top: 20px; 
+  box-sizing: border-box;
+  padding: 10px; 
+  overflow: hidden; 
+}
+
+.chart-item svg {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Tooltip styling */
+.tooltip {
+  position: absolute;
+  text-align: center;
+  padding: 6px;
+  font: 12px sans-serif;
+  background: rgb(0 0 0 / 70%);
+  color: #fff;
+  border: 0;
+  border-radius: 4px;
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Legend Styles */
+.legend-box {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background-color: white;
+  border: 1px solid gray;
+  padding: 10px;
+  z-index: 1000;
+  box-shadow: 0 0 10px rgb(0 0 0 / 10%);
+  font-size: 1em;
+  width: 180px;
+}
+
+.legend-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+  margin-bottom: 3px;
+  background-color: rgb(255 255 255 / 80%);
+}
+
+.legend-color {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+.legend-item.highlight {
+  background-color: yellow;
+  font-weight: bold;
+}
+
+.legend-title {
+  font-size: 1.02rem;
+  font-weight: 300;
+  margin-bottom: 0.5rem;
+  text-align: left;
+}
