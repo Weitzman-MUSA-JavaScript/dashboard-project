@@ -1,0 +1,363 @@
+/*
+// for right part elements
+*/
+
+/* for search section */
+.search-section {
+  height: auto;
+  width: 100%;
+
+  padding-left: 1.2rem;
+  padding-right: 1.2rem;
+
+  display: flex;
+  flex-direction: column;
+
+  border: 0.1rem solid #e4e4e4;
+}
+
+/* for list section */
+.list-section {
+  height: 65%;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  overflow-y: auto;
+}
+
+/* for chart section */
+.chart-section {
+  height: 35%;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  overflow-y: auto;
+}
+
+
+/* 
+for search section
+*/
+#poi-filter-legend {
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+/* for filter methods */
+.filter-methods {
+  height: auto;
+  width: 100%;
+
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+
+  display: flex;
+  flex-direction: row;
+}
+
+.filter-methods label:first-child {
+  margin-right: 2rem;
+}
+
+.filter-methods input {
+  height: 0.65rem;
+  width: 0.65rem;
+
+  cursor: pointer;
+}
+
+.filter-methods span {
+  font-size: 0.75rem;
+}
+
+/* for search container */
+.search-container {
+  height: auto;
+  width: 100%;
+
+  margin-bottom: 0.8rem;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.search-container input {
+  height: 1.5rem;
+  flex-grow: 1;
+
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+
+  border: 0.08rem solid #999;
+  border-radius: 2.6px;
+
+  font-size: 0.8rem;
+}
+
+.search-container button {
+  height: 1.5rem;
+  width: 1.5rem;
+
+  border: 0.08rem solid #999;
+  border-radius: 2.6px;
+
+  background-color: white;
+
+  font-size: 1.2rem;
+  font-weight: 300;
+  color: rgb(75 75 75);
+
+  cursor: pointer;
+}
+
+
+/* 
+for list section
+*/
+
+/* for section header */
+.section-header {
+  height: auto;
+  width: 100%;
+
+  margin-top: 1.4rem;
+  margin-bottom: 0.5rem;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.section-header img {
+  height: 1.2rem;
+  width: auto;
+
+  padding: 0;
+  margin: 0;
+}
+
+.section-header h2 {
+  font-size: 1rem;
+  font-family: Merriweather, serif;
+  font-weight: 900;
+
+  padding: 0;
+  margin: 0;
+}
+
+/* for poi list */
+.poi-list {
+  flex-grow: 1;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  list-style-type: none;
+  padding: 0;
+  padding-top: 0.4rem;
+  padding-bottom: 0.4rem;
+  margin: 0;
+
+  border-top: 0.1rem solid #aaa;
+  border-bottom: 0.1rem solid #aaa;
+
+  overflow-y: auto;
+}
+
+
+/* 
+for chart section
+*/
+.schdule-chart {
+  flex-grow: 1;
+  width: 100%;
+
+  margin-top: 0.4rem;
+  margin-bottom: 0.8rem;
+
+  overflow-y: auto;
+}
+
+.schdule-chart canvas {
+  height: auto;
+  width: 100%;
+}
+
+.chart-buttons {
+  height: auto;
+  width: 100%;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 4rem;
+}
+
+.chart-buttons button {
+  height: 1.5rem;
+  width: auto;
+
+  border: 0.08rem solid #999;
+  border-radius: 2.6px;
+
+  background-color: white;
+
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: black;
+
+  cursor: pointer;
+}
+
+
+/* 
+for poi list
+*/
+.poi-list li {
+  height: auto;
+  width: 100%;
+
+  margin-bottom: 0.8rem;
+}
+
+.poi-list li:last-child {
+  margin-bottom: 0;
+}
+
+/* for each poi element */
+.poi {
+  height: auto;
+  width: 100%;
+
+  padding: 0.5rem 1rem;
+
+  display: grid;
+  grid-template-areas: "name name"
+                        "subcategory time";
+  grid-template-columns: 0.7fr 0.3fr;
+
+  text-align: left;
+
+  border-radius: 4px;
+
+  background-color: white;
+
+  cursor: pointer;
+}
+
+.poi .poi-name {
+  grid-area: name;
+  width: 100%;
+
+  margin-bottom: 0.5rem;
+  
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.poi .poi-subcategory {
+  grid-area: subcategory;
+  width: 100%;
+
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.poi .poi-time {
+  grid-area: time;
+  width: 100%;
+
+  text-align: right;
+
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.poi[data-type="Commerce"] {
+  border: 0.14rem solid #F26363;
+  color: black;
+}
+
+.poi[data-type="Commerce"][aria-pressed="true"] {
+  background-color:#F26363;
+  color: white;
+}
+
+.poi[data-type="Mountain"] {
+  border: 0.14rem solid #947262;
+  color: black;
+}
+
+.poi[data-type="Mountain"][aria-pressed="true"] {
+  background-color:#947262;
+  color: white;
+}
+
+.poi[data-type="Recreation"] {
+  border: 0.14rem solid #D93BAF;
+  color: black;
+}
+
+.poi[data-type="Recreation"][aria-pressed="true"] {
+  background-color:#D93BAF;
+  color: white;
+}
+
+.poi[data-type="Restroom"] {
+  border: 0.14rem solid #a7a7ad;
+  color: black;
+}
+
+.poi[data-type="Restroom"][aria-pressed="true"] {
+  background-color:#a7a7ad;
+  color: white;
+}
+
+.poi[data-type="Service"] {
+  border: 0.14rem solid #919151;
+  color: black;
+}
+
+.poi[data-type="Service"][aria-pressed="true"] {
+  background-color:#919151;
+  color: white;
+}
+
+.poi[data-type="Tourism"] {
+  border: 0.14rem solid #008C72;
+  color: black;
+}
+
+.poi[data-type="Tourism"][aria-pressed="true"] {
+  background-color:#008C72;
+  color: white;
+}
+
+.poi[data-type="Transportation"] {
+  border: 0.14rem solid #ee9f3e;
+  color: black;
+}
+
+.poi[data-type="Transportation"][aria-pressed="true"] {
+  background-color:#ee9f3e;
+  color: white;
+}
+
+.poi[data-type="Water"] {
+  border: 0.14rem solid #09D;
+  color: black;
+}
+
+.poi[data-type="Water"][aria-pressed="true"] {
+  background-color:#09D;
+  color: white;
+}
