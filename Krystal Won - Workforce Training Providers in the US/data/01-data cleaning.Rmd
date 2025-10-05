@@ -1,0 +1,148 @@
+---
+title: "01-data cleaning"
+author: "Krystal Won"
+date: "2024-10-23"
+output: html_document
+---
+
+```{r}
+library(readr)
+library(tidycensus)
+library(dplyr) 
+```
+
+
+```{r setup}
+acs_data <- read_csv("/Users/k.w./Desktop/acs_data_final.csv")
+
+acs_data <- acs_data %>% 
+  select(-AQPKE001, -AQPKE022, -AQPKE023, -AQPKE024, -AQPKE025, -`...4`) %>% 
+  mutate(`Unemployment rate` = paste0(`Unemployment rate`, "%")) %>% 
+  mutate(`Per Capita Personal Income` = ifelse(`Per Capita Personal Income` >= 1000000, paste0(round(`Per Capita Personal Income` / 1000000, 1), "M"), paste0(round(`Per Capita Personal Income` / 1000, 1), "k")))
+
+
+write_csv(acs_data, "/Users/k.w./Documents/MUSA 6110/dashboard project/data/acs_data_cleaned.csv")
+```
+
+
+```{r}
+
+workforce_data <- read_csv("/Users/k.w./Documents/MUSA 6110/dashboard project/data/workforce_training_ori.csv")
+
+workforce_data <- workforce_data %>%
+  mutate(
+    `Organization Type` = case_when(
+      (in_ipeds == TRUE & in_rapids == TRUE) |
+      (in_ipeds == TRUE & in_tpr == TRUE) |
+      (in_ipeds == TRUE & in_irs == TRUE) |
+      (in_rapids == TRUE & in_tpr == TRUE) |
+      (in_rapids == TRUE & in_irs == TRUE) |
+      (in_tpr == TRUE & in_irs == TRUE) ~ "Multiple types",
+      
+      # Higher education institution
+      in_ipeds == TRUE ~ "Higher education institution",
+      
+      # Registered apprenticeship
+      in_rapids == TRUE ~ "Registered apprenticeship",
+      
+      # WIOA-eligible
+      in_tpr == TRUE ~ "WIOA-eligible",
+      
+      # Non-profit organization
+      in_irs == TRUE ~ "Non-profit organization",
+      
+      # If none of the above conditions are met, leave the type as NA
+      TRUE ~ NA_character_
+    ),
+    
+    `Subtype` = case_when(
+      # Highest degree certificate
+      org_subtype_ipeds == "Nondegree-granting, sub-baccalaureate" ~ "Highest degree certificate",
+      
+      # Highest degree associate’s
+      org_subtype_ipeds == "Degree-granting, Associate's and certificates" ~ "Highest degree associate’s",
+      
+      # Highest degree bachelor’s+
+      org_subtype_ipeds == "Degree-granting, not primarily baccalaureate or above" ~ "Highest degree bachelor’s+",
+      
+      # Other higher education institution
+      org_subtype_ipeds == 0 & org_subtype_irs == "Community or Junior Colleges" ~ "Other higher education institution",
+      org_subtype_ipeds == 0 & org_subtype_tpr == "Higher Ed*" ~ "Other higher education institution",
+      org_subtype_ipeds == 0 & org_subtype_rapids == "Community College/University" ~ "Other higher education institution",
+      
+      # Private for-profit
+      org_subtype_tpr == "Private for profit" ~ "Private for-profit",
+      
+      # Apprenticeship sponsor / labor/union
+      org_subtype_rapids == "Apprenticeship –Labor/Union" ~ "Apprenticeship sponsor / labor/union",
+      
+      # Apprenticeship – business association
+      org_subtype_rapids == "Apprenticeship – Business Association" ~ "Apprenticeship – business association",
+      
+      # Apprenticeship sponsor / employer
+      org_subtype_rapids == "Apprenticeship – Employer" ~ "Apprenticeship sponsor / employer",
+      
+      # Apprenticeship sponsor / intermediary
+      org_subtype_rapids == "Apprenticeship – Intermediary" ~ "Apprenticeship sponsor / intermediary",
+      
+      # Apprenticeship sponsor / government
+      org_subtype_rapids %in% c("Apprenticeship – Federal Agency", "Apprenticeship – City/County Agency", "Apprenticeship – State Agency") ~ "Apprenticeship sponsor / government",
+      
+      # Apprenticeship sponsor / workforce investment board
+      org_subtype_rapids == "Apprenticeship – Workforce Investment Board" ~ "Apprenticeship sponsor / workforce investment board",
+      
+      # Apprenticeship sponsor / foundation
+      org_subtype_rapids == "Apprenticeship – Foundation" ~ "Apprenticeship sponsor / foundation",
+      
+      # Apprenticeship sponsor / other
+      org_subtype_rapids %in% c("Apprenticeship – Other", "Apprenticeship – None", "Apprenticeship – Unknown") ~ "Apprenticeship sponsor / other",
+      org_subtype_tpr == "National Apprenticeship" ~ "Apprenticeship sponsor / other",
+      
+      # Job training non-profit
+      org_subtype_irs %in% c("Vocational, Technical Schools", "Employment Procurement Assistance, Job Training", "Vocational Counseling, Guidance and Testing", "Vocational Training", "Vocational Rehabilitation", "Goodwill Industries", "Sheltered Remunerative Employment, Work Activity Center N.E.C.") ~ "Job training non-profit",
+      org_subtype_tpr == "private non-profit" ~ "Job training non-profit",
+      org_subtype_rapids == "community based organization" ~ "Job training non-profit",
+      
+      # If no subtype matches, leave as NA
+      TRUE ~ NA_character_
+    )
+  ) %>%
+  select(
+    -org_subtype_tpr, -org_subtype_highest_degree_bachelors_plus, -org_subtype_highest_degree_associates,
+    -org_subtype_highest_degree_certificate, -org_subtype_other_higher_ed_institution, 
+    -org_subtype_private_for_profit, -org_subtype_apprenticeship_business_association, 
+    -org_subtype_apprenticeship_employer, -org_subtype_apprenticeship_intermediary, 
+    -org_subtype_apprenticeship_gov, -org_subtype_apprenticeship_wib, 
+    -org_subtype_apprenticeship_foundation, -org_subtype_apprenticeship_other, 
+    -org_subtype_apprenticeship_union_labor, -org_subtype_job_training_non_profits, -std_street, -std_city, -std_zip, -county, -metro, -in_ipeds, -in_rapids, -in_irs, -in_tpr, -org_subtype_ipeds, -org_subtype_rapids, -org_subtype_irs, -num_data_sources, -last_updated
+  )
+
+
+```
+
+
+```{r}
+state_name_lookup <- c(
+  "AL" = "Alabama", "AK" = "Alaska", "AZ" = "Arizona", "AR" = "Arkansas", "CA" = "California", 
+  "CO" = "Colorado", "CT" = "Connecticut", "DE" = "Delaware", "FL" = "Florida", "GA" = "Georgia",
+  "HI" = "Hawaii", "ID" = "Idaho", "IL" = "Illinois", "IN" = "Indiana", "IA" = "Iowa", 
+  "KS" = "Kansas", "KY" = "Kentucky", "LA" = "Louisiana", "ME" = "Maine", "MD" = "Maryland",
+  "MA" = "Massachusetts", "MI" = "Michigan", "MN" = "Minnesota", "MS" = "Mississippi", 
+  "MO" = "Missouri", "MT" = "Montana", "NE" = "Nebraska", "NV" = "Nevada", "NH" = "New Hampshire",
+  "NJ" = "New Jersey", "NM" = "New Mexico", "NY" = "New York", "NC" = "North Carolina", 
+  "ND" = "North Dakota", "OH" = "Ohio", "OK" = "Oklahoma", "OR" = "Oregon", "PA" = "Pennsylvania", 
+  "RI" = "Rhode Island", "SC" = "South Carolina", "SD" = "South Dakota", "TN" = "Tennessee", 
+  "TX" = "Texas", "UT" = "Utah", "VT" = "Vermont", "VA" = "Virginia", "WA" = "Washington", 
+  "WV" = "West Virginia", "WI" = "Wisconsin", "WY" = "Wyoming"
+)
+
+
+workforce_data <- workforce_data %>%
+  mutate(state = state_name_lookup[std_state])
+```
+
+
+```{r}
+write_csv(workforce_data, "/Users/k.w./Documents/MUSA 6110/dashboard project/data/workforce_training_cleaned.csv")
+```
+

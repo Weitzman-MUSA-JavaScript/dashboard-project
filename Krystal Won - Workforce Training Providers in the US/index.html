@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MUSA 6110 | Dashboard Project</title>
+
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js"></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css" rel="stylesheet">
+
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@turf/turf@6/turf.min.js"></script>
+
+
+    <link rel="stylesheet" href="styles.css">
+    <link href='https://fonts.googleapis.com/css?family=Martel' rel='stylesheet'>
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    
+
+</head>
+<body>
+
+    <div id="sidebar">
+        <div id="organization-types">
+            
+            <h3 class="circle-sketch-highlight">Organization Type</h3>
+            <label>
+                <input type="checkbox" value="Non-profit organization" checked>
+                <span class="dot" style="background-color: #7F5A83;"></span>
+                Non-profit organization
+            </label><br>
+            <label>
+                <input type="checkbox" value="Higher education institution" checked>
+                <span class="dot" style="background-color: #E8D0A9;"></span>
+                Higher education institution
+            </label><br>
+            <label>
+                <input type="checkbox" value="Registered apprenticeship" checked>
+                <span class="dot" style="background-color: #01B3CA;"></span>
+                Registered apprenticeship
+            </label><br>
+            <label>
+                <input type="checkbox" value="WIOA-eligible" checked>
+                <span class="dot" style="background-color: #76A08A;"></span>
+                WIOA-eligible
+            </label><br>
+            <label>
+                <input type="checkbox" value="Multiple types" checked>
+                <span class="dot" style="background-color: #E06D10;"></span>
+                Multiple types
+            </label><br>
+        </div>
+
+        
+        <div id="dropdown-menu"> 
+            <h3 class="circle-sketch-highlight">State-Level Insights</h3>
+            <select id="stateDropdown">
+                <option value="" disabled selected>Select a State</option>
+                <option value="Alabama">Alabama</option>
+                <option value="Alaska">Alaska</option>
+                <option value="Arizona">Arizona</option>
+                <option value="Arkansas">Arkansas</option>
+                <option value="California">California</option>
+                <option value="Colorado">Colorado</option>
+                <option value="Connecticut">Connecticut</option>
+                <option value="Delaware">Delaware</option>
+                <option value="District of Columbia">District of Columbia</option>
+                <option value="Florida">Florida</option>
+                <option value="Georgia">Georgia</option>
+                <option value="Hawaii">Hawaii</option>
+                <option value="Idaho">Idaho</option>
+                <option value="Illinois">Illinois</option>
+                <option value="Indiana">Indiana</option>
+                <option value="Iowa">Iowa</option>
+                <option value="Kansas">Kansas</option>
+                <option value="Kentucky">Kentucky</option>
+                <option value="Louisiana">Louisiana</option>
+                <option value="Maine">Maine</option>
+                <option value="Maryland">Maryland</option>
+                <option value="Massachusetts">Massachusetts</option>
+                <option value="Michigan">Michigan</option>
+                <option value="Minnesota">Minnesota</option>
+                <option value="Mississippi">Mississippi</option>
+                <option value="Missouri">Missouri</option>
+                <option value="Montana">Montana</option>
+                <option value="Nebraska">Nebraska</option>
+                <option value="Nevada">Nevada</option>
+                <option value="New Hampshire">New Hampshire</option>
+                <option value="New Jersey">New Jersey</option>
+                <option value="New Mexico">New Mexico</option>
+                <option value="New York">New York</option>
+                <option value="North Carolina">North Carolina</option>
+                <option value="North Dakota">North Dakota</option>
+                <option value="Ohio">Ohio</option>
+                <option value="Oklahoma">Oklahoma</option>
+                <option value="Oregon">Oregon</option>
+                <option value="Pennsylvania">Pennsylvania</option>
+                <option value="Rhode Island">Rhode Island</option>
+                <option value="South Carolina">South Carolina</option>
+                <option value="South Dakota">South Dakota</option>
+                <option value="Tennessee">Tennessee</option>
+                <option value="Texas">Texas</option>
+                <option value="Utah">Utah</option>
+                <option value="Vermont">Vermont</option>
+                <option value="Virginia">Virginia</option>
+                <option value="Washington">Washington</option>
+                <option value="West Virginia">West Virginia</option>
+                <option value="Wisconsin">Wisconsin</option>
+                <option value="Wyoming">Wyoming</option>
+            </select>
+        </div>
+
+
+        <div id="state-info">
+        </div>
+    </div>
+    
+    <div id="map"></div>
+
+    <script src="config.js"></script>
+    <script src="map.js"></script>
+
+    <div id="scroll-down-arrow" onclick="scrollToSection()">
+        CLICK FOR MORE INFO
+        <img src="images/about.png" alt="Scroll down arrow" />
+    </div>
+    
+    <!-- About section -->
+    <div id="about-section">
+        <div id="project-description">
+            <h2>About This Project</h2>
+            <p>This dashboard project, developed as part of MUSA 6110 at the University of Pennsylvania, explores workforce training providers across the United States.</p>
+            
+            <p>This dashboard presents a map view of workforce development providers, color-coded by organization type. It also includes a dropdown menu to zoom in the map when selecting particular state for a more focused view, and a sidebar menu to show the <a href="https://www.nhgis.org/">some census details</a> of that state that might be fun to look into as a comparision factor in the year of 2022.</p>
+
+            <p>The training providers dataset for my project was sourced from <i><b>The Workforce Almanac</b></i>. The <i><a href="https://www.pw.hks.harvard.edu/post/workforce-almanac-2023">Workforce Almanac</a></i>, launched by the Harvard-based Project on Workforce in 2023, collects and maps almost 17,000 providers of workforce training, which were defined as <i>"short-term (lasting less than two years), post-high school training opportunities in which learners gain work-relevant skills to help them find a job."</i></p>
+
+            <p>The completed dataset lists each organization’s name, address, city, state, coordinates, and various categorizations. To build it, the original dataset was being merged and cleaned data from four sources: the Department of Labor’s Registered Apprenticeship Partners Information Database System (RAPIDS) and TrainingProviderResults.gov, IRS nonprofit registrations, and the Integrated Postsecondary Education Data System (IPEDS). After downloading the raw data, I re-categorized the training providers based on my interpretation of the dataset. The refined dataset was then applied to the visualization, allowing for an interactive exploration of workforce development providers across the U.S. </p>
+            
+            <p><b>Tools:</b> Turf.js | D3.js | Mapbox GL JS</p>
+            <br>
+            <p><b><a href="https://github.com/krystalwon/dashboard-project">Github Repo</a></b> | <b><a href="https://x.com/KrystalWon1">@KrystalWon1</a></b></p>
+
+            
+
+            <p></p>
+        </div>
+    </div>
+
+</body>
+</html>
+
