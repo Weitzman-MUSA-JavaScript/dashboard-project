@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&display=swap');
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; 
+    font-family: 'Gowun Batang', serif;
+}
+
+#dashboard-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh; 
+    box-sizing: border-box;
+}
+
+#title {
+    text-align: left;
+    background-color: #f8f8f8;
+    padding: 0;
+    border-bottom: 0.1rem solid #ddd;
+    height: 10vh;
+    line-height: 4vh;
+    flex: 0 1 auto; 
+}
+
+#container {
+    display: flex;
+    flex: 1; 
+    overflow: hidden; 
+}
+
+#map {
+    flex: 2; 
+    height: 100%;
+    background-color: #e0e0e0; 
+}
+
+#stats-panel {
+    flex: 1; 
+    padding: 1vh;
+    display: flex;
+    flex-direction: column;
+    gap: 1vh; 
+    background: #f0f0f0;
+    box-sizing: border-box;
+    overflow: hidden;
+    font-size: 0.9rem; 
+}
+
+#slider-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2vh;
+}
+
+#slider-container label {
+    font-weight: bold; 
+}
+
+#water-level-slider {
+    width: 100%;
+}
+
+#info-container {
+    line-height: 1.5; 
+}
+
+#info-container p {
+    margin: 0.5vh 0;
+}
+
+#slider-container {
+    max-height: 45%; 
+}
+
+#parcel-info-table table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;  
+}
+
+#parcel-info-table th, #parcel-info-table td {
+    border: 1px solid #ddd;
+    padding: 5px;
+}
+
+#parcel-info-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
