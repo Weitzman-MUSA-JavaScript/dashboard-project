@@ -1,0 +1,193 @@
+
+.map-overlay {
+    position: absolute;
+    width: 30%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    font:
+        12px/20px 'Open Sans',
+        Arial,
+        Helvetica,
+        sans-serif;
+    background-color: #efefef;
+    max-height: 100%;
+    
+    overflow: hidden;
+}
+
+#map {
+    position: absolute;
+    left: 30%;
+    top: 0;
+    bottom: 0;
+    min-width: 70%;
+}
+
+
+
+.mapboxgl-popup {
+    max-width: 400px;
+    font:
+        12px/20px 'Open Sans',
+        Arial,
+        Helvetica,
+        sans-serif;
+}
+
+.map-overlay fieldset {
+    display: none;
+    background: #ddd;
+    border: none;
+    padding: 10px;
+    margin: 0;
+}
+
+.map-overlay .geocoder {
+    display: block;
+    background: #ddd;
+    border: none;
+    padding: 10px;
+    margin: 0;
+    width: 100%;
+    left: 0;
+    top: 0;
+}
+
+.map-overlay .mapboxgl-ctrl-geocoder {
+    max-width: 100%;
+}
+
+.map-overlay input {
+    display: block;
+    border: none;
+    width: 100%;
+    border-radius: 3px;
+    padding: 10px;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.map-overlay .listing {
+    overflow: auto;
+    
+    max-height: 30%;
+}
+
+.map-overlay .listing > * {
+    display: block;
+    padding: 5px 10px;
+    margin: 0;
+}
+
+.map-overlay .listing a {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    color: #003764;
+    text-decoration: none;
+}
+
+.map-overlay .listing a:last-child {
+    border: none;
+}
+
+.map-overlay .listing a:hover {
+    background: #f0f0f0;
+}
+
+.map-overlay .budget {
+    position: absolute;
+    overflow: visible;
+    padding: 10px;
+    top: 50%;
+    width: 100%;
+    height: 10%;
+}
+
+.group-toggle { 
+    margin-top: 30px; 
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    background: #f0f0f0; 
+    padding: 0; 
+    
+    height: 100%;
+    z-index: 1; 
+}
+
+.toggle-button {
+    margin: 5px;
+    background-color: #ddd; /* 배경색 */
+    color: #003764; /* 텍스트 색상 */
+    padding: 5px 10px; /* 내부 여백 */
+    font-size: 12px; /* 폰트 크기 */
+    border: none; /* 테두리 제거 */
+    border-radius: 5px; /* 모서리 둥글게 */
+    cursor: pointer; /* 마우스 커서 변경 */
+    transition: background-color 0.3s; /* 배경색 전환 애니메이션 */
+    font-family: 'Open Sans', sans-serif;
+}
+
+/* 버튼 호버 효과 */
+.toggle-button:hover {
+    background-color: #ccc; /* 호버 시 배경색 변경 */
+}
+
+.map-overlay .backgroundmap {
+    position: absolute;
+    overflow: hidden;
+    padding: 10px;
+    top: 75%;
+    width: 100%;
+    max-height: 30%;
+    background: #f0f0f0; 
+    font-family: 'Open Sans', sans-serif;  
+    display: flex;
+    flex-direction: column;
+}
+
+/* 라벨 스타일 */
+.mapmoderadio {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+/* 기본 라디오 버튼 숨김 */
+.mapmoderadio input[type="radio"] {
+    display: none;
+}
+
+/* 커스텀 라디오 마크 스타일 */
+.mapmoderamark {
+    position: relative;
+    height: 20px;
+    width: 20px;
+    background-color: #ccc;
+    border-radius: 50%;
+    margin-right: 10px;
+    transition: background-color 0.3s;
+}
+
+/* 체크된 상태에서 내부 마크 표시 */
+.mapmoderamark::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 12px;
+    width: 12px;
+    background-color: #003764;
+    border-radius: 50%;
+    display: none; /* 초기 상태에서 숨김 */
+}
+
+/* 체크된 상태에서 커스텀 라디오 마크 스타일 변경 */
+.mapmoderadio input[type="radio"]:checked + .mapmoderamark::after {
+    display: block; /* 체크된 상태에서 내부 마크 표시 */
+}
+
+
