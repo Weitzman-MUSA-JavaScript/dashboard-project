@@ -1,6 +1,0 @@
-Steps:
-1) Load app -> default Query Mode = Buffer; radius + ¡°Select on map¡± visible.
-2) Switch to Police District -> buffer controls hide; help text updated; Clear selection button visible.
-3) Click a district -> highlight appears; points/charts scoped to dc_dist; SQL logged.
-4) Switch to Census Tract -> buffer controls remain hidden; click a tract -> highlight appears; charts show citywide only (MVP note).
-5) Press Esc while in ¡°Select on map¡± mode -> exits selection; cursor reset.

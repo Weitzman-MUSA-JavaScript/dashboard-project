@@ -1,7 +1,0 @@
-
-> dashboard-project@0.0.0 preview
-> vite preview --host
-
-Port 4173 is in use, trying another one...
-  [32m➜[39m  [1mLocal[22m:   [36mhttp://localhost:[1m4174[22m/[39m
-  [32m➜[39m  [1mNetwork[22m: [36mhttp://10.192.1.183:[1m4174[22m/[39m

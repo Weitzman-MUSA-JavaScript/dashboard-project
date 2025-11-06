@@ -1,1 +1,0 @@
-[2025-10-20T16:08:43.783Z] coverage_sql: 1158ms https://phl.carto.com/api/v2/sql :: SELECT MIN(dispatch_date_time)::date AS min_dt, MAX(dispatch_date_time)::date AS max_dt FROM incidents_part1_part2

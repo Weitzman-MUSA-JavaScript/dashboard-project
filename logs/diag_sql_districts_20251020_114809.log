@@ -1,2 +1,0 @@
-{"rows":[{"dc_dist":"01","n":1588},{"dc_dist":"02","n":4849},{"dc_dist":"03","n":3511}],"time":0.237,"fields":{"dc_dist":{"type":"string","pgtype":"text"},"n":{"type":"number","pgtype":"int8"}},"total_rows":3}
-Status: 
