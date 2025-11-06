@@ -1,0 +1,102 @@
+import dayjs from 'dayjs';
+import {
+  fetchMonthlySeriesBuffer,
+  fetchTopTypesBuffer,
+} from '../api/crime.js';
+
+function sumRows(rows) {
+  let s = 0;
+  for (const r of rows || []) s += Number(r.n) || 0;
+  return s;
+}
+
+async function totalInWindow(center3857, radiusM, start, end, types) {
+  const resp = await fetchMonthlySeriesBuffer({ start, end, types, center3857, radiusM });
+  const rows = Array.isArray(resp?.rows) ? resp.rows : resp;
+  return sumRows(rows);
+}
+
+async function top3(center3857, radiusM, start, end) {
+  const resp = await fetchTopTypesBuffer({ start, end, center3857, radiusM, limit: 3 });
+  const rows = Array.isArray(resp?.rows) ? resp.rows : resp;
+  return (rows || []).slice(0, 3).map((r) => ({ name: r.text_general_code, n: Number(r.n) || 0 }));
+}
+
+async function thirtyDayChange(center3857, radiusM, end, types) {
+  const endISO = dayjs(end).format('YYYY-MM-DD');
+  const startRecent = dayjs(endISO).subtract(30, 'day').format('YYYY-MM-DD');
+  const priorEnd = startRecent;
+  const priorStart = dayjs(priorEnd).subtract(30, 'day').format('YYYY-MM-DD');
+
+  const [recent, prior] = await Promise.all([
+    totalInWindow(center3857, radiusM, startRecent, endISO, types),
+    totalInWindow(center3857, radiusM, priorStart, priorEnd, types),
+  ]);
+
+  let pct = null;
+  if (prior > 0) pct = ((recent - prior) / prior) * 100;
+  return { recent, prior, pct };
+}
+
+function renderHTML(resultA, resultB) {
+  const fmt = (v) => (v === null || v === undefined ? 'â€? : Number.isFinite(v) ? Math.round(v).toString() : String(v));
+  const fmtPct = (v) => (Number.isFinite(v) ? `${(v >= 0 ? '+' : '')}${v.toFixed(1)}%` : 'â€?);
+
+  const block = (label, r) => `
+    <div style="margin-bottom:8px;">
+      <div style="font-weight:600; margin-bottom:4px;">${label}</div>
+      <div style="display:flex; gap:8px;">
+        <div style="flex:1;">
+          <div style="font-size:12px; color:#475569">Total</div>
+          <div>${fmt(r.total)}</div>
+        </div>
+        <div style="flex:1;">
+          <div style="font-size:12px; color:#475569">per10k</div>
+          <div>${fmt(r.per10k)}</div>
+        </div>
+      </div>
+      <div style="font-size:12px; color:#475569; margin-top:4px;">Top 3: ${r.top3.map(t => t.name).join(', ') || 'â€?}</div>
+      <div style="font-size:12px; color:#475569;">30d Î”: ${fmtPct(r.delta?.pct)} (recent ${fmt(r.delta?.recent)} vs prior ${fmt(r.delta?.prior)})</div>
+    </div>`;
+
+  return `
+    ${block('A', resultA)}
+    ${resultB ? block('B', resultB) : ''}
+  `;
+}
+
+/**
+ * Update the A vs B compare card.
+ * @param {{A?:{center3857:[number,number],radiusM:number}, B?:{center3857:[number,number],radiusM:number}, types?:string[], adminLevel?:string, timeWindow?:number}} params
+ */
+export async function updateCompare({ A, B, types = [], adminLevel = 'districts', timeWindow = 6 }) {
+  const card = document.getElementById('compare-card');
+  if (!card) return;
+
+  const end = dayjs().format('YYYY-MM-DD');
+  const start = dayjs().subtract(timeWindow, 'month').format('YYYY-MM-DD');
+
+  async function compute(side) {
+    if (!side?.center3857 || !side?.radiusM) return null;
+    const [total, top, delta] = await Promise.all([
+      totalInWindow(side.center3857, side.radiusM, start, end, types),
+      top3(side.center3857, side.radiusM, start, end),
+      thirtyDayChange(side.center3857, side.radiusM, end, types),
+    ]);
+
+    // per10k only when adminLevel === 'tracts' and ACS preloaded (not implemented yet)
+    const per10k = adminLevel === 'tracts' && window.__acsLoaded ? Math.round((total / Math.max(1, window.__acsPop || 1)) * 10000) : null;
+    return { total, per10k, top3: top, delta };
+  }
+
+  try {
+    card.innerHTML = '<div style="font:12px system-ui">Computingâ€?/div>';
+    const [resA, resB] = await Promise.all([compute(A), compute(B)]);
+    const html = renderHTML(resA || { total: null, per10k: null, top3: [], delta: {} }, resB);
+    card.innerHTML = html;
+  } catch (e) {
+    card.innerHTML = `<div style="color:#b91c1c; font:12px system-ui">Compare failed: ${e?.message || e}</div>`;
+  }
+}
+
+

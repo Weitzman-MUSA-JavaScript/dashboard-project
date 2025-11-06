@@ -1,0 +1,26 @@
+# Sample CARTO SQL URLs (not executed, for validation)
+
+## 1) District Choropleth Query
+https://phl.carto.com/api/v2/sql?q=SELECT%20dc_dist%2C%20COUNT(*)%20AS%20n%0AFROM%20incidents_part1_part2%0AWHERE%20dispatch_date_time%20%3E%3D%20'2015-01-01'%0A%20%20AND%20dispatch_date_time%20%3E%3D%20'2024-08-14'%0A%20%20AND%20dispatch_date_time%20%3C%20'2025-02-14'%0AGROUP%20BY%201%20ORDER%20BY%201
+
+## 2) Crime Points (bbox sample)
+https://phl.carto.com/api/v2/sql?format=GeoJSON&q=SELECT%20the_geom%2C%20dispatch_date_time%2C%20text_general_code%2C%20ucr_general%2C%20dc_dist%2C%20location_block%0AFROM%20incidents_part1_part2%0AWHERE%20dispatch_date_time%20%3E%3D%20'2015-01-01'%0A%20%20AND%20dispatch_date_time%20%3E%3D%20'2024-08-14'%0A%20%20AND%20dispatch_date_time%20%3C%20'2025-02-14'%0A%20%20AND%20the_geom%20%26%26%20ST_MakeEnvelope(-8367000%2C%204860000%2C%20-8354000%2C%204870000%2C%203857)
+
+## 3) Monthly Series City
+https://phl.carto.com/api/v2/sql?q=SELECT%20date_trunc('month'%2C%20dispatch_date_time)%20AS%20m%2C%20COUNT(*)%20AS%20n%0AFROM%20incidents_part1_part2%0AWHERE%20dispatch_date_time%20%3E%3D%20'2015-01-01'%0A%20%20AND%20dispatch_date_time%20%3E%3D%20'2024-08-14'%0A%20%20AND%20dispatch_date_time%20%3C%20'2025-02-14'%0AGROUP%20BY%201%20ORDER%20BY%201
+
+## 4) Monthly Series Buffer (sample center: -8360000, 4865000, radius 400m)
+https://phl.carto.com/api/v2/sql?q=SELECT%20date_trunc('month'%2C%20dispatch_date_time)%20AS%20m%2C%20COUNT(*)%20AS%20n%0AFROM%20incidents_part1_part2%0AWHERE%20dispatch_date_time%20%3E%3D%20'2015-01-01'%0A%20%20AND%20dispatch_date_time%20%3E%3D%20'2024-08-14'%0A%20%20AND%20dispatch_date_time%20%3C%20'2025-02-14'%0A%20%20AND%20ST_DWithin(the_geom%2C%20ST_SetSRID(ST_Point(-8360000%2C%204865000)%2C%203857)%2C%20400)%0AGROUP%20BY%201%20ORDER%20BY%201
+
+## 5) Top-N Offenses (buffer)
+https://phl.carto.com/api/v2/sql?q=SELECT%20text_general_code%2C%20COUNT(*)%20AS%20n%0AFROM%20incidents_part1_part2%0AWHERE%20dispatch_date_time%20%3E%3D%20'2015-01-01'%0A%20%20AND%20dispatch_date_time%20%3E%3D%20'2024-08-14'%0A%20%20AND%20dispatch_date_time%20%3C%20'2025-02-14'%0A%20%20AND%20ST_DWithin(the_geom%2C%20ST_SetSRID(ST_Point(-8360000%2C%204865000)%2C%203857)%2C%20400)%0AGROUP%20BY%201%20ORDER%20BY%20n%20DESC%20LIMIT%2012
+
+## 6) 7x24 Heatmap (buffer)
+https://phl.carto.com/api/v2/sql?q=SELECT%20EXTRACT(DOW%20%20FROM%20dispatch_date_time%20AT%20TIME%20ZONE%20'America/New_York')%20AS%20dow%2C%0A%20%20%20%20%20%20%20EXTRACT(HOUR%20FROM%20dispatch_date_time%20AT%20TIME%20ZONE%20'America/New_York')%20AS%20hr%2C%0A%20%20%20%20%20%20%20COUNT(*)%20AS%20n%0AFROM%20incidents_part1_part2%0AWHERE%20dispatch_date_time%20%3E%3D%20'2015-01-01'%0A%20%20AND%20dispatch_date_time%20%3E%3D%20'2024-08-14'%0A%20%20AND%20dispatch_date_time%20%3C%20'2025-02-14'%0A%20%20AND%20ST_DWithin(the_geom%2C%20ST_SetSRID(ST_Point(-8360000%2C%204865000)%2C%203857)%2C%20400)%0AGROUP%20BY%201%2C2%20ORDER%20BY%201%2C2
+
+# SQL correctness notes:
+- All use SRID 3857 (web mercator) ✓
+- Historical floor >= '2015-01-01' enforced ✓
+- Date ranges use >= start and < end ✓
+- Buffer queries use ST_DWithin correctly ✓
+- Bbox queries use ST_MakeEnvelope with && operator ✓
