@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Neighborhood Safety Trends in Philadelphia</title>
+   
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css" integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ==" crossorigin=""/>
+
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+  <body>
+    <h1>Neighborhood Safety Trends in Philadelphia</h1>
+    <div id="safety">
+      <div id="safety-map"></div>
+
+      <div id="search-controls"> 
+        <h3>Neighborhood</h3>
+        <input type="text" id="address-search" placeholder="Enter a neighborhood name to search">
+        
+        <h3>Time Range</h3>
+        <select id="time-range">
+          <option value="6months" selected>6 months</option>
+          <option value="1year">1 year</option>
+          <option value="2years">2 years</option>
+        </select>
+
+        <h3>Crime Types</h3>
+        <div id="crime-types-filter">
+          <label for="violent-crime"><input type="checkbox" id="violent-crime" name="crime-type" value="Violent Crime" checked> Violent Crime (Aggravated Assault, Robbery, Homicide, Rape...)</label>
+          <label for="burglary-residential"><input type="checkbox" id="burglary-residential" name="crime-type" value="Burglary Residential" checked> Burglary Residential</label>
+          <label for="motor-vehicle-theft"><input type="checkbox" id="motor-vehicle-theft" name="crime-type" value="Motor Vehicle Theft" checked> Motor Vehicle Theft</label>
+          <label for="theft-from-vehicle"><input type="checkbox" id="theft-from-vehicle" name="crime-type" value="Theft from Vehicle" checked> Theft from Vehicle</label>
+          <label for="vandalism"><input type="checkbox" id="vandalism" name="crime-type" value="Vandalism/Criminal Mischief" checked> Vandalism/Criminal Mischief</label>
+        </div>
+
+        <button id="search-button">Search</button>
+        
+      </div>
+    </div>
+
+    
+    <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js" integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ==" crossorigin=""></script>
+
+    
+    <script src="https://unpkg.com/lodash@4.17.21/lodash.min.js"></script>
+
+    
+    <script src="js/main.js" type="module"></script>
+    
+  </body>
+</html>
