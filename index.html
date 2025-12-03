@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Housing Site Explorer | Philadelphia</title>
+    
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" 
+          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" 
+          crossorigin="">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <header class="sidebar-header">
+                <h1>🏠 Housing Site Explorer</h1>
+                <p class="subtitle">Find your ideal student housing in Philadelphia</p>
+            </header>
+            
+            <div class="sidebar-content">
+                <!-- Campus Selection Panel -->
+                <div class="panel" id="campusPanel">
+                    <div class="panel-header">
+                        <h3><span class="icon">🎓</span> Select Campus</h3>
+                        <span class="panel-toggle">▼</span>
+                    </div>
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <label class="form-label" for="campusSelect">University/College</label>
+                            <select id="campusSelect" class="form-select">
+                                <option value="">-- Loading campuses... --</option>
+                            </select>
+                        </div>
+                        <p class="text-muted" style="font-size: 0.75rem; margin-top: 8px;">
+                            Or click on any university building on the map to select it.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Travel Preferences Panel -->
+                <div class="panel" id="travelPanel">
+                    <div class="panel-header">
+                        <h3><span class="icon">🚶</span> Commute Preferences</h3>
+                        <span class="panel-toggle">▼</span>
+                    </div>
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <label class="form-label">Travel Mode</label>
+                            <div class="radio-group">
+                                <div class="radio-option">
+                                    <input type="radio" id="modeWalk" name="travelMode" value="walk" checked>
+                                    <label for="modeWalk">
+                                        <span class="radio-icon">🚶</span>
+                                        Walk
+                                    </label>
+                                </div>
+                        <div class="form-group">
+                            <label class="form-label">Transit Type</label>
+                            <select id="transitSelect" class="select">
+                                <option value="bus">Bus</option>
+                                <option value="subway">Subway</option>
+                                <option value="bikeshare">Bike-share</option>
+                            </select>
+                            <p class="text-muted" style="font-size: 0.75rem; margin-top: 4px;">
+                                Used to filter sites within your selected walk/bike time to the nearest stop/station/dock.
+                            </p>
+                        </div>
+
+                                <div class="radio-option">
+                                    <input type="radio" id="modeBike" name="travelMode" value="bike">
+                                    <label for="modeBike">
+                                        <span class="radio-icon">🚲</span>
+                                        Bike
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Maximum Travel Time</label>
+                            <div class="range-container">
+                                <input type="range" id="timeThreshold" class="range-slider" 
+                                       min="5" max="30" step="5" value="15">
+                                <span id="timeValue" class="range-value">15 min</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Score Weights Panel -->
+                <div class="panel" id="weightsPanel">
+                    <div class="panel-header">
+                        <h3><span class="icon">⚖️</span> Score Weights</h3>
+                        <span class="panel-toggle">▼</span>
+                    </div>
+                    <div class="panel-body">
+                        <p style="font-size: 0.75rem; color: var(--text-secondary); margin-bottom: 12px;">
+                            Adjust how much each factor matters to you.
+                        </p>
+                        
+                        <div class="weight-slider">
+                            <div class="weight-header">
+                                <span class="weight-label">📍 Distance to Campus</span>
+                                <span id="distanceWeightValue" class="weight-value">40%</span>
+                            </div>
+                            <input type="range" id="distanceWeight" class="range-slider" 
+                                   min="0" max="100" step="5" value="40">
+                        </div>
+                        
+                        <div class="weight-slider">
+                            <div class="weight-header">
+                                <span class="weight-label">🌳 Nearby Parks</span>
+                                <span id="parksWeightValue" class="weight-value">20%</span>
+                            </div>
+                            <input type="range" id="parksWeight" class="range-slider" 
+                                   min="0" max="100" step="5" value="20">
+                        </div>
+                        
+                        <div class="weight-slider">
+                            <div class="weight-header">
+                                <span class="weight-label">🏪 Grocery & Food</span>
+                                <span id="groceryWeightValue" class="weight-value">20%</span>
+                            </div>
+                            <input type="range" id="groceryWeight" class="range-slider" 
+                                   min="0" max="100" step="5" value="20">
+                        </div>
+                        
+                        <div class="weight-slider">
+                            <div class="weight-header">
+                                <span class="weight-label">🚲 Bike Lane Access</span>
+                                <span id="bikeWeightValue" class="weight-value">20%</span>
+                            </div>
+                            <input type="range" id="bikeWeight" class="range-slider" 
+                                   min="0" max="100" step="5" value="20">
+                        </div>
+                    </div>
+                        <div class="weight-slider">
+                            <div class="weight-header">
+                                <span class="weight-label">🚉 Transit Access</span>
+                                <span id="transitWeightValue" class="weight-value">15%</span>
+                            </div>
+                            <input type="range" id="transitWeight" class="range-slider" 
+                                   min="0" max="100" step="5" value="15">
+                        </div>
+
+                </div>
+                
+                <!-- Layer Controls Panel -->
+                <div class="panel" id="layersPanel">
+                    <div class="panel-header">
+                        <h3><span class="icon">🗺️</span> Map Layers</h3>
+                        <span class="panel-toggle">▼</span>
+                    </div>
+                    <div class="panel-body">
+                        <div class="checkbox-group">
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="showNeighborhoods" checked>
+                                <label for="showNeighborhoods">
+                                    <span class="layer-color neighborhoods"></span>
+                                    All Neighborhoods
+                                </label>
+                            </div>
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="showParks">
+                                <label for="showParks">
+                                    <span class="layer-color parks"></span>
+                                    Parks & Recreation
+                                </label>
+                            </div>
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="showGrocery">
+                                <label for="showGrocery">
+                                    <span class="layer-color grocery"></span>
+                                    Grocery & Restaurants
+                                </label>
+                            </div>
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="showBike">
+                                <label for="showBike">
+                                    <span class="layer-color bike"></span>
+                                    Bike Network
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Reset Button -->
+                <button id="resetBtn" class="btn btn-secondary btn-full">
+                    🔄 Reset All Filters
+                </button>
+                
+                <!-- Results Section -->
+                <section class="results-section mt-3">
+                    <h3><span class="icon">📊</span> Results</h3>
+                    <div id="resultsContent">
+                        <div class="empty-state">
+                            <p>Select a campus and set your preferences to find suitable housing areas.</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        
+                <!-- Data Sources -->
+                <section class="sources-section mt-3">
+                    <h3><span class="icon">ⓘ</span> Data Sources</h3>
+                    <div class="text-muted" style="font-size: 0.8rem; line-height: 1.4;">
+                        <p>Philadelphia Neighborhoods; Universities & Colleges; Parks & Recreation; Grocery/Restaurants (OSM/Overpass exports); Bike Network; SEPTA Stops & Stations; Indego Stations.</p>
+                        <p>© OpenStreetMap contributors • City of Philadelphia Open Data • SEPTA GTFS • Indego GBFS</p>
+                    </div>
+                </section>
+</aside>
+        
+        <!-- Map Container -->
+        <main class="map-container">
+            <div id="map"></div>
+        </main>
+    </div>
+    
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="loading-overlay">
+        <div class="loading-spinner"></div>
+        <p id="loadingText" class="loading-text">Loading data...</p>
+    </div>
+    
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" 
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" 
+            crossorigin=""></script>
+    
+    <!-- Main Application JS -->
+    <script src="main.js"></script>
+    
+    <!-- Panel Toggle Script -->
+    <script>
+        // Panel toggle functionality
+        document.querySelectorAll('.panel-header').forEach(header => {
+            header.addEventListener('click', () => {
+                const panel = header.closest('.panel');
+                panel.classList.toggle('collapsed');
+            });
+        });
+    </script>
+</body>
+</html>
