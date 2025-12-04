@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Penn Night Safety Dashboard</title>
+
+  <!-- Leaflet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+<header>
+  <h1>Penn Students' Nighttime Safety Map</h1>
+</header>
+
+<main>
+
+ 
+  <div class="sidebar">
+
+    <!-- Crime Heatmap Toggle -->
+    <div class="crime-toggle-block">
+      <label>
+        <input type="checkbox" id="crime-toggle" checked>
+        Show Crime Heatmap
+      </label>
+    </div>
+
+    <hr>
+
+    <!-- Navigation -->
+    <div class="nav-block">
+      <h2>Navigation</h2>
+
+      <label for="nav-start">Start</label>
+      <select id="nav-start">
+        <option value="">Select a place…</option>
+      </select>
+
+      <label for="nav-end" style="margin-top:8px;">Destination</label>
+      <select id="nav-end">
+        <option value="">Select a place…</option>
+      </select>
+
+      <button id="btn-shortest-route">Show shortest route</button>
+      <button id="btn-safest-route">Show safest route</button>
+      <button id="btn-clear-route" class="secondary">Clear route</button>
+    </div>
+
+    <hr>
+
+    <!-- Category filters -->
+    <h2>Filter by place type</h2>
+    <p id="place-count" class="place-count"></p>
+
+    <label><input type="checkbox" name="category-filter" value="Academic" checked> Academic</label><br>
+    <label><input type="checkbox" name="category-filter" value="Residential" checked> Residential</label><br>
+    <label><input type="checkbox" name="category-filter" value="Public" checked> Public</label><br>
+    <label><input type="checkbox" name="category-filter" value="Community Center" checked> Community Center</label><br>
+
+    <!-- Search -->
+    <div class="search-block">
+      <h3>Search by place name</h3>
+      <input type="text" id="place-search" placeholder="e.g. Van Pelt Library" />
+      <button id="search-button">Search</button>
+    </div>
+
+    <!-- Safety slider -->
+    <div class="slider-block">
+      <h3>Filter by safety level</h3>
+      <label for="safety-min">Minimum perceived safety</label>
+      <input type="range" id="safety-min" min="1" max="5" step="1" value="1"/>
+      <div class="slider-label">Showing places with safety ≥ <span id="safety-min-value">1+</span></div>
+    </div>
+
+    <!-- Popularity slider -->
+    <div class="slider-block">
+      <h3>Filter by nighttime popularity</h3>
+      <label for="pop-min">Minimum popularity at night</label>
+      <input type="range" id="pop-min" min="0" max="5" step="1" value="0"/>
+      <div class="slider-label">Showing places with popularity ≥ <span id="pop-min-value">0+</span></div>
+    </div>
+
+    <!-- Lighting slider -->
+    <div class="slider-block">
+      <h3>Filter by lighting level</h3>
+      <label for="light-min">Minimum lighting level</label>
+      <input type="range" id="light-min" min="0" max="5" step="1" value="0"/>
+      <div class="slider-label">Showing places with lighting ≥ <span id="light-min-value">0+</span></div>
+    </div>
+
+  </div> <!-- sidebar END -->
+
+
+  <div id="map"></div>
+
+  <!-- Legend -->
+  <div id="legend" class="legend">
+    <h4>Safety Level</h4>
+    <i style="background:#169425"></i> High (4–5)<br>
+    <i style="background:#f3d200"></i> Medium (3)<br>
+    <i style="background:#FF851B"></i> Low (2)<br>
+    <i style="background:#bd150c"></i> Very Low (1)<br>
+  </div>
+
+</main>
+
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet.heat/dist/leaflet-heat.js"></script>
+<script type="module" src="js/main.js"></script>
+
+</body>
+</html>
+
