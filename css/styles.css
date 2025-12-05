@@ -1,0 +1,435 @@
+/* stylelint-disable selector-class-pattern, selector-id-pattern */
+
+/* Reset body/html */
+html, body {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    overflow: hidden;
+    font-family: Arial,SimHei, sans-serif;
+    box-sizing: border-box;
+}
+
+/* Header */
+header {
+    height: 7vh;
+    background: linear-gradient(0deg,  rgb(212 218 220) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    padding: 0 1rem;  
+}
+
+#lang-toggle {
+    padding: 6px 16px;
+    border: 2px solid #fff;
+    border-radius: 20px;
+    background: rgb(255 255 255 / 20%);
+    color: #46707f;
+    font-size: 0.9rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+#lang-toggle:hover {
+    background: rgb(255 255 255 / 30%);
+    transform: scale(1.05);
+}
+
+h1 {
+    color: #46707f;
+    font-size: 1.8rem;
+    margin: 0;
+    padding: 0.5rem;
+    text-align: left;
+}
+
+/* Main layout */
+main {
+    display: flex;
+    height: calc(100vh - 7vh);
+}
+
+/* Left sidebar */
+.left-side {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    padding: 1rem;
+    background: rgb(242 245 242);
+    overflow-y: auto;
+    gap: 0.5rem; 
+    box-sizing: border-box;
+}
+
+label {
+    display: block;         
+    font-weight: bold;
+    font-size: 1rem;     
+    color: rgb(66 77 92);
+    text-align: left;       
+    width: 100%;
+    margin: 0;    
+    padding: 0;
+}
+
+.text {
+    font-size: 14px;        
+    color: #333;       
+    line-height: 1.2;
+    font-style: italic;  
+    margin: 4px;    
+}  
+
+/* Sections */
+.category-section, .location-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem; 
+    padding: 1rem;
+    background: rgb(255 255 255 / 85%);
+    border-radius: 16px;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
+}
+
+/* Category buttons */
+.category-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px; 
+}
+
+.category-buttons button {
+    flex: 1;                
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    background-color: #46707f;
+    color: white;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+/* Selection row */
+.selection-row {
+    display: flex;
+    align-items: left;     
+    gap: 8px;      
+}
+
+#selected-count {
+    font-size: 16px;             
+    background-color: rgb(255 255 255);
+    padding: 2px 6px;              
+    border-radius: 4px;          
+    display: inline-block;   
+    color: #c30a00;        
+}
+
+.selection-row button {
+    padding: 0 12px;
+    border-radius: 4px;
+    border: none;
+    background-color: #fff;
+    color: #46707f;
+    cursor: pointer;
+    font-size: 0.85rem;
+}
+
+.selection-row button:hover {
+    background-color: #99c4d5;
+}
+
+.category-buttons button:hover {
+    background-color: #99c4d5;
+    transform: translateY(-1px);
+}
+
+/* Slider */
+#slider-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+#slider-container label {
+    display: block;
+    margin-bottom: 0.25rem;
+    margin-top: 0.5rem;
+    font-size: 0.85rem;
+    font-weight: normal;   
+    color: #423d52;
+    text-align: left;    
+}
+
+/* noUiSlider 第三方类名保留原样 */
+.noUi-target {
+    height: 6px !important;     
+    border-radius: 5px !important;       
+    background: #ddd !important;         
+    margin-bottom: 1rem;
+    border: none !important;    
+}
+
+.noUi-connect {
+    background: #46707f !important; 
+}
+
+.noUi-handle {
+    width: 20px !important;       
+    height: 20px !important;
+    border-radius: 50% !important;
+    background: #95b4bf !important;
+    border: 1px solid #fff !important;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 30%) !important;
+    transition: transform 0.2s;
+    top: -7px !important;           
+    right: -10px !important;         
+}
+
+.noUi-handle:hover {
+    transform: scale(1.2);
+    border-color: #2e4a55 !important;
+}
+
+.noUi-handle::before,
+.noUi-handle::after {
+    display: none !important;
+}
+
+.noUi-horizontal .noUi-tooltip {
+    background: none !important;   
+    border: none !important;      
+    color: #2e4a55 !important;        
+    font-size: 0.75rem;
+    padding: 0 !important;        
+    top: 19px !important;           
+    transform: translateX(-50%);
+    box-shadow: none !important;  
+}
+
+/* Search */
+#search-wrapper {
+    position: relative;
+    width: 100%;
+    display: flex;       
+    align-items: center;   
+    flex-wrap: wrap;       
+}
+
+#entry {
+    flex: 1;
+    min-width: 0;
+    padding: 6px 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+}
+
+#clear-entry {
+    width: 24px;
+    height: 24px;
+    border: 1px solid #ccc;
+    border-left: 1px;
+    border-radius: 4px;
+    background: #fff;
+    cursor: pointer;
+    padding: 0;
+    line-height: 1;
+}
+
+#search-suggestions {
+    position: absolute;
+    bottom: 100%; 
+    left: 0;
+    right: 0;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-top: 0;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 1000;
+    display: none;
+    font-size: 0.8rem;                      
+    color: #595959;                         
+    line-height: 1.4;              
+    padding: 4px 8px;                
+}
+
+#search-suggestions div:hover {
+    background-color: #f0f0f0;  
+}
+
+.search-label::before,
+.search-label::after {
+    display: none !important;
+}
+
+.search-label {
+    background: none; 
+    color: #333;   
+    border: none;               
+    font-weight: bold;
+    padding: 1px;
+    border-radius: 4px;
+    box-shadow: 0 0;
+    text-align: center;
+    font-size: 10px;
+}
+
+/* Selects */
+.selects-row {
+    display: flex;
+    gap: 10px;
+    margin-top: 0.5rem;
+    width: 100%; 
+}
+
+.selects-row select {
+    flex: 1;
+    min-width: 0; 
+    padding: 6px 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    font-size: 0.8rem;
+    color: #6a6a6a;
+    cursor: pointer;
+    outline: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Map */
+.map {
+    flex: 1;
+    min-height: 0;
+    height: 100%;
+}
+
+/* Metro label and hex */
+.metro-label {
+    background: rgb(255 255 255 / 80%);
+    border-radius: 4px;
+    padding: 2px 4px;
+    font-size: 8px;
+    text-align: center;
+}
+
+.hex-tooltip {
+    margin: 0;
+    background: rgb(56 56 56 / 60%);
+    border: 1px;
+    border-radius: 4px;
+    font-size: 8px;
+    line-height: 1.2;
+    color: #fff;
+    padding: 1px;
+    box-shadow: none;
+}
+
+.hex-hover {
+    stroke: #fff !important;
+    stroke-width: 3px !important;
+}
+
+.hex-selected {
+    stroke: #000 !important;
+    stroke-width: 1px !important;
+}
+
+/* Legend */
+.legend-box {
+    background: rgb(255 255 255 / 56.7%);
+    border-radius: 6px;
+    line-height: 18px;
+    margin-bottom: 10px;
+    padding: 6px;
+    font-size: 0.7rem;
+}
+
+.legend-color {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin-right: 6px;
+    vertical-align: middle;
+}
+
+/* ----------- Mobile Responsive ----------- */
+@media (width <= 768px) {
+    main {
+        flex-direction: column; 
+        height: 100vh;
+    }
+
+    .map {
+        height: 40vh !important;
+        order: -1;  
+    }
+
+    .left-side {
+        width: 100%;
+        height: 60vh;
+        overflow-y: auto;
+        padding: 0.5rem;
+        gap: 0.25rem;
+    }
+
+    .category-buttons button {
+        flex: 1 1 48%;
+        padding: 4px 8px;
+        font-size: 0.8rem;
+    }
+
+    #slider-container label {
+        font-size: 0.75rem;
+    }
+
+    #risk-pie-chart {
+        width: 120px !important;
+        height: 120px !important;
+        margin: 0 auto;
+    }
+
+    .selection-row {
+        gap: 4px;
+    }
+
+    .selection-row button {
+        font-size: 0.75rem;
+        padding: 2px 8px;
+    }
+
+    .selects-row {
+        flex-direction: column;
+    }
+
+    .selects-row select {
+        width: 100%;
+        font-size: 0.75rem;
+        padding: 4px 6px;
+    }
+
+    #search-wrapper input {
+        font-size: 0.75rem;
+        padding: 4px 6px;
+    }
+
+    #search-suggestions {
+        font-size: 0.7rem;
+    }
+
+    header h1 {
+        font-size: 1.2rem;
+    }
+
+    #lang-toggle {
+        font-size: 0.8rem;
+        padding: 4px 12px;
+    }
+}

@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title data-en="Inundation Risk Index Dashboard" data-zh="洪涝风险指数仪表盘">Inundation Risk Index Dashboard</title>
+
+<!-- Leaflet CSS -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+
+<!-- Own CSS -->
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nouislider@15.7.0/dist/nouislider.min.css">
+
+<!-- JS libraries -->
+<script src="https://cdn.jsdelivr.net/npm/nouislider@15.7.0/dist/nouislider.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
+
+<style>
+  #selected-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3em;
+  }
+  #selected-label .label-text {
+      white-space: nowrap;
+  }
+</style>
+</head>
+
+<body>
+<header>
+    <h1 data-en="Inundation Risk Index in Hangzhou Center Districts" 
+        data-zh="杭州中心城区洪涝风险指数">
+        Inundation Risk Index in Hangzhou Center Districts
+    </h1>
+    <button id="lang-toggle" data-en="中文" data-zh="English">中文</button>
+</header>
+
+<main>
+  <div class="left-side">
+
+    <section class="instruction-section">
+      <p class="text" data-en="This tool helps identify areas for inundation actions." 
+                       data-zh="该工具帮助识别需采取洪涝防范措施的区域。">
+        This tool helps identify areas for inundation actions.
+      </p>
+        <ol class="text">
+          <li>
+            <strong data-en="Category Selection:" data-zh="根据类别选择：">Category Selection:</strong>
+            <span class="desc" data-en="Adjust sliders and click pie chart segments." 
+                                data-zh="调整滑块并点击饼图分段。">
+              Adjust sliders and click pie chart segments.
+            </span>
+          </li>
+          <li>
+            <strong data-en="Location Selection:" data-zh="根据位置选择：">Location Selection:</strong>
+            <span class="desc" data-en="Zoom in or use search/filter tools, then click hexagons." 
+                                data-zh="放大地图或使用搜索/筛选工具，然后点击六边形单元。">
+              Zoom in or use search/filter tools, then click hexagons.
+            </span>
+          </li>
+        </ol>
+    </section>
+
+    <div class="selection-row">
+      <label id="selected-label">
+        <span class="label-text" data-en="Selected Hexagons:" data-zh="已选六边形单元：">Selected Hexagons:</span>
+        <strong id="selected-count">0</strong>
+      </label>
+      <button id="clear-selection" data-en="Clear" data-zh="清除">Clear</button>
+      <button id="export-selection" data-en="Export" data-zh="导出">Export</button>
+    </div>
+
+    <label data-en="Category Selection" data-zh="根据类别选择">Category Selection</label>
+
+    <section class="category-section">
+      <div class="category-buttons">
+        <button id="matrix" data-en="Matrix" data-zh="矩阵">Matrix</button>
+        <button id="impervious" data-en="Impervious" data-zh="不透水指数">Impervious</button>
+        <button id="inundation" data-en="Inundation" data-zh="淹没指数">Inundation</button>
+        <button id="reset" data-en="Reset" data-zh="重置">Reset</button>
+      </div>
+      <div id="slider-container">
+        <label data-en="Impervious Thresholds:" data-zh="不透水指数阈值：">Impervious Thresholds:</label>
+        <div id="imp-slider"></div>
+        <label data-en="Inundation Thresholds:" data-zh="淹没指数阈值：">Inundation Thresholds:</label>
+        <div id="inu-slider"></div>
+      </div>
+      <canvas id="riskPieChart" width="150" height="200"></canvas>
+    </section>
+
+    <label data-en="Location Selection" data-zh="根据位置选择">Location Selection</label>
+
+    <section class="location-section">
+      <div id="search-wrapper">
+        <input id="entry" type="text" 
+          data-en-placeholder="Search a station/school/hospital/market" 
+          data-zh-placeholder="搜索地铁站/学校/医院/市场" 
+          placeholder="Search a station/school/hospital/market">
+        <button id="clear-entry" data-en="x" data-zh="x">x</button>
+        <div id="search-suggestions"></div>
+      </div>
+
+      <div class="selects-row">
+        <select id="select-station">
+          <option value="" data-en="--Select a station--" data-zh="--选择地铁站--">--Select a station--</option>
+        </select>
+        <select id="select-amenity">
+          <option value="" data-en="--Select an amenity--" data-zh="--选择设施--">--Select an amenity--</option>
+        </select>
+      </div>
+    </section>
+  </div>
+
+  <!-- Map -->
+  <div id="map" class="map"></div>
+</main>
+
+<!-- Leaflet & Turf -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+ integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script src="https://unpkg.com/@turf/turf@6/turf.min.js"></script>
+
+<!-- Main JS -->
+<script type="module" src="js/main.js"></script>
+
+</body>
+</html>
