@@ -1,0 +1,266 @@
+html {
+  font-size: 18px;
+  font-family: system-ui, sans-serif;
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+/* MAIN LAYOUT */
+main {
+  display: flex;
+  flex-direction: column;
+}
+
+.app-header {
+  width: 100%;
+  background-color: #f5f5f5;   
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid #ddd;
+}
+
+.app-header h1 {
+  margin: 0;
+  font-size: 1.8rem;            
+  font-weight: 700;
+  text-align: left;
+}
+
+/* Map Section */
+.map-section {
+  position: relative;
+  width: 100%;
+  height: 50vh;
+  background-color: #ddd;
+
+  display: flex;
+  flex-direction: column;
+}
+
+/*
+.map-search-controls {
+  position: flex;
+  box-sizing: border-box;
+  margin: 0;
+  border: none;
+  padding: 0.5rem;
+  width: 100%;
+  gap: 0.5rem;
+  justify-content: space-between;
+  background-color: #fff;
+  z-index: 1;
+}
+
+.map-search-controls input,
+.map-search-controls select {
+  box-sizing: border-box;
+  border: 1px solid gray;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  font-family: system-ui, sans-serif;
+  padding: 0.25rem 0.5rem;
+}
+*/
+
+.map {
+  position: relative;
+  flex: 1;
+  width: 100%;
+  height: auto;
+}
+
+/* Right side (itinerary panel) */
+.itinerary-section {
+  padding: 0.5rem;
+}
+
+.itinerary-controls {
+  border: 0;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.itinerary-controls legend {
+  font-size: 1.4rem;     
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.theme-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.main-theme-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.secondary-theme-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+}
+
+/* Base pill style */
+.theme-pill {
+  --theme-color: #555;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  border: none;
+}
+
+/* Visually hide the native checkbox but keep it accessible */
+.theme-pill input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+/* The visible pill */
+.theme-pill span {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid rgb(0 0 0 / 8%);
+  background-color: rgb(0 0 0 / 2%);
+  font-size: 0.85rem;
+  color: var(--theme-color);
+  transition: background-color 0.15s ease, color 0.15s ease, transform 0.1s ease;
+}
+
+/* Hover state */
+.theme-pill:hover span {
+  background-color: rgb(0 0 0 / 5%);
+}
+
+/* Checked state: filled pill */
+.theme-pill input[type="checkbox"]:checked + span {
+  background-color: var(--theme-color);
+  color: #fff;
+  border-color: var(--theme-color);
+  transform: translateY(-1px);
+}
+
+/* Theme-specific colors (match your marker colors) */
+.theme-history {
+  --theme-color: #1f77b4;
+}
+
+.theme-food {
+  --theme-color: #ff7f0e;
+}
+
+.theme-recreation {
+  --theme-color: #2ca02c;
+}
+
+.theme-museum {
+  --theme-color: #8c564b; 
+}
+
+.price-filters {
+  margin-top: 0.25rem;
+}
+
+.time-filter {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin: 0.5rem 0 0.75rem;
+}
+
+.filter-label {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.time-filter select {
+  padding: 0.35rem 0.5rem;
+  font-size: 0.9rem;
+  border-radius: 6px;
+  border: 1px solid #aaa;
+  background-color: #fefefe;
+  cursor: pointer;
+}
+
+/* Stop list styling */
+.stop-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0.5rem 0 0;
+}
+
+.stop-list .stop {
+  display: grid;
+  grid-template-areas:
+    "name         cost"
+    "theme        duration"
+    "description  description";
+  grid-template-columns: 2fr 1fr;
+  gap: 0.25rem 0.5rem;
+
+  padding: 0.5rem;
+  border-top: 1px solid #ccc;
+}
+
+.stop .name {
+  grid-area: name;
+  font-weight: bold;
+}
+
+.stop .cost {
+  grid-area: cost;
+  justify-self: end;
+  font-size: 0.9em;
+}
+
+.stop .theme {
+  grid-area: theme;
+  font-size: 0.85em;
+  font-style: italic;
+}
+
+.stop .duration {
+  grid-area: duration;
+  justify-self: end;
+  font-size: 0.85em;
+}
+
+.stop .description {
+  grid-area: description;
+  font-size: 0.9em;
+}
+
+/* ===== DESKTOP / WIDE LAYOUT ===== */
+@media (width >= 768px) {
+  main {
+    flex-direction: row;   /* map on the left, panel on the right */
+  }
+
+  .map-section {
+    flex: 2;
+    height: 100vh;
+  }
+
+  .itinerary-section {
+    flex: 1;
+    max-height: 100vh;
+    overflow-y: auto;
+    border-left: 1px solid #ddd;
+  }
+}

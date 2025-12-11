@@ -1,0 +1,617 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "30th_street_station",
+        "name": "30th Street Station",
+        "address": "2955 Market St, Philadelphia, PA 19104",
+        "themes": ["history", "architecture", "transport"],
+        "est_duration_min": 15,
+        "est_cost": 0,
+        "description": "Historic Beaux-Arts train station and a common arrival point into Philadelphia. A good place to start your day and get oriented.",
+        "must_see": false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-75.18197248236983, 39.95588260052245]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "schuylkill_banks",
+        "name": "Schuylkill Banks",
+        "address": "2501 Walnut St, Philadelphia, PA 19103",
+        "themes": ["recreation", "nature"],
+        "est_duration_min": 45,
+        "est_cost": 0,
+        "description": "Scenic waterfront trail along the Schuylkill River, perfect for a relaxed stroll and skyline views.",
+        "must_see": false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-75.17943300253746, 39.9550899034558]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "garden_restaurant_barnes",
+        "name": "The Garden Restaurant Café at the Barnes Foundation",
+        "address": "2025 Benjamin Franklin Pkwy, Philadelphia, PA 19130",
+        "themes": ["food", "architecture", "museum"],
+        "est_duration_min": 90,
+        "est_cost": 25,
+        "description": "A calm café inside the Barnes Foundation complex, ideal for a sit-down brunch or coffee break along the Parkway.",
+        "must_see": false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-75.17258503378102, 39.96104749270321]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "rocky_statue",
+        "name": "The Rocky Statue",
+        "address": "2600 Benjamin Franklin Pkwy, Philadelphia, PA 19130",
+        "themes": ["recreation", "architecture", "iconic"],
+        "est_duration_min": 30,
+        "est_cost": 0,
+        "description": "Classic photo-op at the base of the Philadelphia Museum of Art steps, made famous by the Rocky films.",
+        "must_see": true
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-75.17929096147519, 39.96515137985975]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "reading_terminal_market",
+        "name": "Reading Terminal Market",
+        "address": "1136 Arch St, Philadelphia, PA 19107",
+        "themes": ["food", "history", "architecture", "iconic"],
+        "est_duration_min": 60,
+        "est_cost": 15,
+        "description": "Historic indoor market packed with local vendors, perfect for lunch and sampling Philly favorites.",
+        "must_see": true
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-75.15910376445923, 39.953323787806035]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "city_hall",
+        "name": "City Hall",
+        "address": "1400 John F Kennedy Blvd, Philadelphia, PA 19107",
+        "themes": ["history", "architecture", "iconic"],
+        "est_duration_min": 45,
+        "est_cost": 0,
+        "description": "Imposing masonry City Hall at the center of Philadelphia, with ornate architecture and views of the surrounding downtown.",
+        "must_see": true
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-75.16361185014377, 39.952931444096926]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "love_park",
+        "name": "LOVE Park",
+        "address": "1501 John F Kennedy Blvd, Philadelphia, PA 19102",
+        "themes": ["recreation", "iconic"],
+        "est_duration_min": 20,
+        "est_cost": 0,
+        "description": "Small urban park best known for the iconic LOVE sculpture—good for a quick photo stop between sights.",
+        "must_see": false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-75.16554304059103, 39.954428273570635]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "chinatown",
+        "name": "Chinatown",
+        "address": "Arch St & N 10th St, Philadelphia, PA 19107",
+        "themes": ["food", "history", "iconic"],
+        "est_duration_min": 45,
+        "est_cost": 15,
+        "description": "Lively neighborhood with restaurants, bakeries, and shops—great for snacks, bubble tea, or an early dinner.",
+        "must_see": false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-75.15619196262854, 39.95392218369031]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "elfreths_alley",
+        "name": "Elfreth's Alley",
+        "address": "126 Elfreth's Alley, Philadelphia, PA 19106",
+        "themes": ["history", "iconic"],
+        "est_duration_min": 60,
+        "est_cost": 0,
+        "description": "One of the oldest continuously inhabited residential streets in the U.S., with cobblestones and historic rowhouses.",
+        "must_see": true
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-75.14243373563225, 39.952923411022056]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "philly_cheesesteak_old_city",
+        "name": "Philly Cheesesteak (Old City)",
+        "address": "206 Market St, Philadelphia, PA 19106",
+        "themes": ["food", "iconic"],
+        "est_duration_min": 45,
+        "est_cost": 15,
+        "description": "Old City spots to try an iconic Philly cheesesteak after a day of sightseeing.",
+        "must_see": false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-75.14417180709368, 39.949814506324344]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "betsy_ross_house",
+        "name": "Betsy Ross House",
+        "address": "239 Arch St, Philadelphia, PA 19106",
+        "themes": ["history", "architecture", "museum"],
+        "est_duration_min": 45,
+        "est_cost": 12,
+        "description": "Historic house museum dedicated to Betsy Ross, with a small courtyard and exhibits about early American history.",
+        "must_see": false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-75.14453408290949, 39.95244053699293]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "independence_hall",
+        "name": "Independence Hall",
+        "address": "520 Chestnut St, Philadelphia, PA 19106",
+        "themes": ["history", "architecture", "iconic"],
+        "est_duration_min": 60,
+        "est_cost": 0,
+        "description": "UNESCO World Heritage Site where the Declaration of Independence and the U.S. Constitution were debated and adopted.",
+        "must_see": true
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-75.15004562895713, 39.94917669629378]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "liberty_bell",
+        "name": "Liberty Bell",
+        "address": "526 Market St, Philadelphia, PA 19106",
+        "themes": ["history", "iconic"],
+        "est_duration_min": 30,
+        "est_cost": 0,
+        "description": "Iconic symbol of American independence housed in the Liberty Bell Center, just across from Independence Hall.",
+        "must_see": true
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-75.15028189745958, 39.94966351596981]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "philadelphia_museum_of_art",
+        "name": "Philadelphia Museum of Art",
+        "address": "2600 Benjamin Franklin Pkwy, Philadelphia, PA 19130",
+        "themes": ["museum", "architecture", "iconic"],
+        "est_duration_min": 90,
+        "est_cost": 25,
+        "description": "One of the largest art museums in the U.S., with an extensive collection and iconic views over the Benjamin Franklin Parkway.",
+        "must_see": true
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-75.18099, 39.9656]
+      }
+    }, 
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "barnes_foundation_museum",
+        "name": "Barnes Foundation",
+        "address": "2025 Benjamin Franklin Pkwy, Philadelphia, PA 19130",
+        "themes": ["museum", "art", "architecture"],
+        "est_duration_min": 90,
+        "est_cost": 30,
+        "description": "World-renowned collection of Impressionist and modern art in a contemporary building along the Benjamin Franklin Parkway.",
+        "must_see": true
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-75.1728, 39.9611]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "franklin_institute",
+        "name": "The Franklin Institute",
+        "address": "222 N 20th St, Philadelphia, PA 19103",
+        "themes": ["museum", "science", "family"],
+        "est_duration_min": 90,
+        "est_cost": 30,
+        "description": "Interactive science museum featuring hands-on exhibits, a planetarium, and the famous Giant Heart.",
+        "must_see": false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-75.1735, 39.9584]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "rodin_museum",
+        "name": "Rodin Museum",
+        "address": "2151 Benjamin Franklin Pkwy, Philadelphia, PA 19130",
+        "themes": ["museum", "art", "architecture"],
+        "est_duration_min": 45,
+        "est_cost": 15,
+        "description": "Intimate museum and garden with one of the largest collections of Auguste Rodin’s sculptures outside of Paris.",
+        "must_see": false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-75.1743, 39.9618]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "african_american_museum_philadelphia",
+        "name": "African American Museum in Philadelphia",
+        "address": "701 Arch St, Philadelphia, PA 19106",
+        "themes": ["museum", "history"],
+        "est_duration_min": 60,
+        "est_cost": 20,
+        "description": "Museum dedicated to interpreting and preserving the history and culture of African Americans, with a focus on Philadelphia and the region.",
+        "must_see": true
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-75.1528, 39.9525]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "rittenhouse_square",
+        "name": "Rittenhouse Square",
+        "address": "Rittenhouse Square, Philadelphia, PA 19103",
+        "themes": ["recreation", "nature", "iconic"],
+        "est_duration_min": 30,
+        "est_cost": 0,
+        "description": "Lively park ringed by cafés, restaurants, and shops, ideal for people-watching or a quick break during the day.",
+        "must_see": true
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-75.1703, 39.9495]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "washington_square",
+        "name": "Washington Square",
+        "address": "210 W Washington Square, Philadelphia, PA 19106",
+        "themes": ["recreation", "history", "nature"],
+        "est_duration_min": 30,
+        "est_cost": 0,
+        "description": "Historic square with shaded paths and the Tomb of the Unknown Revolutionary War Soldier, a quieter green space near Independence Hall.",
+        "must_see": false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-75.1522, 39.9479]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "race_street_pier",
+        "name": "Race Street Pier",
+        "address": "Race St & N Christopher Columbus Blvd, Philadelphia, PA 19123",
+        "themes": ["recreation", "nature", "waterfront"],
+        "est_duration_min": 30,
+        "est_cost": 0,
+        "description": "Tiered waterfront park beneath the Ben Franklin Bridge with great views of the river and Camden skyline.",
+        "must_see": false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-75.1383, 39.9552]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "cherry_street_pier",
+        "name": "Cherry Street Pier",
+        "address": "121 N Christopher Columbus Blvd, Philadelphia, PA 19106",
+        "themes": ["recreation", "art", "waterfront"],
+        "est_duration_min": 45,
+        "est_cost": 0,
+        "description": "Converted historic pier with art installations, events, and riverfront views, often paired with Race Street Pier next door.",
+        "must_see": false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-75.1391, 39.9537]
+      }
+    },   
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "italian_market",
+        "name": "South 9th Street Italian Market",
+        "address": "9th St & Christian St, Philadelphia, PA 19147",
+        "themes": ["food", "history", "market"],
+        "est_duration_min": 60,
+        "est_cost": 20,
+        "description": "Historic open-air market with produce stands, specialty shops, and casual eateries reflecting Italian and Latinx communities.",
+        "must_see": false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-75.1597, 39.9394]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "spruce_street_harbor_park",
+        "name": "Spruce Street Harbor Park",
+        "address": "301 S Christopher Columbus Blvd, Philadelphia, PA 19106",
+        "themes": ["recreation", "waterfront", "food"],
+        "est_duration_min": 45,
+        "est_cost": 10,
+        "description": "Seasonal waterfront park with hammocks, floating gardens, lights, and food vendors — a relaxing place by the river.",
+        "must_see": false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-75.1422, 39.9449]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "penns_landing",
+        "name": "Penn's Landing",
+        "address": "101 S Christopher Columbus Blvd, Philadelphia, PA 19106",
+        "themes": ["recreation", "waterfront"],
+        "est_duration_min": 40,
+        "est_cost": 0,
+        "description": "Historic waterfront area hosting events, river views, and seasonal attractions like ice skating or outdoor concerts.",
+        "must_see": false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-75.1419, 39.9491]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "mutter_museum",
+        "name": "Mütter Museum",
+        "address": "19 S 22nd St, Philadelphia, PA 19103",
+        "themes": ["museum", "history"],
+        "est_duration_min": 60,
+        "est_cost": 20,
+        "description": "A medical history museum featuring anatomical specimens, medical equipment, and exhibitions on health and science.",
+        "must_see": false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-75.1753, 39.9532]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "eastern_state_penitentiary",
+        "name": "Eastern State Penitentiary",
+        "address": "2027 Fairmount Ave, Philadelphia, PA 19130",
+        "themes": ["history", "architecture", "museum"],
+        "est_duration_min": 75,
+        "est_cost": 21,
+        "description": "Historic prison known for its revolutionary design and audio tours led by Steve Buscemi. One of Philly's most popular attractions.",
+        "must_see": true
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-75.1720, 39.9681]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "fairmount_water_works",
+        "name": "Fairmount Water Works",
+        "address": "640 Waterworks Dr, Philadelphia, PA 19130",
+        "themes": ["history", "architecture", "waterfront"],
+        "est_duration_min": 30,
+        "est_cost": 0,
+        "description": "Historic 19th-century pumping station with riverfront views; a scenic stop behind the Art Museum.",
+        "must_see": false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-75.1801, 39.9660]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "independence_seaport_museum",
+        "name": "Independence Seaport Museum",
+        "address": "211 S Christopher Columbus Blvd, Philadelphia, PA 19106",
+        "themes": ["museum", "history", "waterfront"],
+        "est_duration_min": 75,
+        "est_cost": 20,
+        "description": "Maritime museum featuring historic ships, exhibits on river history, and pier access along the waterfront.",
+        "must_see": false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-75.1427, 39.9461]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "upenn_campus",
+        "name": "University of Pennsylvania Campus",
+        "address": "34th & Walnut St, Philadelphia, PA 19104",
+        "themes": ["university"],
+        "est_duration_min": 30,
+        "est_cost": 0,
+        "description": "An Ivy League campus with historic and modern architecture, tree-lined walkways, and public art installations.",
+        "must_see": false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-75.1926, 39.9522]
+      }
+    },    
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "drexel_campus",
+        "name": "Drexel University",
+        "address": "3141 Chestnut St, Philadelphia, PA 19104",
+        "themes": ["university"],
+        "est_duration_min": 30,
+        "est_cost": 0,
+        "description": "Urban university campus adjacent to UPenn, with modern academic buildings and student-centered open spaces.",
+        "must_see": false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-75.1890, 39.9566]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "temple_university_center_city",
+        "name": "Temple University Center City (TUCC)",
+        "address": "1515 Market St, Philadelphia, PA 19102",
+        "themes": ["university"],
+        "est_duration_min": 30,
+        "est_cost": 0,
+        "description": "Temple University's Center City campus offering graduate programs and continuing education in a convenient downtown location near City Hall. Great stop for prospective students exploring urban academic environments.",
+        "must_see": false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-75.16582, 39.95373]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "jefferson_university",
+        "name": "Thomas Jefferson University (Center City Campus)",
+        "address": "1020 Walnut St, Philadelphia, PA 19107",
+        "themes": ["university"],
+        "est_duration_min": 30,
+        "est_cost": 0,
+        "description": "Jefferson’s Center City campus is home to one of Philadelphia’s leading medical and health sciences universities. The area includes academic buildings, research facilities, and green courtyards woven into the heart of downtown—ideal for visitors exploring healthcare or biomedical programs.",
+        "must_see": false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-75.1582, 39.9489]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "philadelphias_magic_gardens",
+        "name": "Philadelphia's Magic Gardens",
+        "address": "1020 South St, Philadelphia, PA 19147",
+        "themes": ["museum", "art", "iconic"],
+        "est_duration_min": 60,
+        "est_cost": 15,
+        "description": "Immersive mosaic art environment by Isaiah Zagar, with indoor galleries and outdoor labyrinthine courtyards—one of Philly's most unique visual art experiences on South Street.",
+        "must_see": true
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-75.159296, 39.942859]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "fairmount_park",
+        "name": "Fairmount Park",
+        "address": "Fairmount Park, Philadelphia, PA 19131",
+        "themes": ["recreation", "nature", "waterfront"],
+        "est_duration_min": 60,
+        "est_cost": 0,
+        "description": "Expansive urban parkland along the Schuylkill River with trails, overlooks, and historic sites—great for a walk, bike ride, or a break from the city streets.",
+        "must_see": false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-75.2099022, 39.983446]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "shofuso_japanese_cultural_center",
+        "name": "Shofuso Japanese Cultural Center",
+        "address": "Lansdowne Dr & Horticultural Dr, Philadelphia, PA 19131",
+        "themes": ["museum", "nature", "culture"],
+        "est_duration_min": 60,
+        "est_cost": 15,
+        "description": "Traditional Japanese house and garden in West Fairmount Park with koi pond, cherry trees, and serene spaces—ideal for a quieter cultural stop outside Center City.",
+        "must_see": true
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-75.2128, 39.9814]
+      }
+    }       
+  ]
+}

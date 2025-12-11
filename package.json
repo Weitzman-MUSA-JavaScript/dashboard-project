@@ -1,7 +1,7 @@
 {
   "name": "dashboard-project",
   "version": "1.0.0",
-  "description": "",
+  "description": "Created by Lu Yii Wong",
   "main": "index.js",
   "type": "module",
   "directories": {},
@@ -12,9 +12,20 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "eslint": "^8.48.0",
+    "@eslint/js": "^9.39.1",
+    "eslint": "^9.39.1",
     "eslint-config-google": "^0.14.0",
-    "stylelint": "^15.10.3",
+    "globals": "^16.5.0",
+    "stylelint": "^15.11.0",
     "stylelint-config-standard": "^34.0.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luyiiw/dashboard-project.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/luyiiw/dashboard-project/issues"
+  },
+  "homepage": "https://github.com/luyiiw/dashboard-project#readme"
 }
