@@ -176,3 +176,37 @@ main {
   background-color: #e5e7eb;
   font-size: 0.8rem;
 }
+
+/* POI category checkbox layout */
+.poi-category-panel {
+  margin-top: 0.5rem;
+}
+
+.poi-category-panel .control-label {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+  display: block;
+}
+
+.poi-cat-item {
+  display: block;       
+  margin: 0.15rem 0;
+  font-size: 0.9rem;
+}
+
+.poi-cat-item input[type="checkbox"] {
+  margin-right: 0.4rem;
+}
+
+.poi-category-panel {
+  margin-top: 0.75rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid #ddd;
+}
+
+.poi-cat-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0.2rem 0;
+}

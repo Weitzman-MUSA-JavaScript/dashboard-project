@@ -1,9 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // ---------- 1. 右侧列表元素 ----------
+
   const stationListEl = document.querySelector(".station-list");
   console.log("stationListEl = ", stationListEl);
 
-  // ---------- 2. 地图初始化 ----------
   const mapContainer = document.querySelector(".map");
   mapContainer.id = "map";
 
@@ -17,15 +16,59 @@ document.addEventListener("DOMContentLoaded", function () {
       '&copy; <a href="https://carto.com/">CARTO</a>, &copy; OpenStreetMap contributors',
   }).addTo(map);
 
-  // ---------- 3. 全局变量：中心点数据和图层 ----------
   let centers = []; // [{ id, name, lat, lng, score }, ...]
   let centersReady = false;
+  let showHighOnly = false;   
+  let minScore = 0;           
 
   const centerMarkersLayer = L.layerGroup().addTo(map);
-  let highlightLayer = L.layerGroup().addTo(map);
+  const highlightLayer = L.layerGroup().addTo(map);
+
+  function wirePoiCategoryCheckboxes() {
+  const allBox = document.getElementById("poiCat_all");
+  const catBoxes = Array.from(document.querySelectorAll("input.poiCat"));
+
+  console.log("wirePoiCategoryCheckboxes:", {
+    allBoxFound: !!allBox,
+    catBoxesCount: catBoxes.length,
+  });
+
+  if (!allBox || catBoxes.length === 0) return;
+
+  allBox.addEventListener("change", () => {
+    const checked = allBox.checked;
+    catBoxes.forEach(cb => (cb.checked = checked));
+
+    refreshCenters();
+  });
+
+  catBoxes.forEach(cb => {
+    cb.addEventListener("change", () => {
+      allBox.checked = catBoxes.every(x => x.checked);
+      refreshCenters();
+    });
+  });
+
+  if (allBox.checked) {
+    catBoxes.forEach(cb => (cb.checked = true));
+  } else {
+    allBox.checked = catBoxes.every(x => x.checked);
+  }
+}
+
+wireAddressSearch(map);
+wirePoiCategoryCheckboxes();
+
+document
+  .querySelector('input[name="electric-bikes-only"]')
+  ?.addEventListener("change", refreshCenters);
+
+document
+  .querySelector('input[name="min-battery-level"]')
+  ?.addEventListener("input", refreshCenters);
+
   let userMarker = null;
 
-  // ---------- 4. 从 GeoJSON 加载 NJ_Fishnet_CenterPoints ----------
   fetch("data/NJ_Fishnet_CenterPoints_WGS84.geojson")
     .then((res) => res.json())
     .then((data) => {
@@ -39,7 +82,6 @@ document.addEventListener("DOMContentLoaded", function () {
         const props = feature.properties || {};
 
         const score = Number(props.score);
-        // 过滤：只保留 score >= 3 的点
         if (Number.isNaN(score) || score < 3) return;
 
         const gridId =
@@ -55,8 +97,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const poiFlags = [hasUSA, hasAsian, hasMVC, hasPark, hasMuseum];
         const poiCount = poiFlags.filter(Boolean).length;
-
-
 
         const center = {
           id: gridId,
@@ -75,8 +115,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
         centers.push(center);
 
-        // 点大小按 score 变化
-        const radius = 4 + (score - 3) * 3; // 3分→4px，4分→7px，5分→10px
+         centersReady = true;   
+         refreshCenters(); 
+
+        const radius = 4 + (score - 3) * 3; 
 
         const marker = L.circleMarker([lat, lng], {
           radius,
@@ -101,7 +143,6 @@ document.addEventListener("DOMContentLoaded", function () {
       );
     });
 
-  // ---------- 5. 工具函数：两点距离（km） ----------
   function distanceInKm(lat1, lng1, lat2, lng2) {
     const R = 6371;
     const dLat = ((lat2 - lat1) * Math.PI) / 180;
@@ -115,21 +156,78 @@ document.addEventListener("DOMContentLoaded", function () {
     const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
     return R * c;
   }
+  
+function getThresholdFromUI() {
+  const cb = document.querySelector('input[name="electric-bikes-only"]');
+  const slider = document.querySelector('input[name="min-battery-level"]');
 
-  // ---------- 6. 更新右侧列表 ----------
+  const showHighOnly = !!cb?.checked;           
+  const minScore = slider ? Number(slider.value) : 0;
+
+  const hardMin = showHighOnly ? 4 : 0;         
+  return Math.max(hardMin, minScore);          
+}
+
+function refreshCenters() {
+  console.log("refreshCenters called");
+  centerMarkersLayer.clearLayers();
+
+  const threshold = getThresholdFromUI();
+
+  centers
+    .filter(c => c.score >= threshold)
+    .forEach(c => {
+      const radius = 4 + (c.score - 3) * 3;
+
+      const marker = L.circleMarker([c.lat, c.lng], {
+        radius,
+        color: "#2A81CB",
+        weight: 1,
+        fillColor: "#2A81CB",
+        fillOpacity: 0.7,
+      }).addTo(centerMarkersLayer);
+
+      marker.bindPopup(
+        `<strong>${c.name}</strong><br>Score: ${c.score.toFixed(2)}`
+      );
+    });
+}
+
 function updateStationList(userLocation, nearestCenter, topHighScoreCenters) {
   if (!stationListEl || !nearestCenter) return;
 
-  // 距离→驾车时间的小工具（假设平均 50 mph）
   const driveMinutesFromMiles = (miles) =>
     Math.round((miles / 50) * 60);
 
-  // 布尔值转 Y / N
   const boolToYN = (v) => (v ? "Y" : "N");
+
+  function selectedPoiLabels(center) {
+  const labels = [];
+
+  const isChecked = (val) =>
+    document.querySelector(`input.poiCat[value="${val}"]`)?.checked;
+
+  if (isChecked("supermarket_usa")) {
+    labels.push(`USA food: ${boolToYN(center.hasUSA)}`);
+  }
+
+  if (isChecked("supermarket_asian")) {
+    labels.push(`Asian food: ${boolToYN(center.hasAsian)}`);
+  }
+
+  if (isChecked("park")) {
+    labels.push(`Park: ${boolToYN(center.hasPark)}`);
+  }
+
+  if (isChecked("museum")) {
+    labels.push(`Museum: ${boolToYN(center.hasMuseum)}`);
+  }
+
+  return labels;
+}
 
   let html = "";
 
-  // ---------- 1. 最近网格中心（Your nearest grid center） ----------
   const nearestDistanceMiNum = nearestCenter.distanceKm * 0.621371;
   const nearestDistanceMi = nearestDistanceMiNum.toFixed(1);
   const nearestDriveMin = driveMinutesFromMiles(nearestDistanceMiNum);
@@ -170,7 +268,27 @@ function updateStationList(userLocation, nearestCenter, topHighScoreCenters) {
     </li>
   `;
 
-  // ---------- 2. High-score center #1 / #2 / #3 ----------
+  function selectedPoiLabels(center) {
+  const labels = [];
+
+  const isChecked = (val) =>
+    document.querySelector(`input.poiCat[value="${val}"]`)?.checked;
+
+  if (isChecked("supermarket_usa")) {
+    labels.push(`USA food: ${boolToYN(center.hasUSA)}`);
+  }
+  if (isChecked("supermarket_asian")) {
+    labels.push(`Asian food: ${boolToYN(center.hasAsian)}`);
+  }
+  if (isChecked("park")) {
+    labels.push(`Park: ${boolToYN(center.hasPark)}`);
+  }
+  if (isChecked("museum")) {
+    labels.push(`Museum: ${boolToYN(center.hasMuseum)}`);
+  }
+  
+  return labels;
+}
 
   topHighScoreCenters.forEach((center, idx) => {
     const distMiNum = center.distanceKm * 0.621371;
@@ -179,6 +297,8 @@ function updateStationList(userLocation, nearestCenter, topHighScoreCenters) {
 
     const poiCount =
       typeof center.poiCount === "number" ? center.poiCount : 0;
+    
+    const selectedLabels = selectedPoiLabels(center);
 
     html += `
       <li class="station" aria-expanded="false">
@@ -203,12 +323,13 @@ function updateStationList(userLocation, nearestCenter, topHighScoreCenters) {
         </span>
 
         <span class="next-pick-up-est">
-          USA food: ${boolToYN(center.hasUSA)} |
-          Asian food: ${boolToYN(center.hasAsian)} |
-          Park: ${boolToYN(center.hasPark)} |
-          Museum: ${boolToYN(center.hasMuseum)} |
-          MVC: ${boolToYN(center.hasMVC)}
+         ${
+         selectedLabels.length
+           ? selectedLabels.join(" | ")
+           : "No POI categories selected"
+         }
         </span>
+
       </li>
     `;
   });
@@ -216,96 +337,158 @@ function updateStationList(userLocation, nearestCenter, topHighScoreCenters) {
   stationListEl.innerHTML = html;
 }
 
+  function handleUserLocation(userLat, userLng) {
+  if (!centersReady) {
+    console.warn("Centers not loaded yet.");
+    return;
+  }
 
+  const userLocation = { lat: userLat, lng: userLng };
 
-  // ---------- 7. 地图点击：高亮最近三个高分点 + 更新右侧 ----------
-  map.on("click", (e) => {
-    if (!centersReady) {
-      console.warn("Centers not loaded yet.");
-      return;
-    }
+  if (userMarker) {
+    userMarker.setLatLng([userLocation.lat, userLocation.lng]);
+  } else {
+    userMarker = L.marker([userLocation.lat, userLocation.lng]).addTo(map);
+  }
+  userMarker.bindPopup("Your chosen location").openPopup();
 
-    const userLocation = {
-      lat: e.latlng.lat,
-      lng: e.latlng.lng,
-    };
+  const threshold = getThresholdFromUI(); 
+  const highCenters = centers.filter((c) => c.score >= threshold);
 
-    // 1) 用户点击位置的 marker
-    if (userMarker) {
-      userMarker.setLatLng([userLocation.lat, userLocation.lng]);
-    } else {
-      userMarker = L.marker([userLocation.lat, userLocation.lng]).addTo(map);
-    }
-    userMarker.bindPopup("Your chosen location").openPopup();
+  if (highCenters.length === 0) {
+    console.warn(`No centers with score >= ${threshold}`);
+    return;
+  }
 
-    // 2) 只保留 score >= 4 的高分 centerpoints
-    const highCenters = centers.filter((c) => c.score >= 4);
+  const sortedHighCenters = highCenters
+    .map((center) => ({
+      ...center,
+      distanceKm: distanceInKm(
+        userLocation.lat,
+        userLocation.lng,
+        center.lat,
+        center.lng
+      ),
+    }))
+    .sort((a, b) => a.distanceKm - b.distanceKm);
 
-    if (highCenters.length === 0) {
-      console.warn("No centers with score >= 4");
-      return;
-    }
+  const nearestThreeHighCenters = sortedHighCenters.slice(0, 3);
 
-    // 3) 计算这些高分点到点击位置的距离，并按距离排序
-    const sortedHighCenters = highCenters
-      .map((center) => ({
-        ...center,
-        distanceKm: distanceInKm(
-          userLocation.lat,
-          userLocation.lng,
-          center.lat,
-          center.lng
-        ),
-      }))
-      .sort((a, b) => a.distanceKm - b.distanceKm);
+  highlightLayer.clearLayers();
 
-    // 最近的三个高分中心点
-    const nearestThreeHighCenters = sortedHighCenters.slice(0, 3);
+  const primary = nearestThreeHighCenters[0];
+  const primaryDistMi = (primary.distanceKm * 0.621371).toFixed(1);
 
-    // 4) 清空旧高亮
-    highlightLayer.clearLayers();
+  L.circleMarker([primary.lat, primary.lng], {
+    radius: 12,
+    weight: 3,
+    color: "#ff3300",
+    fillColor: "#ffe066",
+    fillOpacity: 0.9,
+  })
+    .addTo(highlightLayer)
+    .bindPopup(
+      `<strong>Nearest high-score center</strong><br>
+       ID: ${primary.id}<br>
+       Score: ${primary.score.toFixed(2)}<br>
+       Distance: ${primaryDistMi} mi`
+    )
+    .openPopup();
 
-    // 5) 高亮最近的那一个（黄圈 + 红边）
-    const primary = nearestThreeHighCenters[0];
-    const primaryDistMi = (primary.distanceKm * 0.621371).toFixed(1);
+  nearestThreeHighCenters.slice(1).forEach((center, idx) => {
+    const distMi = (center.distanceKm * 0.621371).toFixed(1);
 
-    L.circleMarker([primary.lat, primary.lng], {
-      radius: 12,
-      weight: 3,
-      color: "#ff3300", // 红色边
-      fillColor: "#ffe066", // 黄色填充
-      fillOpacity: 0.9,
+    L.circleMarker([center.lat, center.lng], {
+      radius: 9,
+      weight: 2,
+      color: "#2b8a3e",
+      fillColor: "#a1d99b",
+      fillOpacity: 0.85,
     })
       .addTo(highlightLayer)
       .bindPopup(
-        `<strong>Nearest high-score center</strong><br>
-         ID: ${primary.id}<br>
-         Score: ${primary.score.toFixed(2)}<br>
-         Distance: ${primaryDistMi} mi`
-      )
-      .openPopup();
+        `<strong>High-score center #${idx + 2}</strong><br>
+         ID: ${center.id}<br>
+         Score: ${center.score.toFixed(2)}<br>
+         Distance: ${distMi} mi`
+      );
+  });
 
-    // 6) 另外两个高分点（绿色圈）
-    nearestThreeHighCenters.slice(1).forEach((center, idx) => {
-      const distMi = (center.distanceKm * 0.621371).toFixed(1);
+  updateStationList(userLocation, primary, nearestThreeHighCenters);
+}
 
-      L.circleMarker([center.lat, center.lng], {
-        radius: 9,
-        weight: 2,
-        color: "#2b8a3e", // 绿色边
-        fillColor: "#a1d99b", // 浅绿填充
-        fillOpacity: 0.85,
-      })
-        .addTo(highlightLayer)
-        .bindPopup(
-          `<strong>High-score center #${idx + 2}</strong><br>
-           ID: ${center.id}<br>
-           Score: ${center.score.toFixed(2)}<br>
-           Distance: ${distMi} mi`
-        );
-    });
-
-    // 7) 更新右侧 panel，显示这三个高分 center 的信息
-    updateStationList(userLocation, primary, nearestThreeHighCenters);
+  map.on("click", (e) => {
+  handleUserLocation(e.latlng.lat, e.latlng.lng);
   });
 });
+
+function wireAddressSearch(map) {
+  const input = document.querySelector('input[name="address-search"]');
+  if (!input) return;
+
+  input.addEventListener("keydown", async (e) => {
+    if (e.key !== "Enter") return;
+    e.preventDefault();
+
+    const q = input.value.trim();
+    if (!q) return;
+
+    try {
+      const url =
+        "https://nominatim.openstreetmap.org/search?format=json&limit=1&q=" +
+        encodeURIComponent(q + ", New Jersey");
+
+      const res = await fetch(url, { headers: { Accept: "application/json" },
+      });
+
+      const data = await res.json();
+
+      if (!data || data.length === 0) {
+        alert("No results found. Try a more specific address.");
+        return;
+      }
+
+      const lat = Number(data[0].lat);
+      const lng = Number(data[0].lon);
+
+      map.setView([lat, lng], 12);
+
+      handleUserLocation(lat, lng);
+    } catch (err) {
+      console.error(err);
+      alert("Search failed. Please try again.");
+    }
+  });
+}
+
+function wireUIEvents() {
+  console.log("UI events wired");
+
+  const highScoreOnly = document.querySelector('input[name="electric-bikes-only"]');
+  const minScoreSlider = document.querySelector('input[name="min-battery-level"]');
+  const allBox = document.getElementById("poiCat_all");
+  const catBoxes = document.querySelectorAll("input.poiCat");
+
+  // 1) checkbox: high-score centers
+  highScoreOnly?.addEventListener("change", () => {
+    console.log("Show only high-score:", highScoreOnly.checked);
+  });
+
+  // 2) range slider
+  minScoreSlider?.addEventListener("input", () => {
+    console.log("Min suitability score:", minScoreSlider.value);
+  });
+
+  // 3) POI categories
+  allBox?.addEventListener("change", () => {
+    console.log("POI All toggled:", allBox.checked);
+  });
+
+  catBoxes.forEach(box => {
+    box.addEventListener("change", () => {
+      console.log("POI category toggled:", box.value, box.checked);
+    });
+  });
+}
+
+document.addEventListener("DOMContentLoaded", wireUIEvents);

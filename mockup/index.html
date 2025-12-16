@@ -24,11 +24,7 @@
             placeholder="Search an address in New Jersey (or click the map to choose a location)"
             aria-label="Search around an address or place in New Jersey"
           >
-          <input
-            type="time"
-            name="time-search"
-            aria-label="Optional: preferred departure time"
-          >
+          
         </fieldset>
 
         <div class="map">Map</div>
@@ -52,6 +48,39 @@
               value="0"
             >
           </label>
+          <div class="poi-category-panel">
+            <div class="control-label">POI categories</div>
+
+            <label class="poi-cat-item">
+              <input type="checkbox" id="poiCat_all" checked>
+              All
+            </label>
+
+            <label class="poi-cat-item">
+              <input type="checkbox" class="poiCat" value="supermarket_asian" checked>
+              Supermarket (Asian)
+             </label>
+
+            <label class="poi-cat-item">
+              <input type="checkbox" class="poiCat" value="supermarket_usa" checked>
+              Supermarket (USA)
+            </label>
+
+            <label class="poi-cat-item">
+              <input type="checkbox" class="poiCat" value="museum" checked>
+              Museum
+            </label>
+
+            <label class="poi-cat-item">
+              <input type="checkbox" class="poiCat" value="park" checked>
+             Park
+            </label>
+          </div>
+
+<div id="poiSummary" class="small-muted"></div>
+<ul id="poiList" class="poi-list"></ul>
+
+
         </fieldset>
 
        
