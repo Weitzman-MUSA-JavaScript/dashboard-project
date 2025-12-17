@@ -1,0 +1,392 @@
+/* ===== Global Layout ===== */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background-color: #f8f9fa; 
+}
+
+/* ===== Header Style ===== */
+#site-header {
+    height: 100px; 
+    flex-shrink: 0; 
+   
+    background-color: #9ACEEB; 
+    background-image: url('../img/header_background_crop.png'); 
+    background-repeat: no-repeat;
+    background-position: center center; 
+    background-size: cover;
+    
+    border-bottom: 4px solid #4377a7;
+    display: flex;
+    align-items: center; 
+    position: relative;
+    z-index: 2000;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+#site-header::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(255, 255, 255, 0.1);
+    pointer-events: none;
+}
+
+.header-content {
+    width: 100%;
+    padding: 0 30px; 
+    position: relative; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#site-header h1 {
+    margin: 0;
+    color: #579bc5; 
+    font-size: 32px; 
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1); 
+}
+
+#site-header p {
+    margin: 4px 0 0;
+    color: #fff; 
+    font-size: 14px;
+    font-weight: 400;
+    opacity: 0.9;
+}
+
+/* ===== Main Container Layout ===== */
+#main-container {
+    display: flex; 
+    flex: 1; 
+    height: calc(100vh - 100px); 
+    position: relative;
+    overflow: hidden;
+}
+
+/* ===== Sidebar Layout ===== */
+#sidebar {
+    width: 340px;
+    height: 100%;
+    background: #ffffff;
+    z-index: 1000;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.05);
+    border-right: 1px solid #eef2f5;
+    position: relative; 
+}
+
+#sidebar h2 { 
+    margin-top: 0; 
+    margin-bottom: 5px;
+    color: #2c3e50; 
+    font-size: 1.2rem; 
+    font-weight: 700;
+}
+
+.subtitle { 
+    color: #95a5a6; 
+    font-size: 0.85rem; 
+    margin-bottom: 20px; 
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+/* ===== Main Panel Map Area ===== */
+#map {
+    flex: 1;
+    height: 100%;
+    background-color: #e5e9ec;
+    position: relative;
+    overflow: hidden;
+}
+
+/* --- Analysis Density Toolbar (最终稳健版) --- */
+.density-control-bar {
+    position: absolute;
+    top: 20px;
+    
+    /* === 核心居中修改 === */
+    left: 0;
+    right: 0;
+    margin: 0 auto; /* 左右自动留白，强制居中 */
+    
+    /* === 宽度控制 === */
+    width: fit-content;  /* 宽度随内容撑开 */
+    max-width: 90%;      /* 最大不超过父容器的 90% */
+    
+    /* === 溢出处理 === */
+    white-space: nowrap; /* 保持一行 */
+    overflow-x: auto;    /* 内容多了允许横向滑动 */
+    scrollbar-width: none; /* 隐藏滚动条 (Firefox) */
+    
+    /* === 视觉样式 === */
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 10px 20px;
+    border-radius: 50px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    backdrop-filter: blur(5px);
+}
+
+/* 隐藏 Webkit (Chrome/Safari) 的滚动条 */
+.density-control-bar::-webkit-scrollbar {
+    display: none;
+}
+
+/* 隐藏 Webkit (Chrome/Safari) 的滚动条 */
+.density-control-bar::-webkit-scrollbar {
+    display: none;
+}
+
+.density-label {
+    font-weight: 700;
+    color: #2c3e50;
+    font-size: 13px;
+    margin-right: 5px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.density-btn {
+    padding: 6px 14px;
+    border: 1px solid transparent; 
+    background: #f1f2f6;
+    color: #57606f;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.density-btn:hover {
+    background: #dfe4ea;
+    transform: translateY(-1px);
+}
+
+.density-btn.active {
+    background: #D63031; 
+    color: white;
+    box-shadow: 0 2px 8px rgba(214, 48, 49, 0.4);
+}
+
+@media (max-width: 800px) {
+    .density-control-bar {
+        max-width: 95%; /* 手机上利用率更高一点 */
+        padding: 8px 15px;
+    }
+}
+
+/* ===== Legend Style ===== */
+.legend-item {
+    background: white;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #eee;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: all 0.2s;
+}
+
+.legend-item:hover { 
+    background-color: #e9ecef; 
+}
+
+.legend-icon {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    margin-right: 12px;
+    border: 1px solid #666;
+}
+
+.legend-item {
+    border: 1px solid #e6e6e6;
+    border-radius: 8px;
+    padding: 12px;
+    background: #fff;
+    transition: all .2s;
+}
+.legend-item:hover {
+    transform: translateX(3px);
+    background: #f3f6f9;
+}
+
+
+/* Reset Button Style */
+#reset-view {
+    width: 100%;
+    padding: 12px;
+    margin-top: auto;
+    background-color: #579bc5;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    transition: all 0.2s;
+    box-shadow: 0 4px 6px rgba(52, 152, 219, 0.3);
+}
+
+#reset-view:hover { 
+    background-color: #3f89b7; 
+    transform: translateY(-1px);
+    box-shadow: 0 6px 8px rgba(41, 128, 185, 0.3);
+}
+
+/* ===== Loading ===== */
+.loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 5px;
+    z-index: 1000;
+    display: none;
+}
+
+@media (max-width: 768px) {
+    body {
+        flex-direction: column;   
+    }
+    
+    #sidebar {
+        width: 100%;
+        height: auto;
+        max-height: 30vh;
+    }
+    
+    #main-content {
+        height: 70vh;
+    }
+}
+
+.legend-icon-img {
+    width: 18px;
+    height: 18px;
+    margin-right: 8px;
+}
+
+/* ===== Search box ===== */
+.search-container {
+    margin-bottom: 20px;
+}
+
+#search-input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #f1f3f5;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    font-size: 14px;
+    box-sizing: border-box; 
+    transition: all 0.3s;
+    color: #495057;
+}
+
+#search-input:focus {
+    border-color: #9ACEEB;
+    background-color: #fff;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(154, 206, 235, 0.2);
+}
+
+/* ===== List container which can scroll ===== */
+#list-container {
+    flex: 1;           
+    overflow-y: auto;  
+    margin: 10px 0;
+
+    padding: 5px;
+    padding-left: 0;
+    padding-right: 5px;
+    border-top: none;
+    border-bottom: none;
+}
+#list-container::-webkit-scrollbar {
+    width: 5px;
+}
+#list-container::-webkit-scrollbar-track {
+    background: transparent;
+}
+#list-container::-webkit-scrollbar-thumb {
+    background-color: #dcdcdc;
+    border-radius: 10px;
+}
+
+#facility-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.facility-item {
+    background: #fff;
+    border: 1px solid #f1f3f5;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.facility-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.05);
+    border-color: #579bc5;
+}
+.facility-item:hover::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 4px;
+    background-color: #579bc5;
+}
+.facility-name {
+    font-weight: 700;
+    font-size: 14px;
+    color: #34495e;
+    margin-bottom: 5px;
+    line-height: 1.4;
+}
+.facility-address {
+    font-size: 12px;
+    color: #95a5a6;
+    margin-bottom: 10px;
+}
+.facility-tag {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    color: #fff;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}

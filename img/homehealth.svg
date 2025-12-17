@@ -1,0 +1,8 @@
+<svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .bg { fill: #f7cad5; }
+    .icon { fill: #FFFFFF; }
+  </style>
+  <circle class="bg" cx="12" cy="12" r="12"/>
+  <path class="icon" d="M12 5.5L6 10v8h12v-8l-6-4.5zM12 18c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm6 3H6v-1l6-2 6 2v1z"/>
+</svg>

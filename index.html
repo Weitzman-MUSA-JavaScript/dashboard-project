@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PA Healthcare Facility Dashboard</title>
+    
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header id="site-header">
+        <div class="header-content">
+            <h1>PA Healthcare Facility Dashboard</h1>
+        </div>
+    </header>
+
+    <div id="main-container">
+        <div id="sidebar">
+            <h2>PA Health Facilities</h2>
+            <p class="subtitle">Distribution & Coverage</p>
+            
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="Search name or address...">
+            </div>
+    
+            <div id="legend-content"></div>
+    
+            <div id="list-container">
+                <ul id="facility-list"></ul>
+            </div>
+    
+            <button id="reset-view">Reset PA View</button>
+        </div>
+
+        <div id="map"></div>
+
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="js/map.js"></script>
+</body>
+</html>
