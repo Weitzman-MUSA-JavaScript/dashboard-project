@@ -1,0 +1,48 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Philadelphia Historical Sites Day Trip Planner</title>
+
+     <!-- Leaflet CSS -->
+   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+     crossorigin=""/>
+  
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+
+  <body>
+    <header>
+      <h1>Philadelphia Historical Sites Day Trip Planner</h1>
+    </header>
+
+    <main>
+       <div id="map"></div>
+
+      <aside id="sidebar">
+        <h2>Find a Historic Site</h2>
+      <input id="site-search" type="text" placeholder="Search by address / name..." />
+      <div id="results"></div>
+      <div class="controls">
+         <label><input type="checkbox" id="toggle-historic" checked> Historic Sites</label>
+         <label><input type="checkbox" id="toggle-food" checked> Number of Food Retail</label>
+         <label><input type="checkbox" id="toggle-parks" checked> Parks and Recreations</label>
+        </div>
+      </aside>
+    </main>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+     crossorigin=""></script>
+  <script src="js/main.js" type="module"></script>
+  </body>
+</html>
