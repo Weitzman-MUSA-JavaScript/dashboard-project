@@ -1,0 +1,199 @@
+/* 全局设置 */
+body, html { 
+    margin: 0; 
+    padding: 0; 
+    font-family: 'Georgia', serif; 
+    height: 100%; 
+    /* 桌面端保持无滚动，移动端在下面 @media 里开启滚动 */
+    overflow: hidden; 
+}
+
+/* --- 背景设置 --- */
+.hero-bg {
+    background-color: #2c3e50; 
+    background-image: url('../assets/yunnan.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+/* 遮罩层 */
+.overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.5); 
+    z-index: 1; 
+    pointer-events: none;
+}
+
+/* --- 标题框 --- */
+.title-box {
+    position: relative;
+    z-index: 2;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    padding: 40px 70px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    text-align: center;
+    color: white;
+    margin-bottom: 50px; /* 稍微减小与卡片的距离 */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+    transition: transform 0.3s;
+}
+
+.title-box h1 { 
+    margin: 0; 
+    font-size: 3.8rem; 
+    letter-spacing: 3px; 
+    text-transform: uppercase; 
+    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+.title-box p { 
+    margin-top: 12px; 
+    font-size: 1.3rem; 
+    font-style: italic; 
+    opacity: 0.95; 
+    letter-spacing: 1px;
+}
+
+/* --- 导航卡片容器 --- */
+.card-container {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    gap: 20px; /* 减小卡片之间的间距 */
+    flex-direction: row; 
+}
+
+/* --- ★★★ 核心修改：卡片样式 ★★★ --- */
+.nav-card {
+    background: rgba(20, 20, 20, 0.75);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    
+    /* 修改点 1：减小宽度，让整体更精致 */
+    width: 220px; 
+    
+    /* 修改点 2：大幅减小内边距，让卡片变“扁” */
+    padding: 20px 15px; 
+    
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 6px;
+}
+
+.nav-card:hover {
+    background: rgba(255, 255, 255, 0.95);
+    color: #1a1a1a;
+    transform: translateY(-5px); /* 悬浮幅度也改小一点 */
+}
+
+.nav-card h3 { 
+    /* 修改点 3：减小标题下方的间距 */
+    margin: 0 0 5px 0; 
+    
+    font-family: sans-serif; 
+    text-transform: uppercase; 
+    letter-spacing: 1px; 
+    font-size: 0.8rem; /* 字体稍微调小 */
+    color: #f1c40f;
+    transition: color 0.3s;
+}
+
+.nav-card:hover h3 { 
+    color: #d35400; 
+}
+
+.nav-card h2 { 
+    margin: 0; 
+    font-size: 1.3rem; /* 字体稍微调小 */
+    line-height: 1.2; 
+    font-weight: 500;
+}
+
+.nav-card .arrow { 
+    /* 修改点 4：大幅减小箭头的上方间距，防止卡片被撑高 */
+    margin-top: 10px; 
+    font-size: 1.2rem; 
+}
+
+/* ========================================= */
+/* --- 移动端适配 (Mobile Responsive) --- */
+/* ========================================= */
+
+@media screen and (max-width: 768px) {
+    
+    /* 允许页面滚动 */
+    body, html {
+        height: auto;
+        overflow-y: auto; 
+    }
+
+    .hero-bg {
+        height: auto;
+        min-height: 100vh;
+        padding: 40px 20px;
+        box-sizing: border-box; 
+        justify-content: flex-start; 
+    }
+
+    /* 手机端标题调整 */
+    .title-box {
+        padding: 25px 15px;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        width: 85%;
+    }
+
+    .title-box h1 {
+        font-size: 2rem; 
+    }
+
+    .title-box p {
+        font-size: 0.9rem; 
+    }
+
+    /* 手机端卡片排列 */
+    .card-container {
+        flex-direction: column; 
+        width: 100%;
+        align-items: center; 
+        padding-bottom: 40px;
+        gap: 15px; /* 手机上卡片靠得紧一点 */
+    }
+
+    /* --- ★★★ 手机端卡片特化：更宽、更扁 ★★★ --- */
+    .nav-card {
+        /* 宽度变大，看起来像一个横条按钮 */
+        width: 90%; 
+        max-width: 350px; 
+        
+        /* 进一步减小上下内边距 */
+        padding: 15px 20px; 
+        
+        /* 可选：如果你想让手机上文字横向排列（左边字右边箭头），可以解开下面这行注释 */
+        /* flex-direction: row; justify-content: space-between; align-items: center; */
+    }
+    
+    /* 手机上箭头稍微小一点 */
+    .nav-card .arrow {
+        margin-top: 8px; /* 极小的间距 */
+        font-size: 1.1rem;
+    }
+}

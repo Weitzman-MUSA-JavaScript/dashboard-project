@@ -1,0 +1,264 @@
+/* --- Base Layout --- */
+body, html { margin: 0; padding: 0; width: 100%; height: 100%; font-family: 'Lato', sans-serif; overflow-x: hidden; background: #eee; }
+
+/* Enable Map Pointer Events for Zoom */
+#map { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 1; }
+
+#story-container { position: relative; z-index: 10; pointer-events: none; }
+
+/* --- Slide Layout --- */
+.story-step {
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-start; /* Align top */
+    padding: 0; 
+    opacity: 0.2;
+    transition: opacity 0.8s ease;
+    position: relative;
+}
+.story-step.active { opacity: 1; }
+
+/* --- Left Sidebar Wrapper (Full Height) --- */
+.sidebar-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 32%; /* Fixed width */
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 5px 0 20px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column; /* Stack text and data explanation */
+    pointer-events: auto; /* Allow text selection */
+    z-index: 20;
+}
+
+/* 1. Top Text Area */
+.text-content {
+    padding: 40px 40px 20px 40px;
+    flex-grow: 1; /* Takes available space */
+    overflow-y: auto; /* Scroll if text is too long */
+}
+
+h1 { font-family: 'Cinzel', serif; color: #2c3e50; margin: 0 0 15px 0; font-size: 2.2rem; line-height: 1.2; }
+h2 { color: #bf4328; font-size: 1.1rem; margin-bottom: 25px; text-transform: uppercase; letter-spacing: 1px; }
+.narrative-text { line-height: 1.7; color: #444; font-size: 1rem; }
+.narrative-text p { margin-bottom: 15px; }
+.chapter-label { font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; color: #888; margin-bottom: 15px; border-bottom: 1px solid #ddd; padding-bottom: 10px; }
+
+/* 2. Bottom Data Explanation */
+.data-explanation {
+    background: #f8f9fa;
+    padding: 20px 40px;
+    border-top: 1px solid #eee;
+    font-size: 0.9rem;
+    color: #555;
+}
+.data-explanation h4 { margin: 0 0 10px 0; color: #2c3e50; text-transform: uppercase; font-size: 0.85rem; }
+
+/* --- Right Bottom Screenshot Container (FINAL UPDATED) --- */
+.screenshot-placeholder {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    width: 300px;      /* 宽度固定 */
+    height: auto;      /* !!! 高度随内容自动撑开，不再强制 !!! */
+    
+    background: transparent; /* 去掉容器背景 */
+    border: none;            /* 去掉容器边框 */
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3); /* 整体投影保持 */
+    
+    display: flex;
+    flex-direction: column; 
+    transition: transform 0.3s;
+    pointer-events: auto;
+    z-index: 25;
+}
+
+.screenshot-placeholder:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 45px rgba(0,0,0,0.4);
+}
+
+/* Image Style: 负责上半部分圆角和边框 */
+.screenshot-placeholder img {
+    width: 100%;
+    height: auto;       /* !!! 关键：保持原始比例，完整显示 !!! */
+    display: block;
+    
+    /* 边框样式 */
+    border: 3px solid rgba(255,255,255,0.9);
+    border-bottom: none; /* 下边框留给 caption 接力 */
+    
+    /* 圆角样式 */
+    border-radius: 12px 12px 0 0; /* 只有上面是圆角 */
+}
+
+/* Caption Style: 负责下半部分圆角和边框 */
+.caption {
+    background: #2c3e50;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    font-size: 0.75rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    
+    /* 边框样式 - 衔接图片 */
+    border: 3px solid rgba(255,255,255,0.9);
+    border-top: none; /* 不要有上边框，否则会双重粗细 */
+    
+    /* 圆角样式 */
+    border-radius: 0 0 12px 12px; /* 只有下面是圆角 */
+}
+
+
+/* --- Floating Legend (Transparent Background) --- */
+.legend-box {
+    position: absolute; 
+    left: 33%; 
+    bottom: 30px;
+    background: transparent; 
+    padding: 10px;
+    z-index: 30;
+    font-size: 0.9rem;
+    display: none;
+    text-shadow: 0 0 5px rgba(255,255,255,1); 
+    pointer-events: none;
+}
+.legend-item { display: flex; align-items: center; margin-bottom: 6px; font-weight: bold; color: #2c3e50; }
+.legend-color { width: 14px; height: 14px; border-radius: 50%; margin-right: 8px; display: inline-block; border: 1px solid white; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
+
+/* --- Map Markers --- */
+/* Slide 2: Price Bubble */
+.price-bubble {
+    background: white;
+    border: 2px solid #e0b341; 
+    border-radius: 20px;
+    padding: 3px 10px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 13px;
+    color: #e0b341;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+    white-space: nowrap;
+    position: relative;
+    top: -15px;
+}
+.price-bubble::after {
+    content: ''; position: absolute; bottom: -6px; left: 50%; transform: translateX(-50%);
+    border-width: 6px 6px 0; border-style: solid; border-color: #e0b341 transparent transparent transparent;
+}
+
+/* Slide 4: Target Shape */
+.target-icon {
+    position: relative; width: 100%; height: 100%;
+    display: flex; align-items: center; justify-content: center;
+}
+.target-ring {
+    width: 26px; height: 26px;
+    border: 3px solid #1a3c5a; 
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+}
+.target-dot {
+    width: 10px; height: 10px;
+    background: #1a3c5a; 
+    border-radius: 50%;
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+}
+@keyframes pulse {
+    0% { transform: scale(0.8); opacity: 1; }
+    100% { transform: scale(1.6); opacity: 0; }
+}
+
+/* Button */
+.btn-enter {
+    display: inline-block; padding: 15px 50px; background: #2c3e50; color: white;
+    text-decoration: none; border-radius: 30px; font-weight: bold; transition: all 0.3s;
+}
+.btn-enter:hover { background: #34495e; transform: translateY(-2px); }
+
+/* Footer Wrapper */
+.content-wrapper { width: 100%; display: flex; align-items: center; justify-content: center; pointer-events: auto; }
+
+/* Back Button */
+.back-button {
+    position: fixed;
+    top: 16px;
+    left: 16px;
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #2c3e50;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    z-index: 1200;
+}
+.back-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.2);
+}
+
+/* =========================================
+   Mobile Adaptation
+   ========================================= */
+@media (max-width: 768px) {
+
+    /* 1. Sidebar */
+    .sidebar-wrapper {
+        width: 100%; height: 40vh; top: auto; bottom: 0; left: 0;
+        border-radius: 20px 20px 0 0; flex-direction: row; padding: 0; overflow: hidden; 
+    }
+    .text-content { width: 60%; padding: 20px; overflow-y: auto; }
+    .data-explanation { width: 40%; padding: 15px; border-top: none; border-left: 1px solid #eee; display: flex; flex-direction: column; justify-content: center; }
+    h1 { font-size: 1.5rem; margin-bottom: 8px; }
+    h2 { font-size: 0.9rem; margin-bottom: 10px; }
+    .narrative-text { font-size: 0.85rem; line-height: 1.4; }
+    .narrative-text p { margin-bottom: 8px; }
+    .chapter-label { font-size: 0.65rem; margin-bottom: 8px; }
+    .data-explanation h4 { font-size: 0.7rem; }
+    .data-explanation p { font-size: 0.75rem; }
+
+    /* 2. Screenshot Adaptation */
+    .screenshot-placeholder {
+        width: 140px;          
+        height: auto;          /* 手机上也保持自适应高度 */
+        right: 15px;           
+        bottom: 42vh;          
+        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+
+    /* 手机隐藏注释 */
+    .caption {
+        display: none;
+    }
+    
+    /* 手机上图片变成全圆角 + 全边框 */
+    .screenshot-placeholder img {
+        height: auto;
+        border: 2px solid #fff;
+        border-radius: 8px; /* 四周都是圆角 */
+    }
+
+    /* 3. Adjust Legend */
+    .legend-box {
+        left: 15px; bottom: auto; top: 80px;    
+        background: rgba(255,255,255,0.8); padding: 8px;
+    }
+    .legend-item { font-size: 0.8rem; margin-bottom: 3px; }
+    .legend-color { width: 10px; height: 10px; }
+
+    /* 4. Last Slide */
+    #step-4 .content-wrapper { align-items: center; }
+    #step-4 div[style*="background"] { width: 85% !important; padding: 30px 20px !important; }
+}

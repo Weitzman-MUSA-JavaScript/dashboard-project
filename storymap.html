@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ancient Tea Horse Road: Data Journey</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Cinzel:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/storymap.css">
+</head>
+<body>
+
+    <a href="index.html" class="back-button" aria-label="Back to home">
+    <i class="fa-solid fa-arrow-left"></i>
+    </a>
+    <div id="map"></div>
+
+    <div id="map-legend" class="legend-box"></div>
+
+    <div id="story-container">
+        
+        <div class="story-step" id="step-0">
+            <div class="sidebar-wrapper">
+                <div class="text-content">
+                    <div class="chapter-label">Chapter 01 · Origin</div>
+                    <h1>The Green Gold</h1>
+                    <h2>Pu'er & Xishuangbanna</h2>
+                    <div class="narrative-text">
+                        <p>Our journey begins in the humid south, just as the ancient caravans started their year-long trek.</p >
+                        <p><strong>Ancient Times:</strong><br>
+                        Muleteers (Mabangs) gathered here to compress tea leaves into cakes. Their biggest enemy wasn't bandits, but the weather—timing was a gamble of life and death against the deadly tropical miasma and unpredictable rains.</p >
+                        <p><strong>Modern Data Solution:</strong><br>
+                        Today, we don't gamble. Our dashboard's <strong>Climate Chart</strong> analyzes historical precipitation patterns, identifying October to March as the perfect safe window for your expedition.</p >
+                    </div>
+                </div>
+                <div class="data-explanation">
+                    <h4><i class="fa-solid fa-layer-group"></i> Data Visualization</h4>
+                    <p>Dots represent POIs. <br>
+                    <strong>Size</strong> = Number of seasonal activities.<br>
+                    <strong>Color</strong> = Category (Nature/Culture/Food/Stay).</p >
+                </div>
+            </div>
+
+            <div class="screenshot-placeholder">
+                <img src="assets/img/screenshot/01.jpg" alt="Climate Analysis Dashboard">
+                <div class="caption">Actual Dashboard Interface</div>
+            </div>
+        </div>
+
+        <div class="story-step" id="step-1">
+            <div class="sidebar-wrapper">
+                <div class="text-content">
+                    <div class="chapter-label">Chapter 02 · Trade Hub</div>
+                    <h1>The Great Barter</h1>
+                    <h2>Dali Ancient City</h2>
+                    <div class="narrative-text">
+                        <p>Leaving the rainforests behind, the caravans would arrive at the bustling markets of Dali to rest and trade.</p >
+                        <p><strong>Ancient Times:</strong><br>
+                        This was the Wall Street of the mountains. Tea was bartered for Tibetan horses. Traders spent days haggling, never knowing if they were getting a fair price for a night's stay or a hot meal.</p >
+                        <p><strong>Modern Data Solution:</strong><br>
+                        Value is now transparent. Our <strong>Budget Control</strong> module instantly calculates the total cost and reminds travelers to stay within their means.</p >
+                    </div>
+                </div>
+                <div class="data-explanation">
+                    <h4><i class="fa-solid fa-coins"></i> Data Visualization</h4>
+                    <p>Map focuses only on <strong>Accommodation</strong>.<br>
+                    <strong>Bubbles</strong> display the specific budget/price for each hotel.</p >
+                </div>
+            </div>
+
+            <div class="screenshot-placeholder">
+                <img src="assets/img/screenshot/02.jpg" alt="Cost Ranking Dashboard">
+                <div class="caption">Actual Dashboard Interface</div>
+            </div>
+        </div>
+
+        <div class="story-step" id="step-2">
+            <div class="sidebar-wrapper">
+                <div class="text-content">
+                    <div class="chapter-label">Chapter 03 · The Ascent</div>
+                    <h1>Into Thin Air</h1>
+                    <h2>Lijiang & Jade Dragon Snow Mtn</h2>
+                    <div class="narrative-text">
+                        <p>After trading in Dali, the path turns steep and perilous as we face the towering Jade Dragon Snow Mountain.</p >
+                        <p><strong>Ancient Times:</strong><br>
+                        This was the "Gate of Hell" for the caravans. As they ascended above 3,000 meters, altitude sickness and sudden snowstorms claimed many lives. Knowledge of the terrain was limited to rumors.</p >
+                        <p><strong>Modern Data Solution:</strong><br>
+                        We map the danger. The map highlights <strong>Elevation</strong> zones. Red points warn of high-altitude areas (>3000m), allowing you to prepare oxygen and gear in advance.</p >
+                    </div>
+                </div>
+                <div class="data-explanation">
+                    <h4><i class="fa-solid fa-mountain"></i> Data Visualization</h4>
+                    <p>Points colored by <strong>Elevation</strong>.<br>
+                    <span style="color:#e0b341">Yellow</span> = Moderate<br>
+                    <span style="color:#bf4328">Red</span> = High Altitude (>3000m)</p >
+                </div>
+            </div>
+
+            <div class="screenshot-placeholder">
+                <img src="assets/img/screenshot/03.jpg" alt="Elevation Profile Dashboard">
+                <div class="caption">Actual Dashboard Interface</div>
+            </div>
+        </div>
+
+        <div class="story-step" id="step-3">
+            <div class="sidebar-wrapper">
+                <div class="text-content">
+                    <div class="chapter-label">Chapter 04 · Sanctuary</div>
+                    <h1>Spiritual Realm</h1>
+                    <h2>Shangri-La</h2>
+                    <div class="narrative-text">
+                        <p>Surviving the high pass, the exhausted travelers finally descended into the spiritual plains of Shangri-La.</p >
+                        <p><strong>Ancient Times:</strong><br>
+                        For the weary muleteers, this wasn't just a destination; it was a spiritual cleansing. They visited temples to offer thanks for their safe passage, seeking peace amidst the chaos of trade.</p >
+                        <p><strong>Modern Data Solution:</strong><br>
+                        Find your inner peace. Using the <strong>"Culture" Filter</strong>, we strip away the commercial noise and pinpoint only the sacred cultural sites for your pilgrimage.</p >
+                    </div>
+                </div>
+                <div class="data-explanation">
+                    <h4><i class="fa-solid fa-gopuram"></i> Data Visualization</h4>
+                    <p>Map filters for <strong>Cultural Sites</strong> only.<br>
+                    <strong>Target Icons</strong> mark key temples and monuments.</p >
+                </div>
+            </div>
+
+            <div class="screenshot-placeholder">
+                <img src="assets/img/screenshot/04.jpg" alt="Cultural Filter Dashboard">
+                <div class="caption">Actual Dashboard Interface</div>
+            </div>
+        </div>
+
+        <div class="story-step" id="step-4">
+             <div class="content-wrapper" style="justify-content: center; height: 100vh;">
+                <div style="background: rgba(255,255,255,0.9); padding: 40px; border-radius: 12px; text-align: center;">
+                    <h1>Start Your Journey</h1>
+                    <p style="margin-bottom: 20px;">Use the data to plan your own legend.</p >
+                    <a href="dashboard.html" class="btn-enter">Go to Explore</a>
+                </div>
+             </div>
+        </div>
+        
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="js/storymap.js"></script>
+</body>
+</html>
