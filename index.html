@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Annual Energy Burden Estimator Dashboard</title>
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+  <link rel="stylesheet" href="css/styles.css?v=8" />
+
+  <script src="https://cdn.jsdelivr.net/npm/@turf/turf/turf.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+</head>
+
+<body>
+
+  <!-- FULL-SCREEN HERO HEADER   -->
+
+  <header id="hero">
+    <div class="hero-content">
+      <h1>Annual Energy Burden Estimator Dashboard</h1>
+      <h3> Get an estimate of your energy burden based on your location, housing type and income range.</h3>
+
+      <p>
+        Energy burden is the percentage of household income spent on home energy bills.
+        Spending over 6% of income is high; over 10% is severe.
+        <br><br>
+        This dashboard allows Philadelphia residents to view approximate energy burden differences across neighborhoods.
+      </p>
+    </div>
+  </header>
+
+  <!-- MAP + SIDEBAR CONTAINER  -->
+
+  <div id="container">
+
+    <!-- MAP -->
+    <div id="map"></div>
+
+    <!-- Legend -->
+    <div id="legend" class="map-legend">
+      <h4>Energy Burden (%)</h4>
+      <div class="legend-item"><span class="legend-color" style="background:#A44A3F"></span><span class="legend-label">> 10%</span></div>
+      <div class="legend-item"><span class="legend-color" style="background:#E5989B"></span><span class="legend-label">7–10%</span></div>
+      <div class="legend-item"><span class="legend-color" style="background:#FFDA77"></span><span class="legend-label">4–7%</span></div>
+      <div class="legend-item"><span class="legend-color" style="background:#F6C453"></span><span class="legend-label">2–4%</span></div>
+      <div class="legend-item"><span class="legend-color" style="background:#74C69D"></span><span class="legend-label">< 2%</span></div>
+    </div>
+
+    <!-- NORTH ARROW -->
+    <div id="northArrow" class="north-arrow">▲<br><span>N</span></div>
+
+    <!-- SIDEBAR -->
+ 
+    <div id="sidebar">
+
+      <h2>Annual Energy Burden Estimator Dashboard</h2>
+
+      <!-- AUTOCOMPLETE WRAPPER -->
+      <div class="autocomplete-container">
+        <input id="addressInput" placeholder="Enter address" autocomplete="off" />
+        <div id="autocomplete-list" class="autocomplete-items"></div>
+      </div>
+
+      <button id="searchBtn">Find Address</button>
+
+      <!-- HOUSING SELECT -->
+      <label>Housing Type</label>
+      <select id="housingSelect">
+        <option value="">-- Select --</option>
+        <option>OWNER 1 ATTACHED</option>
+        <option>OWNER 1 DETACHED</option>
+        <option>OWNER 2 UNIT</option>
+        <option>OWNER 3-4 UNIT</option>
+        <option>OWNER 5-9 UNIT</option>
+        <option>OWNER 10-19 UNIT</option>
+        <option>OWNER 20-49 UNIT</option>
+        <option>OWNER 50+ UNIT</option>
+        <option>OWNER MOBILE_TRAILER</option>
+        <option>OWNER BOAT_RV_VAN</option>
+
+        <option>RENTER 1 ATTACHED</option>
+        <option>RENTER 1 DETACHED</option>
+        <option>RENTER 2 UNIT</option>
+        <option>RENTER 3-4 UNIT</option>
+        <option>RENTER 5-9 UNIT</option>
+        <option>RENTER 10-19 UNIT</option>
+        <option>RENTER 20-49 UNIT</option>
+        <option>RENTER 50+ UNIT</option>
+        <option>RENTER MOBILE_TRAILER</option>
+        <option>RENTER BOAT_RV_VAN</option>
+      </select>
+
+      <!-- INCOME SELECT -->
+      <label>Income Category</label>
+      <select id="incomeSelect">
+        <option value="">-- Select --</option>
+        <option value="Under $20k">Under $20k</option>
+        <option value="$20k–$30k">$20k–$30k</option>
+        <option value="$30k–$40k">$30k–$40k</option>
+        <option value="$40k–$50k">$40k–$50k</option>
+        <option value="$50k–$60k">$50k–$60k</option>
+        <option value="$60k–$75k">$60k–$75k</option>
+        <option value="$75k–$100k">$75k–$100k</option>
+        <option value="$150k+">$150k+</option>
+      </select>
+
+      <button id="calcBtn">Calculate Burden</button>
+      <button id="clearBtn" class="clear-button">Clear Selection</button>
+
+      <!-- RESULTS PANEL -->
+      <div id="results">
+        <h3>Results</h3>
+        <p id="resultsText">Search for an address first.</p>
+      </div>
+
+      <!-- INSTRUCTIONS -->
+      <div id="instructions" class="panel small-text">
+        <h3>How to Use the Dashboard</h3>
+        <p>
+          • Click the map or type an address.<br>
+          • Select housing + income to estimate burden.<br>
+        </p>
+      </div>
+
+    </div>
+    <!-- END SIDEBAR -->
+
+  </div>
+  <!-- END CONTAINER -->
+
+  <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+  <script src="js/main.js?v=8"></script>
+
+</body>
+</html>
