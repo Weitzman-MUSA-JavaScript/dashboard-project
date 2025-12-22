@@ -1,0 +1,80 @@
+html {
+  font-size: 24px;
+  font-family: 'Gill Sans', sans-serif;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+.content {
+  display: flex;
+  flex-direction: row;
+  min-height: 100vh;
+}
+
+.map-container {
+  position: relative;
+  min-width: 0;
+  background-color: silver;
+  flex: 1 1 70%;
+}
+
+#map {
+  position: absolute;
+  inset: 0;
+}
+
+.legend {
+    line-height: 20px;
+    color: #555;
+    padding: 6px 8px;
+    background: white;
+    background: rgba(255,255,255,0.8);
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    border-radius: 5px;
+}
+
+.legend i {
+    width: 18px;
+    height: 18px;
+    float: left;
+    margin-right: 8px;
+    opacity: 0.9;
+}
+
+.sidebar-container {
+  position: relative;
+  background-color: #e9c46a;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  flex: 0 0 30%;
+}
+
+.location-search-inputs {
+  display: flex;
+  flex-direction: row;
+}
+
+#suggestions {
+  list-style: none;
+  padding: 0;
+}
+
+.citations {
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  font-size: 0.6em;
+}
+
+
+
+
+
+
+
