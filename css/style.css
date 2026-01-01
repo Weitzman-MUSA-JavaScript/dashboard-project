@@ -1,0 +1,150 @@
+body { 
+    background-color: #252829; /* Dark background */
+    color: #FAFFFD;
+    margin: 0; 
+    padding: 0;
+    font-family: 'Barlow';
+    font-weight: 100;
+}
+
+#container {
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+
+#dashboard h1 {
+    margin: 20px 0 5px;
+    margin-left: 20px;
+    font-size: 45px;
+}
+
+#map { 
+    height: 90vh; 
+    width: 70vw;
+    padding: 0;
+    margin: 0;
+}
+
+#tab {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 69%;
+    height: 5vh;
+    cursor: pointer;
+    gap: 10px;
+    padding: 10px 10px;
+    border-radius: 5px;
+    font-family: 'Barlow';
+}
+
+#sidebar {
+    display: flex;
+    flex-direction: column; 
+    align-items: flex-start; 
+    width: 30vw;
+    height: 90vh;
+    overflow: hidden;
+    overflow-y: auto;                           
+}
+
+#whaleImageContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 1;
+}
+
+#whaleImage {
+    border-radius: 5px;
+    flex-grow: 1;
+}  
+
+.whaleButton {
+    font-size: 18px;
+    font-family: "Barlow";
+    color: #FAFFFD;
+    border-radius: 5px;
+    border: none;
+    background-color: #758fae;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    flex-grow: 1; 
+    max-width: 200px;
+
+}
+
+.whaleButton:hover {
+    background-color: #3a5a77;      /* Darker shade on hover */
+    transform: translateY(-2px);    /* Slight lift effect */
+}
+
+.whaleButton:active {
+    transform: translateY(0);        /* Reset the lift effect */
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2); /* Reduce shadow on click */
+}
+
+#whaleStatusContainer {
+    position: absolute;
+    top: 25px;
+    right: 10px;
+    height: 10vh;
+    width: 29vw;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+}
+
+#whaleStatusLabel {
+    font-size: 30px;
+    color: white;    
+    margin: 0;      
+    padding-bottom: 5px; 
+}
+
+#whaleStatus {
+    font-size: 35px; 
+    margin: 0;       
+}
+
+.statusText {
+    color: inherit;
+    font-weight:bold;
+}
+
+.activeButton {
+    box-shadow: 0 0 10px rgba(100, 128, 128, 0.8); 
+    border: 2px solid rgba(100, 128, 128, 0.8); 
+}
+
+#weatherInfo {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    flex-grow: 1;
+}
+
+.weatherItem {
+    margin-bottom: 10px; /* Space between items */
+    flex: 1;
+}
+
+.weatherBox {
+    padding: 10px; /* Space inside the box */
+    background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
+    border: 1px solid #ccc; /* Border color */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 36px; /* Font size for the value */
+    color: #ffffff; /* Text color */
+    text-align: center; /* Center align text */
+    width: 100%;
+}
+
+#windDirection {
+    position: relative;
+    text-align: center; /* Center-align text and images */
+    flex-grow: 1;
+}

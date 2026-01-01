@@ -1,0 +1,65 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+    <title>Whale Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js"></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Asap+Condensed:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    
+    <div id="dashboard">
+        <h1>Hello, Whale!</h>
+        <div id="whaleStatusContainer">
+            <p id="whaleStatusLabel">IUCN Red List Status:</p>
+            <p id="whaleStatus"><span class="statusText"></span></p>
+        </div>
+    </div>
+
+    <div id = "tab">
+        <button class="whaleButton" data-species="humpbackWhale" data-lon="160" data-lat="-40">Humpback Whale</button>
+        <button class="whaleButton" data-species="whaleShark" data-lon="-87" data-lat="25">Whale Shark</button>
+        <button class="whaleButton" data-species="pilotWhale" data-lon="-74" data-lat="35">Short-Finned Pilot Whale</button>
+        <button class="whaleButton" data-species="blueWhale" data-lon="170" data-lat="-64">Blue Whale</button>
+        <button class="whaleButton" data-species="bowheadWhale" data-lon="-85" data-lat="71">Bowhead Whale</button>
+        <button class="whaleButton" data-species="falseKillerWhale" data-lon="-160" data-lat="23">False Killer Whale</button>
+        <button class="whaleButton" data-species="finWhale" data-lon="-111" data-lat="26">Fin Whale</button>
+        <button class="whaleButton" data-species="spermWhale" data-lon="-112" data-lat="28">Sperm Whale</button>
+    </div>
+
+    <main>
+
+        <div id="container">
+            <div id="map"></div>
+            <div id="sidebar">
+                <div id="weatherInfo">
+                    <div class="weatherItem">
+                        <div class="weatherBox" id="windSpeed"></div>
+                    </div>
+                    <div class="weatherItem">
+                        <div class="weatherBox" id="windDirection"></div>
+                        <canvas id="windRoseChart"></canvas>
+                    </div>
+                    <div class="weatherItem">
+                        <div class="weatherBox" id="weatherDescription"></div>
+                    </div>
+                </div>
+                <div id="whaleImageContainer"></div>
+                <p id="whaleDescription"></p>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <script src="js/main.js" type="module"></script>
+
+</body>
+
+</html>
