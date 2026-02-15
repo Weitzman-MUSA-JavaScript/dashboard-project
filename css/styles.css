@@ -1,0 +1,292 @@
+html {
+  font-family: "Rubik", sans-serif;
+}
+
+body { 
+  margin: 0; 
+  padding: 0;
+}
+
+.map-section {
+  display: flex;
+  height: 100vh; /* Full viewport height */
+  width: 100vw;
+  color: #ffffff;
+  overflow: hidden; /* Prevent overflow */
+}
+
+.whole-map-part {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden; /* Ensure content doesn't overflow */
+}
+
+#resource-map {
+  flex: 1;
+  background-color: lightgrey;
+  min-height: 0;
+}
+
+.resource-filter {
+  width: 25%; /* Fixed width for filter section */
+  background-color: #002d9f; /* Background color */
+  padding: 1rem; /* Padding */
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Optional shadow */
+  font-size: 15px;
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  height: 100%;
+}
+
+.resource-filter h2 {
+  text-align: center; /* Center the title */
+  margin-bottom: 1rem; /* Add some space below the title */
+  font-size: 2em; /* Increase font size */
+  color: #ffffff; /* Set a color */;
+}
+
+.resource-filter {
+  width: 25%; /* Fixed width for filter section */
+  background-color: #002d9f; /* Background for visibility */
+  padding: 1rem; /* Padding for better appearance */
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Optional shadow */;
+  font-size: 15px;
+}
+
+.resource-filter ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.resource-filter li {
+  margin-bottom: 10px;
+}
+
+.resource-filter label {
+  display: flex;
+  align-items: center;
+}
+
+.resource-filter input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+.map-search-controls {
+  display: flex;
+  flex-direction: column; /* Stack input and choices vertically */
+  padding: 0.5rem;
+  background-color: #f0f0f0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  width: 100%; /* Ensure it takes full width */
+}
+
+.map-search-controls input[type="text"] {
+  width: 35%; /* Consistent width for input */
+  padding: 0.5rem;
+  font-size: 1rem; /* Adjust font size as needed */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: .5rem;
+  box-sizing: border-box; 
+}
+
+#address-search {
+  flex-grow: 1;
+}
+
+#address-choices {
+  width: 35%; /* Consistent width for address choices */
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  background-color: white;
+  border: 1px solid #ccc;
+}
+
+#address-choices li {
+  padding: 10px;
+  cursor: pointer;
+  color: #333; /* Darker text color for better contrast */
+  word-wrap: break-word; /* Ensure long text wraps */
+}
+
+#address-choices li:hover {
+  background-color: #e0e0e0; /* Slightly darker hover background for visibility */
+}
+
+.hidden {
+  display: none;
+}
+
+/* Custom styles for Leaflet popups */
+.leaflet-popup-content-wrapper {
+  background-color: #f5f5dc; /* Change background color */
+  color: #333; /* Change text color */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3); /* Add shadow */
+}
+
+.leaflet-popup-tip {
+  background-color: #f5f5dc; /* Match tip color with popup */
+}
+
+/* Style for the zoomed-in popup */
+.zoomed-popup .leaflet-popup-content-wrapper {
+  background-color: #555555; /* Change background color */
+  color: white;              /* Change text color */
+  border-radius: 16px;        /* Rounder corners */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3); /* Add shadow */
+  
+  /* Reduce padding to make the box smaller */
+  padding: 10px 15px;          /* Adjust padding: top-bottom, left-right */
+  
+  /* Optional: Adjust the line height to fit the text more snugly */
+  line-height: 1.2;           /* Reduce line height */
+  
+  border: none;               /* Remove border */
+}
+
+/* Style the popup pointer for the zoomed-in popup */
+.zoomed-popup .leaflet-popup-tip {
+  background-color: #555555;
+}
+
+/* Ensure that the text inside the popup is sized appropriately */
+.zoomed-popup .leaflet-popup-content {
+  font-size: 14px;            /* Adjust text size */
+  margin: 0;                  /* Remove default margin */
+}
+
+.custom-checkbox {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #333;
+  border-radius: 4px;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+  margin-right: 10px;
+}
+
+.custom-checkbox:checked::before {
+  content: '\2714';
+  font-size: 16px;
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Food checkbox */
+.food-checkbox:checked {
+  background-color: #ffaf01;
+  border-color: #ffaf01;
+}
+
+/* Clothing checkbox */
+.clothing-checkbox:checked {
+  background-color: #047a01;
+  border-color: #047a01;
+}
+
+/* Showers checkbox */
+.showers-checkbox:checked {
+  background-color: #ff4d4d;
+  border-color: #ff4d4d;
+}
+
+/* Toilets checkbox */
+.toilets-checkbox:checked {
+  background-color: #4d73ff;
+  border-color: #4d73ff;
+}
+
+/* Intake Centers checkbox */
+.intakeCenters-checkbox:checked {
+  background-color: #d46aff;
+  border-color: #d46aff;
+}
+
+.nearby-resources {
+  flex-grow: 1; /* Take up remaining space */
+  overflow-y: auto; /* Enable scrolling when content overflows */
+  margin-top: 15px;
+  padding: 0.5rem;
+  background-color: #f9f9f9;
+  border-top: 1px solid #ccc;
+  border-radius: 10px;
+  margin-bottom: 40px; /* Add margin at the bottom */
+}
+
+
+
+.nearby-resources h3 {
+  text-align: left;
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem; 
+  margin-left: 0.2rem;
+  font-size: 1em; 
+  color: black;
+}
+
+.nearby-resources h4 {
+  text-align: left;
+  margin-top: 0; /* Remove space above h4 */
+  margin-left: 0.2rem;
+  font-size: 0.8em; /* Smaller font size for h4 */
+  font-style: italic; /* Italicize the text */
+  color: darkgrey; /* Set text to dark grey */
+  margin-bottom: 0.25rem; /* Reduce the space below h4 */
+}
+
+#nearby-resources-list {
+  list-style-type: none;
+  padding: 0;
+  padding-bottom: 5px; /* Ensure some space at the bottom of the list */
+}
+
+#nearby-resources-list li {
+  margin-bottom: 10px;
+  padding: 5px;
+  border-bottom: 1px solid #ddd;
+  color: black
+}
+
+#nearby-resources-list li {
+  padding: 10px;
+  cursor: pointer;
+  color: #333;
+  transition: background-color 0.3s, transform 0.3s; /* Smooth transition */
+}
+
+#nearby-resources-list li:hover {
+  background-color: #e0e0e0; /* Change background on hover */
+  transform: scale(1.02); /* Slightly increase size for emphasis */
+}
+
+.highlighted-icon {
+  border: 2px solid yellow;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}
+
+.hidden {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .map-search-controls {
+    max-width: 100%;
+    padding: 0.25rem;
+    flex-direction: column; /* Ensure it stacks correctly on smaller screens */
+  }
+
+
+}

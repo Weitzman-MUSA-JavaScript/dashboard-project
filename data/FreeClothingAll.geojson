@@ -1,0 +1,245 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+ {
+   "type": "Feature",
+   "geometry": {
+      "type": "Point",
+      "coordinates":  [ -75.1660838,39.9494509 ]
+   },
+   "properties": {
+   "site_name":"MenzFit",
+   "Subheader":"Philadelphia - Interview Preparation and Clothing",
+   "Description":"Offers 45-minute sessions on successful interviewing techniques. Provides each client with one suit when he has an interview scheduled and a second suit when he gets the job. Clients also receive free tailoring and haircut services when necessary.",
+   "Eligibility":" A) Adult men age 18 and older, B) Residents of Philadelphia County, C) Low-income and/or from a disadvantaged background",
+   "phone_number":"215-845-5904",
+   "Address":"1500 Walnut Street, Suite 1306, Phildalephia, PA 19102"
+   }
+ },
+ {
+   "type": "Feature",
+   "geometry": {
+      "type": "Point",
+      "coordinates":  [ -75.16469833,39.94643683333334 ]
+   },
+   "properties": {
+   "site_name":"Broad Street Ministry",
+   "Subheader":"Philadelphia - Clothing Boutique",
+   "Description":"Offers clothing, including jackets and shoes. Personal care items are available Tuesdays and Thursdays during Clothing Closet hours.",
+   "Eligibility":"No restrictions.",
+   "phone_number":"215-735-4847",
+   "Address":"315 South Broad Street, Philadelphia, PA 19107"
+   }
+ },
+ {
+   "type": "Feature",
+   "geometry": {
+      "type": "Point",
+      "coordinates":  [ -75.146429,39.95363566666667 ]
+   },
+   "properties": {
+   "site_name":"Old First Reformed United Church of Christ",
+   "Subheader":"Philadelphia - Saturday Morning Breakfast and Clothing Cupboard",
+   "Description":"Serves a to-go breakfast for up to 50 people. To-go breakfast includes a hot breakfast item, coffee, drink, and various snack items. Also hands out seasonal clothing, and toiletries such as shampoo, lotion, deodorant, and more.",
+   "Eligibility":"No limitations or restrictions",
+   "phone_number":"215-922-4566",
+   "Address":"151 North Fourth Street, Philadelphia, PA 19106"
+   }
+ },
+ {
+   "type": "Feature",
+   "geometry": {
+      "type": "Point",
+      "coordinates":  [ -75.1594531,39.96787297799691 ]
+   },
+   "properties": {
+   "site_name":"Salvation Army - Greater Philadelphia Area",
+   "Subheader":"Temple Corps - Clothing Assistance",
+   "Description":"Provide new or secondhand clothing for people who cannot afford to purchase these items at retail prices.",
+   "Eligibility":"Low income individuals in West Philadelphia",
+   "phone_number":"215-787-2962",
+   "Address":"1340 Brown Street, Philadelphia, PA 19123"
+   }
+ },
+ {
+   "type": "Feature",
+   "geometry": {
+      "type": "Point",
+      "coordinates":  [ -75.14553918,39.95785287755102 ]
+   },
+   "properties": {
+   "site_name":"The Wardrobe",
+   "Subheader":"Philadelphia County - Dressing Program",
+   "Description":"Provides clothing at no cost to those in need.",
+   "Eligibility":"No limitations or restrictions.",
+   "phone_number":"215-568-6693",
+   "Address":"413 North 4th Street, Philadelphia, PA 19123"
+   }
+ },
+ {
+   "type": "Feature",
+   "geometry": {
+      "type": "Point",
+      "coordinates":  [ -75.17412513,39.925028447368426 ]
+   },
+   "properties": {
+   "site_name":"Church of Philadelphia",
+   "Subheader":"Philadelphia - Community Resource Center",
+   "Description":"Distributes food and clothes to those in need.",
+   "Eligibility":"Individuals experiencing homelessness, Residents of Philadelphia County",
+   "phone_number":"215-467-8500",
+   "Address":"1629 Snyder Avenue, Philadelphia, PA 19145"
+   }
+ },
+ {
+   "type": "Feature",
+   "geometry": {
+      "type": "Point",
+      "coordinates":  [ -75.19735312,39.936800530612246 ]
+   },
+   "properties": {
+   "site_name":"Salvation Army - Greater Philadelphia Area",
+   "Subheader":"Central Corps - Clothing Assistance",
+   "Description":"Provide new or secondhand clothing for people who cannot afford to purchase these items at retail prices.",
+   "Eligibility":"Low income individuals in West Philadelphia",
+   "phone_number":"215-465-0300",
+   "Address":"3225 Reed Street, Philadelphia, PA 19146"
+   }
+ },
+ {
+   "type": "Feature",
+   "geometry": {
+      "type": "Point",
+      "coordinates":  [ -75.148843,39.980754 ]
+   },
+   "properties": {
+   "site_name":"Asociacion Puertorriquenos en Marcha",
+   "Subheader":"CUA Prevention",
+   "Description":"Early Intervention program is designed to help children between the ages of 3 and 5 overcome areas of delayed development. The program advocates on behalf of these youngsters, ensuring they receive appropriate special educational services. Children can receive speech therapy, occupational and physical therapy and other special instruction.",
+   "Eligibility":" Serves residents in the zip codes provided below.",
+   "phone_number":"267-296-7200",
+   "Address":"1900 North Ninth Street, Philadelphia, PA 19122"
+   }
+ },
+ {
+   "type": "Feature",
+   "geometry": {
+      "type": "Point",
+      "coordinates":  [ -75.16315279,39.9854865 ]
+   },
+   "properties": {
+   "site_name":"Church of the Advocate",
+   "Subheader":"Philadelphia - Grab'n Go Food & Clothing",
+   "Description":"Provides packed lunches and clothing once a month.",
+   "Eligibility":"No limitations or restrictions",
+   "phone_number":"215-978-8000",
+   "Address":"1801 West Diamond Street, Philadelphia, PA 19121"
+   }
+ },
+ {
+   "type": "Feature",
+   "geometry": {
+      "type": "Point",
+      "coordinates":  [ -75.130863,39.986789 ]
+   },
+   "properties": {
+   "site_name":"Saint Francis Inn Ministries",
+   "Subheader":"Marie's Closet - Clothing Provision",
+   "Description":"Provides clothing and shoes for men, women, and children. Also accepts donations of clean men’s, women’s and children’s clothing and shoes, and linens.",
+   "Eligibility":"Guests of Saint Francis Inn",
+   "phone_number":"215-634-1510",
+   "Address":"2439 Kensington Avenue, Philadelphia, PA 19125"
+   }
+ },
+ {
+   "type": "Feature",
+   "geometry": {
+      "type": "Point",
+      "coordinates":  [ -75.12383688,39.990645791666665 ]
+   },
+   "properties": {
+   "site_name":"Blessed Sarnelli Community",
+   "Subheader":"Soup Kitchen and Clothing Room - The Clothing Room",
+   "Description":"Provides clothing to those in need. Offers volunteer opportunities. Accepts monetary donations and donations of toiletries and clothing for men and women.",
+   "Eligibility":"No limitations or restrictions",
+   "phone_number":"571-314-3428",
+   "Address":"2739 Kensington Avenue, Philadelphia, PA 19134"
+   }
+ },
+ {
+   "type": "Feature",
+   "geometry": {
+      "type": "Point",
+      "coordinates":  [ -75.1314205,39.997529 ]
+   },
+   "properties": {
+   "site_name":"Salvation Army - Greater Philadelphia Area",
+   "Subheader":"Tabernacle Corps - Clothing Assistance",
+   "Description":"Provide new or secondhand clothing for people who cannot afford to purchase these items at retail prices.",
+   "Eligibility":"Low income individuals in West Philadelphia",
+   "phone_number":"215-423-9300",
+   "Address":"3150 North Mascher Street, Philadelphia, PA 19133"
+   }
+ },
+ {
+   "type": "Feature",
+   "geometry": {
+      "type": "Point",
+      "coordinates":  [ -75.1520312,40.0079514 ]
+   },
+   "properties": {
+   "site_name":"Zion Baptist Church",
+   "Subheader":"Philadelphia - Resource Center",
+   "Description":"Provides food baskets and clothing distribution to those in need.",
+   "Eligibility":"Applicants must be low-income.",
+   "phone_number":"215-223-5460",
+   "Address":"3600 North Broad Street, Philadelphia, PA 19140"
+   }
+ },
+ {
+   "type": "Feature",
+   "geometry": {
+      "type": "Point",
+      "coordinates":  [ -75.19274932,40.008154416003144 ]
+   },
+   "properties": {
+   "site_name":"Center for Leadership, Development and Advocacy (CLDA)",
+   "Subheader":"Philadelphia - Basic Needs Bank",
+   "Description":"Provides basic needs resources for children, families, and older adults, including clothing, diapers for children and adults, menstruation/period supplies, personal hygiene items, and bookbags and toys for children.",
+   "Eligibility":"Persons and families in need of basic needs assistance in Philadelphia County",
+   "phone_number":"215-999-8373",
+   "Address":"4130 Ridge Avenue,Philadelphia, PA 19129"
+   }
+ },
+ {
+   "type": "Feature",
+   "geometry": {
+      "type": "Point",
+      "coordinates":  [ -75.173836,40.036824 ]
+   },
+   "properties": {
+   "site_name":"Whosoever Gospel Mission and Rescue Home Association of Germantown",
+   "Subheader":"Philadelphia - Germantown Thrift Shop",
+   "Description":"Offers a variety of clothing, furniture and household items at very reasonable prices to families struggling to make ends meet.",
+   "Eligibility":"No limitations or restrictions",
+   "phone_number":"215-438-3094",
+   "Address":"101 East Chelten Avenue, Philadelphia, PA 19144"
+   }
+ },
+ {
+   "type": "Feature",
+   "geometry": {
+      "type": "Point",
+      "coordinates":  [ -75.17558992,40.03978623076923 ]
+   },
+   "properties": {
+   "site_name":"United Methodist Neighborhood Services",
+   "Subheader":"Janes Memorial United Methodist Church - Clothing Pantry",
+   "Description":"Provides clothing to those in need.",
+   "Eligibility":"No limitations or restrictions",
+   "phone_number":"215-236-0304",
+   "Address":"47 East Haines Street, 3rd Floor, Philadelphia, PA 19144"
+   }
+ }
+]
+}

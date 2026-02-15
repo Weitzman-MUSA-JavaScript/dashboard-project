@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Philadelphia Homeless Resource Dashboard</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik">
+</head>
+
+<body>
+    <main>
+        <section class="map-section">
+            <div class="resource-filter">
+                <h2>Philadelphia Homeless Resource Finder</h2>
+                <form id="filter-form">
+                    <ul>
+                        <li>
+                            <label>
+                                <input type="checkbox" id="food-checkbox" class = "custom-checkbox food-checkbox" checked> Free Food
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox" id="clothing-checkbox" class="custom-checkbox clothing-checkbox" checked> Free Clothing
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox" id="showers-checkbox" class="custom-checkbox showers-checkbox" checked> Free Showers/Laundry
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox" id="toilets-checkbox" class="custom-checkbox toilets-checkbox" checked> Public Toilets
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox" id="intakeCenters-checkbox" class="custom-checkbox intakeCenters-checkbox" checked> Intake Centers
+                            </label>
+                        </li>
+                    </ul>
+                </form>
+                <div class="nearby-resources" id="nearby-resources-container">
+                    <h3>List of Nearby Resources </h3>
+                    <h4> (Type in a location to see!) </h4>
+                    <ul id="nearby-resources-list"></ul>
+                </div>
+            </div>
+
+            <div class="whole-map-part">
+                <div class="map-search-controls">
+                    <input type="text" name="address-search" id = "address-search" placeholder="Search your location here..." aria-label="Search your location here"/>
+                    <ul id="address-choices" class="hidden" ></ul>
+                </div>    
+                <div id="resource-map" class="map"></div>
+            </div>
+
+        </section>
+    </main>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src='https://unpkg.com/@turf/turf@6/turf.min.js'></script>
+    <script type="module" src="script/main.js"></script>
+</body>
+</html>

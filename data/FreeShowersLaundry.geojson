@@ -1,0 +1,71 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+      {
+        "type": "Feature",
+        "properties": {
+          "site_name": "Stephen Klein Wellness Center",
+          "Address": "2144 Cecil B. Moore Ave, Philadelphia, PA 19121",
+          "phone_number": "215-320-6187",
+          "Description": "Tues 10am-2pm (showers and laundry) Thurs 10am-2pm (showers and laundry) Fri: 10am-2pm (showers only) No I.D. or appointment necessary. Location also offers medical, dental, behavioral services."
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [-75.1733718, 39.9802079]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "site_name": "St John Hospice",
+          "Address": "1221 Race St, Philadelphia, PA 19107",
+          "phone_number": "215-563-7763",
+          "Description": "Mon 8.30am-9.15am (seniors, veterans, disabled only. must sign-up Friday before), Tues 8.30am-9.15am (must sign up during Monday's lunch), Weds 8.30am-9.15am (must sign up during Tuesday's lunch), Fri 8:30am-9:15am (must sign up on Wednesday Lunch). Showers only (no laundry.) You must sign-up the week day (Mon-Fri) before your shower. Bring I.D. if possible, but may not be necessary."
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [-75.1625276, 39.9561096]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "site_name": "Bethesda Project's Our Brothers' Place",
+          "Address": "907 Hamilton St, Philadelphia, PA 19123",
+          "phone_number": "215-985-1600",
+          "Description": "Mon-Fri, 12pm-1pm Showers are available during lunch. Arrive early as shower spots fill up quick. Be advised you will be searched and will be asked to check-in any medications you're carrying at the front desk before you leave."
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [-75.1563554, 39.9602365]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "site_name": "The Center Philadelphia",
+          "Address": "55 N. Broad Street, Philadelphia, PA 19107",
+          "phone_number": "215-568-6250",
+          "Description": "The daily drop-in center is open Monday through Thusday from 9:00am-3:00pm, providing shower and laundry services."
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [-75.1808602, 39.9528926]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "site_name": "Hub of Hope",
+          "Address": "1400 Arch Street, Sub Concourse Level, Municipal Services Building, Philadelphia, PA",
+          "phone_number": "215-309-5225",
+          "Description": "Showers from 7.30am to 3.15pm, Laundry from 7.30am to 2.15pm"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [-75.1688882, 39.9542153]
+        }
+      }
+    ]
+  }
+  
