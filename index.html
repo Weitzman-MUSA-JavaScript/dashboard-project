@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transit index Dashboard</title>
+    <link rel="icon" type="image/svg+xml" href="pic/brt-icon.svg" />
+    <link href="https://api.mapbox.com/mapbox-gl-js/v3.15.0/mapbox-gl.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Primary UI font: Inter (clean, modern, highly-legible) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Optional decorative serif fonts (kept for headings if desired) -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Fraunces:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="app-header">
+        <div class="container">
+            <h1>Transit Index Dashboard</h1>
+        </div>
+    </header>
+
+    <main class="content">
+        <div class="map-container">
+            <div id="map"></div>
+        </div>
+        <aside class="sidebar">
+            <section class="search-panel" aria-label="Address search">
+                <h3>Find Your Address</h3>
+                <div class="search-field">
+                    <div class="search-input-row">
+                        <input id="address-search" class="search-input" type="search" placeholder="123 Market St, Philadelphia" autocomplete="street-address" spellcheck="false" aria-autocomplete="list" aria-controls="address-suggestions">
+                        <button id="use-my-location" type="button" class="geolocate-button" aria-label="Use my current location">Use my location</button>
+                    </div>
+                    <ul id="address-suggestions" class="suggestions-list" role="listbox" aria-label="Address suggestions" aria-live="polite"></ul>
+                    <small class="search-hint" id="address-search-hint">Powered by Google Places</small>
+                </div>
+            </section>
+            <section id="filters" class="filters insight-card" aria-label="Index threshold filter">
+                <header class="insight-card-header">
+                    <div>
+                        <p class="section-tag">Filters</p>
+                        <h2>Filter by Index Threshold</h2>
+                    </div>
+                    <p class="insight-card-note">Adjust the slider to highlight tracts that meet your minimum transit index score.</p>
+                </header>
+                <div class="filter-scroll" role="toolbar" aria-label="Threshold slider">
+                    <div class="slider-wrap">
+                        <input class="threshold-slider" type="range" min="1" max="100" step="1" value="1" aria-label="Index threshold slider">
+                        <div class="slider-controls">
+                            <div class="threshold-value" aria-live="polite"></div>
+                            <button class="threshold-reset">Reset</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="chart" aria-label="Transit performance">
+                <section class="insight-card" aria-label="Transit index score">
+                    <header class="insight-card-header">
+                        <div>
+                            <p class="section-tag">Transit index</p>
+                            <h2>Transit Index Score</h2>
+                        </div>
+                        <p class="insight-card-note">Composite score highlighting overall transit access for the selected tract.</p>
+                    </header>
+                    <div id="chart-index" class="chart-box gauge-box"></div>
+                </section>
+            <section id="info" class="insight-card" aria-label="Transit access snapshot">
+                <header class="insight-card-header">
+                    <div>
+                        <p class="section-tag">Transit access</p>
+                        <h2>Transit Access Snapshot</h2>
+                    </div>
+                    <p class="insight-card-note">Select a census tract to see how many bus, metro, and trolley stations serve that area.</p>
+                </header>
+                <div id="station-chart" class="chart-box"></div>
+            </section>
+                <section class="travel-charts" aria-label="Travel patterns">
+                    <header class="travel-charts-header">
+                        <div>
+                            <p class="section-tag">Travel patterns</p>
+                            <h2>Travel Time &amp; Mode</h2>
+                        </div>
+                        <p class="travel-charts-note">Compare how residents commute and how long it takes across selected tracts.</p>
+                    </header>
+                    <div class="travel-charts-grid">
+                        <article>
+                            <div id="chart-time" class="chart-box"></div>
+                        </article>
+                        <article>
+                            <div id="chart-mode" class="chart-box"></div>
+                        </article>
+                    </div>
+                </section>
+            </section>
+            <section class="credits" aria-label="Project credits">
+                <p>Made by <strong>Zhanchao Yang</strong></p>
+                <p>Data support provided by <strong>SEPTA</strong></p>
+            </section>
+        </aside>
+    </main>
+
+    <section id="intro-modal" class="intro-modal" role="dialog" aria-modal="true" aria-labelledby="intro-modal-title">
+        <div class="intro-modal-content">
+            <p class="section-tag">Start here</p>
+            <h2 id="intro-modal-title">Welcome to the Transit Index Dashboard</h2>
+            <p class="intro-modal-lede">This dashboard empowers housing seekers and tenants to make informed decisions about where to live in Philadelphia by providing clear, visual insights into transit accessibility across different neighborhoods. Whether you prioritize proximity to subway stations, bus routes, or regional rail, this tool helps you understand Philadelphia's transit landscape.</p>
+            <ul class="intro-modal-list">
+                <li>Use the address search or “Use my location” to jump to any place in the city.</li>
+                <li>Click a census tract on the map to update the transit score, station chart, and travel insights.</li>
+                <li>Adjust the index threshold slider to highlight tracts that meet your minimum service level.</li>
+            </ul>
+            <p class="intro-modal-note">If you are interested how the index is calculated, feel free to explore the full methodology and source files in the <a class="inline-link" href="https://github.com/zyang91/transit-index-source-code" target="_blank" rel="noopener noreferrer">Transit Index source code repository</a>.</p>
+            <div class="intro-modal-actions">
+                <button type="button" class="intro-modal-button" data-intro-continue>Continue to dashboard</button>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.15.0/mapbox-gl.js"></script>
+    <!-- D3 (for charts) - loaded as a global d3 variable -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script type="module" src="js/index.js"></script>
+</body>
+</html>
