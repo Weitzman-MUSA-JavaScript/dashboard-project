@@ -2,9 +2,9 @@ name: Lint the CSS code style
 
 on:
   pull_request:
-    branches: [ main ]
+    branches: [ 'main' ]
   push:
-    branches: [ main ]
+    branches: [ 'main' ]
 
 jobs:
   build:
@@ -12,14 +12,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Set up Node.js 16.x
-      uses: actions/setup-node@v2
+    - uses: actions/checkout@v7
+    - name: Set up Node.js 24.x
+      uses: actions/setup-node@v7
       with:
-        node-version: 16.x
+        node-version: 24.x
         cache: 'npm'
     - name: Install dependencies
       run: npm install --only=dev
     - name: Run stylelint
       run: |
-        npm run css-lint
+        npx stylelint --color  "./**/*.css"
