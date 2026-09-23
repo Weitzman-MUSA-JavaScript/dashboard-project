@@ -1,78 +1,63 @@
-Dashboards are the bread and butter of spatial data displays. They are highly interactive websites, usually with real-time updates that show data in an accessible way.
+# Project Instructions: Decision Support Tool
 
+While dashboards are a common way to display data, this project challenges you to build a **decision support tool**. Your goal is to use data to build visualizations and analyses that help users make informed choices. The focus of this project is *actionable data delivery* -- ensuring the right information is presented to the user at the right time and in the right context.
+
+## Samples
+
+Find examples of previous dashboard and interactive tool projects at <https://github.com/Weitzman-MUSA-JavaScript/dashboard-project-examples>.
+
+## Guidance
+
+* **Keep large data files out of your repository.** GitHub will block files larger than ~100MB. Talk to your instructors if you need guidance on where to host large data files.
+* **Simplify your geospatial data** appropriately (i.e., right-sized for your use case) to reduce file size and improve performance.
+* **Start simple.** Because you are building this from scratch, get a basic map and a single interactive element working before adding more complexity.
 
 ## Timeline
 
 We will allocate weeks 5-8 (four weeks) of the semester to this project.
 
+### Step 1: Define the problem and audience
 
-## Samples
+Before writing any code, define the purpose of your tool. A tool built for "everyone" is usually useful to no one. To guide your project, complete the following statements:
 
-Find examples from previous years at <https://github.com/Weitzman-MUSA-JavaScript/dashboard-project-examples>.
+* **The users I want to empower are...** (e.g., transit riders, city planners, park rangers)
+* **The specific decisions those users need to make are...** (e.g., "when to leave for the bus", "where to allocate road repair funds")
+* **The data required to inform these decisions is...**
 
+Use the decisions you want to enable to evaluate any dataset or interactive element you add to your tool. If a feature doesn't help the user make their decision, leave it out. Whatever data you use, **be sure to include citations somewhere in your app interface**.
 
-## Instructions
+### Step 2: Plan the Interface
 
-### Step 1: Choose a topic
+Since you are building this application from scratch (without a starter template), take some time to plan the layout and interactivity of your tool. Think about:
+* The map and how spatial information will be displayed.
+* The UI controls (buttons, checkboxes, search bars, sliders) needed to filter or explore the data.
+* Additional context (charts, summary text, popups) that updates based on user interaction to provide clear, actionable insights.
 
-- [ ] **Choose a topic** that is fruitfully explained with some combination of narrative and geographic elements. This might be as general as public transit, bike share, real estate development, national parks, etc. Stick with the data domain that you chose for your story map if you can.
+### Step 3: Build the application (Suggested Milestones)
 
-- [ ] **Choose your users** -- Who do you want to empower with information to make decisions in your domain. For example, if you chose public transit, then are you interested in empowering riders? Dispatchers? If you chose national parks, are you interested in visitors? Park rangers? Try not to build one thing for _everyone_ -- that usually leads to a product that is not very useful for anyone.
+You will create your HTML, CSS, and JavaScript from scratch. While you can build the application however you see fit, here is a suggested workflow to keep you on track:
 
-- [ ] **Decide what your users could do with better information** -- Make a list of the particular decisions you want to enable with your dashboard. This can be a blue-sky list, but you will likely end up refining your scope later.
+* **Milestone 1: The Foundation.** Set up your basic HTML page structure and link your CSS and JS files. Initialize a Leaflet map and load a basemap tile layer.
+* **Milestone 2: Data Delivery.** Fetch your data (e.g., GeoJSON or parsed CSV) into your environment and display it on the map as a layer.
+* **Milestone 3: Interactivity.** Create HTML elements for your UI controls. In your JavaScript, select those DOM elements, add event listeners, and write functions to filter the data or update the display when the user interacts with them.
 
-- [ ] **Figure out what data you need to enable the decisions.** -- You should use this list of decisions you want to enable to evaluate any dataset or interactive element you add to your dashboard, to determine whether it actually supports making those decisions. Whatever data you use, **be sure to include citations somewhere in your app interface**.
+### Step 4: Check your code
 
-### Step 2: Create a map on your browser
+* **Code Quality:** Ensure your JavaScript and CSS code are properly linted using ESLint and Stylelint.
+* **Responsiveness:** Check that your tool works well on both desktop and mobile browser window sizes.
+* **Accessibility (a11y):** Verify that your tool is free from major accessibility issues. Check for accessible color contrast and use tools like the Axe DevTools browser extension.
 
-The main component of the dashboard is the map displaying spatial information. This is the building block of all your other features!
+### Step 5: Submit your project
 
-* Create basic html with head and body elements, linking to your css stylesheet and javascript file
-* Create map element in html document
-* Style map element in CSS to give it height
-* Create map object in Javascript referencing leaflet quickstart https://leafletjs.com/examples/quick-start/ (will need to link to leaflet documents in your html)
-* Add a basemap tile layer - use OpenStreetMap, Stamen, Mapbox, or another source - you can customize this!
-* NOTE: you may want to separate the code for creating the map into a different javascript file for organization. If you do this, wrap the creation of the map into a function and export that function, and then import it in your main.js file.
+Commit your code and push it to your repository on GitHub. Set up GitHub Pages on the repository and submit a new pull request into the original project repository in the class organization.
 
-### Step 3: Add data to your map
+#### Submission Checklist
 
-* Add data file to your repository folder (usually in a data subfolder) - remember geojson files work best, csv files work too but must be parsed using csv parse https://csv.js.org/parse/ or papa parse https://www.papaparse.com/ . See [the course resources](https://github.com/musa-6110-fall-2023/course-info/blob/main/resources/data-format-csv.md) for a guide to getting started with those libraries.
-* Use fetch API https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API to load your data into your environment (remember, fetch returns a promise, not a file, and a file needs to be extracted from the promise)
-* Create map layer to display data (ie LayerGroup, Marker, etc.. see documentation https://leafletjs.com/reference.html) - style the layer here, not in CSS because CSS cannot access styles within the map 
-* Display data through your map layer (either create an empty layer and pass the data through in a separate function, or input the data directly when you create the layer)
-* optional: attach popup https://leafletjs.com/reference.html#popup and tooltip https://leafletjs.com/reference.html#tooltip to your data layer for more interactivity
-
-### Step 4: Create an interactive element (ie search, highlight, print data, etc)
-
-This is the most broad step because you could do so many different things like: 
-* button to filter data shown on map
-* checkbox to filter data shown on map
-* search bar to type in to filter data shown on map (more difficult - try only if you've already accomplished the button)
-* paste/display text of data attributes when you click on the data layer on the map
-* graph data shown on map
-
-The general steps to accomplish these are:
-* create an html element for the interactive piece (ie button, checkbox, searchbar, graph) ps. if you're interactive event will be clicking on the map, no extra element is needed
-* create a DOM (document object model) element in javascript to set up an event listener - reference DOM exercise we did in class https://github.com/musa-6110-fall-2023/dom-exercises
-* create an event listener (event examples: click a button, check a checkbox, click a map data layer)
-* create a function which responds when the event has happened
-* create a function to parse through data (will require for loop) and accomplish one of the following:
-    * clear data layer and display only the filtered data
-    * print in space outside map (new html element) information about the data
-    * pass data shown on map through a graph and display
- 
-### Step 5: Finishing touches (styling, linting, accessibility)
-
-* style the map and data to your liking, which can include doing things like:
-   * customizing your basemap tiles
-   * customizing your marker/data layer style (using your own image in replace for the marker image)
-   * changing fonts and colors in the csv
-
-Make sure to lint use eslint or stylelint to ensure your code is using the widely acceptable syntax
-
-Check for accessibility using:
-* Axe DevTools in browser
-* accessible colors for someone looking at your map, reference colorbrewer or other sites for help with this 
-
-
-  
+- [ ] Pushed latest code to the `main` branch of your repository
+- [ ] Updated the `README.md` file with a description of your project, the intended users, the decisions it supports, and data citations.
+- [ ] Linted JS and CSS code
+- [ ] Verified a11y of your site
+- [ ] Turned on GitHub Pages for the repository and verified that your site works when deployed
+- [ ] Submitted a pull request to the original repository in the class organization
+- [ ] In the PR **title**, included your name at least
+- [ ] In the PR **description**, included your guiding statements (users, decisions) and a brief description of the tool
