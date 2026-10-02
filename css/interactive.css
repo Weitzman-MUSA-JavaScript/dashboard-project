@@ -1,0 +1,306 @@
+/* =========================================
+   1. 全局设置与变量 (Global & Variables)
+   ========================================= */
+:root {
+    /* Color Palette */
+    --color-header-main: #1a3c5a;        /* Top Nav */
+    --color-sidebar-header: #3494a6;     /* Lake Blue (Sidebar Header) */
+    --color-cost-navy: #0a2342;          /* Deep Navy (Initial Cost) */
+    --color-cost-rust: #bf4328;          /* Rust Orange (Over Budget) */
+    --color-action-gold: #e0b341;        /* Gold (Buttons/Badges/Stay Icon) */
+    --color-action-gold-hover: #cda435;
+    
+    --color-bg-main: #f5f7fa;
+    --color-text-dark: #333;
+    --color-text-grey: #888;
+}
+
+body { 
+    margin: 0; padding: 0; 
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
+    height: 100vh; width: 100vw; overflow: hidden; 
+    background: var(--color-bg-main); 
+}
+
+/* --- 1. Header --- */
+.main-header {
+    height: 60px; 
+    background: var(--color-header-main); 
+    display: flex; align-items: center; justify-content: space-between; 
+    padding: 0 24px; z-index: 100; position: relative;
+    box-shadow: 0 2px 10px rgba(26, 60, 90, 0.3);
+}
+
+.logo { 
+    font-family: 'Cinzel Decorative', cursive; 
+    font-weight: 700; font-size: 1.5rem; 
+    color: white; letter-spacing: 1px;
+    display: flex; align-items: center;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.avatar-small { 
+    width: 32px; height: 32px; border-radius: 50%; 
+    background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.5); 
+}
+
+/* --- 2. Map --- */
+#map-wrapper {
+    /* 桌面端默认样式：全屏占位 */
+    position: absolute; top: 60px; left: 0; right: 0; bottom: 0;
+    z-index: 0;
+}
+
+#map { width: 100%; height: 100%; z-index: 0; }
+
+/* Back Button Style */
+.back-btn {
+    position: absolute; top: 20px; left: 20px;
+    z-index: 1000;
+    background: white; color: var(--color-header-main);
+    padding: 10px 18px; border-radius: 30px;
+    text-decoration: none; font-weight: 700;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    display: flex; align-items: center; gap: 8px; font-size: 0.9rem;
+    transition: all 0.2s; border: 1px solid rgba(0,0,0,0.05);
+}
+.back-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.2); color: var(--color-action-gold); }
+
+/* Leaflet Control Adjustments */
+.leaflet-top.leaflet-right {
+    right: 420px !important; 
+    top: 20px !important;
+}
+
+/* Markers */
+.custom-div-icon { background: transparent; border: none; }
+.marker-pin {
+    width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    color: white; font-size: 14px; box-shadow: 0 2px 5px rgba(0,0,0,0.3); border: 2px solid white; transition: 0.2s;
+}
+.marker-pin:hover { transform: scale(1.15); z-index: 999; }
+.marker-gray { background: #95a5a6; }
+
+/* Category Colors */
+.marker-wishlist.cat-Nature { background: var(--color-sidebar-header); }  
+.marker-wishlist.cat-Culture { background: var(--color-header-main); }    
+.marker-wishlist.cat-Food { background: var(--color-cost-rust); }         
+.marker-wishlist.cat-Stay { background: var(--color-action-gold); }       
+
+/* --- 3. Sidebar Panel --- */
+.sidebar-panel {
+    position: absolute; top: 80px; right: 20px; 
+    bottom: 20px; 
+    width: 380px;
+    background: white; border-radius: 12px;
+    display: flex; flex-direction: column;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    overflow: hidden; z-index: 1000;
+}
+
+/* A. Colored Header (Stats Panel) */
+.sidebar-colored-header {
+    background: var(--color-sidebar-header); 
+    padding: 16px; color: white; flex-shrink: 0;
+}
+
+/* Stats */
+.stats-row { display: flex; justify-content: space-between; margin-bottom: 15px; }
+.stat-group label { font-size: 0.7rem; color: rgba(255,255,255,0.7); font-weight: bold; letter-spacing: 1px; display: block; margin-bottom: 2px; }
+
+.cost-value, .stops-value { 
+    font-size: 1.5rem; font-weight: 800; color: var(--color-cost-navy); 
+    font-family: 'Oswald', sans-serif; text-shadow: 0 1px 2px rgba(255,255,255,0.2);
+}
+.cost-value.over-budget { color: var(--color-cost-rust) !important; }
+
+/* Budget Input */
+.budget-group { text-align: right; }
+.budget-group input {
+    background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3);
+    color: white; padding: 4px; border-radius: 4px; width: 90px; text-align: right; font-weight: bold;
+}
+.budget-group input::placeholder { color: rgba(255,255,255,0.6); }
+
+/* Date Row */
+.date-row { 
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 10px; background: rgba(0,0,0,0.15); padding: 12px 14px; border-radius: 6px; min-height: 60px;
+}
+.date-inputs-wrapper { display: flex; gap: 10px; flex: 1; min-width: 0; }
+.date-input-group { display: flex; flex-direction: column; flex: 1; min-width: 0; }
+.date-input-group span { font-size: 0.6rem; color: rgba(255,255,255,0.8); margin-bottom: 2px; text-transform: uppercase; }
+
+.date-input-group input { 
+    background: transparent; border: none; color: white; 
+    font-family: 'Oswald', sans-serif; font-size: 1rem; padding: 0; 
+    cursor: pointer; font-weight: 500; width: 100%; letter-spacing: 0.5px;
+}
+.date-input-group input::-webkit-calendar-picker-indicator { filter: invert(1); opacity: 0.8; cursor: pointer; margin-left: -5px; }
+
+.days-badge {
+    background: var(--color-action-gold); color: white; 
+    padding: 8px 12px; border-radius: 6px; font-weight: bold; font-size: 0.9rem; 
+    white-space: nowrap; box-shadow: 0 2px 5px rgba(0,0,0,0.1); flex-shrink: 0; margin-left: 2px;
+}
+
+/* B. Body */
+.sidebar-body { flex: 1; overflow-y: auto; padding: 15px; background: #fdfdfd; }
+.day-section { margin-bottom: 15px; }
+.day-title { 
+    font-size: 0.85rem; font-weight: 800; color: var(--color-header-main); text-transform: uppercase; margin-bottom: 8px; letter-spacing: 0.5px;
+}
+.waypoint-list { list-style: none; padding: 0; margin: 0; min-height: 50px; border: 1px dashed #e0e0e0; border-radius: 6px; background: #fafafa; }
+
+/* Trip Item */
+.trip-item {
+    background: white; padding: 12px; margin: 8px 4px;
+    border-radius: 6px; box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    border: 1px solid #eee; border-left: 5px solid var(--color-sidebar-header);
+    display: flex; justify-content: space-between; align-items: center; cursor: grab;
+}
+.item-info { display: flex; flex-direction: column; }
+.item-name { font-weight: 600; color: var(--color-text-dark); font-size: 0.9rem; }
+.item-meta { font-size: 0.75rem; color: var(--color-text-grey); margin-top: 2px; }
+.item-price { background: #eee; padding: 2px 6px; border-radius: 3px; font-weight: bold; color: #555; font-size: 0.8rem; }
+.item-remove:hover { color: var(--color-cost-rust); cursor: pointer; }
+
+/* C. Footer */
+.sidebar-footer { padding: 15px; background: white; border-top: 1px solid #eee; display: flex; gap: 10px; }
+.btn-add-day { flex: 1; padding: 10px; background: white; border: 2px dashed #bdc3c7; color: var(--color-text-grey); border-radius: 6px; font-weight: bold; cursor: pointer; transition: 0.2s;}
+.btn-add-day:hover { border-color: var(--color-action-gold); color: var(--color-action-gold); background: #fffcf5;}
+
+.btn-save { flex: 1; padding: 10px; background: var(--color-action-gold); border: none; color: white; border-radius: 6px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 10px rgba(224, 179, 65, 0.3); transition: 0.2s;}
+.btn-save:hover { background: var(--color-action-gold-hover); }
+
+/* Bottom Chart (Desktop) */
+.bottom-panel {
+    position: absolute; bottom: 20px; left: 20px; 
+    right: 420px; 
+    height: 130px; background: rgba(255,255,255,0.95); border-radius: 12px;
+    box-shadow: 0 -5px 15px rgba(0,0,0,0.1); padding: 10px 20px; display: flex; flex-direction: column; z-index: 900;
+}
+.chart-header { display: flex; justify-content: space-between; font-size: 11px; font-weight: 700; color: var(--color-text-grey); text-transform: uppercase; }
+.chart-container { flex: 1; width: 100%; }
+
+
+/* =========================================================
+   ★★★ MOBILE RESPONSIVE (手机端适配) ★★★
+   ========================================================= */
+@media screen and (max-width: 768px) {
+    
+    /* 1. 将 body 转为 Flex 垂直布局 */
+    body {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    /* 2. Header: 高度设为 50px (和Dashboard一致)，字体缩小 */
+    .main-header {
+        order: 1;
+        height: 45px;
+        flex-shrink: 0;
+        padding: 0 15px;
+    }
+    .logo { font-size: 1.2rem; }
+    .avatar-small { width: 28px; height: 28px; }
+
+    /* 3. Sidebar Panel 处理: 使用 display: contents 去掉父级包裹 */
+    .sidebar-panel {
+        display: contents; 
+    }
+
+    /* 4. Stats Panel (统计栏): 放在 Order 2 */
+    .sidebar-colored-header {
+        order: 2;
+        width: 95%;
+        border-radius: 0; /* 去掉圆角 */
+        padding: 10px 10px; /* 紧凑 Padding */
+        flex-shrink: 0;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        z-index: 20;
+    }
+
+    /* 修复图片中内容显示不全的问题：缩小字体，调整间距 */
+    .stats-row { 
+        margin-bottom: 5px; 
+        align-items: center; /* 垂直居中 */
+    }
+    .stat-group label { font-size: 0.6rem; }
+    .cost-value, .stops-value { font-size: 1.2rem; } /* 字体变小 */
+    
+    .budget-group label { font-size: 0.6rem; }
+    .budget-group input { 
+        width: 60px; /* 缩短输入框宽度 */
+        font-size: 0.9rem; 
+        padding: 2px 4px;
+    }
+
+    /* 日期行调整 */
+    .date-row { 
+        min-height: 30px; 
+        padding: 6px 10px; 
+    }
+    .date-input-group span { font-size: 0.55rem; }
+    .date-input-group input { font-size: 0.85rem; }
+    .days-badge { 
+        padding: 4px 8px; 
+        font-size: 0.75rem; 
+        margin-left: 5px;
+    }
+
+    /* 5. Map (地图): 放在 Order 3，占 40% 高度 */
+    #map-wrapper {
+        order: 3;
+        position: relative; /* 相对定位 */
+        top: auto; left: auto; right: auto; bottom: auto;
+        width: 100%;
+        height: 40vh !important; /* 强制高度 40% */
+        flex-shrink: 0;
+        z-index: 10;
+        border-bottom: 1px solid #ddd;
+    }
+
+    /* 地图上的 Back 按钮：放在左上角 */
+    .back-btn {
+        top: 10px;
+        left: 10px;
+        padding: 6px 12px;
+        font-size: 0.75rem;
+    }
+    
+    /* 调整 Leaflet 缩放控件的位置，避开 Back 按钮 */
+    .leaflet-top.leaflet-right {
+        right: 10px !important;
+        top: 50px !important; 
+    }
+
+    /* 6. Itinerary Body (行程单): 放在 Order 4 */
+    .sidebar-body {
+        order: 4;
+        flex: 1; /* 占据剩余所有空间 */
+        width: 100%;
+        background: #fff;
+        overflow-y: auto; /* 允许内部滚动 */
+        padding: 10px;
+    }
+
+    /* 行程项更紧凑 */
+    .trip-item { padding: 10px; margin: 5px 0; }
+    .item-name { font-size: 0.85rem; }
+
+    /* 7. Footer (保存按钮): 放在 Order 5 */
+    .sidebar-footer {
+        order: 5;
+        width: 95%;
+        border-top: 1px solid #eee;
+        padding: 10px;
+    }
+
+    /* 8. 隐藏底部图表 (手机上空间不够) */
+    .bottom-panel {
+        display: none;
+    }
+}

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yunnan Odyssey - Dashboard</title>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Oswald:wght@400;500;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+
+<header class="main-header">
+<div class="logo" onclick="window.location.href='index.html'" style="cursor: pointer;">
+<i class="fa-solid fa-mountain-sun" style="margin-right:12px; color:var(--color-yellow)"></i>
+Yunnan Odyssey
+</div>
+<div class="user-profile-icon">
+<div class="avatar-small"></div>
+</div>
+</header>
+
+<div class="main-grid">
+
+<aside class="left-panel">
+<div class="panel-card theme-card">
+<h3><i class="fa-solid fa-calendar-day" style="margin-right:8px; color:#bf4328;"></i> Month Highlight</h3>
+<div class="theme-content">
+<div id="themeEmoji" class="theme-emoji-box">🌸</div>
+<div class="theme-text">
+<h4 id="themeTitle">Loading...</h4>
+<p id="themeDesc">Select a month to see highlights.</p>
+</div>
+</div>
+<div class="legend-row">
+<div class="legend-item"><span class="dot active-dot"></span><span>Seasonal Best</span></div>
+<div class="legend-item"><span class="dot dim-dot"></span><span>Others</span></div>
+</div>
+</div>
+
+<div class="panel-card">
+<h3>Popularity Rank</h3>
+<div class="small-chart rank-chart-box"><canvas id="popChart"></canvas></div>
+</div>
+
+<div class="panel-card">
+<h3>Climate Info</h3>
+<div class="climate-stats-row">
+<div class="stat-box"><i class="fa-solid fa-temperature-half" style="color:#bf4328;"></i> <span id="dispTemp">--</span></div>
+<div class="stat-divider"></div>
+<div class="stat-box"><i class="fa-solid fa-cloud-rain" style="color:#3494a6;"></i> <span id="dispRain">--</span></div>
+</div>
+<div class="small-chart"><canvas id="tempChart"></canvas></div>
+</div>
+</aside>
+
+<main class="map-container">
+<div id="dash-map"></div>
+
+<div class="map-controls-overlay">
+    <div class="left-control-group">
+        <div class="map-filter-group">
+            <div class="map-filter-label">Filter:</div>
+            <div class="tag active" data-cat="all">All</div>
+            <div class="tag" data-cat="Nature">Nature</div>
+            <div class="tag" data-cat="Culture">Culture</div>
+            <div class="tag" data-cat="Food">Food</div>
+            <div class="tag" data-cat="Stay">Stay</div>
+        </div>
+        
+        <div class="search-wrapper">
+            <i class="fa-solid fa-magnifying-glass search-icon"></i>
+            <input type="text" id="poiSearchInput" placeholder="Search places on map..." autocomplete="off">
+            <ul id="searchResults" class="search-results-list"></ul>
+        </div>
+    </div>
+
+    <div class="map-slider-group">
+        <div class="map-slider-label">Month: <span id="monthDisplay">July</span></div>
+        <input type="range" min="1" max="12" value="7" id="monthSlider">
+    </div>
+</div>
+<button class="reset-map-btn" onclick="window.handleHomeClick()">
+<i class="fa-solid fa-compress-arrows-alt"></i> Reset View
+</button>
+
+<a href="interactive.html" class="start-btn">
+<i class="fa-solid fa-route"></i> Start Planning My Trip
+</a>
+</main>
+
+<aside class="right-panel">
+    <div class="panel-header">
+        <div class="header-text-group">
+            <h3>YUNSTAGRAM</h3>
+            <div class="location-badge" id="currentLocationTag" onclick="window.handleLocationBadgeClick()">
+                <i class="fa-solid fa-globe"></i> <span>All Yunnan</span>
+            </div>
+        </div>
+        <i class="fa-solid fa-rotate-right refresh-icon" onclick="window.handleHomeClick()"></i>
+    </div>
+
+    <div class="app-content-area" id="appContentArea">
+        <div style="text-align:center; padding:20px; color:#999;">Connecting to community...</div>
+    </div>
+
+    <div id="createPostContainer" style="display: none; padding: 20px; background: white; height: 100%; flex-direction: column; overflow-y: auto;">
+        <h3 style="margin-bottom: 15px;">Create New Post</h3>
+
+        <label class="form-label">Title</label>
+        <input type="text" id="newPostTitle" placeholder="Give it a catchy title..." class="form-input">
+
+        <label class="form-label">Location</label>
+        <div class="location-input-wrapper">
+            <input type="text" id="newPostLocation" placeholder="Type to search location..." class="form-input" autocomplete="off">
+            <input type="hidden" id="newPostLocationId">
+            <ul id="postLocationResults" class="search-results-list"></ul>
+        </div>
+
+        <label class="form-label">Content</label>
+        <textarea id="newPostContent" placeholder="Share your journey..." style="width: 100%; height: 100px; padding: 10px; border: 1px solid #ddd; border-radius: 8px; font-family: inherit; resize: none; margin-bottom: 15px;"></textarea>
+
+        <div style="margin-bottom: 20px;">
+            <label for="postImageInput" style="display:block; margin-bottom:5px; font-size:0.8rem; color:#666; font-weight:bold;">Add Photo</label>
+            <input type="file" id="postImageInput" accept="image/*" style="font-size: 0.8rem;">
+            <div id="imgPreview" style="margin-top:10px; width:100%; height:150px; background:#f0f0f0; border-radius:8px; display:none; background-size:cover; background-position:center;"></div>
+        </div>
+
+        <div style="display: flex; gap: 10px; margin-top: auto; padding-bottom: 20px;">
+            <button onclick="window.submitNewPost()" style="flex:1; background: var(--color-orange); color: white; border: none; padding: 12px; border-radius: 8px; font-weight: bold; cursor: pointer;">Post Now</button>
+            <button onclick="window.showSection('home')" style="flex:1; background: #f0f0f0; color: #666; border: none; padding: 12px; border-radius: 8px; font-weight: bold; cursor: pointer;">Cancel</button>
+        </div>
+    </div>
+
+    <div class="xhs-footer">
+        <div class="nav-item" id="nav-home" onclick="window.handleHomeClick()">
+            <i class="fa-solid fa-house"></i> <span>Home</span>
+        </div>
+        <div class="nav-item-center" onclick="window.showSection('create')">
+            <i class="fa-solid fa-plus"></i>
+        </div>
+        <div class="nav-item" id="nav-me" onclick="window.showSection('me')">
+            <i class="fa-regular fa-user"></i> <span>Me</span>
+        </div>
+    </div>
+</aside>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script type="module" src="js/dashboard.js"></script>
+</body>
+</html>
