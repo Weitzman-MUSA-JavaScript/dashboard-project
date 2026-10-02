@@ -1,0 +1,64 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <!-- Load leaflet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+  crossorigin=""/>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+  integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+  crossorigin=""></script>
+  
+  <script type="module" src="js/main.js" defer></script>
+  <link rel="stylesheet" href="css/styles.css">
+  
+  <title>SEPTA cuts in your area</title>
+</head>
+
+<body>
+  <main>
+    <div class="content">
+      <div class="map-container">
+        <div id="map"></div>
+      </div>
+      
+      <div class="sidebar-container">
+        
+        <div class="info-container">
+          <section class="directions">
+            <h2>SEPTA cuts in your area</h2>
+            <p>This dashboard allows you to see the impacts of the SEPTA bus service cuts in August 2025, for your own area.</p>
+            <p>Enter your address in the search bar below to find out how the SEPTA cuts impacted your area.</p>
+          </section>
+        </div>
+        
+        <div class="location-search-container">
+          <div class="location-search-inputs">
+            <input type="text" id="address-input" name="address-input" placeholder="Enter your address">
+            <button id="geolocate-button">Or use your location</button>
+          </div>              
+          <ul id="suggestions" class="suggestions"></ul>
+          <div id="district-num" class="district-num"></div>
+        </div>
+        
+        <div class="results-container">
+          <section id="results" class="results">
+            <h3>Impacts in the overall SEPTA region</h3>
+            <p>Across the system, <b>32</b> bus routes (19% of routes), were completely eliminated and <b>16</b> routes (10% of routes) were shortened.</p>
+          </section>
+        </div>
+
+        <div class="citations">
+          <p>Datasource: SEPTA <a href="https://github.com/septadev/GTFS/releases">GTFS feed</a>, comparing 8/25 release with 9/12 release.</p>
+        </div>
+        
+      </div>
+    </div>    
+    
+  </main>
+</body>
+</html>
