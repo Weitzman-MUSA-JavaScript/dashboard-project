@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Explore 2021–2025 Philadelphia police reported incidents by census tract, year, type, and time to guide community outreach planning.">
+    <meta name="theme-color" content="#142c36">
+    <title>Philadelphia Incident Atlas | 2021–2025 Decision Support</title>
+    <link rel="preconnect" href="https://unpkg.com">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="" defer></script>
+    <script src="js/app.js" defer></script>
+  </head>
+  <body id="top">
+    <a class="skip-link" href="#main">Skip to main content</a>
+
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="#top">
+          <span class="brand-icon" aria-hidden="true">P<span>·</span></span>
+          <span class="brand-name">PHL <strong>Incident Atlas</strong></span>
+        </a>
+        <span class="header-tag">2021–2025 DATA <span aria-hidden="true">/</span> DECISION SUPPORT</span>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="intro" aria-labelledby="page-title">
+        <div class="intro-copy">
+          <p class="eyebrow"><span class="eyebrow-line" aria-hidden="true"></span> PHILADELPHIA · PUBLIC SAFETY</p>
+          <h1 id="page-title">See the pattern.<br><em>Plan the response.</em></h1>
+          <p class="intro-lede">Explore where and when police reported incidents were concentrated from 2021 to 2025, and see how patterns changed. Use the evidence to help prioritize community outreach and prevention work across Philadelphia.</p>
+        </div>
+        <div class="intro-context">
+          <span class="context-number">01 <span aria-hidden="true">/</span> 02</span>
+          <p><strong>Start citywide.</strong> Choose a year and filter the reports, then select a census tract. The five-year trend follows your incident and time filters.</p>
+          <a href="#explore" class="text-link">Explore the map <span aria-hidden="true">↗</span></a>
+        </div>
+      </section>
+
+      <section class="explore" id="explore" aria-labelledby="explore-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">THE EXPLORER</p>
+            <h2 id="explore-title">One city. Many local patterns.</h2>
+          </div>
+          <p class="section-description">Colors show counts of geocoded reports, not a measure of personal safety.</p>
+        </div>
+
+        <div class="data-status" id="data-status" role="status" aria-live="polite">Loading 2021–2025 Philadelphia data…</div>
+
+        <div class="summary-strip" aria-label="Current selection summary">
+          <div class="summary-item">
+            <span class="summary-label">MATCHING REPORTS</span>
+            <strong id="summary-count">—</strong>
+            <small id="summary-count-note">Across mapped census tracts</small>
+          </div>
+          <div class="summary-item">
+            <span class="summary-label">GEOGRAPHY</span>
+            <strong id="summary-area">Philadelphia</strong>
+            <small id="summary-area-note">408 census tracts</small>
+          </div>
+          <div class="summary-item">
+            <span class="summary-label">CURRENT VIEW</span>
+            <strong id="summary-filter">All incidents</strong>
+            <small id="summary-filter-note">2025 · All dates and hours</small>
+          </div>
+        </div>
+
+        <div class="workspace">
+          <aside class="filter-panel" aria-labelledby="filter-title">
+            <div class="panel-heading">
+              <span class="panel-index">01 / FILTER</span>
+              <h3 id="filter-title">Focus the view</h3>
+              <p>Change one condition at a time to see how the pattern shifts.</p>
+            </div>
+
+            <form id="filters">
+              <div class="field">
+                <label for="year-filter">Year</label>
+                <select id="year-filter" name="year" disabled>
+                  <option value="2025" selected>2025</option>
+                  <option value="2024">2024</option>
+                  <option value="2023">2023</option>
+                  <option value="2022">2022</option>
+                  <option value="2021">2021</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="category-filter">Incident type</label>
+                <select id="category-filter" name="category" disabled>
+                  <option value="all">All incident types</option>
+                </select>
+              </div>
+
+              <fieldset class="field daypart-field">
+                <legend>Time of day</legend>
+                <div class="daypart-options">
+                  <label><input type="radio" name="daypart" value="all" checked><span>Any time</span></label>
+                  <label><input type="radio" name="daypart" value="overnight"><span>Overnight<small>12–6 AM</small></span></label>
+                  <label><input type="radio" name="daypart" value="morning"><span>Morning<small>6–12 PM</small></span></label>
+                  <label><input type="radio" name="daypart" value="afternoon"><span>Afternoon<small>12–6 PM</small></span></label>
+                  <label><input type="radio" name="daypart" value="evening"><span>Evening<small>6–12 AM</small></span></label>
+                </div>
+              </fieldset>
+
+              <div class="field">
+                <label for="day-filter">Day of week</label>
+                <select id="day-filter" name="day">
+                  <option value="all">Any day</option>
+                  <option value="weekdays">Weekdays</option>
+                  <option value="weekends">Weekends</option>
+                  <option value="0">Monday</option>
+                  <option value="1">Tuesday</option>
+                  <option value="2">Wednesday</option>
+                  <option value="3">Thursday</option>
+                  <option value="4">Friday</option>
+                  <option value="5">Saturday</option>
+                  <option value="6">Sunday</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="season-filter">Season</label>
+                <select id="season-filter" name="season">
+                  <option value="all">All seasons</option>
+                  <option value="winter">Winter · Dec–Feb</option>
+                  <option value="spring">Spring · Mar–May</option>
+                  <option value="summer">Summer · Jun–Aug</option>
+                  <option value="fall">Fall · Sep–Nov</option>
+                </select>
+              </div>
+
+              <button type="reset" class="reset-button">Reset all filters <span aria-hidden="true">↺</span></button>
+            </form>
+            <p class="filter-note">Time means police dispatch time in Philadelphia, which may differ from when an incident occurred.</p>
+          </aside>
+
+          <div class="map-panel" aria-labelledby="map-title">
+            <div class="map-heading">
+              <div>
+                <span class="panel-index">02 / GEOGRAPHY</span>
+                <h3 id="map-title">Reports by census tract</h3>
+              </div>
+              <button id="back-to-city" class="back-button" type="button" hidden>← City view</button>
+            </div>
+            <div class="map-controls">
+              <label for="tract-select">Go to a tract</label>
+              <select id="tract-select" disabled>
+                <option value="">Choose on map or from list</option>
+              </select>
+            </div>
+            <div id="map" role="application" aria-label="Interactive map of Philadelphia census tracts. Use the tract selector above as a keyboard-accessible alternative."></div>
+            <div class="map-legend" aria-label="Map color legend">
+              <div class="legend-top"><span>FEWER REPORTS</span><span>MORE REPORTS</span></div>
+              <div class="legend-ramp" aria-hidden="true"></div>
+              <div class="legend-bottom"><span>0</span><span id="legend-max">—</span></div>
+            </div>
+            <p class="map-footnote">The color scale adjusts to the selected year and filters. Click a tract to see details. Points shown inside a tract are approximate block locations.</p>
+          </div>
+
+          <aside class="insight-panel" aria-labelledby="detail-title">
+            <div class="panel-heading detail-heading">
+              <span class="panel-index">03 / CONTEXT</span>
+              <h3 id="detail-title">Citywide view</h3>
+              <p id="detail-description">Select a tract to compare its pattern with Philadelphia and inspect its most reported blocks.</p>
+              <div class="detail-stat" id="detail-stat"></div>
+            </div>
+
+            <section class="chart-section" aria-labelledby="trend-title">
+              <div class="chart-title-row"><h4 id="trend-title">Five-year trend</h4><span>ANNUAL REPORTS</span></div>
+              <p class="chart-caption">The same incident and time filters apply across all five years. The selected year is highlighted.</p>
+              <div id="trend-chart" class="trend-chart" role="img" aria-label="Annual reported incident counts from 2021 through 2025"></div>
+              <p id="trend-summary" class="chart-summary"></p>
+            </section>
+
+            <section class="chart-section" aria-labelledby="hour-title">
+              <div class="chart-title-row"><h4 id="hour-title">Across the day</h4><span>DISPATCH HOUR</span></div>
+              <p class="chart-caption">The hour chart keeps your other filters and shows all 24 hours.</p>
+              <div id="hour-chart" class="hour-chart" role="img" aria-label="Hourly distribution of reported incidents"></div>
+              <p id="hour-summary" class="chart-summary"></p>
+            </section>
+
+            <section class="chart-section" aria-labelledby="weekday-title">
+              <div class="chart-title-row"><h4 id="weekday-title">Across the week</h4><span>DAY OF WEEK</span></div>
+              <p class="chart-caption">The weekday chart keeps your other filters and shows all seven days.</p>
+              <div id="weekday-chart" class="weekday-chart" role="img" aria-label="Weekday distribution of reported incidents"></div>
+            </section>
+
+            <section class="chart-section" aria-labelledby="season-title">
+              <div class="chart-title-row"><h4 id="season-title">Across the year</h4><span>SEASON</span></div>
+              <p class="chart-caption">The season chart keeps your other filters and shows all four seasons.</p>
+              <div id="season-chart" class="season-chart" role="img" aria-label="Seasonal distribution of reported incidents"></div>
+            </section>
+
+            <section class="chart-section" aria-labelledby="type-title">
+              <div class="chart-title-row"><h4 id="type-title">What was reported</h4><span>TYPE MIX</span></div>
+              <p class="chart-caption">Type shares keep your time filters and include every incident type.</p>
+              <div id="type-chart" class="type-chart"></div>
+            </section>
+
+            <section class="chart-section places-section" aria-labelledby="places-title">
+              <div class="chart-title-row"><h4 id="places-title">Where to look closer</h4><span id="places-label">TOP TRACTS</span></div>
+              <p id="places-caption" class="chart-caption">Tracts with the most reports under the current filters.</p>
+              <ol id="places-list" class="places-list"></ol>
+            </section>
+          </aside>
+        </div>
+      </section>
+
+      <section class="method-section" aria-labelledby="method-title">
+        <div class="method-intro">
+          <p class="eyebrow">READ THE DATA CAREFULLY</p>
+          <h2 id="method-title">What this view can tell you</h2>
+        </div>
+        <div class="method-grid">
+          <div class="method-card">
+            <span class="method-number">01</span>
+            <h3>Reported activity</h3>
+            <p>These are police dispatch records, not every incident that occurred. Locations are generalized to the hundred block. A darker tract means more reports under the selected filters, not a higher personal risk.</p>
+          </div>
+          <div class="method-card">
+            <span class="method-number">02</span>
+            <h3>Matching comparisons</h3>
+            <p>The map and detail charts show the selected year. The five-year trend keeps the incident and time filters, and switches between city and tract with the map. Tract populations are context only because residents do not capture visitors or workers.</p>
+          </div>
+          <div class="method-card">
+            <span class="method-number">03</span>
+            <h3>Sources and scope</h3>
+            <p>2021–2025 <a href="https://opendataphilly.org/datasets/crime-incidents/" target="_blank" rel="noopener noreferrer">Philadelphia Police crime incidents</a>, <a href="https://www2.census.gov/geo/tiger/TIGER2024/BG/" target="_blank" rel="noopener noreferrer">2024 Census TIGER/Line boundaries</a>, and <a href="https://api.census.gov/data/2024/acs/acs5/groups/B01003.html" target="_blank" rel="noopener noreferrer">2020–2024 ACS population</a>. <a href="data/README.md">Read the processing notes</a>.</p>
+          </div>
+        </div>
+        <p class="method-fineprint">This is a historical planning tool, not a live safety alert. Every supplied UTC-year extract misses roughly the last five local hours of December 31. Some geocoded reports could not be assigned to a tract, and geocoding quality varies by year. Homicide dispatch hours should be interpreted cautiously.</p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>PHL INCIDENT ATLAS <span aria-hidden="true">·</span> 2021–2025</span>
+      <span>Built for informed community planning</span>
+    </footer>
+  </body>
+</html>
