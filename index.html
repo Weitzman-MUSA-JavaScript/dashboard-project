@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Global M6+ Earthquake Dashboard (1990–2023)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  >
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <header class="app-header">
+    <div class="header-text">
+      <h1>Global M6+ Earthquakes</h1>
+      <p>Major earthquakes from 1990&ndash;2023 with proximity to seismic belts.</p>
+    </div>
+  </header>
+
+  <main class="app-main">
+    <section class="map-section">
+      <div id="map" class="map"></div>
+      <div id="map-legend" class="map-legend"></div>
+    </section>
+
+    <aside class="sidebar" aria-label="Earthquake filters and results">
+      <section class="panel-section">
+        <h2>Filters</h2>
+        <fieldset class="field">
+          <legend class="field-label">Magnitude</legend>
+          <label class="checkbox">
+            <input type="checkbox" name="magnitude" value="6-6.9" checked>
+            <span>6.0&ndash;6.9</span>
+          </label>
+          <label class="checkbox">
+            <input type="checkbox" name="magnitude" value="7-7.9" checked>
+            <span>7.0&ndash;7.9</span>
+          </label>
+          <label class="checkbox">
+            <input type="checkbox" name="magnitude" value="8+" checked>
+            <span>&ge; 8.0</span>
+          </label>
+        </fieldset>
+        <div class="field range-pair dual-range">
+          <label for="year-start" class="field-label">Year range</label>
+          <div class="range-track">
+            <input id="year-start" class="range-thumb range-thumb-start" type="range" min="1990" max="2023" value="1990" step="1" aria-label="Start year">
+            <input id="year-end" class="range-thumb range-thumb-end" type="range" min="1990" max="2023" value="2023" step="1" aria-label="End year">
+          </div>
+          <div class="range-values">
+            <span id="year-start-value">1990</span>
+            <span>&ndash;</span>
+            <span id="year-end-value">2023</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel-section">
+        <h2>Find a Place</h2>
+        <label class="field" for="city-input">
+          <span class="field-label">Search city</span>
+          <input id="city-input" type="search" name="city" autocomplete="off" placeholder="e.g. Tokyo" aria-describedby="city-help">
+        </label>
+        <p id="city-help" class="field-help">Start typing to see matching cities.</p>
+        <div class="field search-actions">
+          <button id="use-location" type="button" class="button button-secondary">Use my location</button>
+          <button id="clear-search" type="button" class="button button-tertiary">Clear</button>
+        </div>
+        <div class="field">
+          <label for="radius-input" class="field-label">Search radius <span id="radius-value">100 km</span></label>
+          <input id="radius-input" type="range" min="50" max="300" step="10" value="100">
+        </div>
+      </section>
+
+      <section class="panel-section">
+        <h2>Risk Summary</h2>
+        <div id="risk-summary" class="summary-card" role="status" aria-live="polite">
+          <p>Select a city or use your location to see nearby earthquakes.</p>
+        </div>
+      </section>
+
+    </aside>
+  </main>
+
+  <footer class="app-footer">
+    <p>
+      Earthquakes: <a href="https://www.kaggle.com/datasets/alessandrolobello/the-ultimate-earthquake-dataset-from-1990-2023/data" target="_blank" rel="noopener noreferrer">Kaggle M6+ dataset (1990&ndash;2023)</a> ·
+      Seismic belts: <a href="https://earthquake.usgs.gov/learn/plate-boundaries.kmz" target="_blank" rel="noopener noreferrer">USGS plate boundaries</a> ·
+      Global cities: <a href="https://www.kaggle.com/datasets/juanmah/world-cities" target="_blank" rel="noopener noreferrer">Kaggle world cities</a> ·
+      Basemap: Mapbox · Prepared for CPLN6920.
+    </p>
+  </footer>
+
+  <script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+  ></script>
+  <script src="https://cdn.jsdelivr.net/npm/@turf/turf@6/turf.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2/dist/fuse.min.js"></script>
+  <script type="module" src="./js/main.js"></script>
+</body>
+</html>
