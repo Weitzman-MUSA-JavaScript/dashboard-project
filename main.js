@@ -49,7 +49,7 @@ function showOnly(label) {
 function render() {
   $("summary").innerHTML = SERVICES.map((s) => `
     <tr data-label="${s.label}" class="${selected === s.label ? "selected" : ""}">
-      <td><img src="${s.iconUrl}" width="13"> ${s.label}</td>
+      <td><img src="${s.iconUrl}" width="12"> ${s.label}</td>
       <td>${usd(myShare(s))}</td>
     </tr>`).join("");
 }
@@ -91,9 +91,10 @@ for (const s of SERVICES) {
           const p = l.feature.properties;
 const name = p.firesta_ != null
   ? `Fire Station ${p.firesta_}`
-  : p.dist_num != null
-    ? `Police Station, District ${p.dist_num}`
-    : pick(p, NAME_FIELDS) ?? s.label;
+  : pick(p, NAME_FIELDS) ?? s.label;
+const policeStationName = p.dist_num != null
+  ? 'Police Station, District ${p.dist_num}'
+  : pick(p, NAME_FIELDS) ?? s.label;
           const address = pick(p, ADDRESS_FIELDS);
           return `<div class="popup-title">${name}</div>
             ${address ? `<div class="popup-address">${address}</div>` : ""}
