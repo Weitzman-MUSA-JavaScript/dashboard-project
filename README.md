@@ -5,8 +5,14 @@ This data was pulled from the proposed FY27 budget. I chose to measure general f
 Needless to say, once tax money is collected into the general fund, it's not trackable per resident. This is a rough estimate of what each person may pay into the general fund based on their taxes.
 
 Citations: 
-<a target="_blank" href="https://icons8.com/icon/81348/books">Icon Name</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
-<a target="_blank" href="https://icons8.com/icon/80564/tulip">Icon Name</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
-<a target="_blank" href="https://icons8.com/icon/FrhpOsZOKK3x/prison">Icon Name</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
-<a target="_blank" href="https://icons8.com/icon/81279/doughnut">Icon Name</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
-<a target="_blank" href="https://icons8.com/icon/80796/fire-extinguisher">Icon Name</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+<ul>
+<li><a target="_blank" href="https://icons8.com/icon/81348/books"> Book icon by <a target="_blank" href="https://icons8.com">Icons8</a></li>
+<li><a target="_blank" href="https://icons8.com/icon/80564/tulip"> Flower icon by <a target="_blank" href="https://icons8.com">Icons8</a></li>
+<li><a target="_blank" href="https://icons8.com/icon/FrhpOsZOKK3x/prison"> Prison icon by <a target="_blank" href="https://icons8.com">Icons8</a></li>
+<li><a target="_blank" href="https://icons8.com/icon/81279/doughnut"> Doughnut icon by <a target="_blank" href="https://icons8.com">Icons8</a></li>
+<li><a target="_blank" href="https://icons8.com/icon/80796/fire-extinguisher">Fire extinguisher icon by <a target="_blank" href="https://icons8.com">Icons8</a></li>
+<li>City of Philadelphia, FY2027 Proposed Operating Budget. Data compiled by Aaron Couch,
+  <cite><a href="https://github.com/acouch/phila-budget-site" target="_blank" rel="noopener">phila-budget-site</a></cite> (acouch, GitHub).</li>
+<li>GeoJSON data sourced from <cite><a href="https://opendataphilly.org/" target="_blank" rel="noopener">OpenDataPhilly</a></cite>
+</li>
+</ul>
