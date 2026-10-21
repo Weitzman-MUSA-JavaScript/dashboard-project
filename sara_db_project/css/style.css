@@ -1,0 +1,84 @@
+main {
+    display: flex;
+}
+
+h1 {
+    font-size: 14px;
+    font-family: avenir, sans-serif;
+    color: #2f0101;
+    font-style: normal;
+    margin-top: 0;
+    
+}
+
+h2 {
+    font-size: 8px;
+    font-weight: 20;
+    font-family: avenir, sans-serif;
+    color: #2f0101;
+    font-style: normal;
+}
+
+aside {
+    width: 260px;
+    padding: 20px;
+    font-family: avenir, sans-serif;
+    background-color: rgba(241, 237, 221, 0.1);
+    box-shadow: 0 4px 8px rgba(241, 230, 230, 0.1);
+    font-size: px;
+    font-weight: 100;
+    font-style: italic;
+}
+
+input { 
+    width: 100%; 
+    margin-bottom: 8px
+}
+
+body {
+    padding: 10px;
+    background-color: rgba(235, 238, 218, 0);
+    font-size: 12px;
+    font-weight: 300;
+    color: #2f0101;
+    margin: 0; 
+    display: flex; 
+}
+
+/* The whole table */
+#summary-table {
+    width: 100%;
+    border-collapse: collapse; 
+    font-size: 10px;
+    font-style: normal;
+    padding: 6px;
+    margin-bottom: 8px
+}
+
+
+#summary-table th {
+    text-align: left;
+    border-bottom: 2px solid #3c0202;
+    padding: 6px;
+    background-color: rgba(168, 155, 15, 0.1);
+    
+}
+
+
+#summary-table td {
+    border-bottom: 1px solid #3c0202;
+    background-color: rgba(168, 155, 15, 0.1);
+    padding: 4px;
+    border: .5px solid #2f0101;
+}
+
+#map {
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 2px solid #2f0101;
+    border-radius: 8px;
+    position: right;
+    width: 125%;
+    height: 80vh;
+    flex: 1;
+}
