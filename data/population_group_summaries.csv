@@ -1,0 +1,81 @@
+indicator,transition,n_total,n_valid,n_missing,n_population_unavailable,total_population,covered_population,population_coverage_pct,numerator_sum,denominator_sum,value,moe,high_uncertainty,source_high_uncertainty_n,small_group,method,unit,generation_id
+age_65_plus,Consistently below,240,240,0,0,998750,998750,100,152439,998750,15.262978723404256,0.29648920044609756,FALSE,2,FALSE,pooled_acs_percentage,percent,20261019T235205Z
+age_65_plus,Newly elevated,1,1,0,0,3606,3606,100,531,3606,14.725457570715474,3.799625527085341,FALSE,0,TRUE,pooled_acs_percentage,percent,20261019T235205Z
+age_65_plus,Persistently elevated,71,71,0,0,261199,261199,100,37163,261199,14.227849264353999,0.6558881229239811,FALSE,3,FALSE,pooled_acs_percentage,percent,20261019T235205Z
+age_65_plus,Previously elevated,75,75,0,0,314148,314148,100,41926,314148,13.345938856844544,0.5683803837087413,FALSE,0,FALSE,pooled_acs_percentage,percent,20261019T235205Z
+aian_nh,Consistently below,240,240,0,0,998750,998750,100,1020,998750,0.10212765957446808,0.03696700891531753,FALSE,239,FALSE,pooled_acs_percentage,percent,20261019T235205Z
+aian_nh,Newly elevated,1,1,0,0,3606,3606,100,0,3606,0,0.33277870216306155,TRUE,1,TRUE,pooled_acs_percentage,percent,20261019T235205Z
+aian_nh,Persistently elevated,71,71,0,0,261199,261199,100,457,261199,0.17496238500147399,0.09341437735346983,FALSE,70,FALSE,pooled_acs_percentage,percent,20261019T235205Z
+aian_nh,Previously elevated,75,75,0,0,314148,314148,100,348,314148,0.11077581267428091,0.06418245893217239,FALSE,75,FALSE,pooled_acs_percentage,percent,20261019T235205Z
+asian_nh,Consistently below,240,240,0,0,998750,998750,100,102147,998750,10.227484355444306,0.42565520904597703,FALSE,40,FALSE,pooled_acs_percentage,percent,20261019T235205Z
+asian_nh,Newly elevated,1,1,0,0,3606,3606,100,1523,3606,42.23516361619523,7.77819657443314,FALSE,0,TRUE,pooled_acs_percentage,percent,20261019T235205Z
+asian_nh,Persistently elevated,71,71,0,0,261199,261199,100,5954,261199,2.2794880531701884,0.48551056596344355,FALSE,59,FALSE,pooled_acs_percentage,percent,20261019T235205Z
+asian_nh,Previously elevated,75,75,0,0,314148,314148,100,15284,314148,4.865222761246292,0.5630453351598639,FALSE,39,FALSE,pooled_acs_percentage,percent,20261019T235205Z
+black_nh,Consistently below,240,240,0,0,998750,998750,100,247677,998750,24.798698372966207,0.7042095681577561,FALSE,36,FALSE,pooled_acs_percentage,percent,20261019T235205Z
+black_nh,Newly elevated,1,1,0,0,3606,3606,100,1224,3606,33.94342762063228,16.667092154448767,FALSE,0,TRUE,pooled_acs_percentage,percent,20261019T235205Z
+black_nh,Persistently elevated,71,71,0,0,261199,261199,100,163813,261199,62.715783751086335,1.613997803361145,FALSE,2,FALSE,pooled_acs_percentage,percent,20261019T235205Z
+black_nh,Previously elevated,75,75,0,0,314148,314148,100,191725,314148,61.03015139361065,1.6357843706939414,FALSE,3,FALSE,pooled_acs_percentage,percent,20261019T235205Z
+hispanic,Consistently below,240,240,0,0,998750,998750,100,132157,998750,13.23224030037547,0.5944380910035678,FALSE,31,FALSE,pooled_acs_percentage,percent,20261019T235205Z
+hispanic,Newly elevated,1,1,0,0,3606,3606,100,733,3606,20.327232390460345,18.450980540361513,FALSE,0,TRUE,pooled_acs_percentage,percent,20261019T235205Z
+hispanic,Persistently elevated,71,71,0,0,261199,261199,100,60979,261199,23.34580147703475,1.4595922535522932,FALSE,28,FALSE,pooled_acs_percentage,percent,20261019T235205Z
+hispanic,Previously elevated,75,75,0,0,314148,314148,100,51769,314148,16.47917542050244,1.2705921398283482,FALSE,27,FALSE,pooled_acs_percentage,percent,20261019T235205Z
+multiracial_nh,Consistently below,240,240,0,0,998750,998750,100,46665,998750,4.672340425531915,0.3645047179459238,FALSE,76,FALSE,pooled_acs_percentage,percent,20261019T235205Z
+multiracial_nh,Newly elevated,1,1,0,0,3606,3606,100,0,3606,0,0.33277870216306155,TRUE,1,TRUE,pooled_acs_percentage,percent,20261019T235205Z
+multiracial_nh,Persistently elevated,71,71,0,0,261199,261199,100,7089,261199,2.7140226417405886,0.4990057151214233,FALSE,56,FALSE,pooled_acs_percentage,percent,20261019T235205Z
+multiracial_nh,Previously elevated,75,75,0,0,314148,314148,100,10453,314148,3.3274125571386737,0.57709619324567,FALSE,40,FALSE,pooled_acs_percentage,percent,20261019T235205Z
+nhpi_nh,Consistently below,240,240,0,0,998750,998750,100,169,998750,0.016921151439299124,0.022368514468625877,TRUE,240,FALSE,pooled_acs_percentage,percent,20261019T235205Z
+nhpi_nh,Newly elevated,1,1,0,0,3606,3606,100,0,3606,0,0.33277870216306155,TRUE,1,TRUE,pooled_acs_percentage,percent,20261019T235205Z
+nhpi_nh,Persistently elevated,71,71,0,0,261199,261199,100,0,261199,0,0.04110780707776051,TRUE,71,FALSE,pooled_acs_percentage,percent,20261019T235205Z
+nhpi_nh,Previously elevated,75,75,0,0,314148,314148,100,43,314148,0.013687815933891033,0.04284915806321048,TRUE,75,FALSE,pooled_acs_percentage,percent,20261019T235205Z
+no_high_school,Consistently below,240,240,0,0,998750,998750,100,69129,708618,9.755467684986833,0.4135730079863644,FALSE,68,FALSE,pooled_acs_percentage,percent,20261019T235205Z
+no_high_school,Newly elevated,1,1,0,0,3606,3606,100,949,2488,38.143086816720256,14.591582070139852,FALSE,0,TRUE,pooled_acs_percentage,percent,20261019T235205Z
+no_high_school,Persistently elevated,71,71,0,0,261199,261199,100,31242,170829,18.28846390249899,1.101136545454076,FALSE,3,FALSE,pooled_acs_percentage,percent,20261019T235205Z
+no_high_school,Previously elevated,75,75,0,0,314148,314148,100,31604,205750,15.360388821385175,1.0667951041410761,FALSE,10,FALSE,pooled_acs_percentage,percent,20261019T235205Z
+no_vehicle,Consistently below,240,240,0,0,998750,998750,100,98209,435335,22.55940827179069,0.5955671045369655,FALSE,7,FALSE,pooled_acs_percentage,percent,20261019T235205Z
+no_vehicle,Newly elevated,1,1,0,0,3606,3606,100,327,1191,27.455919395465994,15.521225186184415,FALSE,0,TRUE,pooled_acs_percentage,percent,20261019T235205Z
+no_vehicle,Persistently elevated,71,71,0,0,261199,261199,100,44180,109892,40.20310850653369,1.720794479365754,FALSE,1,FALSE,pooled_acs_percentage,percent,20261019T235205Z
+no_vehicle,Previously elevated,75,75,0,0,314148,314148,100,46900,132933,35.280930995313426,1.5712491528620354,FALSE,1,FALSE,pooled_acs_percentage,percent,20261019T235205Z
+other_nh,Consistently below,240,240,0,0,998750,998750,100,9129,998750,0.9140425531914894,0.22895341867537586,FALSE,230,FALSE,pooled_acs_percentage,percent,20261019T235205Z
+other_nh,Newly elevated,1,1,0,0,3606,3606,100,0,3606,0,0.33277870216306155,TRUE,1,TRUE,pooled_acs_percentage,percent,20261019T235205Z
+other_nh,Persistently elevated,71,71,0,0,261199,261199,100,1293,261199,0.49502486609826224,0.3490125330071299,FALSE,70,FALSE,pooled_acs_percentage,percent,20261019T235205Z
+other_nh,Previously elevated,75,75,0,0,314148,314148,100,2256,314148,0.718132854578097,0.3093590357648163,FALSE,75,FALSE,pooled_acs_percentage,percent,20261019T235205Z
+poverty,Consistently below,240,240,0,0,998750,998750,100,149752,964028,15.533988639334128,0.6528483735736093,FALSE,5,FALSE,pooled_acs_percentage,percent,20261019T235205Z
+poverty,Newly elevated,1,1,0,0,3606,3606,100,970,3606,26.89961175818081,12.27483746347535,FALSE,0,TRUE,pooled_acs_percentage,percent,20261019T235205Z
+poverty,Persistently elevated,71,71,0,0,261199,261199,100,88998,258942,34.369858887318394,1.960011019928139,FALSE,1,FALSE,pooled_acs_percentage,percent,20261019T235205Z
+poverty,Previously elevated,75,75,0,0,314148,314148,100,88200,308712,28.570317966259815,1.7263720724515457,FALSE,0,FALSE,pooled_acs_percentage,percent,20261019T235205Z
+rent_burden,Consistently below,240,240,0,0,998750,998750,100,89677,188362,47.608859536424546,1.202387806889649,FALSE,9,FALSE,pooled_acs_percentage,percent,20261019T235205Z
+rent_burden,Newly elevated,1,1,0,0,3606,3606,100,248,600,41.333333333333336,16.54023362577028,FALSE,0,TRUE,pooled_acs_percentage,percent,20261019T235205Z
+rent_burden,Persistently elevated,71,70,1,0,261199,261044,99.94065827204545,33039,53315,61.96942699052799,2.4077840475617127,FALSE,0,FALSE,pooled_acs_percentage,percent,20261019T235205Z
+rent_burden,Previously elevated,75,75,0,0,314148,314148,100,36574,62961,58.08992868601197,2.305238720731036,FALSE,1,FALSE,pooled_acs_percentage,percent,20261019T235205Z
+svi_household,Consistently below,240,240,0,0,998750,998750,100,NA,NA,0.530645864330413,NA,NA,0,FALSE,population_weighted_mean_tract_rank,mean national tract rank (0–1),20261019T235205Z
+svi_household,Newly elevated,1,1,0,0,3606,3606,100,NA,NA,0.9945,NA,NA,0,TRUE,population_weighted_mean_tract_rank,mean national tract rank (0–1),20261019T235205Z
+svi_household,Persistently elevated,71,70,1,0,261199,261044,99.94065827204545,NA,NA,0.8222723579166732,NA,NA,0,FALSE,population_weighted_mean_tract_rank,mean national tract rank (0–1),20261019T235205Z
+svi_household,Previously elevated,75,75,0,0,314148,314148,100,NA,NA,0.7881594410914602,NA,NA,0,FALSE,population_weighted_mean_tract_rank,mean national tract rank (0–1),20261019T235205Z
+svi_housing_transport,Consistently below,240,240,0,0,998750,998750,100,NA,NA,0.5869304237296623,NA,NA,0,FALSE,population_weighted_mean_tract_rank,mean national tract rank (0–1),20261019T235205Z
+svi_housing_transport,Newly elevated,1,1,0,0,3606,3606,100,NA,NA,0.5388,NA,NA,0,TRUE,population_weighted_mean_tract_rank,mean national tract rank (0–1),20261019T235205Z
+svi_housing_transport,Persistently elevated,71,70,1,0,261199,261044,99.94065827204545,NA,NA,0.604150468503394,NA,NA,0,FALSE,population_weighted_mean_tract_rank,mean national tract rank (0–1),20261019T235205Z
+svi_housing_transport,Previously elevated,75,75,0,0,314148,314148,100,NA,NA,0.5907483587353733,NA,NA,0,FALSE,population_weighted_mean_tract_rank,mean national tract rank (0–1),20261019T235205Z
+svi_minority,Consistently below,240,240,0,0,998750,998750,100,NA,NA,0.6352523863829788,NA,NA,0,FALSE,population_weighted_mean_tract_rank,mean national tract rank (0–1),20261019T235205Z
+svi_minority,Newly elevated,1,1,0,0,3606,3606,100,NA,NA,0.9732,NA,NA,0,TRUE,population_weighted_mean_tract_rank,mean national tract rank (0–1),20261019T235205Z
+svi_minority,Persistently elevated,71,71,0,0,261199,261199,100,NA,NA,0.9307246471081435,NA,NA,0,FALSE,population_weighted_mean_tract_rank,mean national tract rank (0–1),20261019T235205Z
+svi_minority,Previously elevated,75,75,0,0,314148,314148,100,NA,NA,0.8973208554566641,NA,NA,0,FALSE,population_weighted_mean_tract_rank,mean national tract rank (0–1),20261019T235205Z
+svi_overall,Consistently below,240,240,0,0,998750,998750,100,NA,NA,0.592941813266583,NA,NA,0,FALSE,population_weighted_mean_tract_rank,mean national tract rank (0–1),20261019T235205Z
+svi_overall,Newly elevated,1,1,0,0,3606,3606,100,NA,NA,0.9502,NA,NA,0,TRUE,population_weighted_mean_tract_rank,mean national tract rank (0–1),20261019T235205Z
+svi_overall,Persistently elevated,71,70,1,0,261199,261044,99.94065827204545,NA,NA,0.8758284093869233,NA,NA,0,FALSE,population_weighted_mean_tract_rank,mean national tract rank (0–1),20261019T235205Z
+svi_overall,Previously elevated,75,75,0,0,314148,314148,100,NA,NA,0.82945433394451,NA,NA,0,FALSE,population_weighted_mean_tract_rank,mean national tract rank (0–1),20261019T235205Z
+svi_socioeconomic,Consistently below,240,240,0,0,998750,998750,100,NA,NA,0.57460889922403,NA,NA,0,FALSE,population_weighted_mean_tract_rank,mean national tract rank (0–1),20261019T235205Z
+svi_socioeconomic,Newly elevated,1,1,0,0,3606,3606,100,NA,NA,0.9224,NA,NA,0,TRUE,population_weighted_mean_tract_rank,mean national tract rank (0–1),20261019T235205Z
+svi_socioeconomic,Persistently elevated,71,70,1,0,261199,261044,99.94065827204545,NA,NA,0.882294388302355,NA,NA,0,FALSE,population_weighted_mean_tract_rank,mean national tract rank (0–1),20261019T235205Z
+svi_socioeconomic,Previously elevated,75,75,0,0,314148,314148,100,NA,NA,0.8143949390096389,NA,NA,0,FALSE,population_weighted_mean_tract_rank,mean national tract rank (0–1),20261019T235205Z
+under_18,Consistently below,240,240,0,0,998750,998750,100,193218,998750,19.34598247809762,0.4625228125831078,FALSE,12,FALSE,pooled_acs_percentage,percent,20261019T235205Z
+under_18,Newly elevated,1,1,0,0,3606,3606,100,865,3606,23.98779811425402,7.78068021501047,FALSE,0,TRUE,pooled_acs_percentage,percent,20261019T235205Z
+under_18,Persistently elevated,71,71,0,0,261199,261199,100,64213,261199,24.583937917067065,1.1015787339411218,FALSE,2,FALSE,pooled_acs_percentage,percent,20261019T235205Z
+under_18,Previously elevated,75,75,0,0,314148,314148,100,76234,314148,24.26690604428486,0.9843863085778316,FALSE,3,FALSE,pooled_acs_percentage,percent,20261019T235205Z
+unemployment,Consistently below,240,240,0,0,998750,998750,100,36343,552566,6.577132867385977,0.3724718541806608,FALSE,49,FALSE,pooled_acs_percentage,percent,20261019T235205Z
+unemployment,Newly elevated,1,1,0,0,3606,3606,100,126,1599,7.879924953095685,7.152476368770021,FALSE,0,TRUE,pooled_acs_percentage,percent,20261019T235205Z
+unemployment,Persistently elevated,71,71,0,0,261199,261199,100,14356,111199,12.910188041259364,1.3741499320562383,FALSE,18,FALSE,pooled_acs_percentage,percent,20261019T235205Z
+unemployment,Previously elevated,75,75,0,0,314148,314148,100,15413,147535,10.447012573287694,1.0965821862587888,FALSE,19,FALSE,pooled_acs_percentage,percent,20261019T235205Z
+white_nh,Consistently below,240,240,0,0,998750,998750,100,459786,998750,46.03614518147685,0.5465344783147423,FALSE,3,FALSE,pooled_acs_percentage,percent,20261019T235205Z
+white_nh,Newly elevated,1,1,0,0,3606,3606,100,126,3606,3.4941763727121464,2.3914880537374184,FALSE,0,TRUE,pooled_acs_percentage,percent,20261019T235205Z
+white_nh,Persistently elevated,71,71,0,0,261199,261199,100,21614,261199,8.274916825868399,0.6962100579150605,FALSE,22,FALSE,pooled_acs_percentage,percent,20261019T235205Z
+white_nh,Previously elevated,75,75,0,0,314148,314148,100,42270,314148,13.455441384315673,0.7674434578992195,FALSE,16,FALSE,pooled_acs_percentage,percent,20261019T235205Z

@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Philadelphia burden and community conditions - Project 2</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <script defer src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script type="module" src="js/index.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#tract-table">Skip map to tract table</a>
+    <header>
+      <h1>Inequalities in firearm violence decline in Philadelphia</h1>
+      <p class="byline">By Jamie Song, MPH</p>
+      <!-- tk: explain the municipal/community audience, planning questions -->
+      <p>A dashboard in progress for Philadelphia’s municipal public health, housing, human services, and community development teams, and community advocates. Descriptive evidence, not a priority ranking.</p>
+      <nav aria-label="Dashboard sections">
+        <a href="#map-title">Map and tract profiles</a>
+        <a href="#category-comparison">Compare categories</a>
+      </nav>
+      <div aria-labelledby="guide-title">
+        <h2 id="guide-title">How to use this dashboard</h2>
+        <ul>
+          <li><a href="#map-title">Find an address or select a tract</a> to view its profile.</li>
+          <li><a href="#table-title">Search or filter</a> by tract or transition group.</li>
+          <li><a href="#category-comparison">Choose a measure</a> to compare groups.</li>
+        </ul>
+      </div>
+      <p id="status" role="status">Loading R-exported data…</p>
+      <noscript>JavaScript is needed for the interactive views. Aggregate CSV downloads and methods are available below.</noscript>
+    </header>
+    <main>
+      <div class="dashboard">
+        <section aria-labelledby="map-title">
+          <h2 id="map-title">Elevated burden: 2020–2022 → 2023–2025</h2>
+          <p>The same baseline benchmark applies to both periods: <span id="benchmark">Loading…</span> annualized firearm assault injuries per 10,000 resident population.</p>
+          <form id="address-form" aria-describedby="address-help address-privacy">
+            <fieldset id="address-controls" disabled>
+              <legend>Find a tract by street address</legend>
+              <div class="address-fields">
+                <label for="address-street">Philadelphia street address
+                  <input id="address-street" type="text" placeholder="e.g., 1400 John F Kennedy Blvd" maxlength="200" autocomplete="off" required>
+                </label>
+                <label for="address-zip" class="address-zip-field">ZIP code (optional)
+                  <input id="address-zip" type="text" inputmode="numeric" pattern="[0-9]{5}" maxlength="5" autocomplete="off">
+                </label>
+              </div>
+              <button id="address-submit" type="submit">Find tract</button>
+              <button id="address-clear" type="button">Clear address</button>
+            </fieldset>
+            <p id="address-privacy">Address is sent to the <a href="https://geocoding.geo.census.gov/geocoder/Geocoding_Services_API.html">U.S. Census Bureau</a> for lookup.</p>
+            <p id="address-help">Be sure to confirm the returned address since matches are approximate.</p>
+            <p id="address-status" role="status" aria-live="polite" aria-atomic="true"></p>
+            <ul id="address-results" aria-label="Matched addresses"></ul>
+          </form>
+          <button id="reset" type="button" disabled>Clear selection and reset map</button>
+          <div id="map" aria-label="Philadelphia tract transition map" aria-describedby="map-help"></div>
+          <p id="map-help">Select a tract on the map or use the tract buttons in the table.</p>
+          <p id="map-status" role="status"></p>
+          <ul id="legend" aria-label="Burden transition legend"></ul>
+        </section>
+        <section class="profile" aria-labelledby="profile-title">
+          <h2 id="profile-title">Select a tract</h2>
+          <p>Counts include fatal and nonfatal firearm assault injuries, excluding police-involved shootings. Rates are yearly injuries per 10,000 resident population.</p>
+          <dl id="profile-details"></dl>
+          <p>ACS measures use 2020–2024 estimates. SVI 2022 uses an earlier ACS window (2018–2022) and national rankings. SVI is not a firearm-violence score.</p>
+        </section>
+      </div>
+      <section aria-labelledby="table-title">
+        <h2 id="table-title">Tract selection and data alternative</h2>
+        <p>Find a tract or select a transition category. <a href="#category-comparison">Compare community profiles by category</a>.</p>
+        <div class="filter-toolbar">
+          <label for="tract-search">Search tract number or GEOID
+            <input id="tract-search" type="search" placeholder="e.g., 1.01 or 42101000101" aria-describedby="filter-help" disabled>
+          </label>
+          <label for="transition-filter">Burden transition
+            <select id="transition-filter" disabled>
+              <option value="all">All transition categories</option>
+              <option value="Persistently elevated">Persistently elevated</option>
+              <option value="Previously elevated">Previously elevated</option>
+              <option value="Newly elevated">Newly elevated</option>
+              <option value="Consistently below">Consistently below</option>
+              <option value="Unavailable">Unavailable</option>
+            </select>
+          </label>
+          <button id="reset-filters" type="button" disabled>Reset filters</button>
+        </div>
+        <p id="filter-help">Filters update the table and highlight matching map tracts. Category counts reflect the searched topic across all groups.</p>
+        <div id="category-pills" role="group" aria-label="Filter by burden transition"></div>
+        <p id="filter-summary" role="status" aria-live="polite" aria-atomic="true">Waiting for exported data…</p>
+        <p>Totals cover injuries assigned to the displayed tracts, not unassigned records or citywide trends when filters are active.</p>
+        <div class="table-scroll" tabindex="0" role="region" aria-label="Scrollable tract table">
+          <table id="tract-table">
+            <caption id="tract-table-caption">Select a tract to update its profile. Poverty is percent below the poverty threshold, ACS 2020–2024.</caption>
+            <thead><tr><th scope="col">Select tract</th><th scope="col">GEOID</th><th scope="col">Transition</th><th scope="col">2020–2022 count</th><th scope="col">2023–2025 count</th><th scope="col">Poverty (%)</th></tr></thead>
+            <tbody id="tract-rows"></tbody>
+          </table>
+        </div>
+      </section>
+      <section id="category-comparison" aria-labelledby="comparison-title">
+        <h2 id="comparison-title">Compare community conditions</h2>
+        <!-- tk: introduce the comparison and explain why it matters. -->
+        <p>Compare demographics and community conditions across four groups of Census tracts.</p>
+        <details class="comparison-details">
+          <summary>What do the four groups mean?</summary>
+          <p>Groups compare firearm assault injury rates in 2020–2022 and 2023–2025 against the same 2015–2019 benchmark.</p>
+          <dl>
+            <dt>Persistently elevated</dt><dd>At or above the benchmark in both periods.</dd>
+            <dt>Previously elevated</dt><dd>At or above the benchmark in 2020–2022, below it in 2023–2025.</dd>
+            <dt>Newly elevated</dt><dd>Below the benchmark in 2020–2022, at or above it in 2023–2025.</dd>
+            <dt>Consistently below</dt><dd>Below the benchmark in both periods. This does not mean no injuries occurred.</dd>
+          </dl>
+        </details>
+        <label for="comparison-measure">What would you like to compare?</label>
+        <select id="comparison-measure" aria-describedby="measure-description" disabled></select>
+        <h3 id="measure-title">Loading community measures…</h3>
+        <p id="measure-description"></p>
+        <p id="comparison-reading-guide"></p>
+        <ul id="comparison-overview" aria-labelledby="measure-title" aria-describedby="comparison-reading-guide"></ul>
+        <!-- tk: discuss patterns and community context here. -->
+        <p class="comparison-boundary">Descriptive comparisons, not evidence of causes or funding priorities. Differences are not tested for statistical significance.</p>
+        <details id="comparison-options" class="comparison-details">
+          <summary>How are these numbers calculated?</summary>
+          <label for="comparison-mode">Comparison approach</label>
+          <select id="comparison-mode" aria-describedby="comparison-method" disabled>
+            <option value="population" selected>Population and household estimates</option>
+            <option value="tract">Typical Census tract</option>
+          </select>
+          <p id="comparison-method">Summaries are imported from the R workflow.</p>
+          <p>ACS: American Community Survey, 2020–2024. SVI: Social Vulnerability Index, 2022, based on ACS 2018–2022. These are snapshots, not demographic trends.</p>
+          <p>Translucent bands show approximate 90% ACS sampling uncertainty, not variation between tracts. SVI has no margin of error available here.</p>
+          <p>Example: 20% ± 2 percentage points gives an approximate range of 18%–22%.</p>
+          <p>Unclassified tracts remain in the map and tract table but are excluded here.</p>
+        </details>
+        <p id="comparison-status" role="status" aria-live="polite" aria-atomic="true"></p>
+        <details id="full-comparison-data" class="comparison-details">
+          <summary>Technical comparison table and downloads</summary>
+          <p>Scroll inside the table for more measures; on small screens, scroll sideways for other groups.</p>
+          <div class="comparison-scroll" tabindex="0" role="region" aria-label="Scrollable category comparison table">
+            <table id="comparison-table">
+              <caption>ACS 2020–2024: pooled percentages ± approximate 90% MOE (percentage points). SVI 2022: population-weighted mean national tract rank. n = measured/total tracts. Typical-tract view: median [IQR], or individual values when n &lt; 5.</caption>
+              <thead id="comparison-head"></thead>
+              <tbody id="comparison-rows"></tbody>
+            </table>
+          </div>
+          <p><a href="data/population_group_summaries.csv" download>Download population and community estimates (CSV)</a> · <a href="data/group_summaries.csv" download>Download typical-tract summaries (CSV)</a></p>
+        </details>
+      </section>
+      <section aria-labelledby="methods-title">
+        <h2 id="methods-title">Methods, sources and downloads</h2>
+        <!-- tk: explain what these comparisons can support, limitations, why community involvement matters -->
+        <p>Elevated burden means meeting the fixed 2015–2019 upper-quartile tract rate benchmark. “Below” does not mean no harm. Special-use and otherwise rate-ineligible tracts are retained as unavailable but their counts remain accessible.</p>
+        <p>The weighted view pools ACS counts within each measure’s population or household universe and averages SVI tract ranks using fixed ACS population weights. The typical-tract view gives every tract equal weight.</p>
+        <ul>
+          <li>Firearm assault injuries: Philadelphia Police Department’s Shooting Victims dataset via <a href="https://opendataphilly.org/datasets/shooting-victims/">OpenDataPhilly</a>, local extraction May 21, 2026.</li>
+          <li><a href="https://api.census.gov/data/2024/acs/acs5.html">Census ACS 2020–2024 five-year estimates</a>.</li>
+          <li><a href="https://www.atsdr.cdc.gov/place-health/media/pdfs/2025/01/SVI2022Documentation.pdf">CDC/ATSDR SVI 2022 documentation</a>; national tract release.</li>
+          <li><a href="data/tract_indicators.csv" download>Download tract indicators (CSV)</a> · <a href="data/group_summaries.csv" download>Download group summaries (CSV)</a> · <a href="data/metadata.json">Definitions and provenance (JSON)</a></li>
+        </ul>
+      </section>
+    </main>
+    <footer class="course-credits" aria-label="Course credits">
+      <p>Created for MUSA 6110 - Fall 2026 - Professor Mjumbe Poe</p>
+    </footer>
+  </body>
+</html>
