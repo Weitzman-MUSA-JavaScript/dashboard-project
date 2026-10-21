@@ -2,7 +2,7 @@ import { TOTAL_GF, CITY_SHARE, SERVICES } from "./budget.js";
 
 const $ = (id) => document.getElementById(id);
 const usd = (n) => n.toLocaleString("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 2 });
-const SALES_RATE = 0.02; // Philly's local share of the 8% sales tax
+const SALES_RATE = 0.01; 
 const key = String(name).trim().toLowerCase();
 
 const val = (id) => +$(id).value || 0;
@@ -91,10 +91,9 @@ for (const s of SERVICES) {
           const p = l.feature.properties;
 const name = p.firesta_ != null
   ? `Fire Station ${p.firesta_}`
-  : pick(p, NAME_FIELDS) ?? s.label;
-const policeStationName = p.dist_num != null
-  ? 'Police Station, District ${p.dist_num}'
-  : pick(p, NAME_FIELDS) ?? s.label;
+  : p.dist_num != null
+    ? `Police Station, District ${p.dist_num}`
+    : pick(p, NAME_FIELDS) ?? s.label;
           const address = pick(p, ADDRESS_FIELDS);
           return `<div class="popup-title">${name}</div>
             ${address ? `<div class="popup-address">${address}</div>` : ""}
