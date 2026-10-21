@@ -1,0 +1,105 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Find a restroom in Philadelphia that is open right now, free or for customers, with accessibility details.">
+
+    <title>Phlush Finder: Philadelphia restrooms open now</title>
+
+    <link rel="icon" href="img/icon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;800&display=swap">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+
+  <body>
+    <a class="skip-link" href="#results">Skip to the list of restrooms</a>
+
+    <header class="site-header">
+      <h1 class="brand">
+        <img src="img/icon.svg" alt="" width="32" height="32">
+        Phlush Finder
+      </h1>
+      <button type="button" class="about-button" aria-haspopup="dialog" aria-controls="about-dialog">About<span class="wide-only"> and data sources</span></button>
+    </header>
+
+    <main class="layout">
+      <section class="panel" aria-label="Search and results">
+        <form class="search" role="search" aria-label="Search near a place">
+          <label class="visually-hidden" for="address-search">Address or place in Philadelphia</label>
+          <div class="search-field">
+            <input id="address-search" name="address-search" type="search" placeholder="Address or landmark" autocomplete="off"
+              role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="suggestions" aria-describedby="search-hint">
+            <ul id="suggestions" class="suggestions" role="listbox" aria-label="Suggestions" hidden></ul>
+          </div>
+          <button type="submit" class="search-button">Search</button>
+          <button type="button" class="locate-button" aria-label="Use my current location">
+            <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="12" cy="12" r="4" fill="currentColor"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="12" r="7.5" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+          </button>
+        </form>
+        <p id="search-hint" class="visually-hidden">Type at least 3 letters to see suggestions. Use the up and down arrows to choose one.</p>
+        <p class="search-message" role="status" aria-live="polite"></p>
+
+        <fieldset class="filters">
+          <legend class="visually-hidden">Show only restrooms that are</legend>
+          <label class="chip"><input type="checkbox" name="free-only"> Free</label>
+          <label class="chip"><input type="checkbox" name="wheelchair"> Wheelchair accessible</label>
+          <label class="chip"><input type="checkbox" name="changing-table"> Changing table</label>
+          <label class="chip"><input type="checkbox" name="gender-neutral"> Gender-neutral</label>
+          <label class="chip"><input type="checkbox" name="verified"> Verified hours</label>
+          <label class="chip chip-toggle"><input type="checkbox" name="show-closed"> Show closed places</label>
+        </fieldset>
+
+        <p class="summary" id="results" tabindex="-1" aria-live="polite">Loading restrooms…</p>
+        <ol class="results-list" aria-label="Restrooms sorted by distance"></ol>
+      </section>
+
+      <section class="map-area" aria-label="Map of restrooms">
+        <div id="map" class="map"></div>
+        <div class="legend" aria-hidden="true">
+          <span><i class="dot dot-free"></i>Free</span>
+          <span><i class="dot dot-customers"></i>Customers only</span>
+          <span><i class="dot dot-limited"></i>Limited or unknown access</span>
+          <span><i class="dot dot-hollow"></i>Hours unknown</span>
+        </div>
+      </section>
+    </main>
+
+    <dialog id="about-dialog" class="about" aria-labelledby="about-title">
+      <div class="about-inner">
+        <h2 id="about-title">About Phlush Finder</h2>
+        <p>Phlush Finder helps people who are out in Philadelphia find a restroom fast. It answers three questions: which nearby restroom is open right now, whether you can use it for free, and whether it has the facilities you need.</p>
+        <p>It is a student project and is not affiliated with the City of Philadelphia's Philly Phlush public restroom program. Hours change, so check with the place when it matters.</p>
+
+        <h3>How to read the map</h3>
+        <ul>
+          <li><strong>Free</strong>: public restrooms, libraries, transit stations, parks, and malls.</li>
+          <li><strong>Customers only</strong>: cafes, restaurants, and stores. You may need to buy something or ask for a door code.</li>
+          <li><strong>Limited or unknown access</strong>: places that need an ID or ticket, or community reports that don't say.</li>
+          <li><strong>Verified hours</strong> come from the City of Philadelphia and the Free Library. Other hours come from OpenStreetMap volunteers.</li>
+        </ul>
+
+        <h3>Data sources</h3>
+        <ul class="sources">
+          <li>City of Philadelphia, <a href="https://www.phila.gov/publicrestrooms">Philly Phlush public restrooms</a> (locations and hours, checked October 2026).</li>
+          <li>Visit Philly, <a href="https://www.visitphilly.com/articles/philadelphia/public-restrooms/">Public restrooms in Philadelphia</a> (updated January 2026).</li>
+          <li>Free Library of Philadelphia, <a href="https://libwww.freelibrary.org/locations/">branch locations and hours</a> (checked October 2026), with coordinates from the City of Philadelphia <a href="https://opendataphilly.org/datasets/city-facilities-master-facilities-database/">City Facilities dataset</a> on OpenDataPhilly.</li>
+          <li>© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>, available under the Open Database License (public toilets, stores, malls, cafes, and restaurants; exported October 2026).</li>
+          <li><a href="https://www.refugerestrooms.org/">Refuge Restrooms</a> community reports (retrieved October 2026).</li>
+          <li>Address search by <a href="https://photon.komoot.io/">Photon</a> (komoot), using OpenStreetMap data. Basemap: Esri Light Gray Canvas (Esri, HERE, Garmin, © OpenStreetMap contributors).</li>
+        </ul>
+
+        <form method="dialog">
+          <button type="submit" class="close-button">Close</button>
+        </form>
+      </div>
+    </dialog>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script type="module" src="js/main.js"></script>
+  </body>
+</html>

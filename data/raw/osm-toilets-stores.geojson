@@ -1,0 +1,4512 @@
+{
+  "type": "FeatureCollection",
+  "generator": "overpass-turbo",
+  "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL.",
+  "timestamp": "2026-10-21T04:31:50Z",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/32120208",
+        "addr:city": "Philadelphia",
+        "addr:housenumber": "200",
+        "addr:state": "PA",
+        "addr:street": "South 40th Street",
+        "addr:unit": "32",
+        "building": "yes",
+        "height": "12.8",
+        "name": "Shops at 40th Street",
+        "shop": "mall",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.2032203,
+          39.9535536
+        ]
+      },
+      "id": "way/32120208"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/42706110",
+        "addr:city": "Philadelphia",
+        "addr:country": "US",
+        "addr:housenumber": "4000",
+        "addr:postcode": "19131",
+        "addr:state": "PA",
+        "addr:street": "Monument Road",
+        "brand": "Target",
+        "brand:wikidata": "Q1046951",
+        "building": "retail",
+        "check_date": "2025-10-08",
+        "height": "14.32",
+        "internet_access": "wlan",
+        "internet_access:ssid": "Target Guest Wi-Fi",
+        "name": "Target",
+        "opening_hours": "08:00-22:00",
+        "operator": "Target",
+        "payment:cash": "yes",
+        "payment:contactless": "yes",
+        "payment:credit_cards": "yes",
+        "payment:debit_cards": "yes",
+        "phone": "+1-267-233-5020",
+        "shop": "department_store",
+        "source": "esri/Philadelphia_PA_Buildings_OSM",
+        "website": "https://www.target.com/sl/philadelphia-city-ave/2124",
+        "wheelchair": "yes",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.2118346,
+          40.0066082
+        ]
+      },
+      "id": "way/42706110"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/49916283",
+        "addr:city": "Philadelphia",
+        "addr:housenumber": "1575",
+        "addr:postcode": "19131",
+        "addr:state": "PA",
+        "addr:street": "North 52nd Street",
+        "branch": "Parkside",
+        "brand": "ShopRite",
+        "brand:wikidata": "Q7501097",
+        "building": "yes",
+        "height": "15.0",
+        "name": "ShopRite",
+        "opening_hours": "Mo-Su 07:00-23:00",
+        "phone": "+1 215-220-8700",
+        "ref": "419",
+        "shop": "supermarket",
+        "source": "City of Philadelphia",
+        "website": "https://www.shoprite.com/sm/planning/rsid/419",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.2244651,
+          39.9781459
+        ]
+      },
+      "id": "way/49916283"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/52495489",
+        "addr:city": "Philadelphia",
+        "addr:housenumber": "8500",
+        "addr:postcode": "19128",
+        "addr:state": "PA",
+        "addr:street": "Henry Avenue",
+        "addr:unit": "41",
+        "branch": "Sephora",
+        "brand": "Kohl's",
+        "brand:wikidata": "Q967265",
+        "building": "yes",
+        "check_date": "2024-07-12",
+        "name": "Kohl's",
+        "opening_hours": "Mo-Sa 09:00-21:00; Su 09:00-20:00",
+        "phone": "+1-215-483-7100",
+        "ref": "274",
+        "shop": "department_store",
+        "website": "https://www.kohls.com/stores/pa/philadelphia-274.shtml",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.235284,
+          40.0628011
+        ]
+      },
+      "id": "way/52495489"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/74973040",
+        "addr:city": "Philadelphia",
+        "addr:housenumber": "1400",
+        "addr:postcode": "19147",
+        "addr:state": "PA",
+        "addr:street": "East Passyunk Avenue",
+        "brand": "Acme",
+        "brand:wikidata": "Q341975",
+        "building": "yes",
+        "height": "11.58",
+        "name": "Acme",
+        "opening_hours": "Mo-Fr 07:00-22:00; Sa 07:00-22:00; Su 07:00-22:00",
+        "phone": "+1 215-467-2221",
+        "shop": "supermarket",
+        "source": "City of Philadelphia",
+        "website": "https://local.acmemarkets.com/pa/philadelphia/1400-e-passyunk-ave.html",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.1623635,
+          39.9322757
+        ]
+      },
+      "id": "way/74973040"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/197414127",
+        "addr:city": "Philadelphia",
+        "addr:housenumber": "5927",
+        "addr:postcode": "19128",
+        "addr:state": "PA",
+        "addr:street": "Ridge Avenue",
+        "air_conditioning": "yes",
+        "brand": "Acme",
+        "brand:wikidata": "Q341975",
+        "building": "retail",
+        "building:levels": "1",
+        "building:material": "brick",
+        "check_date": "2026-03-24",
+        "name": "Acme",
+        "opening_hours": "Mo-Su 06:00-23:00",
+        "phone": "+1-215-487-7180",
+        "roof:levels": "0",
+        "roof:shape": "flat",
+        "self_checkout": "yes",
+        "shop": "supermarket",
+        "website": "https://local.acmemarkets.com/pa/philadelphia/5927-59-ridge-ave.html",
+        "wheelchair": "yes",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.2112611,
+          40.0316962
+        ]
+      },
+      "id": "way/197414127"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/213248094",
+        "addr:city": "Philadelphia",
+        "addr:housenumber": "2701",
+        "addr:postcode": "19134",
+        "addr:state": "PA",
+        "addr:street": "Castor Avenue",
+        "brand": "Target",
+        "brand:wikidata": "Q1046951",
+        "building": "retail",
+        "height": "10.36",
+        "name": "Target",
+        "opening_hours": "08:00-22:00",
+        "phone": "+1 215-305-9050",
+        "shop": "department_store",
+        "source": "bing",
+        "website": "https://www.target.com/sl/philadelphia-bridesburg/2075",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.0889802,
+          39.9911878
+        ]
+      },
+      "id": "way/213248094"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/213271536",
+        "addr:city": "Philadelphia",
+        "addr:housenumber": "3745",
+        "addr:postcode": "19137",
+        "addr:state": "PA",
+        "addr:street": "Aramingo Avenue",
+        "branch": "Aramingo",
+        "brand": "ShopRite",
+        "brand:wikidata": "Q7501097",
+        "building": "retail",
+        "check_date": "2024-08-31",
+        "height": "12.8",
+        "name": "ShopRite",
+        "opening_hours": "Mo-Su 06:00-23:00",
+        "phone": "+1 215-288-7300",
+        "ref": "436",
+        "shop": "supermarket",
+        "source": "City of Philadelphia",
+        "website": "https://www.shoprite.com/sm/planning/rsid/436",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.0916386,
+          39.9943975
+        ]
+      },
+      "id": "way/213271536"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/226298578",
+        "addr:city": "Philadelphia",
+        "addr:housenumber": "1675",
+        "addr:postcode": "19148",
+        "addr:state": "PA",
+        "addr:street": "South Christopher Columbus Boulevard",
+        "brand": "Walmart",
+        "brand:wikidata": "Q483551",
+        "building": "yes",
+        "check_date": "2026-06-23",
+        "name": "Walmart Supercenter",
+        "opening_hours": "06:00-23:00",
+        "operator": "Walmart",
+        "payment:app:walmart": "yes",
+        "payment:apple_pay": "no",
+        "payment:google_pay": "no",
+        "payment:samsung_pay": "no",
+        "phone": "+1 215-468-4220",
+        "ref": "2141",
+        "ref:walmart": "2141",
+        "sensory_friendly:accommodation": "dimmed_light;static_screens;no_pa",
+        "sensory_friendly:conditional": "yes @ 08:00-10:00",
+        "shop": "supermarket",
+        "source": "Bing",
+        "website": "https://www.walmart.com/store/2141-philadelphia-pa",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.1414818,
+          39.926507
+        ]
+      },
+      "id": "way/226298578"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/226306117",
+        "addr:city": "Philadelphia",
+        "addr:housenumber": "1",
+        "addr:postcode": "19148",
+        "addr:state": "PA",
+        "addr:street": "Mifflin Street",
+        "brand": "Target",
+        "brand:wikidata": "Q1046951",
+        "building": "yes",
+        "name": "Target",
+        "opening_hours": "08:00-22:00",
+        "phone": "+1 215-463-7311",
+        "shop": "department_store",
+        "source": "Bing",
+        "website": "https://www.target.com/sl/philadelphia-snyder-ave/1443",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.1461527,
+          39.9243759
+        ]
+      },
+      "id": "way/226306117"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/236460903",
+        "addr:city": "Philadelphia",
+        "addr:housenumber": "1455",
+        "addr:postcode": "19154-3131",
+        "addr:street": "Franklin Mills Circle",
+        "building": "yes",
+        "building:levels": "1",
+        "name": "Franklin Mall",
+        "operator": "JLL",
+        "shop": "mall",
+        "source": "Official Website - http://www.simon.com/mall/franklin-mills",
+        "wheelchair": "yes",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.9615334,
+          40.0880116
+        ]
+      },
+      "id": "way/236460903"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/251098221",
+        "addr:city": "Philadelphia",
+        "addr:housenumber": "2001",
+        "addr:postcode": "19103",
+        "addr:state": "PA",
+        "addr:street": "Pennsylvania Avenue",
+        "brand": "Target",
+        "brand:wikidata": "Q1046951",
+        "building": "commercial",
+        "name": "Target",
+        "opening_hours": "Mo-Fr 07:00-22:00; Sa-Su 08:00-22:00",
+        "phone": "+1 215-789-3020",
+        "self_checkout": "yes",
+        "shop": "department_store",
+        "website": "https://www.target.com/sl/philadelphia-art-museum/3227",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.1727188,
+          39.9616399
+        ]
+      },
+      "id": "way/251098221"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/320720162",
+        "amenity": "toilets",
+        "building": "toilets",
+        "fee": "no",
+        "name": "Schuylkill Banks Trailhead",
+        "wheelchair": "yes",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.1809903,
+          39.9511191
+        ]
+      },
+      "id": "way/320720162"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/333012814",
+        "addr:city": "Philadelphia",
+        "addr:housenumber": "309",
+        "addr:postcode": "19106",
+        "addr:state": "PA",
+        "addr:street": "South 5th Street",
+        "brand": "Acme",
+        "brand:wikidata": "Q341975",
+        "building": "yes",
+        "internet_access": "wlan",
+        "name": "Acme",
+        "opening_hours": "Mo-Su 07:00-22:00",
+        "phone": "+1 215-413-9725",
+        "shop": "supermarket",
+        "website": "https://local.acmemarkets.com/pa/philadelphia/309-s-5th-st.html",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.1500123,
+          39.9443364
+        ]
+      },
+      "id": "way/333012814"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/333204596",
+        "building": "yes",
+        "building:levels": "2",
+        "name": "The Shops at Liberty Place",
+        "roof:material": "concrete",
+        "roof:shape": "flat",
+        "shop": "mall",
+        "website": "https://www.shopsatliberty.com",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.1678737,
+          39.9519114
+        ]
+      },
+      "id": "way/333204596"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/333786275",
+        "addr:city": "Philadelphia",
+        "addr:housenumber": "929",
+        "addr:postcode": "19147",
+        "addr:state": "PA",
+        "addr:street": "South Street",
+        "branch": "South Street",
+        "brand": "Whole Foods Market",
+        "brand:wikidata": "Q1809448",
+        "check_date": "2025-10-25",
+        "check_date:opening_hours": "2025-10-25",
+        "name": "Whole Foods Market",
+        "opening_hours": "Mo-Su 07:00-22:00",
+        "phone": "+1 215-733-9788",
+        "ref": "southstreet",
+        "shop": "supermarket",
+        "source": "knowledge",
+        "website": "https://www.wholefoodsmarket.com/stores/southstreet",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.1581249,
+          39.9428324
+        ]
+      },
+      "id": "node/333786275"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/335570965",
+        "addr:housenumber": "1818",
+        "addr:street": "Chestnut Street",
+        "building": "yes",
+        "building:levels": "4",
+        "check_date": "2023-04-11",
+        "contact:phone": "+1 215-564-9000",
+        "contact:website": "https://boydsphila.com",
+        "name": "Boyds",
+        "opening_hours": "Mo-Sa 11:00-18:00; Su off",
+        "shop": "department_store",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.1712816,
+          39.9513822
+        ]
+      },
+      "id": "way/335570965"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/336505649",
+        "addr:city": "Philadelphia",
+        "addr:housenumber": "124",
+        "addr:postcode": "19103",
+        "addr:street": "South 18th Street",
+        "air_conditioning": "yes",
+        "amenity": "pub",
+        "building": "yes",
+        "building:levels": "3",
+        "email": "thedandelion.info@starr-restaurants.com",
+        "name": "The Dandelion",
+        "opening_hours": "Mo-Th 11:30-23:00; Fr 11:30-24:00; Sa 10:00-24:00; Su 10:00-22:00",
+        "phone": "+1 215 558 2500",
+        "roof:levels": "1",
+        "smoking": "no",
+        "toilets": "yes",
+        "website": "https://thedandelionpub.com/",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.1707414,
+          39.9510152
+        ]
+      },
+      "id": "way/336505649"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/367975931",
+        "addr:state": "PA",
+        "ele": "11",
+        "gnis:feature_id": "2348745",
+        "name": "Market Place East Shopping Center",
+        "shop": "mall",
+        "source": "USGS Geonames",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.1527544,
+          39.9516911
+        ]
+      },
+      "id": "node/367975931"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/376424829",
+        "amenity": "toilets",
+        "building": "yes",
+        "building:material": "stone",
+        "changing_table": "no",
+        "wheelchair": "limited",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.201589,
+          40.0360522
+        ]
+      },
+      "id": "way/376424829"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/380071959",
+        "building": "yes",
+        "name": "Franklin Market Place",
+        "shop": "mall",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.9669392,
+          40.0898399
+        ]
+      },
+      "id": "way/380071959"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/380071960",
+        "building": "yes",
+        "shop": "mall",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.9662306,
+          40.0889088
+        ]
+      },
+      "id": "way/380071960"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/381250354",
+        "addr:city": "Philadelphia",
+        "addr:housenumber": "8500",
+        "addr:postcode": "19128",
+        "addr:state": "PA",
+        "addr:street": "Henry Avenue",
+        "addr:unit": "40",
+        "brand": "TJ Maxx",
+        "brand:wikidata": "Q10860683",
+        "building": "yes",
+        "check_date": "2026-03-05",
+        "name": "TJ Maxx",
+        "opening_hours": "09:30-21:30",
+        "phone": "+1-215-809-1677",
+        "shop": "department_store",
+        "website": "https://tjmaxx.tjx.com/m/stores/Philadelphia-PA-19128/1589/aboutstore",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.2359142,
+          40.0632709
+        ]
+      },
+      "id": "way/381250354"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/381574950",
+        "addr:city": "Philadelphia",
+        "addr:housenumber": "7400",
+        "addr:postcode": "19152",
+        "addr:state": "PA",
+        "addr:street": "Bustleton Avenue",
+        "brand": "Target",
+        "brand:wikidata": "Q1046951",
+        "building": "yes",
+        "name": "Target",
+        "opening_hours": "08:00-22:00",
+        "phone": "+1 267-350-9480",
+        "shop": "department_store",
+        "website": "https://www.target.com/sl/philadelphia-cottman/2418",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.0595214,
+          40.0511896
+        ]
+      },
+      "id": "way/381574950"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/382679651",
+        "addr:city": "Philadelphia",
+        "addr:housenumber": "7301",
+        "addr:postcode": "19149",
+        "addr:state": "PA",
+        "addr:street": "Castor Avenue",
+        "alt_name": "Burlington Coat Factory",
+        "brand": "Burlington",
+        "brand:wikidata": "Q4999220",
+        "building": "yes",
+        "level": "3",
+        "name": "Burlington",
+        "opening_hours": "09:00-22:00",
+        "phone": "+1 215-742-2530",
+        "ref": "876",
+        "shop": "department_store",
+        "website": "https://stores.burlington.com/pa/philadelphia/876/",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.0652677,
+          40.051312
+        ]
+      },
+      "id": "way/382679651"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/382680710",
+        "addr:city": "Philadelphia",
+        "addr:housenumber": "2101",
+        "addr:postcode": "19149",
+        "addr:state": "PA",
+        "addr:street": "Cottman Avenue",
+        "brand": "Acme",
+        "brand:wikidata": "Q341975",
+        "building": "yes",
+        "name": "Acme",
+        "opening_hours": "Mo-Fr 07:00-23:00; Sa 07:00-23:00; Su 07:00-22:00",
+        "phone": "+1 215-728-1010",
+        "shop": "supermarket",
+        "website": "https://local.acmemarkets.com/pa/philadelphia/2101-41-cottman-ave.html",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.0614097,
+          40.0505877
+        ]
+      },
+      "id": "way/382680710"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/383088933",
+        "addr:city": "Philadelphia",
+        "addr:housenumber": "2399",
+        "addr:postcode": "19149",
+        "addr:state": "PA",
+        "addr:street": "Cottman Avenue",
+        "brand": "Macy's",
+        "brand:wikidata": "Q629269",
+        "building": "yes",
+        "name": "Macy's",
+        "opening_hours": "Mo-Sa 10:00-21:00; Su 11:00-20:00",
+        "phone": "+1 215-331-5500",
+        "shop": "department_store",
+        "website": "https://www.macys.com/stores/pa/philadelphia/roosevelt-mall_155.html",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.0546509,
+          40.0467789
+        ]
+      },
+      "id": "way/383088933"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/398631750",
+        "addr:city": "Philadelphia",
+        "addr:country": "US",
+        "addr:housenumber": "1911",
+        "addr:postcode": "19151",
+        "addr:state": "PA",
+        "addr:street": "North 76th Street",
+        "brand": "Aldi",
+        "brand:wikidata": "Q41171672",
+        "building": "yes",
+        "check_date": "2023-11-27",
+        "height": "8.83",
+        "name": "Aldi",
+        "opening_hours": "08:30-20:00",
+        "phone": "+1 833-460-7024",
+        "shop": "supermarket",
+        "source": "City of Philadelphia",
+        "website": "https://stores.aldi.us/pa/philadelphia/1911-n-76th-street",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.2702436,
+          39.9787558
+        ]
+      },
+      "id": "way/398631750"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/412338071",
+        "addr:city": "Philadelphia",
+        "addr:housenumber": "6901",
+        "addr:postcode": "19128",
+        "addr:state": "PA",
+        "addr:street": "Ridge Avenue",
+        "branch": "Roxborough",
+        "brand": "ShopRite",
+        "brand:wikidata": "Q7501097",
+        "check_date": "2025-12-13",
+        "dog": "no",
+        "internet_access": "wlan",
+        "name": "ShopRite",
+        "opening_hours": "Mo-Su 06:00-23:00",
+        "phone": "+1-215-482-9570",
+        "ref": "519",
+        "self_checkout": "yes",
+        "self_checkout:handheld": "yes",
+        "self_checkout:self_scan": "yes",
+        "shop": "supermarket",
+        "website": "https://www.shoprite.com",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.2272378,
+          40.0440417
+        ]
+      },
+      "id": "node/412338071"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/434963752",
+        "addr:city": "Philadelphia",
+        "addr:housenumber": "1901",
+        "addr:postcode": "19145",
+        "addr:state": "PA",
+        "addr:street": "Johnston Street",
+        "brand": "Acme",
+        "brand:wikidata": "Q341975",
+        "building": "yes",
+        "name": "Acme",
+        "opening_hours": "Mo-Fr 07:00-22:00; Sa 07:00-22:00; Su 07:00-22:00",
+        "phone": "+1 215-336-4441",
+        "shop": "supermarket",
+        "website": "https://local.acmemarkets.com/pa/philadelphia/1901-johnston-st.html",
+        "wheelchair": "yes",
+        "wheelchair:description": "has electric carts",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.1804016,
+          39.9169607
+        ]
+      },
+      "id": "way/434963752"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/444797407",
+        "addr:city": "Philadelphia",
+        "addr:housenumber": "2603",
+        "addr:postcode": "19148",
+        "addr:state": "PA",
+        "addr:street": "South Front Street",
+        "brand": "Aldi",
+        "brand:wikidata": "Q41171672",
+        "building": "yes",
+        "name": "Aldi",
+        "opening_hours": "Mo-Su 08:30-20:00",
+        "phone": "+1 844-460-7050",
+        "shop": "supermarket",
+        "website": "https://stores.aldi.us/pa/philadelphia/2603-s-front-street",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.1486255,
+          39.9149519
+        ]
+      },
+      "id": "way/444797407"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/444797509",
+        "addr:city": "Philadelphia",
+        "addr:housenumber": "2000",
+        "addr:state": "PA",
+        "addr:street": "Oregon Avenue",
+        "building": "yes",
+        "shop": "mall",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.1519931,
+          39.9139368
+        ]
+      },
+      "id": "way/444797509"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/454318177",
+        "addr:city": "Philadelphia",
+        "addr:housenumber": "3500",
+        "addr:state": "PA",
+        "addr:street": "South Broad Street",
+        "amenity": "toilets",
+        "building": "yes",
+        "height": "4.26",
+        "name": "FDR Rest Rooms",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.181315,
+          39.8990123
+        ]
+      },
+      "id": "way/454318177"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/529300476",
+        "addr:city": "Philadelphia",
+        "addr:housenumber": "920",
+        "addr:postcode": "19115",
+        "addr:state": "PA",
+        "addr:street": "Red Lion Road",
+        "brand": "Acme",
+        "brand:wikidata": "Q341975",
+        "building": "yes",
+        "level": "2",
+        "name": "Acme",
+        "opening_hours": "Mo-Fr 07:00-23:00; Sa 07:00-23:00; Su 06:00-22:00",
+        "phone": "+1 215-676-5601",
+        "shop": "supermarket",
+        "website": "https://local.acmemarkets.com/pa/philadelphia/920-red-lion-rd.html",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.0264122,
+          40.100597
+        ]
+      },
+      "id": "way/529300476"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/534675248",
+        "addr:city": "Philadelphia",
+        "addr:housenumber": "9910",
+        "addr:postcode": "19114",
+        "addr:state": "PA",
+        "addr:street": "Frankford Avenue",
+        "branch": "Morrell Plaza",
+        "brand": "ShopRite",
+        "brand:wikidata": "Q7501097",
+        "building": "yes",
+        "check_date": "2024-06-21",
+        "name": "ShopRite",
+        "opening_hours": "Mo-Sa 06:00-22:00; Su 06:00-21:00",
+        "phone": "+1 215-637-1555",
+        "ref": "450",
+        "shop": "supermarket",
+        "website": "https://www.shoprite.com/sm/planning/rsid/450",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.985171,
+          40.0649296
+        ]
+      },
+      "id": "way/534675248"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/577333781",
+        "addr:city": "Philadelphia",
+        "addr:housenumber": "7700",
+        "addr:postcode": "19118",
+        "addr:state": "PA",
+        "addr:street": "Crittenden Street",
+        "brand": "Acme",
+        "brand:wikidata": "Q341975",
+        "building": "yes",
+        "height": "14.02",
+        "name": "Acme",
+        "opening_hours": "Mo-Fr 06:00-22:00; Sa 06:00-22:00; Su 06:00-22:00",
+        "phone": "+1 215-248-6490",
+        "shop": "supermarket",
+        "source": "esri/Philadelphia_PA_Buildings_OSM",
+        "website": "https://local.acmemarkets.com/pa/philadelphia/7700-crittenden-st.html",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.1939145,
+          40.0715688
+        ]
+      },
+      "id": "way/577333781"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/584830816",
+        "addr:city": "Philadelphia",
+        "addr:housenumber": "6640",
+        "addr:postcode": "19111",
+        "addr:state": "PA",
+        "addr:street": "Oxford Avenue",
+        "brand": "Acme",
+        "brand:wikidata": "Q341975",
+        "building": "yes",
+        "check_date": "2024-06-21",
+        "name": "Acme",
+        "opening_hours": "07:00-22:00",
+        "phone": "+1 215-725-9310",
+        "shop": "supermarket",
+        "website": "https://local.acmemarkets.com/pa/philadelphia/6640-oxford-ave.html",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.0870212,
+          40.0503029
+        ]
+      },
+      "id": "way/584830816"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/604422997",
+        "access": "yes",
+        "amenity": "toilets",
+        "building": "bathroom",
+        "toilets:disposal": "flush",
+        "toilets:handwashing": "yes",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.976676,
+          40.1160483
+        ]
+      },
+      "id": "way/604422997"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/620413671",
+        "addr:city": "Philadelphia",
+        "addr:housenumber": "11000",
+        "addr:postcode": "19116",
+        "addr:state": "PA",
+        "addr:street": "Roosevelt Boulevard",
+        "addr:unit": "3",
+        "brand": "Target",
+        "brand:wikidata": "Q1046951",
+        "building": "yes",
+        "check_date": "2025-12-18",
+        "name": "Target",
+        "opening_hours": "07:00-23:00",
+        "phone": "+1 215-305-0000",
+        "shop": "department_store",
+        "website": "https://www.target.com/sl/philadelphia-roosevelt-blvd/1809",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.0110073,
+          40.1022438
+        ]
+      },
+      "id": "way/620413671"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/620413672",
+        "addr:city": "Philadelphia",
+        "addr:housenumber": "11000",
+        "addr:postcode": "19116",
+        "addr:state": "PA",
+        "addr:street": "Roosevelt Boulevard",
+        "branch": "Roosevelt Boulevard",
+        "brand": "ShopRite",
+        "brand:wikidata": "Q7501097",
+        "building": "yes",
+        "name": "ShopRite",
+        "opening_hours": "Mo-Sa 07:00-22:00",
+        "phone": "+1 215-673-1200",
+        "ref": "561",
+        "shop": "supermarket",
+        "website": "https://www.shoprite.com/sm/planning/rsid/561",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.0080904,
+          40.1021849
+        ]
+      },
+      "id": "way/620413672"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/637562479",
+        "addr:city": "Philadelphia",
+        "addr:country": "US",
+        "addr:housenumber": "4301",
+        "addr:postcode": "19154",
+        "addr:state": "PA",
+        "addr:street": "Byberry Road",
+        "brand": "Walmart",
+        "brand:wikidata": "Q483551",
+        "building": "retail",
+        "name": "Walmart Supercenter",
+        "opening_hours": "Mo-Su 06:00-24:00",
+        "operator": "Walmart",
+        "payment:app:walmart": "yes",
+        "payment:apple_pay": "no",
+        "payment:google_pay": "no",
+        "payment:samsung_pay": "no",
+        "phone": "+1 215-281-3159",
+        "ref": "2650",
+        "ref:walmart": "2650",
+        "sensory_friendly:accommodation": "dimmed_light;static_screens;no_pa",
+        "sensory_friendly:conditional": "yes @ 08:00-10:00",
+        "shop": "supermarket",
+        "website": "https://www.walmart.com/store/2650-philadelphia-pa",
+        "wheelchair": "yes",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.9624083,
+          40.0832051
+        ]
+      },
+      "id": "way/637562479"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/637562485",
+        "addr:city": "Philadelphia",
+        "addr:housenumber": "1455",
+        "addr:postcode": "19154-3131",
+        "addr:state": "PA",
+        "addr:street": "Franklin Mills Circle",
+        "alt_name": "Franklin Mills;Philadelphia Mills",
+        "landuse": "retail",
+        "name": "Philadelphia Mills",
+        "phone": "+1-215-632-1500",
+        "shop": "mall",
+        "source": "Official Website - http://www.simon.com/mall/franklin-mills",
+        "website": "https://www.simon.com/mall/franklin-mills",
+        "wheelchair": "yes",
+        "wikidata": "Q5491691",
+        "wikipedia": "en:Philadelphia Mills",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.9611216,
+          40.0877801
+        ]
+      },
+      "id": "way/637562485"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/641858789",
+        "addr:city": "Philadelphia",
+        "addr:country": "US",
+        "addr:housenumber": "9745",
+        "addr:postcode": "19114",
+        "addr:state": "PA",
+        "addr:street": "Roosevelt Boulevard",
+        "addr:unit": "A",
+        "brand": "Walmart",
+        "brand:wikidata": "Q483551",
+        "building": "retail",
+        "name": "Walmart",
+        "opening_hours": "Mo-Su 07:00-22:00",
+        "operator": "Walmart",
+        "operator:wikidata": "Q483551",
+        "payment:app:walmart": "yes",
+        "payment:apple_pay": "no",
+        "payment:google_pay": "no",
+        "payment:samsung_pay": "no",
+        "phone": "+1 215-698-0350",
+        "ref": "5130",
+        "ref:walmart": "5130",
+        "sensory_friendly:accommodation": "dimmed_light;static_screens;no_pa",
+        "sensory_friendly:conditional": "yes @ 08:00-10:00",
+        "shop": "department_store",
+        "website": "https://www.walmart.com/store/5130-philadelphia-pa",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.0224982,
+          40.0829136
+        ]
+      },
+      "id": "way/641858789"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/641960146",
+        "addr:city": "Philadelphia",
+        "addr:housenumber": "2200",
+        "addr:postcode": "19137",
+        "addr:state": "PA",
+        "addr:street": "Wheatsheaf Lane",
+        "brand": "Walmart",
+        "brand:wikidata": "Q483551",
+        "building": "retail",
+        "check_date": "2026-07-01",
+        "height": "11.58",
+        "name": "Walmart Supercenter",
+        "opening_hours": "06:00-23:00",
+        "operator": "Walmart",
+        "operator:wikidata": "Q483551",
+        "payment:app:walmart": "yes",
+        "payment:apple_pay": "no",
+        "payment:google_pay": "no",
+        "payment:samsung_pay": "no",
+        "phone": "+1 215-613-2236",
+        "ref": "5891",
+        "ref:walmart": "5891",
+        "sensory_friendly:accommodation": "dimmed_light;static_screens;no_pa",
+        "sensory_friendly:conditional": "yes @ 08:00-10:00",
+        "shop": "supermarket",
+        "source": "City of Philadelphia",
+        "website": "https://www.walmart.com/store/5891-philadelphia-pa",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.091865,
+          39.9990226
+        ]
+      },
+      "id": "way/641960146"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/647917562",
+        "addr:city": "Philadelphia",
+        "addr:housenumber": "6301",
+        "addr:postcode": "19111",
+        "addr:state": "PA",
+        "addr:street": "Oxford Avenue",
+        "branch": "Oxford & Levick",
+        "brand": "ShopRite",
+        "brand:wikidata": "Q7501097",
+        "building": "yes",
+        "level": "2",
+        "name": "ShopRite",
+        "opening_hours": "Mo-Sa 07:00-00:00",
+        "phone": "+1 215-744-9500",
+        "ref": "402",
+        "shop": "supermarket",
+        "website": "https://www.shoprite.com/sm/planning/rsid/402",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.088146,
+          40.0438824
+        ]
+      },
+      "id": "way/647917562"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/697050393",
+        "addr:city": "Philadelphia",
+        "addr:housenumber": "3401",
+        "addr:postcode": "19134",
+        "addr:state": "PA",
+        "addr:street": "Aramingo Avenue",
+        "alt_name": "Burlington Coat Factory",
+        "brand": "Burlington",
+        "brand:wikidata": "Q4999220",
+        "building": "yes",
+        "check_date": "2024-08-31",
+        "height": "8.83",
+        "name": "Burlington",
+        "opening_hours": "09:00-22:00",
+        "phone": "+1 215-289-5019",
+        "ref": "547",
+        "shop": "department_store",
+        "source": "City of Philadelphia",
+        "website": "https://stores.burlington.com/pa/philadelphia/547",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.1002761,
+          39.9901226
+        ]
+      },
+      "id": "way/697050393"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/698739490",
+        "addr:city": "Philadelphia",
+        "addr:housenumber": "2900",
+        "addr:postcode": "19153",
+        "addr:state": "PA",
+        "addr:street": "Island Avenue",
+        "addr:unit": "2946",
+        "branch": "Island Avenue",
+        "brand": "ShopRite",
+        "brand:wikidata": "Q7501097",
+        "building": "retail",
+        "name": "ShopRite",
+        "opening_hours": "Mo-Su 06:00-23:00",
+        "phone": "+1 215-492-1333",
+        "ref": "423",
+        "shop": "supermarket",
+        "website": "https://www.shoprite.com/sm/planning/rsid/423",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.2420045,
+          39.9022034
+        ]
+      },
+      "id": "way/698739490"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/704341384",
+        "addr:city": "Philadelphia",
+        "addr:housenumber": "5675",
+        "addr:state": "PA",
+        "addr:street": "North Front Street",
+        "building": "yes",
+        "height": "9.75",
+        "shop": "mall",
+        "source": "City of Philadelphia",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.1179749,
+          40.0374992
+        ]
+      },
+      "id": "way/704341384"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/704419952",
+        "addr:city": "Philadelphia",
+        "addr:housenumber": "5675",
+        "addr:state": "PA",
+        "addr:street": "North Front Street",
+        "building": "yes",
+        "height": "12.49",
+        "shop": "mall",
+        "source": "City of Philadelphia",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.1189327,
+          40.0387563
+        ]
+      },
+      "id": "way/704419952"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/705052482",
+        "addr:city": "Philadelphia",
+        "addr:housenumber": "5694",
+        "addr:postcode": "19120",
+        "addr:state": "PA",
+        "addr:street": "Rising Sun Avenue",
+        "brand": "Forman Mills",
+        "brand:wikidata": "Q19604400",
+        "building": "yes",
+        "name": "Forman Mills",
+        "shop": "department_store",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.1103853,
+          40.0409619
+        ]
+      },
+      "id": "way/705052482"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/743205234",
+        "addr:city": "Philadelphia",
+        "addr:housenumber": "4421",
+        "addr:postcode": "19104",
+        "addr:state": "PA",
+        "addr:street": "Market Street",
+        "brand": "Aldi",
+        "brand:wikidata": "Q41171672",
+        "building": "yes",
+        "name": "Aldi",
+        "opening_hours": "08:30-20:00; Jul 04 08:30-16:00",
+        "operator": "Aldi",
+        "phone": "+1-833-460-5054",
+        "ref": "54",
+        "self_checkout": "no",
+        "shop": "supermarket",
+        "website": "https://stores.aldi.us/pa/philadelphia/4421-market-street",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.213028,
+          39.959295
+        ]
+      },
+      "id": "way/743205234"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/771706289",
+        "name": "Fashion District Philadelphia",
+        "old_name": "Gallery at Market East",
+        "opening_hours": "Mo-Th 11:00-19:00; Fr,Sa 10:00-20:00; Su 12:00-18:00",
+        "shop": "mall",
+        "website": "https://fashiondistrictphiladelphia.com",
+        "wikipedia": "en:Fashion District Philadelphia",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.1558316,
+          39.9519872
+        ]
+      },
+      "id": "way/771706289"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/789718297",
+        "addr:city": "Philadelphia",
+        "addr:housenumber": "456",
+        "addr:postcode": "19123",
+        "addr:state": "PA",
+        "addr:street": "North 5th Street",
+        "alt_name": "Target Phila Northern Liberties",
+        "brand": "Target",
+        "brand:wikidata": "Q1046951",
+        "building": "industrial",
+        "building:levels": "2",
+        "name": "Target",
+        "opening_hours": "Mo-Fr 07:00-22:00; Sa-Su 08:00-22:00",
+        "phone": "+1 215-201-3627",
+        "shop": "department_store",
+        "website": "https://www.target.com/sl/phila-northern-liberties/3285",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.1478465,
+          39.9603036
+        ]
+      },
+      "id": "way/789718297"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/907259635",
+        "addr:city": "Philadelphia",
+        "addr:housename": "The Mattress Factory",
+        "addr:housenumber": "4929",
+        "addr:postcode": "19135",
+        "addr:street": "Cottman Avenue",
+        "building": "yes",
+        "name": "The Mattress Factory",
+        "shop": "department_store",
+        "website": "https://www.themattressfactoryinc.com",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.0321793,
+          40.0267351
+        ]
+      },
+      "id": "way/907259635"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/965635120",
+        "addr:city": "Philadelphia",
+        "addr:housenumber": "6601",
+        "addr:postcode": "19149",
+        "addr:state": "PA",
+        "addr:street": "Roosevelt Boulevard",
+        "brand": "Acme",
+        "brand:wikidata": "Q341975",
+        "building": "retail",
+        "building:levels": "1",
+        "check_date": "2024-06-21",
+        "name": "Acme",
+        "opening_hours": "07:00-22:00",
+        "phone": "+1 215-338-4700",
+        "shop": "supermarket",
+        "website": "https://local.acmemarkets.com/pa/philadelphia/6601-roosevelt-blvd.html",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.0625388,
+          40.035716
+        ]
+      },
+      "id": "way/965635120"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/977690451",
+        "addr:city": "Philadelphia",
+        "addr:housenumber": "180",
+        "addr:postcode": "19123",
+        "addr:state": "PA",
+        "addr:street": "West Girard Avenue",
+        "brand": "Acme",
+        "brand:wikidata": "Q341975",
+        "check_date": "2024-04-06",
+        "name": "Acme",
+        "opening_hours": "07:00-23:00",
+        "phone": "+1 215-574-2922",
+        "shop": "supermarket",
+        "website": "https://local.acmemarkets.com/pa/philadelphia/180-w-girard-ave.html",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.1391226,
+          39.9688976
+        ]
+      },
+      "id": "node/977690451"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/984093333",
+        "access": "yes",
+        "amenity": "toilets",
+        "building": "yes",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.2626514,
+          39.8862383
+        ]
+      },
+      "id": "way/984093333"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1026177162",
+        "addr:city": "Philadelphia",
+        "addr:housenumber": "1403",
+        "addr:postcode": "19148",
+        "addr:state": "PA",
+        "addr:street": "South Christopher Columbus Boulevard",
+        "brand": "Giant",
+        "brand:wikidata": "Q5558332",
+        "building": "retail",
+        "check_date": "2024-06-03",
+        "name": "Giant",
+        "opening_hours": "06:00-22:00",
+        "phone": "+1 215-218-7290",
+        "ref": "6570",
+        "shop": "supermarket",
+        "website": "https://stores.giantfoodstores.com/pa/philadelphia/1403-s-christopher-columbus-blvd",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.1438145,
+          39.9292681
+        ]
+      },
+      "id": "way/1026177162"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1046627622",
+        "addr:city": "Philadelphia",
+        "addr:postcode": "19124",
+        "addr:state": "PA",
+        "branch": "Bridge & Harbison",
+        "brand": "ShopRite",
+        "brand:wikidata": "Q7501097",
+        "building": "yes",
+        "name": "ShopRite",
+        "opening_hours": "Mo-Su 06:00-22:00",
+        "phone": "+1 215-288-1260",
+        "ref": "446",
+        "shop": "supermarket",
+        "website": "https://www.shoprite.com/sm/planning/rsid/446",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.0656125,
+          40.0125812
+        ]
+      },
+      "id": "way/1046627622"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1070705301",
+        "addr:city": "Philadelphia",
+        "addr:housenumber": "7900",
+        "addr:postcode": "19152",
+        "addr:state": "PA",
+        "addr:street": "Roosevelt Boulevard",
+        "brand": "Aldi",
+        "brand:wikidata": "Q41171672",
+        "building": "yes",
+        "height": "12.1",
+        "name": "Aldi",
+        "opening_hours": "Mo-Su 08:00-20:00",
+        "phone": "+1 877-460-7012",
+        "shop": "supermarket",
+        "source": "esri/Philadelphia_PA_Buildings_OSM",
+        "website": "https://stores.aldi.us/pa/philadelphia/7900-roosevelt-blvd",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.049857,
+          40.0552878
+        ]
+      },
+      "id": "way/1070705301"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1138041524",
+        "addr:city": "Philadelphia",
+        "addr:housenumber": "7010",
+        "addr:postcode": "19119",
+        "addr:state": "PA",
+        "addr:street": "Germantown Avenue",
+        "brand": "Acme",
+        "brand:wikidata": "Q341975",
+        "building": "yes",
+        "check_date": "2026-03-16",
+        "height": "13.7",
+        "name": "Acme",
+        "opening_hours": "Mo-Fr 07:00-22:00; Sa 07:00-22:00; Su 07:00-22:00",
+        "phone": "+1-215-247-1160",
+        "shop": "supermarket",
+        "source": "esri/Philadelphia_PA_Buildings_OSM",
+        "website": "https://local.acmemarkets.com/pa/philadelphia/7010-germantown-ave.html",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.189512,
+          40.056606
+        ]
+      },
+      "id": "way/1138041524"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/1167170490",
+        "access": "yes",
+        "amenity": "toilets",
+        "female": "yes",
+        "source": "survey",
+        "toilets:disposal": "flush",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.1823562,
+          39.95527
+        ]
+      },
+      "id": "node/1167170490"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/1167196514",
+        "amenity": "toilets",
+        "check_date": "2023-11-27",
+        "fee": "no",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.2396059,
+          39.878206
+        ]
+      },
+      "id": "node/1167196514"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2123741534",
+        "addr:city": "Philadelphia",
+        "addr:housenumber": "2121",
+        "addr:postcode": "19103",
+        "addr:state": "PA",
+        "addr:street": "Market Street",
+        "branch": "Philadelphia - Center City",
+        "brand": "Trader Joe's",
+        "brand:wikidata": "Q688825",
+        "check_date:opening_hours": "2025-06-27",
+        "name": "Trader Joe's",
+        "opening_hours": "Mo-Su 08:00-21:00",
+        "phone": "+1 215-569-9282",
+        "ref": "634",
+        "shop": "supermarket",
+        "website": "https://locations.traderjoes.com/pa/philadelphia/634/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.1760814,
+          39.9542498
+        ]
+      },
+      "id": "node/2123741534"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2517485914",
+        "access": "permissive",
+        "amenity": "toilets",
+        "fee": "no",
+        "female": "yes",
+        "toilets:disposal": "flush"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.2182923,
+          40.0544426
+        ]
+      },
+      "id": "node/2517485914"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2644271944",
+        "addr:city": "Philadelphia",
+        "addr:postcode": "19107",
+        "addr:state": "PA",
+        "fare_zone": "C",
+        "name": "Jefferson Station",
+        "name:en": "Jefferson Station",
+        "network": "SEPTA",
+        "network:wikidata": "Q2037863",
+        "old_name": "Market East Station",
+        "operator": "SEPTA",
+        "platforms": "2",
+        "public_transport": "station",
+        "railway": "station",
+        "railway:position": "mi:0.50",
+        "toilets": "yes",
+        "toilets:access": "public",
+        "train": "yes",
+        "wikidata": "Q1900642",
+        "wikipedia": "en:Jefferson Station (SEPTA)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.1580261,
+          39.9527752
+        ]
+      },
+      "id": "node/2644271944"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2960067633",
+        "amenity": "toilets",
+        "check_date": "2021-09-04",
+        "fee": "no",
+        "note": "F only",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.2392,
+          39.876258
+        ]
+      },
+      "id": "node/2960067633"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2960067733",
+        "access": "yes",
+        "amenity": "toilets",
+        "check_date": "2022-01-14",
+        "fee": "no",
+        "female": "yes",
+        "toilets:disposal": "flush",
+        "toilets:position": "seated;urinal",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.239025,
+          39.876154
+        ]
+      },
+      "id": "node/2960067733"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2960068633",
+        "access": "yes",
+        "amenity": "toilets",
+        "check_date": "2022-01-14",
+        "fee": "no",
+        "male": "yes",
+        "toilets:disposal": "flush",
+        "toilets:position": "seated;urinal",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.238922,
+          39.876055
+        ]
+      },
+      "id": "node/2960068633"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3703125044",
+        "access": "yes",
+        "amenity": "toilets",
+        "entrance": "yes",
+        "female": "no",
+        "male": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.1711388,
+          39.8942444
+        ]
+      },
+      "id": "node/3703125044"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3703174520",
+        "access": "yes",
+        "amenity": "toilets",
+        "entrance": "yes",
+        "female": "yes",
+        "male": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.1714009,
+          39.8942189
+        ]
+      },
+      "id": "node/3703174520"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3849956308",
+        "addr:city": "Philadelphia",
+        "addr:country": "US",
+        "addr:housenumber": "7616",
+        "addr:postcode": "19151",
+        "addr:state": "PA",
+        "addr:street": "City Line Avenue",
+        "brand": "TJ Maxx",
+        "brand:wikidata": "Q10860683",
+        "name": "TJ Maxx",
+        "opening_hours": "Mo-We 09:30-21:00; Th closed; Fr-Sa 07:00-22:00; Su 08:00-22:00",
+        "phone": "+1 215-879-2602",
+        "shop": "department_store",
+        "website": "https://tjmaxx.tjx.com/store/stores/Philadelphia-PA-19151/736/aboutstore"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.271342,
+          39.9783297
+        ]
+      },
+      "id": "node/3849956308"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4294667975",
+        "amenity": "toilets",
+        "fee": "no",
+        "level": "1",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.238239,
+          39.8805491
+        ]
+      },
+      "id": "node/4294667975"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4294668103",
+        "amenity": "toilets",
+        "check_date": "2023-08-17"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.2375003,
+          39.8809898
+        ]
+      },
+      "id": "node/4294668103"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4294668110",
+        "amenity": "toilets",
+        "check_date": "2023-08-17"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.237257,
+          39.8817357
+        ]
+      },
+      "id": "node/4294668110"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4574189189",
+        "amenity": "toilets",
+        "name": "Pennypack Park Toilets"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.0617125,
+          40.0873032
+        ]
+      },
+      "id": "node/4574189189"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4751879121",
+        "amenity": "toilets",
+        "check_date": "2025-05-17",
+        "check_date:wheelchair": "2025-05-17",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.1850964,
+          39.9689708
+        ]
+      },
+      "id": "node/4751879121"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4881632722",
+        "amenity": "toilets",
+        "check_date": "2025-12-12"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.1499099,
+          39.9509589
+        ]
+      },
+      "id": "node/4881632722"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5143529925",
+        "brand": "Sears",
+        "brand:wikidata": "Q6499202",
+        "name": "Sears",
+        "shop": "department_store"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.0606393,
+          40.0495778
+        ]
+      },
+      "id": "node/5143529925"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5216907940",
+        "addr:city": "Philadelphia",
+        "addr:postcode": "19114",
+        "addr:state": "PA",
+        "brand": "Acme",
+        "brand:wikidata": "Q341975",
+        "name": "Acme",
+        "opening_hours": "Mo-Su 07:00-22:00",
+        "phone": "+1 215-637-4620",
+        "shop": "supermarket",
+        "website": "https://local.acmemarkets.com/pa/philadelphia/3200-09-red-lion-rd.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.9929896,
+          40.0794593
+        ]
+      },
+      "id": "node/5216907940"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5229243705",
+        "addr:city": "Philadelphia",
+        "addr:housenumber": "2101",
+        "addr:postcode": "19130",
+        "addr:state": "PA",
+        "addr:street": "Pennsylvania Avenue",
+        "branch": "Philly Center City",
+        "brand": "Whole Foods Market",
+        "brand:wikidata": "Q1809448",
+        "building": "yes",
+        "check_date": "2024-10-03",
+        "check_date:opening_hours": "2024-10-03",
+        "name": "Whole Foods Market",
+        "opening_hours": "Mo-Su 07:00-22:00",
+        "phone": "+1 215-557-0015",
+        "ref": "phillycentercity",
+        "shop": "supermarket",
+        "website": "https://www.wholefoodsmarket.com/stores/phillycentercity"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.1742544,
+          39.9630215
+        ]
+      },
+      "id": "node/5229243705"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5253915099",
+        "addr:city": "Philadelphia",
+        "addr:housenumber": "700",
+        "addr:postcode": "19124",
+        "addr:state": "PA",
+        "addr:street": "East Hunting Park Avenue",
+        "brand": "Marshalls",
+        "brand:wikidata": "Q15903261",
+        "clothes": "men;women;children;sports;underwear",
+        "name": "Marshalls",
+        "opening_hours": "Mo-Th 09:00-21:00; Fr-Su 09:00-22:00",
+        "shop": "department_store"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.1153222,
+          40.0111519
+        ]
+      },
+      "id": "node/5253915099"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5253922736",
+        "addr:city": "Philadelphia",
+        "addr:housenumber": "700",
+        "addr:postcode": "19124",
+        "addr:state": "PA",
+        "addr:street": "East Hunting Park Avenue",
+        "alt_name": "Burlington Coat Factory",
+        "brand": "Burlington",
+        "brand:wikidata": "Q4999220",
+        "name": "Burlington",
+        "opening_hours": "We-Th 09:00-22:00, Fr-Tu 09:00-23:00",
+        "shop": "department_store"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.1152544,
+          40.0117032
+        ]
+      },
+      "id": "node/5253922736"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5633016069",
+        "addr:city": "Philadelphia",
+        "addr:housenumber": "3438-3448",
+        "addr:postcode": "19104",
+        "addr:state": "PA",
+        "addr:street": "Lancaster Avenue",
+        "air_conditioning": "yes",
+        "changing_table": "no",
+        "check_date": "2024-07-26",
+        "contact:phone": "+1 267-292-2527",
+        "contact:website": "https://www.oldnelsonfood.com/",
+        "name": "Old Nelson",
+        "opening_hours": "Mo-Sa 08:00-22:00; Su 09:00-21:00",
+        "payment:apple_pay": "yes",
+        "payment:cards": "yes",
+        "payment:cash": "yes",
+        "payment:contactless": "yes",
+        "payment:debit_cards": "yes",
+        "shop": "convenience",
+        "toilets": "yes",
+        "website": "https://www.oldnelsonfood.com",
+        "wheelchair": "limited"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.1919299,
+          39.9575184
+        ]
+      },
+      "id": "node/5633016069"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5642914185",
+        "addr:city": "Philadelphia",
+        "addr:housenumber": "938",
+        "addr:postcode": "19147",
+        "addr:state": "PA",
+        "addr:street": "Arch Street",
+        "amenity": "ice_cream",
+        "atm": "yes",
+        "internet_access": "wlan",
+        "internet_access:fee": "yes",
+        "name": "Frozen Rolled Ice Cream",
+        "opening_hours": "Mo-Th 12:00-23:00; Fr 12:00-24:00; PH closed; Sa 11:00-24:00; Su 11:00-23:00",
+        "outdoor_seating": "no",
+        "phone": "+1 267-457-5118",
+        "toilets": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.1561933,
+          39.9534178
+        ]
+      },
+      "id": "node/5642914185"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5685301906",
+        "addr:city": "Philadelphia",
+        "addr:country": "US",
+        "addr:housenumber": "7720",
+        "addr:postcode": "19151",
+        "addr:state": "PA",
+        "addr:street": "City Line Avenue",
+        "brand": "Ross",
+        "brand:wikidata": "Q3442791",
+        "check_date": "2023-11-26",
+        "name": "Ross",
+        "official_name": "Ross Dress for Less",
+        "opening_hours": "09:00-22:00",
+        "phone": "+1 215-473-2334",
+        "ref": "662",
+        "shop": "department_store",
+        "website": "https://www.rossstores.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.2738788,
+          39.977355
+        ]
+      },
+      "id": "node/5685301906"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5955006785",
+        "addr:city": "Philadelphia",
+        "addr:housenumber": "1001",
+        "addr:postcode": "19147",
+        "addr:state": "PA",
+        "addr:street": "South Street",
+        "brand": "Acme",
+        "brand:wikidata": "Q341975",
+        "name": "Acme",
+        "opening_hours": "Mo-Su 07:00-22:00",
+        "phone": "+1 215-238-1108",
+        "shop": "supermarket",
+        "website": "https://local.acmemarkets.com/pa/philadelphia/1001-south-st.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.1587786,
+          39.942934
+        ]
+      },
+      "id": "node/5955006785"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5967871740",
+        "amenity": "toilets"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.2445114,
+          39.8758542
+        ]
+      },
+      "id": "node/5967871740"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5967871744",
+        "amenity": "toilets"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.2436025,
+          39.8746109
+        ]
+      },
+      "id": "node/5967871744"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6028520826",
+        "addr:city": "Philadelphia",
+        "addr:housenumber": "2550",
+        "addr:postcode": "19114",
+        "addr:state": "PA",
+        "addr:street": "Grant Avenue",
+        "branch": "Food Stores",
+        "brand": "Giant",
+        "brand:wikidata": "Q5558332",
+        "check_date": "2024-05-16",
+        "name": "Giant",
+        "opening_hours": "07:00-23:00",
+        "phone": "+1 215-464-8280",
+        "ref": "6468",
+        "shop": "supermarket",
+        "website": "https://stores.giantfoodstores.com/pa/philadelphia/2550-grant-ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.0272416,
+          40.0783152
+        ]
+      },
+      "id": "node/6028520826"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6157764745",
+        "amenity": "toilets"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.1955342,
+          39.9738822
+        ]
+      },
+      "id": "node/6157764745"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6157765085",
+        "amenity": "toilets"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.1957364,
+          39.9698074
+        ]
+      },
+      "id": "node/6157765085"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6157765102",
+        "amenity": "toilets"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.1964552,
+          39.97126
+        ]
+      },
+      "id": "node/6157765102"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6213184570",
+        "addr:city": "Philadelphia",
+        "addr:housenumber": "101",
+        "addr:postcode": "19120",
+        "addr:state": "PA",
+        "addr:street": "East Olney Avenue",
+        "branch": "Front & Olney",
+        "brand": "ShopRite",
+        "brand:wikidata": "Q7501097",
+        "name": "ShopRite",
+        "opening_hours": "Mo-Sa 07:00-00:00",
+        "payment:cash": "yes",
+        "payment:contactless": "yes",
+        "payment:ebt": "yes",
+        "payment:snap": "yes",
+        "phone": "+1 215-224-7500",
+        "ref": "537",
+        "shop": "supermarket",
+        "website": "https://www.shoprite.com/sm/planning/rsid/537"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.1188995,
+          40.0390265
+        ]
+      },
+      "id": "node/6213184570"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6242919985",
+        "addr:city": "Philadelphia",
+        "addr:housenumber": "1900",
+        "addr:postcode": "19103-4610",
+        "addr:state": "PA",
+        "addr:street": "Chestnut Street",
+        "brand": "Target",
+        "brand:wikidata": "Q1046951",
+        "name": "Target",
+        "opening_hours": "Mo-Fr 07:00-22:00; Sa 08:00-23:00; Su 08:00-22:00",
+        "phone": "+1 215-399-3719",
+        "shop": "department_store",
+        "toilets": "no",
+        "website": "https://www.target.com/sl/philadelphia-rittenhouse-square/3206"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.1721436,
+          39.9517831
+        ]
+      },
+      "id": "node/6242919985"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6308830951",
+        "amenity": "toilets",
+        "toilets:disposal": "chemical"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.012609,
+          40.0288087
+        ]
+      },
+      "id": "node/6308830951"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6621982900",
+        "amenity": "toilets"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.2102004,
+          39.9829705
+        ]
+      },
+      "id": "node/6621982900"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6634083729",
+        "addr:city": "Philadelphia",
+        "addr:housenumber": "3101",
+        "addr:postcode": "19130",
+        "addr:state": "PA",
+        "addr:street": "West Girard Avenue",
+        "brand": "Aldi",
+        "brand:wikidata": "Q41171672",
+        "name": "Aldi",
+        "opening_hours": "Mo-Su 08:30-20:00",
+        "phone": "+1 844-460-7043",
+        "shop": "supermarket",
+        "website": "https://stores.aldi.us/pa/philadelphia/3101-west-girard-avenue"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.1867777,
+          39.9758968
+        ]
+      },
+      "id": "node/6634083729"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6638325443",
+        "addr:city": "Philadelphia",
+        "addr:housenumber": "2800",
+        "addr:postcode": "19129",
+        "addr:state": "PA",
+        "addr:street": "Fox Street",
+        "branch": "Fox Street",
+        "brand": "ShopRite",
+        "brand:wikidata": "Q7501097",
+        "name": "ShopRite",
+        "opening_hours": "Mo-Su 07:00-23:00",
+        "phone": "+1 215-717-1222",
+        "ref": "430",
+        "shop": "supermarket",
+        "website": "https://www.shoprite.com/sm/planning/rsid/430"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.1746361,
+          40.009545
+        ]
+      },
+      "id": "node/6638325443"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6677737939",
+        "addr:city": "Philadelphia",
+        "addr:housenumber": "3401",
+        "addr:postcode": "19104",
+        "addr:state": "PA",
+        "addr:street": "Chestnut Street",
+        "air_conditioning": "yes",
+        "branch": "Heirloom Market",
+        "brand": "Giant",
+        "brand:wikidata": "Q5558332",
+        "check_date": "2024-07-26",
+        "contact:phone": "+1 445-888-3022",
+        "contact:website": "https://stores.giantfoodstores.com/pa/philadelphia/3401-chestnut-street",
+        "name": "Giant",
+        "opening_hours": "07:00-22:00",
+        "shop": "supermarket"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.1919094,
+          39.954824
+        ]
+      },
+      "id": "node/6677737939"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6680703345",
+        "addr:city": "Philadelphia",
+        "addr:housenumber": "2303",
+        "addr:postcode": "19146",
+        "addr:state": "PA",
+        "addr:street": "Bainbridge Street",
+        "air_conditioning": "yes",
+        "branch": "Heirloom Market",
+        "brand": "Giant",
+        "brand:wikidata": "Q5558332",
+        "name": "Giant",
+        "opening_hours": "Mo-Su 07:00-22:00",
+        "shop": "supermarket",
+        "website": "https://www.heirloommarket.com/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.1805655,
+          39.9448293
+        ]
+      },
+      "id": "node/6680703345"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6688377083",
+        "addr:city": "Philadelphia",
+        "addr:postcode": "19145",
+        "addr:state": "PA",
+        "branch": "Oregon Avenue",
+        "brand": "ShopRite",
+        "brand:wikidata": "Q7501097",
+        "check_date": "2026-01-25",
+        "name": "ShopRite",
+        "opening_hours": "07:00-23:00",
+        "phone": "+1 215-336-7300",
+        "ref": "420",
+        "shop": "supermarket",
+        "website": "https://www.shoprite.com/sm/planning/rsid/420"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.1862669,
+          39.9196091
+        ]
+      },
+      "id": "node/6688377083"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6688446822",
+        "addr:city": "Philadelphia",
+        "addr:housenumber": "424",
+        "addr:postcode": "19148-4605",
+        "addr:state": "PA",
+        "addr:street": "Oregon Avenue",
+        "alt_name": "Burlington Coat Factory",
+        "brand": "Burlington",
+        "brand:wikidata": "Q4999220",
+        "check_date": "2024-05-15",
+        "name": "Burlington",
+        "opening_hours": "09:00-22:00",
+        "phone": "+1 215-389-0571",
+        "ref": "815",
+        "shop": "department_store",
+        "website": "https://stores.burlington.com/pa/philadelphia/815/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.1568142,
+          39.9126841
+        ]
+      },
+      "id": "node/6688446822"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6688453498",
+        "addr:city": "Philadelphia",
+        "addr:housenumber": "424",
+        "addr:postcode": "19148",
+        "addr:state": "PA",
+        "addr:street": "Oregon Avenue",
+        "brand": "Ross",
+        "brand:wikidata": "Q3442791",
+        "name": "Ross",
+        "official_name": "Ross Dress for Less",
+        "opening_hours": "Mo-Th 10:00-20:30; Fr-Sa 09:30-21:00; Su 10:00-20:30",
+        "phone": "+1 215-551-0290",
+        "ref": "1458",
+        "shop": "department_store"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.1559291,
+          39.9125647
+        ]
+      },
+      "id": "node/6688453498"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6688453502",
+        "addr:city": "Philadelphia",
+        "addr:housenumber": "330",
+        "addr:postcode": "19148",
+        "addr:state": "PA",
+        "addr:street": "Oregon Avenue",
+        "branch": "Whitman Plaza",
+        "brand": "ShopRite",
+        "brand:wikidata": "Q7501097",
+        "name": "ShopRite",
+        "opening_hours": "Mo-Su 06:00-22:00",
+        "phone": "+1 215-271-2711",
+        "ref": "411",
+        "shop": "supermarket",
+        "website": "https://www.shoprite.com/sm/planning/rsid/411"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.1547168,
+          39.9139964
+        ]
+      },
+      "id": "node/6688453502"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6821176686",
+        "access": "customers",
+        "amenity": "toilets",
+        "changing_table": "yes",
+        "level": "0",
+        "opening_hours": "Mo-Su 08:00-18:00",
+        "portable": "no",
+        "seasonal": "winter",
+        "toilets:disposal": "flush",
+        "toilets:handwashing": "yes",
+        "toilets:position": "inside;seated;urinal",
+        "unisex": "yes",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.1414524,
+          39.9432813
+        ]
+      },
+      "id": "node/6821176686"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7072733748",
+        "addr:city": "Philadelphia",
+        "addr:housenumber": "8200",
+        "addr:postcode": "19152",
+        "addr:state": "PA",
+        "addr:street": "Roosevelt Boulevard",
+        "brand": "Acme",
+        "brand:wikidata": "Q341975",
+        "check_date": "2024-10-10",
+        "name": "Acme",
+        "opening_hours": "Mo-Fr 06:00-22:00; Sa 06:00-22:00; Su 06:00-22:00",
+        "phone": "+1 215-338-8077",
+        "shop": "supermarket",
+        "website": "https://local.acmemarkets.com/pa/philadelphia/8200-roosevelt-blvd.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.0452799,
+          40.0602951
+        ]
+      },
+      "id": "node/7072733748"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7134774341",
+        "amenity": "toilets"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.2146644,
+          39.9921307
+        ]
+      },
+      "id": "node/7134774341"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7140512475",
+        "amenity": "toilets"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.2195522,
+          39.9849184
+        ]
+      },
+      "id": "node/7140512475"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7157264118",
+        "amenity": "toilets",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.1951873,
+          40.0312553
+        ]
+      },
+      "id": "node/7157264118"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7157264162",
+        "amenity": "toilets",
+        "check_date": "2023-10-27"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.2034857,
+          40.0218026
+        ]
+      },
+      "id": "node/7157264162"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7168061045",
+        "amenity": "toilets",
+        "female": "yes",
+        "male": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.2158347,
+          40.045823
+        ]
+      },
+      "id": "node/7168061045"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7223688638",
+        "amenity": "toilets",
+        "fee": "no",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.222681,
+          40.0866387
+        ]
+      },
+      "id": "node/7223688638"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7223690626",
+        "amenity": "toilets",
+        "fee": "no",
+        "unisex": "yes",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.2222525,
+          40.0882127
+        ]
+      },
+      "id": "node/7223690626"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7392997027",
+        "addr:city": "Philadelphia",
+        "addr:housenumber": "1020",
+        "addr:postcode": "19146-5006",
+        "addr:state": "PA",
+        "addr:street": "Broad Street",
+        "brand": "Target",
+        "brand:wikidata": "Q1046951",
+        "name": "Target",
+        "opening_hours": "Mo-Fr 07:00-22:00; Sa-Su 08:00-22:00",
+        "phone": "+1 215-201-3956",
+        "shop": "department_store",
+        "website": "https://www.target.com/sl/philadelphia-broad-and-washington/3263"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.1669431,
+          39.9382373
+        ]
+      },
+      "id": "node/7392997027"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7410672110",
+        "addr:city": "Philadelphia",
+        "addr:housenumber": "7162",
+        "addr:postcode": "19128",
+        "addr:state": "PA",
+        "addr:street": "Ridge Avenue",
+        "brand": "Target",
+        "brand:wikidata": "Q1046951",
+        "check_date": "2026-04-11",
+        "name": "Target",
+        "opening_hours": "Mo-Fr 07:00-22:00; Sa-Su 08:00-22:00",
+        "phone": "+1 267-270-3421",
+        "shop": "department_store",
+        "website": "https://www.target.com/sl/phila-roxborough/3247"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.2329331,
+          40.0441717
+        ]
+      },
+      "id": "node/7410672110"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7428100308",
+        "addr:housenumber": "1130",
+        "addr:street": "Market Street",
+        "brand": "TJ Maxx",
+        "brand:wikidata": "Q10860683",
+        "check_date": "2023-04-12",
+        "contact:phone": "+1 215-454-6733",
+        "contact:website": "https://tjmaxx.tjx.com/m/stores/Philadelphia-PA-19107/1540/aboutstore",
+        "name": "TJ Maxx",
+        "opening_hours": "Mo-Sa 08:00-20:00; Su 10:00-18:00",
+        "shop": "department_store"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.1588846,
+          39.9516344
+        ]
+      },
+      "id": "node/7428100308"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7508951426",
+        "addr:city": "Philadelphia",
+        "addr:housenumber": "1300",
+        "addr:postcode": "19123",
+        "addr:state": "PA",
+        "addr:street": "Fairmount Avenue",
+        "brand": "Aldi",
+        "brand:wikidata": "Q41171672",
+        "name": "Aldi",
+        "opening_hours": "Mo-Su 08:30-20:00",
+        "phone": "+1-844-460-7169",
+        "shop": "supermarket",
+        "website": "https://stores.aldi.us/pa/philadelphia/1300-fairmount-ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.1597732,
+          39.966044
+        ]
+      },
+      "id": "node/7508951426"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7653481105",
+        "access": "yes",
+        "amenity": "toilets",
+        "portable": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.2328576,
+          40.083513
+        ]
+      },
+      "id": "node/7653481105"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7656771666",
+        "access": "yes",
+        "amenity": "toilets",
+        "fee": "no",
+        "toilets:disposal": "pitlatrine",
+        "unisex": "yes",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.2584369,
+          39.8923733
+        ]
+      },
+      "id": "node/7656771666"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7768867656",
+        "addr:city": "Philadelphia",
+        "addr:housenumber": "29",
+        "addr:postcode": "19148",
+        "addr:state": "PA",
+        "addr:street": "Snyder Avenue",
+        "brand": "Acme",
+        "brand:wikidata": "Q341975",
+        "name": "Acme",
+        "opening_hours": "Mo-Su 07:00-22:00",
+        "phone": "+1 215-271-5603",
+        "shop": "supermarket",
+        "website": "https://local.acmemarkets.com/pa/philadelphia/29-snyder-ave.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.1450437,
+          39.9232703
+        ]
+      },
+      "id": "node/7768867656"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/8591425512",
+        "addr:city": "Philadelphia",
+        "addr:housenumber": "1625",
+        "addr:postcode": "19103",
+        "addr:street": "Chestnut Street",
+        "brand": "Bloomingdale's",
+        "brand:wikidata": "Q283383",
+        "check_date": "2023-10-08",
+        "name": "Bloomingdale's",
+        "opening_hours": "Mo-Sa 11:00-19:00; Su 11:00-18:00",
+        "phone": "+1 267-858-3200",
+        "shop": "department_store",
+        "website": "https://locations.bloomingdales.com/liberty-place-outlet"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.1684696,
+          39.9516621
+        ]
+      },
+      "id": "node/8591425512"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9099221109",
+        "amenity": "toilets"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.2626443,
+          39.8862431
+        ]
+      },
+      "id": "node/9099221109"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9318336032",
+        "addr:city": "Philadelphia",
+        "addr:housenumber": "4600",
+        "addr:postcode": "19124",
+        "addr:state": "PA",
+        "addr:street": "Roosevelt Boulevard",
+        "addr:unit": "Building G",
+        "brand": "Walmart",
+        "brand:wikidata": "Q483551",
+        "name": "Walmart",
+        "opening_hours": "Mo-Su 06:00-23:00",
+        "payment:app:walmart": "yes",
+        "payment:apple_pay": "no",
+        "payment:google_pay": "no",
+        "payment:samsung_pay": "no",
+        "phone": "+1 215-288-0700",
+        "ref": "5103",
+        "ref:walmart": "5103",
+        "sensory_friendly:accommodation": "dimmed_light;static_screens;no_pa",
+        "sensory_friendly:conditional": "yes @ 08:00-10:00",
+        "shop": "department_store",
+        "website": "https://www.walmart.com/store/5103-philadelphia-pa"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.0996411,
+          40.0314555
+        ]
+      },
+      "id": "node/9318336032"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9318336088",
+        "addr:city": "Philadelphia",
+        "addr:housenumber": "4640",
+        "addr:postcode": "19124",
+        "addr:state": "PA",
+        "addr:street": "Roosevelt Boulevard",
+        "brand": "Ross",
+        "brand:wikidata": "Q3442791",
+        "name": "Ross",
+        "official_name": "Ross Dress for Less",
+        "opening_hours": "Mo-Sa 08:00-22:00",
+        "phone": "+1 215-289-4425",
+        "ref": "856",
+        "shop": "department_store",
+        "website": "https://www.rossstores.com/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.1012291,
+          40.0322896
+        ]
+      },
+      "id": "node/9318336088"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9318336093",
+        "addr:city": "Philadelphia",
+        "addr:housenumber": "4640",
+        "addr:postcode": "19124",
+        "addr:state": "PA",
+        "addr:street": "Roosevelt Boulevard",
+        "brand": "dd's Discounts",
+        "brand:wikidata": "Q83743863",
+        "check_date": "2024-10-10",
+        "name": "dd's Discounts",
+        "opening_hours": "Mo-Th,Su 09:30-21:30; Fr-Sa 09:00-22:00",
+        "phone": "+1 215-533-5125",
+        "shop": "department_store"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.100673,
+          40.0319843
+        ]
+      },
+      "id": "node/9318336093"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9344005503",
+        "addr:city": "Philadelphia",
+        "addr:housenumber": "1357",
+        "addr:postcode": "19154",
+        "addr:state": "PA",
+        "addr:street": "Franklin Mills Circle",
+        "brand": "American Freight",
+        "brand:wikidata": "Q94360971",
+        "name": "American Freight",
+        "shop": "department_store"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.9637762,
+          40.0855453
+        ]
+      },
+      "id": "node/9344005503"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9344005504",
+        "addr:city": "Philadelphia",
+        "addr:housenumber": "1563",
+        "addr:postcode": "19154",
+        "addr:state": "PA",
+        "addr:street": "Franklin Mills Circle",
+        "alt_name": "Burlington Coat Factory",
+        "brand": "Burlington",
+        "brand:wikidata": "Q4999220",
+        "name": "Burlington",
+        "opening_hours": "09:00-22:00",
+        "phone": "+1 215-632-8069",
+        "ref": "197",
+        "shop": "department_store",
+        "website": "https://stores.burlington.com/pa/philadelphia/197"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.9605289,
+          40.0873566
+        ]
+      },
+      "id": "node/9344005504"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9384602498",
+        "amenity": "toilets",
+        "unisex": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.2199021,
+          40.0853219
+        ]
+      },
+      "id": "node/9384602498"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9630125332",
+        "amenity": "toilets"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.1518503,
+          39.9274324
+        ]
+      },
+      "id": "node/9630125332"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9708211007",
+        "amenity": "toilets",
+        "portable": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.1485884,
+          39.9141005
+        ]
+      },
+      "id": "node/9708211007"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9742142722",
+        "addr:city": "Philadelphia",
+        "addr:housenumber": "1324",
+        "addr:postcode": "19107",
+        "addr:state": "PA",
+        "addr:street": "Arch Street",
+        "branch": "Arch Street",
+        "brand": "Trader Joe's",
+        "brand:wikidata": "Q688825",
+        "name": "Trader Joe's",
+        "opening_hours": "Mo-Su 09:00-21:00",
+        "phone": "+1 215-563-2170",
+        "ref": "618",
+        "shop": "supermarket",
+        "website": "https://locations.traderjoes.com/pa/philadelphia/618/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.1624251,
+          39.9541969
+        ]
+      },
+      "id": "node/9742142722"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9970746284",
+        "amenity": "toilets"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.1586864,
+          39.9536653
+        ]
+      },
+      "id": "node/9970746284"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9995193085",
+        "addr:city": "Philadelphia",
+        "addr:housenumber": "4001",
+        "addr:postcode": "19104",
+        "addr:state": "PA",
+        "addr:street": "Walnut Street",
+        "air_conditioning": "yes",
+        "brand": "Acme",
+        "brand:wikidata": "Q341975",
+        "contact:fax": "+1-215-222-8399",
+        "contact:phone": "+1-215-222-9200",
+        "name": "Acme",
+        "opening_hours": "Mo-Su 07:00-23:00",
+        "payment:apple_pay": "yes",
+        "payment:cards": "yes",
+        "payment:cash": "yes",
+        "payment:coins": "yes",
+        "payment:contactless": "yes",
+        "payment:credit_cards": "yes",
+        "payment:debit_cards": "yes",
+        "phone": "+1-445-888-3634",
+        "shop": "supermarket",
+        "website": "https://local.acmemarkets.com/pa/philadelphia/4001-walnut-st.html",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.2028208,
+          39.9544621
+        ]
+      },
+      "id": "node/9995193085"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10270198587",
+        "addr:city": "Philadelphia",
+        "addr:housenumber": "510",
+        "addr:postcode": "19130",
+        "addr:state": "PA",
+        "addr:street": "North Broad Street",
+        "brand": "Giant",
+        "brand:wikidata": "Q5558332",
+        "check_date": "2025-09-04",
+        "name": "Giant",
+        "opening_hours": "06:00-22:00",
+        "opening_hours:url": "https://stores.giantfoodstores.com/pa/philadelphia/510-north-broad-street",
+        "phone": "+1-215-523-6277",
+        "ref": "6573",
+        "shop": "supermarket",
+        "website": "https://stores.giantfoodstores.com/pa/philadelphia/510-north-broad-street",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.1616596,
+          39.9627071
+        ]
+      },
+      "id": "node/10270198587"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10554560825",
+        "access": "yes",
+        "amenity": "toilets",
+        "fee": "no",
+        "male": "yes",
+        "toilets:disposal": "flush",
+        "toilets:position": "seated",
+        "wheelchair": "designated"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.2413286,
+          39.8744663
+        ]
+      },
+      "id": "node/10554560825"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10554560826",
+        "access": "yes",
+        "amenity": "toilets",
+        "fee": "no",
+        "female": "yes",
+        "toilets:disposal": "flush",
+        "toilets:position": "seated",
+        "wheelchair": "designated"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.2413943,
+          39.874456
+        ]
+      },
+      "id": "node/10554560826"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10722831982",
+        "addr:city": "Philadelphia",
+        "addr:housenumber": "60",
+        "addr:postcode": "19103",
+        "addr:state": "PA",
+        "addr:street": "North 23rd Street",
+        "brand": "Giant",
+        "brand:wikidata": "Q5558332",
+        "check_date": "2023-10-10",
+        "name": "Giant",
+        "opening_hours": "06:00-22:00",
+        "payment:cash": "yes",
+        "payment:contactless": "yes",
+        "payment:credit_cards": "yes",
+        "payment:debit_cards": "yes",
+        "phone": "+1-215-587-0270",
+        "ref": "6561",
+        "self_checkout": "yes",
+        "shop": "supermarket",
+        "website": "https://stores.giantfoodstores.com/pa/philadelphia/60-north-23rd-street"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.1776835,
+          39.956471
+        ]
+      },
+      "id": "node/10722831982"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11020616235",
+        "addr:city": "Philadelphia",
+        "addr:housenumber": "833",
+        "addr:postcode": "19107",
+        "addr:state": "PA",
+        "addr:street": "Market Street",
+        "alt_name": "Burlington Coat Factory",
+        "brand": "Burlington",
+        "brand:wikidata": "Q4999220",
+        "name": "Burlington",
+        "opening_hours": "Mo-Su 09:00-21:00",
+        "phone": "+1 215-627-6933",
+        "ref": "431",
+        "shop": "department_store",
+        "website": "https://stores.burlington.com/pa/philadelphia/431"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.1549749,
+          39.9514857
+        ]
+      },
+      "id": "node/11020616235"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11216937416",
+        "addr:city": "Philadelphia",
+        "addr:housenumber": "6725",
+        "addr:postcode": "19135",
+        "addr:state": "PA",
+        "addr:street": "Frankford Avenue",
+        "branch": "Knorr Street",
+        "brand": "ShopRite",
+        "brand:wikidata": "Q7501097",
+        "name": "ShopRite",
+        "opening_hours": "Mo-Su 06:00-23:00",
+        "phone": "+1 215-331-6030",
+        "ref": "462",
+        "shop": "supermarket",
+        "website": "https://www.shoprite.com/sm/planning/rsid/462"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.0512416,
+          40.0315172
+        ]
+      },
+      "id": "node/11216937416"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11293629669",
+        "amenity": "toilets",
+        "check_date": "2023-10-27",
+        "portable": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.2031216,
+          40.0221986
+        ]
+      },
+      "id": "node/11293629669"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11350282694",
+        "access": "private",
+        "amenity": "toilets"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.2041723,
+          39.9466794
+        ]
+      },
+      "id": "node/11350282694"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11379798126",
+        "amenity": "toilets",
+        "check_date": "2023-11-27",
+        "male": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.2374424,
+          39.8778415
+        ]
+      },
+      "id": "node/11379798126"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11379798128",
+        "amenity": "toilets",
+        "check_date": "2023-11-27",
+        "female": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.2379007,
+          39.8782141
+        ]
+      },
+      "id": "node/11379798128"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11492685256",
+        "access": "customers",
+        "amenity": "toilets",
+        "changing_table": "no",
+        "portable": "yes",
+        "unisex": "yes",
+        "wheelchair": "limited"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.1390673,
+          39.9591929
+        ]
+      },
+      "id": "node/11492685256"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11509632180",
+        "addr:city": "Philadelphia",
+        "addr:country": "US",
+        "addr:housenumber": "4190",
+        "addr:postcode": "19131",
+        "addr:state": "PA",
+        "addr:street": "City Avenue",
+        "addr:unit": "100",
+        "amenity": "doctors",
+        "check_date": "2025-10-01",
+        "healthcare": "doctor",
+        "healthcare:speciality": "general",
+        "name": "Family Medicine at PCOM",
+        "opening_hours": "Mo-Th 08:00-16:00; Fr 08:00-13:00",
+        "toilets": "yes",
+        "toilets:fee": "no",
+        "toilets:gender_segregated": "no",
+        "website": "https://pcomhealth.org/family-medicine/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.2179365,
+          40.0048321
+        ]
+      },
+      "id": "node/11509632180"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11663473092",
+        "addr:city": "Philadelphia",
+        "addr:housenumber": "12002",
+        "addr:postcode": "19116",
+        "addr:state": "PA",
+        "addr:street": "Roosevelt Boulevard Building 3",
+        "brand": "Aldi",
+        "brand:wikidata": "Q41171672",
+        "name": "Aldi",
+        "opening_hours": "Mo-Su 08:00-20:00",
+        "phone": "+1 844-460-7191",
+        "shop": "supermarket",
+        "website": "https://stores.aldi.us/pa/philadelphia/12002-roosevelt-blvd"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.0012284,
+          40.1065782
+        ]
+      },
+      "id": "node/11663473092"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11663473160",
+        "brand": "Giant",
+        "brand:wikidata": "Q5558332",
+        "name": "Giant",
+        "shop": "supermarket"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.1403958,
+          39.9665896
+        ]
+      },
+      "id": "node/11663473160"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11663473187",
+        "addr:city": "Philadelphia",
+        "addr:housenumber": "2830",
+        "addr:postcode": "19145",
+        "addr:state": "PA",
+        "addr:street": "South 20th Street",
+        "addr:unit": "A",
+        "brand": "Aldi",
+        "brand:wikidata": "Q41171672",
+        "check_date": "2024-05-14",
+        "name": "Aldi",
+        "opening_hours": "09:00-20:00",
+        "phone": "+1 833-460-7181",
+        "shop": "supermarket",
+        "website": "https://stores.aldi.us/pa/philadelphia/2830a-s-20th-st"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.1842617,
+          39.9179634
+        ]
+      },
+      "id": "node/11663473187"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11748268000",
+        "access": "yes",
+        "canoe": "designated",
+        "drinking_water": "yes",
+        "fee": "no",
+        "name": "John Heinz Refuge Canoe Launch",
+        "parking": "yes",
+        "tidal": "yes",
+        "toilets": "yes",
+        "trailer": "no",
+        "waterway": "access_point",
+        "website": "https://www.fws.gov/refuge/john-heinz-tinicum/visit-us/activities/boating---non-motorized"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.2587102,
+          39.8924735
+        ]
+      },
+      "id": "node/11748268000"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11863209278",
+        "access": "permissive",
+        "amenity": "toilets",
+        "description": "Back, East side of Franklin Food Hall",
+        "female": "yes",
+        "male": "yes",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.1924135,
+          39.9531523
+        ]
+      },
+      "id": "node/11863209278"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11879554767",
+        "amenity": "toilets"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.1959339,
+          39.9745419
+        ]
+      },
+      "id": "node/11879554767"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11879554768",
+        "amenity": "toilets"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.1958696,
+          39.9745563
+        ]
+      },
+      "id": "node/11879554768"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11879554800",
+        "access": "customers",
+        "amenity": "toilets"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.1976623,
+          39.9722977
+        ]
+      },
+      "id": "node/11879554800"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11893939339",
+        "access": "customers",
+        "addr:floor": "0",
+        "amenity": "toilets",
+        "check_date": "2024-11-07",
+        "fee": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.2183216,
+          40.0367336
+        ]
+      },
+      "id": "node/11893939339"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11986482159",
+        "addr:city": "Philadelphia",
+        "addr:housenumber": "3200",
+        "addr:postcode": "19114",
+        "addr:state": "PA",
+        "addr:street": "Red Lion Road",
+        "brand": "Acme",
+        "brand:wikidata": "Q341975",
+        "name": "Acme",
+        "opening_hours": "07:00-22:00",
+        "phone": "+1 215-637-4620",
+        "shop": "supermarket",
+        "website": "https://local.acmemarkets.com/pa/philadelphia/3200-09-red-lion-rd.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.9932722,
+          40.0793768
+        ]
+      },
+      "id": "node/11986482159"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12147702103",
+        "addr:city": "Philadelphia",
+        "addr:housenumber": "3500",
+        "addr:postcode": "19134",
+        "addr:state": "PA",
+        "addr:street": "Aramingo Avenue",
+        "brand": "Forman Mills",
+        "brand:wikidata": "Q19604400",
+        "check_date": "2024-08-31",
+        "name": "Forman Mills",
+        "opening_hours": "Mo-Fr 10:00-20:00; Sa 09:00-21:00; Su 10:00-18:00",
+        "phone": "+1 267-801-0880",
+        "shop": "department_store",
+        "website": "https://formanmills.com/stores/northeast-philadelphia-3/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.0993429,
+          39.9929557
+        ]
+      },
+      "id": "node/12147702103"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12148361500",
+        "addr:city": "Philadelphia",
+        "addr:housenumber": "3400",
+        "addr:postcode": "19134-4513",
+        "addr:state": "PA",
+        "addr:street": "Aramingo Avenue",
+        "brand": "dd's Discounts",
+        "brand:wikidata": "Q83743863",
+        "check_date": "2024-08-31",
+        "fixme": "location in shopping center",
+        "name": "dd's Discounts",
+        "opening_hours": "Mo-Sa 09:00-21:00; Su 09:00-19:00",
+        "phone": "+1 215-203-3160",
+        "shop": "department_store"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.1016824,
+          39.9915822
+        ]
+      },
+      "id": "node/12148361500"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12148418703",
+        "addr:city": "Philadelphia",
+        "addr:housenumber": "3400",
+        "addr:postcode": "19134",
+        "addr:state": "PA",
+        "addr:street": "Aramingo Avenue",
+        "brand": "Ross",
+        "brand:wikidata": "Q3442791",
+        "check_date": "2024-08-31",
+        "fixme": "location within shopping center",
+        "name": "Ross",
+        "official_name": "Ross Dress for Less",
+        "opening_hours": "Mo-Sa 09:00-21:00; Su 09:00-20:30",
+        "phone": "+1 215-291-2880",
+        "shop": "department_store",
+        "website": "https://www.rossstores.com/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.1017369,
+          39.9922449
+        ]
+      },
+      "id": "node/12148418703"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12192845328",
+        "amenity": "toilets"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.233514,
+          40.0814731
+        ]
+      },
+      "id": "node/12192845328"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12231852667",
+        "addr:city": "Philadelphia",
+        "addr:housenumber": "9169",
+        "addr:postcode": "19114",
+        "addr:state": "PA",
+        "addr:street": "Roosevelt Boulevard",
+        "brand": "Marshalls",
+        "brand:wikidata": "Q15903261",
+        "check_date": "2024-10-07",
+        "name": "Marshalls",
+        "opening_hours": "09:30-21:30",
+        "phone": "+1 215-676-3025",
+        "shop": "department_store",
+        "website": "https://marshalls.com/us/m/stores/Philadelphia-PA-19114/125/aboutstore"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.0322677,
+          40.0754807
+        ]
+      },
+      "id": "node/12231852667"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12271268160",
+        "amenity": "toilets",
+        "check_date": "2025-10-25",
+        "check_date:wheelchair": "2025-10-25",
+        "portable": "yes",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.2258331,
+          40.0788741
+        ]
+      },
+      "id": "node/12271268160"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12373713622",
+        "access": "permissive",
+        "amenity": "toilets",
+        "fee": "no",
+        "male": "yes",
+        "toilets:disposal": "flush"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.2182803,
+          40.0544722
+        ]
+      },
+      "id": "node/12373713622"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12544893847",
+        "access": "yes",
+        "amenity": "toilets",
+        "fee": "no",
+        "gender_segregated": "no",
+        "opening_hours": "24/7",
+        "toilets:handwashing": "yes",
+        "toilets:position": "seated;urinal",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.1647636,
+          39.9544292
+        ]
+      },
+      "id": "node/12544893847"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12954839430",
+        "amenity": "toilets"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.2122441,
+          39.9324344
+        ]
+      },
+      "id": "node/12954839430"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12954839431",
+        "amenity": "toilets"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.2123299,
+          39.9321583
+        ]
+      },
+      "id": "node/12954839431"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12960248681",
+        "amenity": "toilets",
+        "check_date": "2025-06-26",
+        "male": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.2231927,
+          40.0349
+        ]
+      },
+      "id": "node/12960248681"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12960248682",
+        "amenity": "toilets",
+        "check_date": "2025-06-26",
+        "female": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.22357,
+          40.0347283
+        ]
+      },
+      "id": "node/12960248682"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12960368387",
+        "access": "yes",
+        "amenity": "toilets",
+        "female": "yes",
+        "male": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.1833775,
+          39.9480628
+        ]
+      },
+      "id": "node/12960368387"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12974276658",
+        "amenity": "toilets",
+        "check_date": "2025-07-03",
+        "toilets:disposal": "pitlatrine"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.2142135,
+          39.9941102
+        ]
+      },
+      "id": "node/12974276658"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/13112687851",
+        "amenity": "toilets",
+        "description": "Toilets are on roof top garden",
+        "fee": "no",
+        "level": "12"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.1837014,
+          39.9524963
+        ]
+      },
+      "id": "node/13112687851"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/13114794420",
+        "access": "customers",
+        "amenity": "toilets",
+        "fee": "no",
+        "female": "yes",
+        "toilets:disposal": "flush",
+        "toilets:position": "seated"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.2383274,
+          39.8755676
+        ]
+      },
+      "id": "node/13114794420"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/13114801745",
+        "access": "yes",
+        "amenity": "toilets",
+        "fee": "no",
+        "male": "yes",
+        "toilets:disposal": "flush",
+        "toilets:position": "seated;urinal"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.2384001,
+          39.8754912
+        ]
+      },
+      "id": "node/13114801745"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/13317248001",
+        "addr:housenumber": "2009",
+        "addr:street": "South Broad Street",
+        "name": "Dollar Value",
+        "shop": "department_store"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.1690362,
+          39.9252438
+        ]
+      },
+      "id": "node/13317248001"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/13431058345",
+        "amenity": "toilets",
+        "entrance": "yes",
+        "unisex": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.2088045,
+          40.0146601
+        ]
+      },
+      "id": "node/13431058345"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/13431058346",
+        "amenity": "toilets",
+        "entrance": "yes",
+        "unisex": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.2088389,
+          40.0146691
+        ]
+      },
+      "id": "node/13431058346"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/13542184025",
+        "access": "permissive",
+        "amenity": "toilets",
+        "description": "Wheelchair accessible bathroom that is open during Cherry Street Pier business hours. Both male and female bathrooms.",
+        "fee": "no",
+        "female": "yes",
+        "male": "yes",
+        "toilets:disposal": "flush",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.1397147,
+          39.9525314
+        ]
+      },
+      "id": "node/13542184025"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/13711398006",
+        "brand": "Aldi",
+        "brand:wikidata": "Q41171672",
+        "name": "Aldi",
+        "shop": "supermarket"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.1783251,
+          39.939496
+        ]
+      },
+      "id": "node/13711398006"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/13773191949",
+        "access": "yes",
+        "amenity": "toilets",
+        "changing_table": "no",
+        "fee": "no",
+        "level": "1",
+        "male": "yes",
+        "name": "Men's Room",
+        "operator": "Liberty Place",
+        "toilets:disposal": "flush",
+        "toilets:handwashing": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.1682779,
+          39.952372
+        ]
+      },
+      "id": "node/13773191949"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/13782350488",
+        "access": "yes",
+        "amenity": "toilets",
+        "male": "yes",
+        "source": "survey",
+        "toilets:disposal": "flush",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.182312,
+          39.9554505
+        ]
+      },
+      "id": "node/13782350488"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/13815568456",
+        "access": "yes",
+        "amenity": "toilets",
+        "fee": "no",
+        "female": "yes",
+        "level": "1",
+        "name": "Women's Room",
+        "operator": "Liberty Place",
+        "toilets:disposal": "flush",
+        "toilets:handwashing": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.1683562,
+          39.9523809
+        ]
+      },
+      "id": "node/13815568456"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/13915179197",
+        "brand": "Giant",
+        "brand:wikidata": "Q5558332",
+        "name": "Giant",
+        "opening_date": "2026-06-19",
+        "opening_hours": "Mo-Su 06:00-22:00",
+        "shop": "supermarket"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.2364654,
+          40.0637242
+        ]
+      },
+      "id": "node/13915179197"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/13960948789",
+        "addr:housenumber": "1851",
+        "addr:postcode": "19148",
+        "addr:state": "PA",
+        "addr:street": "South Christopher Columbus Boulevard",
+        "brand": "TJ Maxx",
+        "brand:wikidata": "Q10860683",
+        "check_date": "2026-06-23",
+        "name": "TJ Maxx",
+        "opening_hours": "09:30-21:30",
+        "phone": "+1 215-218-1950",
+        "shop": "department_store",
+        "website": "https://tjmaxx.tjx.com/m/stores/Philadelphia-PA-19148/1507/aboutstore"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.1411237,
+          39.9236023
+        ]
+      },
+      "id": "node/13960948789"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/13977991360",
+        "access": "customers",
+        "amenity": "toilets",
+        "check_date": "2026-06-30",
+        "location": "indoor",
+        "toilets:disposal": "flush"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.2098541,
+          40.0211197
+        ]
+      },
+      "id": "node/13977991360"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/13986416898",
+        "access": "permissive",
+        "amenity": "toilets",
+        "changing_table": "yes",
+        "unisex": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.1845867,
+          39.9552075
+        ]
+      },
+      "id": "node/13986416898"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/13990522701",
+        "addr:housenumber": "8001",
+        "addr:street": "Germantown Avenue",
+        "air_conditioning": "yes",
+        "amenity": "bar",
+        "check_date": "2026-07-05",
+        "contact:instagram": "ciderbellyhardcider",
+        "email": "ciderbellyhardcider@gmail.com",
+        "handwashing:soap": "yes",
+        "indoor_seating": "yes",
+        "name": "Cider Belly",
+        "opening_hours": "Th-Fr 18:00-21:00; Sa 13:00-21:00; Su 13:00-20:00",
+        "outdoor_seating": "yes",
+        "payment:cards": "yes",
+        "payment:cash": "yes",
+        "payment:qr_code": "no",
+        "service:electricity": "limited",
+        "smoking": "no",
+        "toilets": "yes",
+        "toilets:access": "customers",
+        "toilets:disposal": "flush",
+        "toilets:fee": "no",
+        "toilets:gender_segregated": "no",
+        "toilets:handwashing": "yes",
+        "toilets:paper_supplied": "yes",
+        "toilets:position": "seated",
+        "toilets:wash": "no",
+        "website": "https://www.ciderbellyhardcider.com/",
+        "website:menu": "https://www.ciderbellyhardcider.com/ciders.html",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.2008376,
+          40.0709805
+        ]
+      },
+      "id": "node/13990522701"
+    }
+  ]
+}

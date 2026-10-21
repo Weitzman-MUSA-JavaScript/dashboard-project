@@ -1,0 +1,309 @@
+# Snapshot of Refuge Restrooms API records in Philadelphia, retrieved 2026-10-21.
+# Sources: /api/v1/restrooms/search?query=Philadelphia (pages 1-2) and
+# /api/v1/restrooms/by_location?lat=39.9526&lng=-75.1652 (pages 1-3, about 2.4 mi around City Hall).
+# Pipe-separated. "note" is the record's directions and comment, shortened to about 100 characters.
+# Run `node scripts/fetch-refuge.mjs` to download a fuller, fresh copy as data/raw/refuge-restrooms.json.
+id|name|street|latitude|longitude|accessible|unisex|changing_table|updated_at|upvote|downvote|note
+62479|Philadelphia Airport Terminal B|Philadelphia Airport Terminal B|39.877266|-75.244293|true|true|true|2022-06-28|2|0|
+2642|philadelphia, pa|2628 Welsh Rd.|40.07013|-75.031841|false|true|false|2014-02-02|0|1|
+3779|philadelphia international airport|8000 essington ave|39.8988507|-75.2257924|true|true|false|2014-02-02|17|1|in terminal B across from gate B11 in between the men's and women's bathrooms.
+4716|Philadelphia Chutney Company|1628 Sansom St|39.950587|-75.1680465|true|true|false|2014-02-10|2|1|The place is pretty small so the bathrooms are hard to miss. They're down a short corridor
+15978|Community College of Philadelphia, West Building|1700 Spring Garden Street|39.9627561|-75.1665253|true|true|false|2015-02-24|0|0|On second floor, just past the entries to the binary-gendered bathrooms.
+19249|Temple University Wachman Hall|1827-1829 N Broad St|39.980857|-75.156861|true|false|false|2015-11-12|0|0|In Wachman Hall on the 2nd floor in front of the main staircase. / Temple ID or sign in as guest
+21411|South Philadelphia Community Acupuncture|1532 East Passyunk Avenue|39.9303378|-75.1631778|true|true|false|2016-04-15|1|0|It's a small office, we will direct you when you arrive! / Individual, private powder room.
+22577|Philadelphia international airport|8000 essington ave|39.8757359|-75.2493279|true|true|false|2016-06-08|0|0|Terminal B across from CNBC news by the gendered bathrooms. Companion bathroom.
+24010|2410 E York St|2410 E York St|39.9774385|-75.1243736|false|false|false|2016-07-13|0|0|
+25874|Perelman Center for Advanced Medicine|3400 Civic Center Blvd.|39.9477563|-75.1925357|true|true|false|2016-10-20|2|0|Enter through the big revolving door, go up the escalator, and turn right.
+26416|Philadelphia Museum of Art Perelman Building|2500 Fairmount Ave|39.9673848|-75.1786508|true|true|false|2016-11-12|0|0|Downstairs (basement) by the coat room / You have to buy a ticket for the museum
+27181|Philadelphia International Airport|8000 Essington Ave|39.8757359|-75.2493279|true|true|false|2016-12-20|0|0|Companion/all-gender restrooms are across from most of the gendered restrooms
+29843|Philadelphia International Airport|8000 Essington Ave|39.8957541|-75.2284356|true|true|false|2017-02-25|1|0|Between gates F6 and F8; single stall Companion Care unisex bathroom.
+31469|Philadelphia's Magic Gardens|1020 South Street|39.942642|-75.1592851|true|true|false|2017-02-27|1|0|Three bathrooms in the inside galleries / You need a museum ticket to use the bathrooms
+31470|Philadelphia's Magic Gardens|1020 South Street|39.942642|-75.1592851|true|true|false|2017-02-27|0|0|Three bathrooms in the inside galleries / You need a museum ticket to use the bathrooms
+32387|Community College of Philadelphia|1700 Spring Garden Street|39.9627561|-75.1665253|true|true|false|2017-03-01|0|0|Floor 1 of Bonnell Building; also one on the ground floor of the Winnet Student Life Building
+38193|Philadelphia's Magic Garden|1020 South Street|39.9426155|-75.1592352|true|true|false|2020-04-14|1|0|Inside close to where you pay and another two in the back art display
+42777|Philadelphia City Institute|1905 Locust St|39.9495012|-75.1733449|false|true|false|2018-08-04|0|0|On the right as you go in. / Need a key to get in; key is usually on the librarian's counter.
+44063|Sonesta Philadelphia Rittenhouse Square|1800 Market St.|39.9527827|-75.1703617|true|true|false|2018-09-14|0|0|Go up the escalator/stairs to your left when you come in, then turn right at the top
+44679|Philadelphia School of Circus Arts|6452 Greene Street|40.0421481|-75.189571|false|true|false|2020-04-14|0|0|2 bathrooms on the first floor, 1 or 2 bathrooms on the second floor
+45504|Lucien E. Blackwell West Philadelphia Regional Library|125 S. 52nd st|39.9574365|-75.2250229|true|false|true|2020-04-14|0|0|In the hallway past the check out desk
+48126|Airport Terminal A|Airport Terminal A|39.8761022|-75.245808|false|false|false|2019-03-14|0|1|
+48134|Starbucks (300 Arch St)|300 Arch St|39.952156|-75.145295|true|true|false|2019-03-14|0|0|Inside the Starbucks to the right. Door needs code. Ask employees.
+50330|PHL Terminal E|8500 Essington Ave|39.8950123|-75.2290263|true|true|true|2019-06-10|1|0|All Gender Restroom in Terminal E. Near gates E10 and E9.
+50534|PHL Terminal E5|8500 Essington Ave|39.8777813|-75.2395491|true|true|true|2019-06-19|0|0|Right across from the E5 gate
+51442|Philadelphia's Magic Gardens|1020 South Street|39.9426155|-75.1592352|false|false|false|2019-08-01|0|0|One single stall gender neutral bathroom in the main building, and two more in the back building.
+52272|Philadelphia's Magic Gardens|1020 south st|39.9426155|-75.1592352|true|true|true|2019-08-30|0|0|First hallway and back by Back Gallery / Paying customers only
+53583|The Met Philadelphia|858 N Broad St|39.9698791|-75.160284|true|true|false|2019-10-25|0|0|On SECOND FLOOR / If you have a ticket for a show
+58944|PHIIRST|255 S 17th St, Suite 2200|39.9481867|-75.1692901|true|true|false|2021-08-03|2|0|
+59199|Philadelphia Animal Welfare Society|2900 Greys Ferry|39.9388052|-75.1926511|true|true|false|2021-08-05|0|0|Inside to the right in the lobby.
+64773|First Unitarian Church of Philadelphia|2125 Chestnut St|39.9528484|-75.1762894|true|false|true|2023-02-28|1|0|First floor, through hallway past coat closet. / You'll need to get buzzed in
+22605|Wissahickon Valley Park|Forbidden Dr|40.0543397|-75.2180555|false|true|false|2016-06-10|1|0|Help marker 440 (slightly north of Walnut Lane bridge) along Forbidden Drive / Composting toilet
+26355|Drake Theater|302 S Hicks St|39.9471795|-75.1670282|true|true|false|2016-11-11|0|0|Go through the lobby, turn right, and you'll find many unisex stalls.
+44022|Target|7400 Bustleton Ave|40.0511908|-75.059472|false|true|true|2018-09-13|0|0|
+44023|Target|7400 Bustleton Ave|40.0511908|-75.059472|true|true|true|2018-09-13|0|0|
+1|Green Line Cafe|4239 Baltimore Avenue|39.9497678|-75.209068|false|false|false|2014-02-02|2|23|First floor, towards the back; only open to customers, I think.
+46|The Other Green Line|4426 Locust Street|39.95398|-75.2116162|false|true|false|2014-02-10|1|1|First floor, in the back. Only open to customers.
+47|Satellite Coffee|701 South 50th Street|39.947705|-75.222699|false|true|false|2014-02-02|1|1|First floor; down a long, twisty hallway.
+51|White Dog Cafe|3420 Sansom Street|39.9534188|-75.1929704|false|true|false|2014-02-02|0|1|In the basement. Two gendered and two gender-neutral single-stall restrooms.
+56|Whole Foods|929 South St|39.942719|-75.157939|false|true|false|2014-02-02|0|1|Back of store
+58|Washington West Project|1201 Locust St|39.947863|-75.160969|false|true|false|2014-02-02|0|1|Through front door, 20 feet back on your left.
+59|Starbucks|Walnut and 12th St|39.949|-75.1605|true|false|false|2014-02-02|0|1|
+60|High Point Coffee shop|Carpenter Lane and Greene St|40.0464|-75.1959|true|false|false|2014-02-02|0|1|Straight back on your left.
+258|Wooden Shoe Books|704 South street|39.9420903|-75.1541706|true|true|false|2014-02-10|2|1|One bathroom free for all, in back of store on the right.
+382|Giovanni's Room|345 S. 12th Street|39.945179|-75.161247|false|true|false|2014-04-05|1|1|On 2nd floor - ask for key at desk.
+593|Druid|149 Brown St.|39.962791|-75.139883|false|true|false|2014-02-02|0|1|
+856|Triumph Brewing Company|121 Chestnut Street|39.9483299|-75.1436121|false|true|false|2014-02-02|0|1|First floor, in the back, up and around the little ramp on the left.
+907|Brew Ha Ha|214 S 12th St|39.948059|-75.160791|false|true|false|2014-02-02|0|1|Straight through to the back, two gender free stalls.
+924|L'Etage|5th and Bainbridge|39.94085|-75.151|false|true|false|2014-02-02|0|1|Just to the left of the entrance
+943|Woody's|202 S. 13th St.|39.948549|-75.162378|true|true|false|2014-02-02|2|1|
+1055|Eulogy Belgian Tavern|136 Chestnut St.|39.94818|-75.14354|false|true|false|2014-02-02|0|1|2nd floor bathroom is gender-free, single room
+1548|Mariposa Food Co-op|4726 Baltimore Ave|39.94843|-75.217753|false|true|false|2014-02-02|0|1|Right side of the store in the back, near the teas and herbs.
+1718|Bar Ferdinand|1030 N. 2nd St.|39.9578549|-75.1425369|false|true|false|2014-02-02|0|1|One on main floor, two in basement level
+1719|The Abbaye|637 N. 3rd St.|39.9622058|-75.1430777|false|false|false|2014-02-02|0|1|One of each gender, single toilet, locking.
+2019|Shell gas station|Broad and Stenton|40.0475053|-75.142845|false|true|false|2014-02-02|0|1|Go in, make a right, straight to back
+2463|Rittenhouse 1715 Boutique Hotel|1715 Rittenhouse Sq.|39.9484301|-75.1701416|false|true|false|2014-03-21|1|1|
+2479|Cosi coffeeshop|12th and Walnut|39.9488733|-75.1605327|true|false|false|2014-02-02|0|1|In the back, ask for key. Single-person access.
+2501|Starbucks in Center City Macy's|13th and Chestnut|39.95906|-75.159934|false|true|false|2014-02-02|0|1|2 single stall, gender neutral bathrooms
+2777|Starbucks|3401 Walnut Street|39.953192|-75.192882|false|false|false|2014-02-02|0|1|1st floor in the back. Walk to the stairs and turn.
+2778|Van Pelt-Dietrich Library Center|3420 Walnut Street|39.952891|-75.192854|true|true|false|2014-02-02|0|1|Many floors have single-stall, locking restrooms. / A valid ID is needed to enter
+2779|William Way-area LGBT Center (Penn)|3907 Spruce Street|39.952004|-75.202174|false|true|false|2014-03-06|2|1|Two bathrooms on the 1st floor and two more on the 2nd floor. / Open to the public
+3139|Mazzoni Center|21 S. 12th St. 8th Floor|39.9510858|-75.1599594|true|true|false|2014-02-10|4|1|Take the elevator to the 8th floor.
+3173|North Bowl|909 N. 2nd Street|39.964371|-75.14064|false|true|false|2014-02-02|0|1|Upstairs, many gender neutral single room bathrooms.
+3186|Grey Lodge Pub|6235 Frankford Ave.|40.027691|-75.061256|false|false|false|2014-02-02|0|1|Upstairs, 2 gendered single room bathrooms.
+3377|Trader Joe's|2121 Market St.|39.953955|-75.176214|false|true|false|2014-02-02|0|1|Straight through both sets of double doors, on the left just before the registers.
+3414|Good Dog Bar|224 S 15th Street|39.9487809|-75.16632|false|true|false|2014-02-02|0|1|Walk up to the third floor (not accessible).
+3469|Mandel Theater|3210 Chestnut Street|39.953834|-75.187681|true|false|false|2014-02-02|0|1|Ramp available.
+3483|Superfresh|2nd and Girard Avenue|39.9695579|-75.1395688|true|false|false|2014-02-02|0|1|Second floor, east end of the building past the registers.
+3837|Tres Jalapenos|901 South 8th St|39.9383501|-75.1562822|false|true|false|2014-02-02|0|1|1st floor, right side of the restaurant. Two single stall bathrooms.
+3884|Pronto Pizzeria|16th and Spring Garden St|39.9629039|-75.1646586|true|true|false|2014-02-02|0|1|Behind dining area to the right
+3886|Caribou Cafe|1126 Walnut St.|39.948647|-75.1603|true|true|false|2014-02-02|0|1|Towards the back
+4037|Saxbys at Temple University|1902 Liacouras Walk|39.9816291|-75.1559449|true|true|false|2014-02-02|1|1|In the back, past the seating.
+4146|Artisserie Chocolate Cafe|3421 Walnut Street|39.9534909|-75.1930714|true|true|false|2014-02-02|0|1|
+4167|Honest Tom's Tacos|261 S 44th St|39.95327|-75.210419|false|true|false|2014-02-02|0|1|Inside on the right; locking single unisex
+4168|Lovers and Madmen|28 S 40th St|39.956268|-75.20211|false|true|false|2014-02-02|0|1|Walk past ordering counter, but not up the steps.
+4581|Hip City Veg|214 S. 40th St|39.9535955|-75.2028023|true|true|false|2014-02-06|0|1|In the back, left of registers. Two single-room unisex bathrooms
+4721|Starbucks Manayunk|4415 Main St|40.0262803|-75.2252096|true|true|false|2014-02-09|1|1|Two unisex single restrooms at the back.
+4772|Starbucks Roxborough|6024 Ridge Ave|40.0322069|-75.2142546|true|true|false|2014-02-10|1|1|Near the front entrance on Ridge Ave. Two single occupant restrooms
+4802|Hubbub Coffee|38th and Spruce|39.95127|-75.1992604|true|true|false|2014-02-10|0|1|
+5224|Strangelove's|216 S. 11th St.|39.948104|-75.159407|false|true|false|2014-03-22|0|1|Individual gender-neutral toilets
+5289|Saxbys Coffeeshop|2000 Walnut Street|39.950246|-75.174135|true|true|false|2014-04-04|1|1|To the right of the service counter.
+6138|Mazzoni Center (medical practice)|809 Locust Street|39.9472293|-75.1556439|true|true|false|2014-07-19|1|1|Ask the front desk; they unlock the door for you
+6339|St. Declan's Well|3113 Chestnut St|39.9537092|-75.1866237|false|true|false|2014-10-14|0|1|
+15835|Sidecar Bar and Grille|2201 Christian Street|39.9418413|-75.1794896|false|true|false|2014-11-25|0|0|
+16126|Brauhaus Schmitz|718 South Street|39.9422008|-75.1545444|true|true|false|2015-03-04|0|0|For customers. A dozen individual, unisex stalls.
+16269|OCF Coffee|18th and South St.|39.9220909|-75.176767|true|true|false|2015-03-07|0|0|Walk back past the coffee bar. / For customers
+16297|William Way Community Center|1315 Spruce Street|39.9471476|-75.1633257|true|false|false|2015-03-08|2|0|
+16775|Hubbub Coffee|3736 Spruce Street|39.9509565|-75.1987396|true|true|false|2015-03-18|0|0|
+16864|Girard Brasserie and Bruncherie|300 E Girard Ave|39.9695651|-75.1315383|true|true|false|2015-03-23|1|0|
+17129|Goodman Residence Hall|708 S. 42nd Street|39.9465515|-75.2068715|true|false|false|2015-04-13|0|0|Residents or guests only
+17177|Lolita|106 S 13th Street|39.9543419|-75.1609835|true|true|false|2015-04-18|1|0|Two single stall non-gendered restrooms in the back. Wheelchair accessible.
+17249|Subway|740-752 Market Street|39.951025|-75.1528456|false|false|false|2015-04-26|1|1|Single stall; reviewer reported a bad experience.
+17579|Pennsylvania Academy of the Fine Arts|128 N Broad St|39.9556041|-75.1632326|true|true|false|2015-05-28|1|0|Gender neutral family restroom in the cafe along Lenfest Plaza.
+18357|Wooden Shoe Books and Records|704 South St|39.9420903|-75.1541706|false|true|false|2015-08-13|0|0|Straight back, door on the right. / You don't have to buy anything to use the bathroom.
+18359|Mariposa Food Co-op|4824 Baltimore Ave|39.9479203|-75.2206709|false|false|false|2015-08-13|1|0|At the back on the right. / Ask an employee for a key
+18360|Essene Market and Cafe|719 South Fourth Street|39.939977|-75.149361|true|true|false|2015-08-13|0|0|Near the cafe at the back; key hangs under the cafe counter.
+18414|Square One Coffee|249 S. 13th St.|39.947257|-75.1623613|false|true|false|2015-08-19|0|0|In the back right hand corner.
+18503|Creative Cafe|3711 Market Street|39.9567794|-75.1969127|true|true|false|2015-08-27|0|0|By the kitchen.
+18804|Zavino University City|3200 Chestnut St|39.9534474|-75.1889307|true|true|false|2015-09-20|1|0|Straight to the back
+19009|Caster Building (Penn)|3701 Locust Walk|39.9525285|-75.1976345|true|false|false|2015-10-15|1|0|In the basement by the stairs. / No ID needed during normal business hours.
+19406|Clarkville|4301 Baltimore Ave|39.9497247|-75.209374|true|true|false|2015-11-26|4|0|Bottom floor gender-neutral restroom with a lock
+19762|Target|4000 Monument Rd|40.0061462|-75.2126765|true|true|false|2016-01-05|1|0|Just inside the store entrance to the right
+20515|Menagerie Coffee|18 S 3rd St|39.9496913|-75.1459315|false|true|false|2016-03-25|0|0|
+20516|Old City Coffee|221 Church St|39.95079|-75.144829|false|true|false|2016-03-25|0|0|
+20878|Big Blue Marble Bookstore|551 Carpenter Lane|40.0466811|-75.1958734|false|true|true|2016-03-30|0|0|Third floor. Includes changing table.
+21327|Reading Terminal Market|51 N 12th St.|39.9532281|-75.1589546|false|true|false|2016-04-13|0|1|Across the hall from the gendered bathrooms; accessible/family bathrooms
+21400|Spice C|131 N 10th St|39.9543592|-75.1558556|true|true|false|2016-04-15|0|0|
+22269|The Double Knot|120 S 13th St|39.9497557|-75.1622314|true|true|false|2016-05-24|0|0|Back of the first floor, to the left.
+22474|Charlie Was a Sinner|131 S 13th St|39.9495134|-75.1617282|false|true|false|2016-06-04|1|0|Directly in the back, 2 gender neutral single restrooms
+22475|Amalgam Comics and Coffeehouse|2578 Frankford Ave|39.985131|-75.124484|true|false|false|2016-06-04|1|0|In the back. Space is accessible.
+22481|St. Benjamin Brewing Company|1710 N 5th St|39.9774439|-75.1437961|true|true|false|2016-06-04|1|0|Straight back past the bar - two gender neutral single rooms.
+22507|Southgate|1801 Lombard St|39.9455987|-75.1717858|false|false|false|2016-06-05|1|0|In the back past the bar, 2 gender neutral single room restrooms
+22508|Copabanana|4000 Spruce St|39.9514918|-75.2032097|true|false|false|2016-06-05|0|0|To the left of the bar; gendered single rooms
+22526|The Living Room|701 S 5th St|39.9402888|-75.1508783|true|true|false|2016-06-05|1|0|To the left of the counter. / Sign says bathroom is for customers only
+22626|Rodin Museum|2151 Benjamin Franklin Parkway|39.9619653|-75.1739912|false|true|false|2016-06-11|1|0|By the exit. Pay-what-you-wish museum.
+22646|Amari's|5037 Baltimore Ave|39.948009|-75.22475|true|true|false|2016-06-12|0|0|
+22649|Bud and Marilyn's|1234 Locust St.|39.9477815|-75.162146|false|true|false|2016-06-12|1|1|In the back. 2 single stalls. Not accessible.
+23055|Yamitsuki Ramen|11th and Arch|39.9537567|-75.1578293|false|true|false|2016-06-15|0|0|In the back.
+23287|Ben and Jerry's|1726 Sansom Street|39.950638|-75.1698453|false|true|false|2016-06-17|0|0|Expected to be a paying customer.
+23390|Silk City Diner|435 Spring Garden St.|39.961333|-75.1460491|false|true|false|2016-06-19|1|0|Back of the indoor dining area, three unisex single-stall bathrooms.
+23581|Last Word Bookstore|220 S 40th Street|39.9534914|-75.2029562|false|true|false|2016-06-25|1|0|Get the key from the front desk; green door on the left toward the back.
+24011|Mugshot Diner|2424 E York St|39.9774594|-75.124602|true|true|false|2016-07-13|1|0|All the way to the back, two gender neutral bathrooms
+24295|Dock Street Brewery|701 S. 50th St.|39.9476806|-75.2227069|true|true|false|2016-07-26|1|0|Go left, then straight down the hall
+24296|Liberty Bell Center restrooms|599 Market St.|39.9511426|-75.1500416|true|true|false|2016-07-26|0|0|In their own building right next to the Liberty Bell Center
+24647|Irish Pol Bar|114 Market Street|39.94955|-75.14285|true|true|false|2016-08-11|1|0|In the back to the left. / Must be a paying customer
+24772|Max Brenner|1500 Walnut Street|39.9492927|-75.1661668|true|true|false|2016-08-17|0|0|
+24829|Capofitto|233 Chestnut St|39.948822|-75.145358|false|true|false|2016-08-20|1|0|Back right side hallway. 2 individual non-gendered rooms.
+25049|Center for Architecture and Design|1218 Arch St|39.9539288|-75.1604454|true|true|false|2016-08-27|0|0|Back of the first floor. / Open when the Center is open
+25065|Apple Walnut Street|1607 Walnut Street|39.9499263|-75.1679127|true|true|false|2016-08-27|2|0|Second floor on the right near the exit sign
+25163|The Tasty|1401 S 12th Street|39.9324322|-75.1641193|true|true|false|2016-08-29|0|0|
+25272|Starbucks|1500 Market St.|39.9521634|-75.1661894|true|false|false|2016-09-03|2|0|Bathrooms are locked with a code; ask staff.
+25784|University of the Arts Terra Building|211 S Broad Street|39.9489873|-75.1640073|true|true|false|2016-10-08|1|0|One unisex single bathroom on every floor except the first.
+25973|Lloyd|529 E Girard Avenue|39.9714554|-75.1277065|true|true|false|2016-10-31|1|0|About 2/3 back on the right, 2 restrooms.
+26162|2nd Story Brewing Company|117 Chestnut St.|39.9484739|-75.1435556|true|true|false|2016-11-10|0|0|Back of the restaurant to the left.
+26209|Penn Graduate School of Education|3700 Walnut Street|39.9532459|-75.1972609|true|true|false|2016-11-10|0|0|Show an ID; accessible restroom on 1st floor by the elevator
+26254|Arch Street United Methodist Church|55 N. Broad Street|39.954096|-75.1629072|true|true|false|2016-11-11|0|0|Immediately to the left after entering through the Broad Street doors.
+26260|Stephen Klein Wellness Center|2144 Cecil B. Moore Ave|39.9801564|-75.1708074|true|true|false|2016-11-11|1|0|In lobby two on far end / Free to public
+26333|Community Legal Services|1410 W. Erie Avenue|40.0090902|-75.1519844|true|true|false|2016-11-11|0|0|One on each side of the first floor lobby. Single user.
+26342|FringeArts|140 N. Columbus Boulevard|39.9532822|-75.140451|true|true|false|2016-11-11|0|0|Next to the entrance to the theatre.
+26422|West Elm|Chestnut Street|39.9546748|-75.1944758|true|true|false|2016-11-12|0|0|Back of store by water fountain.
+26424|FAWN Food Pantry|4346 Frankford Ave|40.0126593|-75.0883663|true|true|false|2016-11-12|1|0|In the Frankford Shopping Plaza, next to PNC Bank
+26537|Cooperage Wine and Whiskey Bar|601 Walnut Street|39.9482277|-75.1519215|true|false|false|2016-11-15|0|0|Inside the Curtis Center, 7th Street side. 2 single-stall restrooms.
+26605|Burger King|2728 S Front St|39.9129989|-75.1506616|true|false|false|2016-11-19|0|0|Walk in, make a right, straight ahead.
+26612|City Tap House|3925 Walnut Street|39.9543594|-75.2012749|true|true|false|2016-11-20|1|0|Back left of restaurant
+27380|University Lutheran Church|3637 Chestnut Street|39.9552083|-75.1962565|true|false|false|2017-01-07|0|0|ADA accessible gender neutral bathroom on 1st floor
+27584|Lucky's Last Chance|848 S 2nd Street|39.9363384|-75.1469422|true|true|false|2017-01-21|0|0|Just past the bar
+27671|Target|7400 Bustleton Ave|40.0511897|-75.0594911|true|true|false|2017-01-22|0|0|Immediately on your right as you enter.
+27815|Marathon Grill|1839 Spruce St|39.9481215|-75.1726141|true|false|false|2017-01-28|0|0|Back right of restaurant. Two single-person locking stalls.
+27866|Drexel Paul Peck Building|101 N 33rd St|39.9577497|-75.1890079|false|true|false|2017-01-31|0|0|2nd floor in the back. / Drexel ID required
+28019|Con Murphy's|1700 Benjamin Franklin Pkwy|39.9756589|-75.1919767|true|false|false|2017-02-12|0|0|First floor: two single-person locking bathrooms.
+28268|Institute of Contemporary Art|118 S 36th St|39.9541313|-75.1948565|false|false|false|2017-02-23|0|0|Right past the front desk.
+28711|Garden Pizza|1902 W Girard Ave|39.9723188|-75.1676487|false|true|false|2017-02-24|1|0|Straight back to the left. / Must be a paying customer
+29077|Little Baby's Ice Cream|2311 Frankford Ave|39.9806415|-75.1281483|true|true|false|2017-02-25|0|0|
+29080|Pizza Brain|2313 Frankford Ave|39.9806746|-75.1280968|true|true|false|2017-02-25|0|0|
+29155|Starbucks|3421 Chestnut Street|39.9545899|-75.1923623|true|true|false|2017-02-25|1|0|In the back to the right. Ask the baristas for the bathroom code
+29468|InterAct Theatre at the Drake|1512 Spruce Street|39.9469082|-75.1672408|true|true|false|2017-02-25|0|0|Inside the theatres; intended for audience members
+29826|Five Guys|1527 Chestnut Street|39.9514949|-75.1665265|true|false|false|2017-02-25|0|0|At the very back. / Locked by a keypad; ask staff for the code
+29994|Starbucks|4600 City Line Avenue|40.0025404|-75.2226749|true|true|false|2017-02-25|0|0|
+30041|Diamond Green|1000 Diamond St|39.9835447|-75.1500295|true|true|false|2017-02-26|1|0|Get key from front desk
+30127|Govinda's Vegetarian Restaurant|1408 South St|39.943571|-75.1659929|false|false|false|2017-02-26|0|0|Must be a customer to use
+30144|Saxbys at Temple University|1902 Liacouras Walk|39.9816315|-75.1559258|true|true|false|2017-02-26|0|0|In the back of the coffeeshop
+30146|7-Eleven at Temple University|1912 Liacouras Walk|39.9819721|-75.1561355|true|false|false|2017-02-26|0|0|In the very back of the store. / Can use the bathroom without buying anything
+30220|PetSmart|2360 W Oregon Ave|39.9180721|-75.1889294|true|false|false|2017-02-26|0|0|Down a short hallway in the back left corner of the store
+30376|Trader Joe's|2121 Market St|39.9541809|-75.1759702|true|true|false|2020-04-14|0|0|Directly to the left when you enter / No need to shop first.
+30378|National Mechanics|22 S 3rd Street|39.9495567|-75.146008|true|false|false|2020-04-14|1|0|
+30419|Saxbys|65 N 34th Street|39.9574053|-75.1908136|true|true|false|2020-04-14|0|0|Hallway off to the right has 2 unisex rooms.
+31582|Franklin Institute Science Museum|222 North 20th Street|39.9581389|-75.1726258|true|true|false|2017-02-27|0|0|4th floor, across from the main elevators
+68223|Mixto|1141 Pine St|39.9452712|-75.161082|false|true|false|2024-01-13|0|0|
+55226|Sabrina's Cafe|1804 Callowhill St|39.9604287|-75.1686194|true|false|false|2020-02-08|0|0|
+68224|Kiddo|1138 Pine St|39.9449242|-75.1612338|true|true|false|2024-01-13|0|0|
+43663|Seafood Unlimited|270 S 20th St|39.9484043|-75.1744997|true|true|false|2018-09-11|0|0|Back of the restaurant next to the kitchen. One step up into the restaurant.
+50329|Varga Bar|941 Spruce Street|39.9462187|-75.1577611|false|true|false|2019-06-10|0|0|2 gender neutral bathrooms to the right after the bar
+57180|Vox Populi Gallery|319 N 11th Street, 3rd Floor|39.9582889|-75.1565902|false|true|false|2021-01-31|0|0|Immediately to the left on entry / Open when the building is open
+116297|Cafe Lift|428 N 13th St|39.9604444|-75.1598736|false|true|false|2025-08-09|0|0|2nd floor restrooms are single user, stairs only
+31589|Peddler Coffee|2100 Spring Street|39.9582128|-75.1742405|false|true|false|2017-02-27|1|0|For customers only
+49532|Chubby Cattle|800 Arch St|39.9526709|-75.1534886|false|false|false|2019-05-03|1|0|
+33654|Rex 1516|1516 South Street|39.94377|-75.167843|true|true|false|2017-04-05|0|0|
+34310|Arts Bank Theatre|601 S Broad Street|39.9433815|-75.1652913|true|true|false|2017-04-20|0|0|Top floor / Probably need a UArts ID unless there's a show
+137407|American Mortals|724 Chestnut St|39.9493774|-75.1535418|true|true|false|2026-07-25|0|0|
+49549|Good Karma Cafe|932 Pine St|39.9444015|-75.1580267|false|true|true|2019-05-04|1|0|Back of the cafe, no key needed. 2 gender neutral restrooms
+36800|Mazzoni Center|1348 Bainbridge St|39.9425007|-75.1651079|true|true|false|2017-08-04|4|0|All four floors have several gender neutral bathrooms.
+54099|Tracey Sabara gift shop|800 Spruce St|39.9454379|-75.155587|false|true|false|2020-04-14|0|0|Two bathrooms around the counter from the gift shop.
+37070|Jones|700 Chestnut St|39.9494264|-75.1523415|true|true|false|2017-08-19|1|0|In the back of the restaurant. / You have to order.
+63103|Love City Brewing|1023 Hamilton St|39.9603189|-75.1554305|false|true|false|2022-08-13|0|0|
+131036|Giant|510 N Broad St|39.9630786|-75.1614619|true|true|false|2026-05-07|0|0|Back by the freezer section; ask staff for the code
+59101|Philadelphia's Magic Gardens|1020 South Street|39.9426107|-75.1593492|true|true|false|2021-08-04|0|0|In the rear indoor gallery. / Only for paid guests.
+50082|Whole Foods|929 South Street|39.9428511|-75.1577303|true|false|false|2019-05-30|0|0|Door has a combination lock; ask staff.
+76405|Starbucks|600 S 9th Street|39.9425227|-75.1573199|false|true|false|2024-08-11|1|0|
+132290|Liberty Bell Bathroom Building|526 Market Street|39.9497279|-75.1502513|true|true|true|2026-05-25|0|0|Across the lawn from the Liberty Bell Center; accessible family restrooms.
+32137|Chapterhouse Cafe and Gallery|620 S 9th St|39.9419226|-75.1573684|true|true|false|2017-02-28|1|0|Single stall, gender neutral, in the middle room
+42662|National Constitution Center|525 Arch St|39.9540249|-75.1488831|true|true|false|2018-07-30|0|0|First floor near gendered restrooms
+32312|Brauhaus Schmitz|718 South St.|39.9420667|-75.1545876|true|true|false|2017-03-01|1|0|First floor, straight back past the bar on the left
+65922|Grace Tavern|2229 Grays Ferry Ave|39.9451007|-75.1795838|false|true|false|2023-05-28|0|0|Two single stall restrooms
+137409|Wooden Shoe Books|704 South St|39.9420917|-75.1542307|false|true|false|2026-07-25|0|0|Back of store
+62801|Thirsty Dice|1642 Fairmount Ave|39.9669157|-75.1652132|true|false|false|2022-07-21|0|0|
+51236|Walnut St Cafe|2929 Walnut St|39.9520852|-75.1839951|false|true|false|2019-07-22|0|0|
+31066|Luna Cafe|317 Market Street|39.950401|-75.1462152|true|false|false|2017-02-27|0|0|
+49932|12 Steps Down|831 Christian Street|39.939047|-75.1576163|false|true|false|2019-05-22|1|0|Smoking bar
+33439|Tattooed Mom|530 South St|39.9417119|-75.1518605|false|true|false|2017-04-01|1|0|All the way at the back
+38890|World Cafe Live|3025 Walnut Street|39.9521955|-75.1851094|true|true|false|2017-12-02|0|0|Two single stall gender neutral bathrooms one level down.
+38088|The Little Lion|243 Chestnut Street|39.948901|-75.145787|true|true|true|2017-10-08|0|0|In the back / Must be a paying customer
+76404|Oh Brother Philly|206 Market Street|39.9496989|-75.1441608|true|true|false|2024-08-11|1|0|
+66364|Race Street Cafe|208 Race Street|39.953651|-75.1434501|false|false|false|2023-06-25|0|0|Basement
+59099|Eastern State Penitentiary|2027 Fairmount Ave|39.9683684|-75.1726552|false|true|false|2021-08-04|1|0|Inside museum grounds. Paid entrance required.
+47926|London Grill|2301 Fairmount Ave|39.9675638|-75.1754915|false|true|false|2019-03-05|0|0|Across from the bar on first floor.
+49321|Buk Chon|132 Chestnut St|39.948163|-75.1437162|false|true|false|2019-04-21|0|0|Downstairs, two single-use gender neutral bathrooms
+34378|La Calaca Feliz|2321 Fairmount Ave|39.967534|-75.1760734|true|true|false|2017-04-21|0|0|Center of first floor. Two single-occupant, gender neutral bathrooms.
+30829|Vineyards Cafe|847 N 16th Street|39.969911|-75.162963|true|true|false|2017-02-26|0|0|Past the counter on the right
+43400|Joe Coffee University City|3200 Chestnut St.|39.9534403|-75.1883722|false|true|false|2018-09-05|0|0|Up the stairs to the left of the counter. Two single stall restrooms.
+52308|On Point|1200 Point Breeze Ave|39.9372403|-75.1771216|false|true|false|2019-09-01|1|0|In the back on the right side corner.
+38066|Hungry Pigeon|743 S 4th Street|39.9390641|-75.1495833|true|true|false|2017-10-07|1|0|In the back to the left / Must be a paying customer
+43478|Creese Student Center (Drexel)|Chestnut St and 33rd St|39.954042|-75.189892|true|true|false|2018-09-09|0|0|Through the bookstore into the student center; two unisex accessible stalls.
+45333|Temple University Center City Bookstore|1515 Market St|39.9529853|-75.1658929|true|true|false|2020-04-14|117|1|Behind a wall to the right of the coffee counter; ask the barista to unlock it
+31552|La Colombe|1414 S Penn Square|39.9515569|-75.1649711|true|true|false|2017-02-27|0|0|For paying customers
+43927|Mission Taqueria|1510 Sansom St|39.9502|-75.166409|false|true|false|2018-09-12|1|0|
+124094|Taco Bell|1614 Chestnut Street|39.951072|-75.167924|true|false|false|2026-01-07|0|0|You have to ask them to open it
+31959|1518 Bar and Grill|1518 Sansom Street|39.9502321|-75.1666386|true|false|false|2017-02-28|1|0|Back on the left.
+65819|DanDan Rittenhouse|126 S 16th Street|39.950247|-75.167598|true|false|false|2023-05-23|0|0|
+31578|Wells Fargo History Museum|151 South Broad Street|39.9494607|-75.1637096|true|true|false|2017-02-27|0|0|Ask museum staff for the key
+34798|Wawa|Walnut Street and Broad Street|39.9493463|-75.1641906|true|true|false|2017-05-03|0|0|Ask employee for key code. / At the back corner of the store.
+55057|Tiki Bar|102 S 13th Street|39.9501838|-75.1620967|true|true|false|2020-04-14|0|0|In the back / Paying customers
+49094|Elixr Coffee|207 S Sydenham St|39.9493966|-75.1666973|true|true|false|2019-04-12|4|0|Right in front of the entrance, sliding metal door / Open to public
+35908|Starbucks|1528 Walnut Street|39.9494912|-75.1673083|true|true|false|2017-06-21|0|0|In the back. Ask for the bathroom code
+49593|&Pizza|1418 Walnut St|39.949105|-75.1660498|false|false|false|2019-05-06|0|0|Head to the back; door has a code
+45448|Pennsylvania Convention Center|1011 Arch St|39.9551518|-75.1619451|true|true|true|2018-10-28|0|0|At entrance E, a single stall accessible family bathroom on the first floor
+34800|Wawa|201 South Broad Street|39.9490258|-75.1639585|false|true|false|2017-05-03|1|0|Back of the store. / Ask an employee for the key code.
+31987|Sampan Restaurant|124 S 13th Street|39.9495331|-75.1622132|true|false|false|2017-02-28|1|0|All restrooms are single stall, private, with locked door.
+39487|Misconduct Tavern|1511 Locust Street|39.9486585|-75.1666355|false|true|false|2018-01-15|2|0|
+36055|Fergie's Pub|1214 Sansom St|39.9496155|-75.1611522|true|false|false|2017-06-27|1|0|Back wall first and second floor / For customers
+61721|Cleavers|108 S 18th St|39.9514103|-75.1706011|true|false|false|2022-04-12|0|0|Toward the bar on the left, all the way down.
+40904|Franky Bradley's|1320 Chancellor St|39.9484988|-75.1631093|false|true|false|2018-04-12|1|0|Gender neutral bathroom on first floor
+67643|Bower Cafe|1213 Walnut St|39.9494283|-75.161196|true|false|false|2023-10-17|0|0|Door has a code; ask staff.
+57931|Bar Bombon|133 S 18th Street|39.9506007|-75.1703389|false|true|false|2021-06-07|0|0|
+45096|The Dandelion|124 S 18th St|39.9510075|-75.1707493|false|true|false|2020-04-14|0|0|Bathrooms are upstairs; probably for customers.
+68225|El Techo|1830 Ludlow St|39.9524804|-75.1712052|true|true|false|2024-01-13|0|0|
+53098|City Tap House Logan Square|2 Logan Square|39.9557837|-75.1697515|true|true|true|2019-09-29|0|0|Back left of restaurant. Changing table in the back right room.
+37229|Nomad Pizza|1305 Locust St|39.9482139|-75.1625729|false|true|false|2017-08-26|1|0|Ask if you can use their bathroom; staff are friendly.
+51142|Aki Nom Nom Sushi and Ramen|1210 Walnut St|39.948896|-75.1611319|true|true|false|2019-07-19|0|0|
+43649|Tabu Lounge and Bar|200 S 12th St|39.9487189|-75.1607495|false|true|false|2018-09-11|0|0|Gender neutral bathrooms downstairs and on the second floor.
+63256|Vedge|1221 Locust St|39.9480053|-75.161424|true|true|false|2022-08-27|0|0|
+68220|Wonderspaces|27 N 11th St|39.9522613|-75.1581147|false|true|false|2024-01-13|0|0|
+33765|Target|1900 Chestnut St|39.9516748|-75.172254|true|false|false|2020-04-14|0|0|Upstairs in the back right corner by elevators. Two single toilet unisex bathrooms.
+62678|Target|1900 Chestnut St|39.9516748|-75.172254|true|true|false|2022-07-11|0|0|Upstairs, back of the store by the baby section. / Ask an employee to unlock it
+33690|InterAct Theatre|302 S Hicks St|39.9471899|-75.1670207|true|true|false|2017-04-06|0|0|Single stall all gender
+43691|The Theatres at The Drake|302 S Hicks St|39.9468698|-75.1671697|true|true|true|2018-09-11|0|0|Proscenium Theatre is open during the day and most evenings.
+51235|J'aime French Bakery|212 S 12th St|39.948081|-75.1608093|false|true|false|2019-07-22|0|0|Way back, past cafe seating / Probably for paying customers
+52470|Starbucks|1900 Market Street|39.9532599|-75.172695|false|true|false|2019-09-11|0|0|Side entrance on Market leads directly to the bathroom.
+30668|Kimmel Center|300 S Broad Street|39.9467935|-75.165297|true|false|false|2017-02-26|0|0|Main floor behind the main snack bar. Two individual wheelchair restrooms.
+31990|Barclay Prime|237 S 18th St|39.9485618|-75.170651|true|true|false|2017-02-28|0|0|Unisex bathroom.
+31558|La Colombe|130 S 19th Street|39.9506398|-75.1725028|true|true|false|2017-02-27|1|0|For paying customers
+37088|University of the Arts Terra Hall|302 S Broad Street|39.9466649|-75.1657695|true|false|false|2020-04-14|0|0|6th and 7th floors, right off the elevator.
+24773|Coco Blue Nails|1326 Spruce Street|39.9466853|-75.1639951|true|true|false|2016-08-17|0|0|All the way in the back / Probably have to be a customer
+63257|Writer's Block|1342 Cypress St|39.9463185|-75.1635434|false|true|false|2022-08-27|0|0|
+44723|UArts Anderson Building|333 S Broad St|39.9458968|-75.1645249|false|true|false|2018-09-28|0|0|1st floor near elevators / Not open to the general public
+33451|Au Bon Pain|10th St and Chestnut St|39.9500087|-75.1570585|true|false|false|2017-04-01|0|0|
+32073|Moore College of Art and Design|1916 Race Street|39.9572056|-75.1719106|false|false|false|2017-02-28|0|0|Check in with security at the front desk.
+30658|Starbucks|341 S Broad Street|39.9456451|-75.1647466|true|true|false|2017-02-26|0|0|Back of the store; need a code from the register
+31614|Greenstreet Coffee Co.|1101 Spruce St.|39.9464573|-75.1595646|true|true|false|2017-02-27|0|0|Sliding door on the right.
+40987|Last Drop Coffee|1300 Pine St|39.9451009|-75.1630885|false|true|false|2018-04-17|0|0|To the right of the counter down the stairs
+70989|Wood St Pizza|325 N 12th St|39.9584222|-75.1582889|false|true|false|2024-06-23|0|0|
+63104|La Peg|140 N Christopher Columbus Blvd|39.9532875|-75.1404215|false|true|false|2022-08-13|0|0|
+90602|FringeArts|140 N Christopher Columbus Blvd|39.9533098|-75.1404004|false|true|false|2025-01-21|0|0|Down hallway on right, turn right at end, pass theater door; it's on your right.
+58500|Queen and Rook Cafe|607 South 2nd Street|39.9408669|-75.1455409|true|true|true|2021-07-31|0|0|Straight back on the left hand side of the bar.
+68221|Libertee Grounds|1600 W Girard Ave Suite C5|39.9717982|-75.1631296|true|true|true|2024-01-13|0|0|
+56797|Wawa|3300 Market St|39.955453|-75.1905602|false|true|false|2020-11-09|0|0|Back right of the store. Door has a code; ask staff.
+55592|Garage|1231 E Passyunk Ave|39.9334623|-75.1587563|true|true|false|2020-04-14|0|0|All the way in the back, on either side of the skee ball table.
+32337|Penn Museum|3260 South Street|39.9492597|-75.1913295|false|true|false|2017-03-01|0|0|Second floor. / Must pay to visit
+51457|Starbucks|34th and Walnut|39.9528154|-75.1920963|false|true|false|2019-08-01|0|0|First floor in the back. Has a code; ask at the front.
+31870|Trophy Bikes|712 N 2nd St|39.9623827|-75.1413852|true|true|false|2017-02-28|0|0|Down the ramp, to the left. / Just ask to use the restroom.
+43653|Bourbon and Branch|705 N 2nd Street|39.9620273|-75.1407994|false|true|false|2018-09-11|0|0|You may have to be a customer
+50681|Jules|745 Sears St|39.932543|-75.157314|false|true|false|2019-06-25|0|0|
+43650|Hospital of the University of Pennsylvania|3400 Spruce St|39.950044|-75.193131|false|true|false|2018-09-11|0|0|Up the escalators to the right, by the gift shop
+55608|Pub on Passyunk East|1501 E Passyunk Ave|39.9308271|-75.1620397|false|true|false|2020-04-14|0|0|One restroom by the bar, two singles around the corner
+91252|Van Pelt Library|3420 Walnut St|39.9527242|-75.1940217|true|true|false|2025-01-25|0|0|Fifth floor, four non-gendered restrooms. / Penn ID may be needed
+38383|Heritage|914 N 2nd St|39.9645828|-75.1407917|false|true|false|2017-10-27|0|0|Multiple single use stalls, non-gendered
+32549|Claudia Cohen Hall (Penn)|249 S 36th St|39.9513524|-75.1947484|true|false|false|2017-03-01|0|0|Ground floor, two unisex bathrooms by the north doors
+53017|Spread Bagelry|3602 Chestnut St|39.9545232|-75.1947324|true|true|false|2019-09-26|0|0|Main floor behind the kitchen.
+31069|Dmitri's|944 N 2nd Street|39.9653252|-75.1406414|true|true|false|2017-02-27|0|0|
+85540|The Dutch|1537 S 11th St|39.9298684|-75.1628947|true|true|false|2024-11-29|0|0|
+44953|Creep Records|1050 N Hancock St|39.9667251|-75.1392331|true|true|false|2018-10-06|1|0|
+33012|PAWS Spay/Neuter Clinic|2900 Grays Ferry Ave|39.9387548|-75.1923721|true|true|false|2017-03-03|0|0|
+85574|P'unk Burger|1823 E Passyunk Ave|39.9271163|-75.1663375|false|true|false|2024-11-29|0|0|
+36983|Ultimo Coffee|1900 S 15th Street|39.9269717|-75.1710561|false|true|false|2017-08-14|1|0|All the way to the back, on the right. Single-occupancy gender-neutral bathroom
+65854|Second District Brewing|1939 S Bancroft St|39.9263598|-75.173032|false|false|false|2023-05-25|1|0|Towards the back past the dining area and bar
+45345|Veterans Affairs Medical Center|3900 Woodland Avenue|39.9483902|-75.2003525|true|true|false|2018-10-23|1|0|Main entrance, follow arrows to ER waiting room, turn right
+43286|Howard Gittis Student Center (Temple)|1755 N 13th St|39.9790436|-75.1550992|true|false|false|2020-04-14|0|0|Second floor, past two gendered restrooms / Open to anyone
+49220|Barcade|1114 Frankford Ave|39.9674516|-75.1346252|true|true|false|2019-04-18|0|0|Four single-stall bathrooms, no gender signage.
+41847|Que Chula Es Puebla|1356 N 2nd Street|39.9723652|-75.1391918|true|true|false|2018-06-16|0|0|Single occupancy restroom visible from the dining area
+100919|Middle Child Clubhouse|1232 N Front St|39.970096|-75.1363565|true|true|true|2025-04-04|1|0|Left past the bar, behind the booths
+53522|Wachman Hall (Temple)|1805 N Broad St|39.9803799|-75.157029|false|true|true|2019-10-21|1|0|One per floor near the elevator
+38405|Metropolitan Bakery and Cafe|4013 Walnut St|39.9544892|-75.2033743|true|true|false|2017-10-28|0|0|Straight at the back
+41447|Bottle Bar East|1308 Frankford Ave|39.970471|-75.134725|true|false|false|2018-05-23|0|0|At the back, past the kitchen on the left
+30421|The El Bar|1356 N Front Street|39.9717648|-75.1354975|true|true|false|2020-04-14|0|0|Three bathrooms (men, women, unisex) against the back wall
+55581|Charles Library (Temple)|1901 Liacouras Walk|39.9815765|-75.1559365|true|true|true|2020-04-14|0|0|Enter at Liacouras and Polett Walks; bathrooms off to your left
+32847|Gladfelter Hall (Temple)|1115 Polett Walk|39.9812748|-75.1543954|true|true|false|2017-03-02|0|0|6th floor
+33250|Temple University Commuter Lounge|1859 N 11th Street|39.9809048|-75.1517023|true|true|false|2017-03-29|0|0|Back of lounge / Must scan Temple ID to enter building
+132291|Taste of Punjab|2015 Moyamensing Avenue|39.9229269|-75.1525201|false|true|false|2026-05-25|0|0|
+63576|Annenberg Hall (Temple)|2020 N 13th Street|39.9835553|-75.1550423|true|false|false|2022-10-01|0|0|Each floor has a gender neutral bathroom beside a gendered one
+44846|Tyler School of Art (Temple)|2001 N 13th St|39.9839339|-75.1536538|true|true|false|2018-10-02|0|0|Back of the green hall / Must be a Temple student or teacher
+42865|Evil Genius Beer Company|1727 N Front Street|39.9757885|-75.1338556|false|true|false|2018-08-10|0|0|Three single-stall bathrooms down a little hall on the right
+123933|LMNO|1739 N Front St|39.976014|-75.133752|false|true|false|2025-11-21|1|0|
+34307|Interstate Drafthouse|1235 E Palmer St|39.9718208|-75.1286446|false|true|false|2017-04-20|0|0|In the back by the server station.
+47183|Rutgers Law Library|217 N 5th Street|39.947393|-75.1208107|false|false|false|2019-01-30|0|0|Camden NJ
