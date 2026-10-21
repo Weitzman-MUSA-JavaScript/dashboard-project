@@ -1,0 +1,53 @@
+{
+  "_about": "Hand-compiled public restroom sites. Philly Phlush hours from phila.gov/publicrestrooms (checked 2026-10-21). Other sites from Visit Philly's public restroom guide (updated 2026-01-28). Coordinates from the U.S. Census Geocoder unless approx=true (placed by hand from a street intersection or landmark). Holiday hours are not modeled.",
+  "sites": [
+    {
+      "name": "Philly Phlush: Center City",
+      "address": "1401 John F Kennedy Blvd (15th and Arch Sts, across from Love Park)",
+      "lat": 39.9535033, "lng": -75.1639770,
+      "hours": "Mo-Fr 08:00-22:00; Sa-Su 08:00-23:00",
+      "verified": true, "wheelchair": true, "changingTable": true, "genderNeutral": true,
+      "source": "City of Philadelphia", "url": "https://www.phila.gov/publicrestrooms",
+      "note": "Free city-run restroom. Also has menstrual products, naloxone, and a sharps container. Holiday hours are shorter."
+    },
+    {
+      "name": "Philly Phlush: North Philadelphia",
+      "address": "Fotterall Square, 2400 N 11th St",
+      "lat": 39.9887499, "lng": -75.1502995,
+      "hours": "Mo-Fr 10:00-20:00; Sa-Su 10:00-21:00",
+      "verified": true, "wheelchair": true, "changingTable": true, "genderNeutral": true,
+      "source": "City of Philadelphia", "url": "https://www.phila.gov/publicrestrooms",
+      "note": "Free city-run restroom near the basketball court, off W Cumberland St. Holiday hours are shorter."
+    },
+    {
+      "name": "Philly Phlush: West Philadelphia",
+      "address": "Clark Park, 1101 S 45th St",
+      "lat": 39.9477921, "lng": -75.2112834,
+      "hours": "Mo-Fr 09:00-21:00; Sa-Su 09:00-22:00",
+      "verified": true, "wheelchair": true, "changingTable": true, "genderNeutral": true,
+      "source": "City of Philadelphia", "url": "https://www.phila.gov/publicrestrooms",
+      "note": "Free city-run restroom near the Clark Park basketball court. Holiday hours are shorter."
+    },
+    { "name": "Independence Visitor Center", "address": "599 Market St", "lat": 39.9507814, "lng": -75.1502904, "source": "Visit Philly", "note": "Visitor center open to the public." },
+    { "name": "Independence Transportation Center", "address": "5th and Race Sts", "lat": 39.9548, "lng": -75.1478, "approx": true, "source": "Visit Philly", "note": "Parking and bus center next to Independence Mall." },
+    { "name": "Franklin Square", "address": "200 N 6th St", "lat": 39.9547074, "lng": -75.1495759, "source": "Visit Philly", "note": "Restrooms in the park; follow park hours." },
+    { "name": "The Concourse at Comcast Center", "address": "1701 John F Kennedy Blvd", "lat": 39.9540705, "lng": -75.1682762, "source": "Visit Philly", "note": "Lower-level food concourse. Often closed around lunchtime." },
+    { "name": "The Shops at Liberty Place", "address": "1625 Chestnut St", "lat": 39.9513746, "lng": -75.1676050, "source": "Visit Philly", "note": "Indoor shopping center; restrooms follow mall hours." },
+    { "name": "Fashion District Philadelphia", "address": "901 Market St", "lat": 39.9513911, "lng": -75.1552192, "hours": "Mo-Th 11:00-19:00; Fr-Sa 10:00-20:00; Su 12:00-18:00", "hoursSource": "OpenStreetMap", "source": "Visit Philly", "note": "Indoor mall; restrooms follow mall hours." },
+    { "name": "Reading Terminal Market", "address": "1136 Arch St", "lat": 39.9537692, "lng": -75.1584732, "source": "Visit Philly", "note": "Public market; restrooms follow market hours. Accessible family restrooms reported." },
+    { "name": "Penn's Landing Operations Center", "address": "301 S Christopher Columbus Blvd", "lat": 39.9440729, "lng": -75.1418856, "source": "Visit Philly", "note": "Delaware River waterfront." },
+    { "name": "Cherry Street Pier", "address": "121 N Christopher Columbus Blvd", "lat": 39.9525, "lng": -75.1405, "approx": true, "source": "Visit Philly", "note": "Public pier and market space on the waterfront." },
+    { "name": "Rivers Casino Philadelphia", "address": "1001 N Delaware Ave", "lat": 39.9638111, "lng": -75.1348977, "source": "Visit Philly", "note": "Casino: visitors must be 21 or older." },
+    { "name": "Schuylkill Banks Composting Restroom", "address": "Schuylkill River Trail at Walnut St", "lat": 39.9511191, "lng": -75.1809903, "source": "Visit Philly", "wheelchair": true, "note": "Trailside restroom by the Walnut St stairs." },
+    { "name": "Lloyd Hall", "address": "1 Boathouse Row", "lat": 39.9692, "lng": -75.1869, "approx": true, "source": "Visit Philly", "note": "Recreation center on Kelly Dr by Boathouse Row." },
+    { "name": "East Park Canoe House", "address": "2400 Kelly Dr", "lat": 40.0012, "lng": -75.1922, "approx": true, "source": "Visit Philly", "note": "Along the Schuylkill River Trail." },
+    { "name": "Italian Market Visitor Center", "address": "919 S 9th St", "lat": 39.9384306, "lng": -75.1578897, "source": "Visit Philly", "note": "Open during business hours." },
+    { "name": "Central Green at The Navy Yard", "address": "Rouse Blvd, The Navy Yard", "lat": 39.8942, "lng": -75.1712, "approx": true, "source": "Visit Philly", "note": "Park restrooms in the Navy Yard." },
+    { "name": "Franklin's Table Food Hall", "address": "3401 Walnut St", "lat": 39.9528786, "lng": -75.1921599, "source": "Visit Philly", "note": "Food hall at Penn; restrooms follow food hall hours." },
+    { "name": "Penn Park Softball Stadium", "address": "3000 Walnut St", "lat": 39.9519450, "lng": -75.1856581, "source": "Visit Philly", "note": "Restrooms in Penn Park." },
+    { "name": "William H. Gray III 30th Street Station", "address": "2955 Market St", "lat": 39.9548169, "lng": -75.1827717, "source": "Visit Philly", "note": "Amtrak and SEPTA rail station." },
+    { "name": "Cira Green", "address": "129 S 30th St", "lat": 39.9528643, "lng": -75.1837630, "source": "Visit Philly", "note": "Elevated public park on top of a parking garage." },
+    { "name": "Malcolm X Memorial Park", "address": "5100 Pine St", "lat": 39.9532375, "lng": -75.2243286, "source": "Visit Philly", "note": "Neighborhood park." },
+    { "name": "Bartram's Garden", "address": "5400 Lindbergh Blvd", "lat": 39.9334116, "lng": -75.2155375, "source": "Visit Philly", "note": "Open during regular park hours." }
+  ]
+}
