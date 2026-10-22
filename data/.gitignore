@@ -1,0 +1,4 @@
+*.pmtiles
+*.part
+!/rwanda-healthcare.pmtiles
+/data-notes.txt

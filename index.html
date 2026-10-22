@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Rwanda Healthcare Access</title>
+    <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@6.15.0/dist/maplibre-gl.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <script type="module" src="./js/main.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#panel-heading">Skip to exploration controls</a>
+
+    <!-- The rail stays beside the map; buttons open one panel at a time. -->
+    <nav class="navigation-rail" aria-label="Dashboard panels">
+      <a class="brand" href="./" aria-label="Rwanda Healthcare Access home">RA<span></span></a>
+      <button class="rail-button" type="button" data-panel="explore-panel"
+        aria-controls="explore-panel" aria-expanded="true" aria-label="Explore access" title="Explore access">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/><circle cx="9" cy="6" r="2"/><circle cx="15" cy="12" r="2"/><circle cx="8" cy="18" r="2"/></svg>
+      </button>
+      <button class="rail-button" type="button" data-panel="results-panel"
+        aria-controls="results-panel" aria-expanded="false" aria-label="Results and selected area" title="Results and selected area">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6h11M9 12h11M9 18h11M4 6h1M4 12h1M4 18h1"/></svg>
+      </button>
+      <button class="rail-button" type="button" data-panel="about-panel"
+        aria-controls="about-panel" aria-expanded="false" aria-label="About the data" title="About the data">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7v.5"/></svg>
+      </button>
+      <!-- <span class="rail-caption" aria-hidden="true">RWANDA</span> -->
+    </nav>
+
+    <main class="map-workspace">
+      <header class="page-header">
+        <p class="eyebrow">A decision-support dashboard</p>
+        <h1>Rwanda Healthcare Access</h1>
+      </header>
+
+      <div id="map" aria-label="Accessibility map area"></div>
+
+      <!-- Panels float above the map instead of taking up another column. -->
+      <section id="explore-panel" class="floating-panel" aria-labelledby="panel-heading">
+        <div class="panel-header">
+          <h2 id="panel-heading" tabindex="-1">Explore access</h2>
+          <button class="close-panel" type="button" aria-label="Close exploration panel">×</button>
+        </div>
+        <p class="panel-intro">Find areas with longer walking times to healthcare.</p>
+        <div class="control">
+          <label for="facility">Healthcare facility</label>
+          <select id="facility" disabled aria-describedby="results-status">
+            <option value="health_centers">Health centres</option>
+            <option value="health_posts">Health posts</option>
+            <option value="major_hospitals">Major hospitals</option>
+          </select>
+        </div>
+        <div class="control">
+          <label for="minimum-time">Minimum walking time</label>
+          <div class="input-with-unit">
+            <input id="minimum-time" type="number" min="0" step="1" value="60" disabled aria-describedby="results-status">
+            <span>minutes</span>
+          </div>
+        </div>
+        <p id="results-status" class="status-note" role="status">Filters will be available when data loads.</p>
+        <button id="reset-filters" class="reset-button" type="button" disabled>
+          Reset filters and map
+        </button>
+
+        <section id="legend" class="panel-section" aria-labelledby="legend-heading">
+        <h3 id="legend-heading">Walking time to health centres</h3>
+
+        <ul id="legend-items" class="legend-items"></ul>
+
+        <p class="muted">
+            Modelled minutes · Source scenario: no_sites.
+            Bands are for exploration.
+        </p>
+        </section>
+    <section class="panel-section" aria-labelledby="summary-heading">
+        <h3 id="summary-heading">Matching areas</h3>
+
+        <dl class="summary-values">
+            <div>
+            <dt>Hexagons</dt>
+            <dd id="matching-count">—</dd>
+            </div>
+            <div>
+            <dt>Estimated population</dt>
+            <dd id="matching-population">—</dd>
+            </div>
+        </dl>
+
+        <p class="muted">
+            Totals cover all matching cells in the dataset, including those
+            outside the current map view.
+        </p>
+    </section>
+    </section>
+
+
+      <section id="results-panel" class="floating-panel" aria-labelledby="details-heading" hidden>
+        <div class="panel-header">
+          <h2 id="details-heading" tabindex="-1">Area details</h2>
+          <button class="close-panel" type="button" aria-label="Close area details">×</button>
+        </div>
+        <div id="selected-area"><p>Select a hexagon or a result to inspect its values once the map is connected.</p></div>
+        <section class="panel-section" aria-labelledby="results-heading">
+          <h3 id="results-heading">Matching results</h3>
+          <div id="results-list"><p class="muted">Results will appear after data loads.</p></div>
+        </section>
+      </section>
+
+      <section id="about-panel" class="floating-panel" aria-labelledby="about-heading" hidden>
+        <div class="panel-header">
+          <h2 id="about-heading" tabindex="-1">About this tool</h2>
+          <button class="close-panel" type="button" aria-label="Close information panel">×</button>
+        </div>
+        <p>Explore modelled walking times to healthcare facilities and shortlist areas for further investigation.</p>
+        <section class="panel-section" aria-labelledby="source-heading">
+          <h3 id="source-heading">Data and interpretation</h3>
+          <p>Source: <a href="https://fikadigital.org/saipoc">Fika Safe Access Scorecard</a>.</p>
+          <p>Travel times are modelled, rather than observed patient journeys. Scenario definitions and source dates remain unconfirmed. Zero travel times are treated as uncertain.</p>
+        </section>
+      </section>
+    </main>
+  </body>
+</html>

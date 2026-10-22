@@ -1,0 +1,39 @@
+{
+  "archive": "rwanda-healthcare.pmtiles",
+  "source_layer": "rwanda_healthcare",
+  "promote_id": "h3_index",
+  "bounds": [
+    28.8571442,
+    -2.8281449,
+    30.8853944,
+    -1.0501613
+  ],
+  "tile_minzoom": 6,
+  "tile_maxzoom": 10,
+  "h3_resolution": 8,
+  "unique_cells": 24547,
+  "fields": {
+    "country_name": "String",
+    "females_15_49": "Number",
+    "h3_index": "String",
+    "pop_0_4": "Number",
+    "population": "Number",
+    "rwi": "Number",
+    "time_delta_no_sites_all_health": "Number",
+    "time_delta_no_sites_health_centers": "Number",
+    "time_delta_no_sites_health_posts": "Number",
+    "time_delta_no_sites_major_hospitals": "Number",
+    "travel_time_all_health": "Number",
+    "travel_time_health_centers": "Number",
+    "travel_time_health_posts": "Number",
+    "travel_time_major_hospitals": "Number",
+    "travel_time_no_sites_all_health": "Number",
+    "travel_time_no_sites_health_centers": "Number",
+    "travel_time_no_sites_health_posts": "Number",
+    "travel_time_no_sites_major_hospitals": "Number"
+  },
+  "attributes_table": "rwanda-healthcare-values.csv",
+  "attribution": "Fika / fikadigital.org; derived Rwanda subset",
+  "source_url": "https://public-b2p-geodata.s3.us-east-1.amazonaws.com/general-pmtiles/all_countries_merged_hex8.pmtiles",
+  "licence_status": "Source reuse licence not established"
+}
