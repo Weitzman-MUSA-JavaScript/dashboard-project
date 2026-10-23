@@ -20,9 +20,9 @@ We will allocate weeks 5-8 (four weeks) of the semester to this project.
 
 Before writing any code, define the purpose of your tool. A tool built for "everyone" is usually useful to no one. To guide your project, complete the following statements:
 
-* **The users I want to empower are...** (e.g., transit riders, city planners, park rangers)
-* **The specific decisions those users need to make are...** (e.g., "when to leave for the bus", "where to allocate road repair funds")
-* **The data required to inform these decisions is...**
+* **The users I want to empower are skiers in North America** 
+* **The specific decisions those users need to make are where to ski** (e.g., "when to leave for the bus", "where to allocate road repair funds")
+* **The data required to inform these decisions is ski resorts in USA**
 
 Use the decisions you want to enable to evaluate any dataset or interactive element you add to your tool. If a feature doesn't help the user make their decision, leave it out. Whatever data you use, **be sure to include citations somewhere in your app interface**.
 

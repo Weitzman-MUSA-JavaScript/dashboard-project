@@ -1,0 +1,111 @@
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+}
+
+main {
+    position: relative;
+    display: grid;
+    grid-template-columns: 320px minmax(0, 1fr);
+    height: 100dvh;
+}
+
+.sidepanel {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    width: min(330px, 90vw);
+    min-height: 0;
+    padding: 16px;
+    background: white;
+}
+
+.search-controls {
+    display: flex;
+    gap: 8px;
+}
+
+.search {
+    min-width: 0;
+    flex: 1;
+}
+
+.resort-list-container {
+    min-height: 0;
+    flex: 1;
+    overflow-y: auto;
+    margin-top: 12px;
+}
+
+#resort-list {
+    position: static;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+#map {
+    width: 100%;
+    height: 100%;
+    min-width: 0;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.resort-panel {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: min(360px, 90vw);
+    box-sizing: border-box;
+    padding: 20px;
+    overflow-y: auto;
+    background: white;
+    box-shadow: 2px 0 12px rgb(0 0 0 / 20%);
+}
+
+.resort-panel[hidden] {
+    display: none;
+}
+
+body:has(#resort-panel:not([hidden])) header {
+    display: none;
+}
+
+@media (max-width: 600px) {
+    .resort-panel {
+        top: auto;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 42vh;
+        box-shadow: 0 -2px 12px rgb(0 0 0 / 20%);
+    }
+    main {
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-rows: minmax(0, 1fr) minmax(180px, 35dvh);
+    }
+
+    header {
+        left: 0;
+    }
+
+    #map {
+        grid-row: 1;
+    }
+
+    .sidepanel {
+        grid-row: 2;
+    }
+}
+

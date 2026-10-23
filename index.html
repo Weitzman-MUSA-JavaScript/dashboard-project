@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ski Finder - Isaac Tan</title>
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.33.0/mapbox-gl.js"></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v3.33.0/mapbox-gl.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <main>
+        <div class="sidepanel">
+            <h1>Resort Finder ⛷️ </h1>
+            <div class="search-controls">
+                <input class="search" id="resort-search"
+                    aria-label="Search for a resort"
+                    placeholder="Search for a resort...">
+                <button id="resort-clear-button" type="button">Clear</button>
+            </div>
+            <div class="range-filters">
+                <div class="range-filter" data-filter="elevation_top_m">
+                    <p>Top elevation (m): <output></output></p>
+                    <input type="range" data-bound="min" aria-label="Minimum top elevation">
+                    <input type="range" data-bound="max" aria-label="Maximum top elevation">
+                </div>
+
+                <div class="range-filter" data-filter="number_of_lifts">
+                    <p>Lifts: <output></output></p>
+                    <input type="range" data-bound="min" aria-label="Minimum number of lifts">
+                    <input type="range" data-bound="max" aria-label="Maximum number of lifts">
+                </div>
+
+                <div class="range-filter" data-filter="number_of_slopes">
+                    <p>Slopes: <output></output></p>
+                    <input type="range" data-bound="min" aria-label="Minimum number of slopes">
+                    <input type="range" data-bound="max" aria-label="Maximum number of slopes">
+                </div>
+            </div>
+            <div class="resort-list-container">
+                <ul id="resort-list"></ul>
+            </div>
+            <div class="attributions">
+                <p>Resort Data &copy; <a href="https://www.icpsr.umich.edu/sites/icpsr/view/studies/208941/related-publications">Michigan ICPSR</a></p>
+            </div>
+        </div>
+        <div id="map"></div>
+    </main>
+    <aside id="resort-panel" class="resort-panel" aria-live="polite" hidden>
+        <button id="close-panel" type="button" aria-label="Close resort details">Close</button>
+        <h1 id="resort-name">Select a ski resort</h1>
+        <p id="resort-state"></p>
+        <h3 id="resort-stats">Resort Stats</h3>
+        <p id="resort-slopes"></p>
+        <p id="resort-slope-length"></p>
+        <p id="resort-lifts"></p>
+        <p id="resort-elevation"></p>
+        <p id="resort-elevation-difference"></p>
+    </aside>
+    <script src="https://unpkg.com/lodash@4.17.21/lodash.min.js"></script>
+
+    <!-- The project's main JavaScript module -->
+    <script src="js/main.js" type="module"></script>
+</body>
+</html>
