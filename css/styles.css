@@ -1,531 +1,344 @@
-/* Font weight hierarchy
-   Tier 1 (loudest):  700  school name, page title
-   Tier 2 (emphasis): 600  stats in paragraph, slider values, chart title
-   Tier 3 (quiet):    300-400  subtitle, body text, slider labels, axis text
-*/
-
-:root {
-  --header-h: 56px;
-  --story-w: 33.333%;
-}
-
+/* ==========================================================================
+   Base / Reset
+   ========================================================================== */
 html, body {
   margin: 0;
   padding: 0;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  font-size: 16px;
 }
 
+/* ==========================================================================
+   Splash Screen
+   ========================================================================== */
+#splash {
+  position: fixed;
+  inset: 0;
+  background: white;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transition: opacity 0.3s ease;
+}
 
+#splash.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
 
-/* ===================== LAYOUT ===================== */
-/* Header bar across the top; map left, story panel right, both below the bar. */
+/* ==========================================================================
+   Side Panel
+   ========================================================================== */
 
-#map-header {
+.filter-panel {
+  position: fixed;
+  top: 65px;
+  right: 10px;
+  bottom: 50px;            /* leaves room for the footer */
+  width: min(400px, 70vw);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  padding: 14px;
+  box-sizing: border-box;
+  font: 200 16px/1.4 'Roboto Flex';
+  font-stretch: 70%;
+}
+
+.filter-panel h2 {
+  margin: 0 0 10px;
+  font: 800 20px/1.2 'Roboto Serif', sans-serif;
+}
+
+.filter-actions {
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #ddd;
+  font-size: 15px;
+}
+
+.filter-actions a {
+  color: #000000;
+  cursor: pointer;
+  margin-right: 14px;
+}
+
+#checkboxes {
+  flex: 1;
+  overflow-y: auto;
+}
+
+#checkboxes label {
+  display: block;
+  padding: 4px 0;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.swatch {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin: 0 6px 0 4px;
+  vertical-align: middle;
+}
+
+/* ==========================================================================
+   Map Container
+   ========================================================================== */
+#map {
+  height: 100vh;
+  width: 100%;
+  position: relative;
+}
+
+#map-title {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  height: var(--header-h);
   box-sizing: border-box;
-  z-index: 3;
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  padding: 0 20px;
-  background: #fff;
-  border-bottom: 1px solid #ddd;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
-  font-family: 'Roboto Serif', sans-serif;
-}
-
-.map-title {
-  margin: 0;
-  font-size: 22px;
-  font-weight: 700;
-  line-height: 1;
-  white-space: nowrap;
-}
-
-#college-select {
-  max-width: 280px;
-  padding: 6px 8px;
-  font-family: 'Roboto Serif', sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  border: 1px solid #ccc;
-  border-radius: 4px;
   background: white;
-}
-
-#map {
-  position: absolute;
-  top: var(--header-h);
-  left: 0;
-  width: calc(100% - var(--story-w));
-  height: calc(100vh - var(--header-h));
-}
-
-#story {
-  position: absolute;
-  top: var(--header-h);
-  bottom: 0;
-  right: 0;
-  width: var(--story-w);
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  background: #fff;
-  border-left: 1px solid #ddd;
-  font-family: 'Roboto Serif', sans-serif;
+  padding: 12px 20px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+  font: 800 24px/1.3 'Roboto Serif', sans-serif;
+  text-align: left;
+  opacity: 1;
   z-index: 1;
-  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
 }
 
-#scatter {
-  flex: 1 1 0;
-  min-height: 130px;
-  max-height: 550px;     /* the chart never grows taller than this */
-  margin-top: auto;      /* see below */
-  overflow: hidden;
-  box-sizing: border-box;
+#map-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
   width: 100%;
-  padding: 0 16px 20px;
+  background: white;
+  padding: 6px 20px;
+  box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.3);
+  font: 200 12px 'Roboto Flex';
+  font-stretch: 50%;
+  color: gray;
+  text-align: left;
+  z-index: 1;
+  opacity: 1;
 }
 
-#scatter svg {
-  display: block;        /* no inline gap that could feed back into the container height */
-}
-
-/* ===================== RESET ZOOM ===================== */
 #reset-zoom {
   position: absolute;
-  top: calc(var(--header-h) + 10px);
-  right: calc(var(--story-w) + 52px);
+  top: 65px;
+  left: 50px;
   z-index: 1;
-  padding: 5px 10px;
+  padding: 7px 11px;
   background: white;
   border: 1px solid #ccc;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
   border-radius: 4px;
   cursor: pointer;
-  font: 300 14px/1.3 'Roboto Flex', sans-serif;
-  display: none;
+  opacity: 1;
+  font: 100 14px/1.3 'Roboto Flex';
+  font-stretch: 50%;
 }
 
 #reset-zoom:hover {
   background: #f0f0f0;
 }
 
-/* ===================== LEGEND ===================== */
-#legend {
-  position: absolute;
-  left: 16px;
-  bottom: 28px;
-  z-index: 1;
-  padding: 12px 14px;
-  background: rgba(255, 255, 255, 0.94);
-  border-radius: 6px;
-  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.25);
-  font-family: 'Roboto Serif', sans-serif;
-  font-size: 15px;
-  font-weight: 400;
+.maplibregl-ctrl-top-left {
+  top: 56px;
 }
 
-.legend-title {
-  margin-bottom: 6px;
-  font-size: 13px;
-  font-weight: 600;          /* was 700 */
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  color: #555;
+.maplibregl-ctrl-bottom-right {
+  bottom: 25px;
 }
 
-.legend-title:not(:first-child) {
-  margin-top: 12px;
+.maplibregl-ctrl-bottom-left {
+  bottom: 30px;
+  left: 5px;
 }
 
-.legend-row {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 3px;
-}
+/* ==========================================================================
+   Popup
+   ========================================================================== */
 
-.legend-swatch {
-  width: 13px;
-  height: 13px;
-  border-radius: 50%;
-  opacity: 0.8;
-}
-
-.legend-sizes {
-  display: flex;
-  align-items: flex-end;
-  gap: 12px;
-}
-
-.legend-size {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
-  font-size: 14px;
-}
-
-.legend-circle {
-  border-radius: 50%;
-  background: rgba(128, 128, 128, 0.35);
-  border: 1px solid #777;
-}
-
-/* ===================== MAP POPUPS / TOOLTIPS ===================== */
 .maplibregl-popup {
   pointer-events: none;
 }
 
 .maplibregl-popup-content {
   padding: 8px 12px;
-  font: 400 18px/1.3 sans-serif;
+  font: 400 18px/1.3 'Roboto Serif', sans-serif;
 }
 
-.scatter-tooltip {
-  background: white;
-  padding: 4px 8px;
-  border-radius: 4px;
-  border: 1px solid #ccc;
-  font-family: 'Roboto Serif';
-  font-size: 17px;
-  font-weight: 400;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-  z-index: 1000;
-}
-
-.college-name {
-  font-size: 20px;
-  font-weight: 700;
-  font-family: 'Roboto Serif';
-  color: black;
-}
-
-.ownership-label {
+.label-muted {
   font-size: 16px;
-  font-weight: 300;
-  font-family: 'Roboto Serif';
   color: gray;
 }
 
-/* ===================== CHART ===================== */
-.axis text {
-  font-family: 'Roboto Flex', sans-serif;
-  font-size: 12px;
-  font-weight: 300;          /* quiet tick labels */
-  fill: #666;
-}
-
-.axis path,
-.axis line {
-  stroke: #999;
-}
-
-.axis .domain {
-  stroke: #666;
-}
-
-.axis-label {
-  font-family: 'Roboto Flex', sans-serif;
-  font-size: 13px;
-  font-weight: 300;         
-  fill: #666;                
-}
-
-.chart-title {
-  font-family: 'Roboto Serif', sans-serif;
-  font-size: 16px;           
-  font-weight: 600;         
-  fill: #222;
-}
-
-/* ===================== STORY PANEL ===================== */
-#info {
-  padding: 20px 25px 12px;
-  font-family: 'Roboto Serif', sans-serif;
-  flex: 0 0 auto;
-}
-
-.info-name {
-  margin-top: 0;
-  margin-bottom: 0;
-  font-size: 36px;
-  font-weight: 700;          /* the one loudest element */
-  line-height: 1.1;
-}
-
-.info-type {
-  margin-top: 2px;
-  margin-bottom: 0;
-  font-size: 20px;
-  font-weight: 300;          
-  color: #777;
-}
-
-.info-text {
-  margin-top: 10px;
-  margin-bottom: 0px;
-  font-size: 17px;
-  font-weight: 400;
-  color: #333;               
-  text-align: justify;
-  hyphens: auto;
-  line-height: 1.3;
-}
-
-.info-text strong,
-.info-text b {
-  font-weight: 600;         
-  color: #000;
-}
-
-.info-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 16px 12px;
-  margin-top: 16px;
-}
-
-.stat-value {
-  font-size: 24px;
-  font-weight: 600;          
-}
-
-.stat-label {
-  font-size: 13px;
-  font-weight: 300;
-  color: #666;
-}
-
-.info-placeholder {
-  color: #888;
-  font-size: 20px;
+.restaurant-cuisine {
+  font-size: 16px;
+  font-family: 'Roboto Flex';
+  font-stretch: 80%;
   font-weight: 300;
 }
 
-.info-photo {
-  display: block;
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-  object-position: center;
-  border-radius: 6px;
-  margin-bottom: 12px;
-  background: #eee;
-}
+/* ==========================================================================
+   Mobile layout (tablets and phones)
+   The filter panel becomes a bottom sheet so it no longer covers the map
+   from the side. The map fills the rest of the screen above it.
+   ========================================================================== */
 
-
-/* ===================== MOBILE ===================== */
 @media (max-width: 768px) {
-  :root {
-    --map-h: 42vh;     /* fallback */
-    --story-h: 58vh;
-  }
-  @supports (height: 1dvh) {
-    :root {
-      --map-h: 42dvh;  /* dvh accounts for mobile browser toolbars */
-      --story-h: 58dvh;
-    }
-  }
-
-  /* ---------- Map ---------- */
+  /* Use the dynamic viewport height so the browser's address bar
+     doesn't push the footer off-screen on phones */
   #map {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: calc(var(--map-h) + 14px);   /* runs under the sheet's rounded corners */
+    height: 100vh;
+    height: 100dvh;
   }
 
-  /* Zoom buttons cost space; pinch-zoom works and "Reset zoom" covers the rest */
-  #reset-zoom { display: none !important; visibility: hidden !important; }
-  .maplibregl-ctrl-top-right { display: none; }
-  .maplibregl-ctrl-bottom-right { margin-bottom: 14px; }
+  /* Controls that don't work well on touch screens */
+  #reset-zoom {
+    display: none !important;
+  }
 
-  /* ---------- Header: just the dropdown ---------- */
-  #map-header {
-    top: 8px;
+  .maplibregl-ctrl-top-left {
+    display: none !important;
+  }
+
+  /* Splash */
+  #splash-content {
+    font-size: 16px;
+    padding: 20px;
+    text-align: left;
+    text-align-last: left;
+  }
+
+  #splash-content h1 {
+    font-size: 22px;
+    text-align: center;
+  }
+
+  #splash-close {
+    font-size: 18px;
+    padding: 12px 28px;
+  }
+
+  /* Title bar */
+  #map-title {
+    font-size: 16px;
+    padding: 8px 12px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  /* Filter panel: bottom sheet above the footer and map attribution */
+  .filter-panel {
+    top: auto;
     left: 8px;
     right: 8px;
-    height: auto;
-    padding: 6px;
-    gap: 0;
-    border: none;
-    border-radius: 6px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    bottom: 58px;
+    width: auto;
+    height: 36vh;
+    height: 36dvh;
+    max-height: 320px;
+    padding: 10px 12px;
+    font-size: 15px;
   }
 
-  /* Visually hidden but still there for screen readers */
-  .map-title {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-    clip: rect(0 0 0 0);
-    white-space: nowrap;
+  .filter-panel h2 {
+    font-size: 17px;
+    margin-bottom: 6px;
   }
 
-  #college-select {
-    width: 100%;
-    max-width: none;
-    padding: 8px;
-    font-size: 16px; 
-  }
-
-  /* ---------- Overlays on the map ---------- */
-  #reset-zoom {
-    top: 64px;         /* just under the header */
-    left: 8px;
-    right: auto;
-    padding: 6px 10px;
+  .filter-actions {
+    padding-bottom: 8px;
+    margin-bottom: 6px;
     font-size: 14px;
   }
 
-  #legend {
-    left: 8px;
-    bottom: calc(var(--story-h) + 8px);
-    max-width: calc(100% - 16px);
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 2px 10px;
-    padding: 5px 10px;
-    border-radius: 14px;
-    font-size: 12px;
+  .filter-actions a {
+    display: inline-block;
+    padding: 4px 0;
+    margin-right: 18px;
   }
 
-  .legend-title,
-  .legend-sizes {
-    display: none;
-  }
-
-  .legend-row {
-    gap: 4px;
-    margin: 0;
-  }
-
-  .legend-swatch {
-    width: 9px;
-    height: 9px;
-  }
-
-  /* ---------- Story sheet ---------- */
-  #story {
-    top: var(--map-h);
-    bottom: 0;
-    left: 0;
-    right: 0;
-    width: 100%;
-    overflow-y: auto;
-    overscroll-behavior: contain;
+  /* Bigger tap targets for each cuisine row */
+  #checkboxes {
     -webkit-overflow-scrolling: touch;
-    border-left: none;
-    border-radius: 14px 14px 0 0;
-    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.25);
+    overscroll-behavior: contain;
   }
 
-  /* Grab handle: hints that this is a sheet you can scroll */
-  #story::before {
-    content: '';
-    flex: none;
-    align-self: center;
-    width: 36px;
-    height: 4px;
-    margin: 8px 0 4px;
-    border-radius: 2px;
-    background: #ccc;
-  }
-
-  #info,
-  
-
-  /* ---------- Info ---------- */
-  #info {
-    padding: 4px 16px 8px;
-  }
-
-  .info-photo {
-    height: 110px;
-    margin-bottom: 8px;
-  }
-
-  .info-name {
-    font-size: 24px;
-  }
-
-  .info-type {
-    margin-top: 1px;
+  #checkboxes label {
+    padding: 9px 0;
     font-size: 15px;
   }
 
-  .info-text {
-    margin-top: 6px;
-    font-size: 15px;
-    line-height: 1.4;
-    text-align: left;   /* justified text looks gappy on narrow screens */
+  #checkboxes input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    vertical-align: middle;
   }
 
-  .info-placeholder {
-    font-size: 15px;
-  }
-
-  .stat-value {
-    font-size: 20px;
-  }
-
-  .stat-label {
-    font-size: 12px;
-  }
-
-  /* ---------- Chart: fixed comfortable height, the sheet scrolls ---------- */
- #scatter {
-  flex: 0 0 auto;
-  height: 300px;
-  min-height: 0;
-  margin-top: 4px;
-  padding: 0 8px calc(12px + env(safe-area-inset-bottom));
-}
-
-  .chart-title {
-    font-size: 14px;
-  }
-
-  .axis text {
+  /* Footer */
+  #map-footer {
+    padding: 5px 12px;
     font-size: 11px;
   }
 
-  .axis-label {
-    font-size: 12px;
-  }
-
-  /* ---------- Popups & tooltips ---------- */
+  /* Popups */
   .maplibregl-popup-content {
     padding: 6px 10px;
     font-size: 15px;
   }
 
-  .college-name {
-    font-size: 17px;
-  }
-
-  .ownership-label {
+  .restaurant-cuisine {
     font-size: 14px;
-  }
-
-  .scatter-tooltip {
-    display: none !important;
   }
 }
 
-/* Very small phones */
-@media (max-width: 380px) {
-  .info-name {
-    font-size: 22px;
+/* Small phones: shrink the sheet a little more */
+@media (max-width: 400px) {
+  #map-title {
+    font-size: 15px;
+  }
+
+  .filter-panel {
+    left: 6px;
+    right: 6px;
+    height: 34vh;
+    height: 34dvh;
+  }
+}
+
+/* Phones in landscape: not enough height for a bottom sheet,
+   so put the panel back on the side, narrower */
+@media (max-width: 900px) and (max-height: 500px) {
+  .filter-panel {
+    top: 50px;
+    left: auto;
+    right: 8px;
+    bottom: 40px;
+    width: 240px;
+    height: auto;
+    max-height: none;
+  }
+
+  #map-title {
+    flex-direction: row;
+    align-items: center;
+    font-size: 14px;
+    padding: 6px 12px;
   }
 }

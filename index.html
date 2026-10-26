@@ -1,42 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang = 'en'>
 <head>
     <title>Project 2</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <link href="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/styles.css">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-   <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght,XOPQ,XTRA,YOPQ,YTDE,YTFI,YTLC,YTUC@8..144,100..1000,96,468,79,-203,738,514,712&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap" rel="stylesheet">
-
-
-    <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@^6.12.0/dist/maplibre-gl.css" />
-    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght,XOPQ,XTRA,YOPQ,YTDE,YTFI,YTLC,YTUC@8..144,100..1000,96,468,79,-203,738,514,712&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wdth,wght@8..144,25..151,100..1000&display=swap" rel="stylesheet">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
+
     <button id="reset-zoom">Reset Zoom</button>
+    
     <div id="map"></div>
-    <div id="map-header">
-        <h1 class="map-title">New York College Explorer</h1>
-        <select id="college-select" aria-label="Choose a college"></select>
+    <div id="map-title">
+        <span>NYC Restaurant Explorer</span>
     </div>
-    <div id="legend"></div>
+    <div id="map-footer">#30DayMapChallenge Day 1: Points | Map: Michael Pincus | Source: NYC Department of Health</div>
 
-    <div id="story">
-
-        <div id="info"></div>
-        <div id="scatter"></div>
+    <div class="filter-panel">
+        <h2>Cuisines</h2>
+        <div class="filter-actions">
+            <a id="select-all">Select all</a>
+            <a id="clear-all">Clear</a>
+        </div>
+        <div id="checkboxes"></div>
     </div>
 
+    <script src="https://unpkg.com/@turf/turf@6/turf.min.js"></script>
+    <script src="js/config.js"></script>
+   <script src="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.js"></script>
     <script type="module" src="js/main.js"></script>
+
 </body>
 
 </html>
