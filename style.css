@@ -1,0 +1,109 @@
+#map {
+  height: 600px;
+  width: 100%;
+  background-color: lightgrey;
+  border-radius: 12px;
+  border: 1px solid #cbd5e1;
+}
+
+.map-legend {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+}
+
+.market-key {
+    color: #2563eb;
+}
+
+.station-key {
+    color: #f05724;
+    font-size: 20px;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 24px;
+    background-color: #f8fafc;
+    color: #1e293b;
+}
+
+h1 {
+    margin-top: 0;
+    margin-bottom: 12px;
+}
+
+p {
+    line-height: 1.6;
+}
+
+select {
+    padding: 8px 12px;
+    font-size: 14px;
+    border: 1px solid #94a3b8;
+    border-radius: 6px;
+}
+
+.market-legend-icon {
+  width: 12px;
+  height: 20px;
+  vertical-align: middle;
+  margin-right: 4px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.leaflet-control-layers {
+    max-width: calc(100vw - 110px);
+}
+
+.leaflet-control-layers label {
+    white-space: normal;
+}
+
+@media (width <= 600px) {
+    body {
+        padding: 12px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    #map {
+        height: 65vh;
+        min-height: 350px;
+    }
+
+    .map-legend {
+        line-height: 1.8;
+    }
+}
+
+.leaflet-popup-content {
+    min-width: 150px;
+}
+
+footer a {
+  color: #1d4ed8;
+}
+
+select:focus-visible,
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+    outline: 3px solid #1d4ed8;
+    outline-offset: 3px;
+}
+
+footer {
+    margin-top: 24px;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+footer h2 {
+    font-size: 18px;
+}

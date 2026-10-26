@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset= "UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Markets by Transit in NYC</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <main>
+    <h1>Markets by Transit</h1>
+    <p>Find a farmers market to visit in New York City and explore nearby
+  subway or Staten Island Railway stations. Choose a borough, click
+  a market for its hours and season, and click a station for its
+  daytime routes.</p>
+
+
+<label for="borough-filter">Choose a borough:</label>
+<select id="borough-filter">
+  <option value="all">All boroughs</option>
+  <option value="Bronx">Bronx</option>
+  <option value="Kings">Brooklyn</option>
+  <option value="New York">Manhattan</option>
+  <option value="Queens">Queens</option>
+  <option value="Richmond">Staten Island</option>
+</select>
+<p class="map-legend">
+  <img
+  src="https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png"
+  alt=""
+  class="market-legend-icon"
+> Farmers markets
+  &nbsp; | &nbsp;
+  <span class="station-key">●</span> Subway / Staten Island Railway stations
+</p>
+    <div id="map"></div>
+    <p class="map-note">
+  Station locations help you explore nearby rail options. This map
+  does not show walking routes, travel times, live service, buses,
+  or ferries. Check market hours and transit service before traveling.
+</p> 
+<section aria-labelledby="market-list-heading">
+  <h2 id="market-list-heading">Browse farmers markets</h2>
+  <p>Use the borough filter above to narrow this list.</p>
+  <ul id="market-list"></ul>
+</section>
+
+  </main>
+<footer>
+  <h2>Data sources</h2>
+  <ul>
+    <li>
+      <a href="https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State-Map/gfni-eg8a">
+        Farmers Markets in New York State — NY Open Data
+      </a>
+    </li>
+    <li>
+      <a href="https://data.ny.gov/Transportation/MTA-Subway-Stations/39hk-dx4f">
+        MTA Subway Stations — NY Open Data
+      </a>
+    </li>
+  </ul>
+  <p>Map created by Acharee Sirisan.</p>
+</footer>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" ></script>
+<script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

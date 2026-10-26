@@ -1,23 +1,20 @@
 {
-  "name": "dashboard-project",
+  "name": "markets-by-trasit",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "type": "module",
-  "directories": {},
+  "description": "Created by Acharee Sirisan.",
+  "main": "app.js",
   "scripts": {
-    "css-lint": "stylelint --color  \"**/*.css\"",
-    "js-lint": "eslint --color **/*.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "keywords": [],
   "author": "",
   "license": "ISC",
+  "type": "commonjs",
   "devDependencies": {
     "@eslint/js": "^10.0.1",
-    "@stylistic/eslint-plugin": "^5.10.0",
-    "@stylistic/stylelint-plugin": "^5.3.0",
-    "eslint": "^10.9.1",
-    "globals": "^17.11.0",
-    "stylelint": "^17.14.1",
+    "eslint": "^10.13.0",
+    "globals": "^17.13.0",
+    "stylelint": "^17.16.0",
     "stylelint-config-standard": "^40.0.0"
   }
 }
