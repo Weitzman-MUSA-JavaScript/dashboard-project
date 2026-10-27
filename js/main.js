@@ -26,7 +26,8 @@ const map = new maplibregl.Map({
   center: INITIAL_CENTER,
   zoom: INITIAL_ZOOM,
   minZoom: 9.75,
-  maxZoom: 20
+  maxZoom: 20,
+  attributionControl: false   // we'll add it ourselves
 });
 
 const popup = new maplibregl.Popup({
@@ -43,9 +44,12 @@ const resetButton = document.getElementById('reset-zoom');
 
 map.on('load', async () => {
 
+  map.addControl(new maplibregl.AttributionControl({ compact: true }), 'bottom-left');
+
   const attrib = document.querySelector('.maplibregl-ctrl-attrib');
   attrib?.classList.remove('maplibregl-compact-show');
   attrib?.removeAttribute('open');
+
   // --- Data + layer ---------------------------------------------------------
   const res = await fetch('restaurants.geojson');
   const data = await res.json();
@@ -134,34 +138,54 @@ map.on('load', async () => {
   sortExpr.push(0);
   map.setLayoutProperty('restaurants-layer', 'circle-sort-key', sortExpr);
 
-  // --- Checkboxes (sorted, with swatches and counts) -----------------------
-  const box = document.getElementById('checkboxes');
+  // --- Cuisine toggles (sorted, with swatches and counts) ------------------
+  // Each cuisine is a button that toggles on/off. Its state lives in
+  // aria-pressed, which also drives the styling.
+  const list = document.getElementById('cuisine-list');
+  const selected = new Set();
+  const rows = new Map();
 
   cuisines.forEach(c => {
-    const label = document.createElement('label');
-    label.innerHTML = `
-      <input type="checkbox" value="${c}">
-      <span class="swatch" style="background:${colorMap[c] || OTHER_COLOR}"></span>
-      ${toTitleCase(c)} (${counts[c].toLocaleString()})`;
-    box.appendChild(label);
+    const row = document.createElement('button');
+    row.type = 'button';
+    row.className = 'cuisine-row';
+    row.setAttribute('aria-pressed', 'false');
+    row.style.setProperty('--swatch', colorMap[c] || OTHER_COLOR);
+    row.innerHTML = `
+      <span class="swatch"></span>
+      <span class="cuisine-name">${toTitleCase(c)}</span>
+      <span class="cuisine-count">${counts[c].toLocaleString()}</span>`;
+
+    row.addEventListener('click', () => {
+      if (selected.has(c)) selected.delete(c);
+      else selected.add(c);
+      syncRow(c);
+      updateFilter();
+    });
+
+    rows.set(c, row);
+    list.appendChild(row);
   });
+
+  function syncRow(c) {
+    rows.get(c).setAttribute('aria-pressed', selected.has(c));
+  }
 
   // --- Filtering ------------------------------------------------------------
   function updateFilter() {
-    const checked = [...box.querySelectorAll('input:checked')].map(i => i.value);
-    map.setFilter('restaurants-layer', ['in', ['get', CUISINE_FIELD], ['literal', checked]]);
+    map.setFilter('restaurants-layer', ['in', ['get', CUISINE_FIELD], ['literal', [...selected]]]);
   }
 
   updateFilter();
-  box.addEventListener('change', updateFilter);
 
   document.getElementById('select-all').onclick = () => {
-    box.querySelectorAll('input').forEach(i => (i.checked = true));
+    cuisines.forEach(c => { selected.add(c); syncRow(c); });
     updateFilter();
   };
 
   document.getElementById('clear-all').onclick = () => {
-    box.querySelectorAll('input').forEach(i => (i.checked = false));
+    selected.clear();
+    cuisines.forEach(syncRow);
     updateFilter();
   };
 

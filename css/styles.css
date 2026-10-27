@@ -9,6 +9,7 @@ html, body {
   font-size: 16px;
 }
 
+
 /* ==========================================================================
    Splash Screen
    ========================================================================== */
@@ -69,25 +70,78 @@ html, body {
   margin-right: 14px;
 }
 
-#checkboxes {
+#cuisine-list {
   flex: 1;
   overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
 
-#checkboxes label {
-  display: block;
-  padding: 4px 0;
-  font-size: 16px;
+/* Each cuisine is a toggle row. Off = dim with a hollow swatch;
+   on = highlighted with a filled swatch. */
+.cuisine-row {
+  --swatch: #000;
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 6px 8px;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  color: #777;
+  font: inherit;
+  font-stretch: inherit;
+  text-align: left;
   cursor: pointer;
+  transition: background 0.12s ease, color 0.12s ease;
+}
+
+.cuisine-row:hover {
+  background: #f4f4f4;
+}
+
+.cuisine-row:focus-visible {
+  outline: 2px solid #000;
+  outline-offset: -2px;
+}
+
+.cuisine-row[aria-pressed="true"] {
+  background: #ececec;
+  color: #000;
+  font-weight: 400;
+}
+
+.cuisine-name {
+  flex: 1;
+  min-width: 0;
+}
+
+.cuisine-count {
+  font-size: 14px;
+  color: #999;
+  font-variant-numeric: tabular-nums;
+}
+
+.cuisine-row[aria-pressed="true"] .cuisine-count {
+  color: #555;
 }
 
 .swatch {
-  display: inline-block;
-  width: 12px;
-  height: 12px;
+  flex: none;
+  box-sizing: border-box;
+  width: 14px;
+  height: 14px;
   border-radius: 50%;
-  margin: 0 6px 0 4px;
-  vertical-align: middle;
+  border: 2px solid var(--swatch);
+  background: transparent;
+  transition: background 0.12s ease;
+}
+
+.cuisine-row[aria-pressed="true"] .swatch {
+  background: var(--swatch);
 }
 
 /* ==========================================================================
@@ -275,20 +329,14 @@ html, body {
   }
 
   /* Bigger tap targets for each cuisine row */
-  #checkboxes {
+  #cuisine-list {
     -webkit-overflow-scrolling: touch;
     overscroll-behavior: contain;
   }
 
-  #checkboxes label {
-    padding: 9px 0;
+  .cuisine-row {
+    padding: 10px 8px;
     font-size: 15px;
-  }
-
-  #checkboxes input[type="checkbox"] {
-    width: 18px;
-    height: 18px;
-    vertical-align: middle;
   }
 
   /* Footer */
