@@ -5,7 +5,7 @@
 const INITIAL_CENTER = [-73.9857, 40.7184];
 const INITIAL_ZOOM = 9.75;
 
-const BASEMAP_STYLE = 'https://michaeljpincus.github.io/basemap/basemap.json';
+const BASEMAP_STYLE = 'https://michaeljpincus.github.io/basemap_city/basemap.json';
 
 const CUISINE_FIELD = 'CUISINE';
 
