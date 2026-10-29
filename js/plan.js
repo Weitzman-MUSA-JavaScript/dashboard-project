@@ -325,7 +325,7 @@ function createPlanner({ map, tracts, blocks, stops, city }) {
     const eligible = { features: tracts.features.filter((f) => isEligible(f.properties)) };
     const sites = shortlist(eligible, { size: 40, spacingMi: 2 });
     siteSelect.innerHTML = sites
-      .map((p) => `<option value="${p.geoid}">${escapeHtml(p.hood)}, tract ${p.name} (score ${Math.round(p.score)})</option>`)
+      .map((p) => `<option value="${p.geoid}">${Math.round(p.score)}: ${escapeHtml(p.hood)}, tract ${p.name}</option>`)
       .join('');
   }
 

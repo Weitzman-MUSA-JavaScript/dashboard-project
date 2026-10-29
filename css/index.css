@@ -581,19 +581,24 @@ h2 {
 
 .site-picker-row {
   display: flex;
+  flex-wrap: wrap;
   gap: 0.4rem;
 }
 
 .site-picker select {
-  flex: 1 1 auto;
+  flex: 1 1 100%;
   min-width: 0;
-  padding: 0.35rem 0.4rem;
+  padding: 0.35rem 1.6rem 0.35rem 0.4rem;
   border: 1px solid rgb(18 26 22 / 13%);
   border-radius: 0.4rem;
   background-color: #fff;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%231a211d' stroke-width='1.5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.55rem center;
   color: #1a211d;
   font: inherit;
   font-size: 0.82rem;
+  appearance: none;
 }
 
 .budget {
