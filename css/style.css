@@ -1,0 +1,287 @@
+/* credit: styling inspiration from past sample of Xiaofan Lu - Philadelphia Crime incidents. Including naming conventions,
+ some reference to professor Mjumbe Poe's code,
+ and assistance from Chat GPT and Claude. */
+
+/* colors are from the City of Chicago Design System (CDS) where possible */
+
+/* sets the page's background, font and text color */
+html {
+  background-color: #4d4d4d;
+  font-family: "IBM Plex Sans", "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  color: #fff;
+}
+
+/* removes the default space around the page */
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* uses a grid with the title on top, controls taking 25% on the 
+left and the map filling the rest, all one screen tall */
+main {
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "controls map";
+  grid-template-columns: 25% 1fr;
+  grid-template-rows: auto 1fr;
+  gap: 12px;
+  padding: 12px;
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+/* makes the main title big and bold and removes default spacing */
+h1 {
+  font-size: 50px;
+  font-weight: 700;
+  margin: 0;
+  padding: 0;
+}
+
+/* paragraph */
+p {
+  font-size: 16px;
+  font-weight: 400;
+  color: #f1f1f1;
+  margin: 0;
+  padding: 0;
+}
+
+/* header box with the title */
+header {
+  grid-area: header;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 6px 20px;
+  background-color: #4d4d4d;
+  color: #fff;
+  border: 0 solid #fff;
+  border-bottom: 0.05px solid #fff;
+}
+
+/* map - our main display */
+#map {
+  grid-area: map;
+  border: 0 solid #fff;
+  padding: 0;
+  margin: 0;
+  min-height: 0;
+  background-color: #4d4d4d;
+}
+
+/* puts the dark gray side panel on the left and lets it scroll */
+.controls {
+  grid-area: controls;
+  border: 0 solid #fff;
+  background-color: #4d4d4d;
+  min-height: 0;
+  overflow-y: scroll;
+}
+
+/* separate block in side panel */
+.section {
+  padding: 12px 16px;
+  box-sizing: border-box;
+}
+
+/* heading inside the section */
+.section-title {
+  padding-bottom: 8px;
+  font-weight: 500;
+  margin: 0;
+  color: #fff;
+}
+
+/* labels before inputs */
+label {
+  display: block;
+  margin: 0;
+  padding: 4px 0;
+  font-size: 14px;
+  font-weight: 500;
+  color: #fff;
+}
+
+/* removing the browser's default box around each group */
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/* adds a thin white border and space inside the areas box */
+#areas {
+  border: 0.5px solid #fff;
+  padding: 8px 12px 12px;
+}
+
+/* makes the group titles slightly bold and 16px, with a small gap below */
+legend {
+  padding: 0 0 8px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+/* lists with no bullets */
+#category-list,
+.area-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* space between the buttons in both lists in the panel */
+.controls li {
+  margin-bottom: 2px;
+}
+
+/* search box */
+.search {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+/* scrolling list of community areas */
+.area-list {
+  height: 180px;
+  overflow-y: scroll;
+}
+
+/* smaller text for the About paragraph */
+.about p {
+  font-size: 14px;
+}
+
+/* data citations at the bottom of the side panel */
+.data-sources p {
+  font-size: 11px;
+}
+
+/* citations */
+.data-sources a {
+  color: #41b6e6;
+}
+
+/* boxes on the map: help text etc */
+.legend {
+  padding: 8px 12px;
+  background-color: #4d4d4d; 
+  border: 0 solid #fff;
+  color: #fff;
+  font-family: "IBM Plex Sans", "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+/* titles inside the map boxes */
+.legend h2 {
+  margin: 0 0 6px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+/* removing bullet points and default spacing from the legend list */
+.legend-entries {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* legend boxes and label side by side */
+.legend-entry {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin: 2px 0;
+}
+
+/* legend boxes */
+.legend-icon {
+  display: inline-block;
+  width: 15px;
+  min-width: 15px;
+  height: 15px;
+  border: 1px solid #fff;
+}
+
+/* help text, legend and area summary boxes on the map. same width so they line up */
+.map-help,
+#map-legend,
+.map-area-info {
+  width: 300px;
+}
+
+/* smaller text in the help box */
+.map-help {
+  font-size: 13px;
+  font-weight: 500;
+}
+
+/* business name at the top of the help box */
+.map-help strong {
+  display: block;
+  margin-bottom: 1px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+/* area summary text size */
+.map-area-info p {
+  font-size: 13px;
+}
+
+/* cover page */
+.cover {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: #4d4d4d;
+  border-bottom: 1px solid #fff;
+  text-align: center;
+}
+
+/* title on the cover page */
+.cover-title {
+  margin: 0;
+  font-size: 48px;
+  font-weight: 700;
+}
+
+/* the "scroll down" note at the bottom of the cover */
+.cover-hint {
+  font-size: 14px;
+  font-weight: 500;
+  color: #fff;
+}
+
+/* adjusts the title, layout and map boxes for smaller screens */
+@media screen and (width <= 425px) {
+  .cover-title {
+    font-size: 32px;
+  }
+
+  main {
+    grid-template-areas:
+      "header"
+      "map"
+      "controls";
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 80vh auto;
+    height: auto;
+  }
+
+  .map-help,
+  .map-area-info,
+  #map-legend {
+    width: 200px;
+  }
+}
