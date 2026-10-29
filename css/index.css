@@ -776,6 +776,41 @@ h2 {
   font-weight: 700;
 }
 
+/* Gray is sales moved from stores already there; green is spending the area wasn't getting. */
+.split {
+  display: flex;
+  height: 0.75rem;
+  overflow: hidden;
+  border-radius: 0.2rem;
+}
+
+.split-old,
+.key-old {
+  background-color: #8a8f96;
+}
+
+.split-new,
+.key-new {
+  background-color: #1f7a4d;
+}
+
+.split-key {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.25rem 1rem;
+  margin: 0.35rem 0 0;
+  color: #545e58;
+  font-size: 0.78rem;
+}
+
+.split-key i {
+  display: inline-block;
+  width: 0.6rem;
+  height: 0.6rem;
+  margin-right: 0.35rem;
+}
+
 .payback {
   margin: 0 0 0.6rem;
   font-size: 0.88rem;
