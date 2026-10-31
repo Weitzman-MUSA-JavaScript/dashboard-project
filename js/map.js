@@ -33,27 +33,13 @@ function initMap(el) {
       is3D = !is3D;
 
       if (is3D) {
-        map.easeTo({
-          pitch: 80,
-          bearing: -20,
-          duration: 1500,
-        });
-
-        // Update button UI
+        map.easeTo({ pitch: 80, bearing: -20, duration: 1500 });
         btn3D.innerText = 'Return to Flat 2D View';
-        btn3D.style.backgroundColor = 'var(--color-primary)';
-        btn3D.style.color = 'white';
+        btn3D.classList.add('btn-3d-active');
       } else {
-        map.easeTo({
-          pitch: 0,
-          bearing: 0,
-          duration: 1500,
-        });
-
-        // Reset button UI
+        map.easeTo({ pitch: 0, bearing: 0, duration: 1500 });
         btn3D.innerText = 'Press for 3D View';
-        btn3D.style.backgroundColor = '';
-        btn3D.style.color = '';
+        btn3D.classList.remove('btn-3d-active');
       }
     });
   }

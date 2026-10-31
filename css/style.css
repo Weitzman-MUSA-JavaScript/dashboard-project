@@ -15,15 +15,15 @@ html, body {
   height: 100%;
   margin: 0;
   padding: 0;
-  font-size: 12px;
+  font-size: clamp(10px, 1.5vw, 14px);
   font-family: 'News Cycle', sans-serif;
-  overflow: hidden; /* Prevents unwanted browser scrollbars */
+  overflow: hidden;
 }
 
 /* 3. Layout Structure */
 header {
   height: 5vh;
-  font-size: 12px;
+  font-size: clamp(0.75rem, 2vw, 1rem);
   box-sizing: border-box;
   border-bottom: 2px solid var(--color-border);
   text-align: center;
@@ -35,14 +35,29 @@ header {
 main {
   display: flex;
   flex-direction: row;
-  height: 95vh;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  height: 90vh;
+  padding: 0.5vh;
+}
+
+footer {
+  box-sizing: border-box;
+  height: 2vh;
+  font-size: clamp(0.65rem, 1.5vw, 0.9rem) 
+}
+
+#footnote {
+  margin: 0;
+  margin-left: 1%;
   box-sizing: border-box;
 }
 
 /* 4. Map Viewport */
 .map-section {
   position: relative;
-  flex: 1;
+  flex: 1 1 60%;
+  min-width: 280px;
   height: 100%;
   background-color: var(--color-bg-map-fallback);
 }
@@ -61,6 +76,8 @@ main {
   display: flex;
   flex-direction: column;
   z-index: 1;
+  flex: 1 1 30%;
+  min-width: 260px;
   width: 30%;
   height: 100%;
   border-left: 2px solid var(--color-border);
@@ -76,7 +93,8 @@ main {
 
 .tab-btn {
   flex: 1;
-  padding: 1.2vh;
+  padding: clamp(0.5vh, 1.2vh, 1.5vh);
+  font-size: clamp(0.85rem, 1.5vw, 1.2rem);
   font-size: 1.2rem;
   font-weight: bold;
   font-family: inherit;
@@ -99,7 +117,7 @@ main {
   flex-direction: column;
   height: 100%;
   overflow-y: auto;
-  padding: 1vh;
+  padding: clamp(0.5vh, 1vh, 2vh);
   box-sizing: border-box;
 }
 
@@ -112,7 +130,7 @@ main {
 .map-layer-controls,
 .chart-section {
   width: 100%;
-  padding: 0.5vh;
+  padding: clamp(0.4vh, 0.8vh, 1.2vh);
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
@@ -122,17 +140,17 @@ main {
 }
 
 #island-select {
-  font-size: 1.1rem;
+  font-size: clamp(0.9rem, 1.5vw, 1.1rem);
   font-weight: bold;
-  padding: 1vh;
-  margin-bottom: 1vh;
+  padding: clamp(0.5vh, 1vh, 1.5vh);
+  margin-bottom: clamp(0.5vh, 1vh, 1.5vh);
   width: 100%;
   box-sizing: border-box;
 }
 
 .scenario-controls label,
 .map-layer-controls label {
-  font-size: 1.1rem;
+  font-size: clamp(0.9rem, 1.5vw, 1.1rem);
   font-weight: bold;
   display: block;
   margin-bottom: 0.5vh;
@@ -149,7 +167,7 @@ main {
 
 .year-control label {
   font-weight: bold;
-  font-size: 1.3rem;
+  font-size: clamp(1rem, 1.8vw, 1.3rem);
   color: var(--color-text);
   display: flex;
   justify-content: space-between;
@@ -157,6 +175,7 @@ main {
 
 .year-control input[type="range"] {
   width: 100%;
+  min-height: 20px;
   box-sizing: border-box;
   accent-color: var(--color-primary);
   cursor: pointer;
@@ -165,6 +184,12 @@ main {
 /* 8. Chart Canvas */
 #chart {
   width: 100%;
-  height: 350px;
+  height: clamp(200px, 30vh, 350px);
   box-sizing: border-box;
+}
+
+/* 9. Button styling */
+.btn-3d-active {
+  background-color: var(--color-primary);
+  color: white;
 }

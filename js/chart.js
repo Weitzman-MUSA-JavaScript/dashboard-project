@@ -13,6 +13,7 @@ let chartData = {
 };
 
 let bbChart = null;
+const islandSelect = document.querySelector('#island-select');
 
 /**
  * Initializes the billboard.js economic loss bar chart.
@@ -30,7 +31,6 @@ async function initChart() {
     const geojson = await res.json();
 
     turf.featureEach(geojson, (feature) => {
-      // Group by island using Turf Spatial Centroids
       const center = turf.center(feature);
       const lng = center.geometry.coordinates[0];
 
@@ -39,12 +39,12 @@ async function initChart() {
       else if (lng > -157.5) island = 'maui';
       else if (lng > -158.5) island = 'oahu';
 
-      // Grab the exact totloss value from your GeoJSON properties
       const lossValue = feature.properties.totloss / 1000000 || 0;
-
-      // Add to our running total for this scenario and island
       chartData[file.scenario][island] += lossValue;
     });
+  }
+  if (islandSelect) {
+    islandSelect.addEventListener('change', () => renderChart());
   }
   renderChart('all');
 }
@@ -53,23 +53,34 @@ async function initChart() {
  * Generate or update the Billboard.js Chart
  */
 function renderChart() {
+  const selectedIsland = islandSelect ? islandSelect.value : 'all';
   const scenarios = ['0.5 Ft', '1.1 Ft', '2.0 Ft', '3.2 Ft'];
   const islandLabels = ['Hawai\'i', 'Maui', 'O\'ahu', 'Kaua\'i'];
 
   let columns;
   let categories;
 
-  categories = islandLabels;
+  if (selectedIsland === 'all') {
+    categories = islandLabels;
+    columns = scenarios.map((scenario) => [
+      scenario,
+      chartData[scenario].hawaii,
+      chartData[scenario].maui,
+      chartData[scenario].oahu,
+      chartData[scenario].kauai,
+    ]);
+  } else {
+    categories = scenarios;
+    columns = [[
+      selectedIsland,
+      ...scenarios.map((scenario) => chartData[scenario][selectedIsland]),
+    ]];
+  }
 
-  columns = scenarios.map((scenario) => [
-    scenario,
-    chartData[scenario].hawaii,
-    chartData[scenario].maui,
-    chartData[scenario].oahu,
-    chartData[scenario].kauai,
-  ]);
+  if (bbChart) {
+    bbChart.destroy();
+  }
 
-  // Generate or update the Billboard.js Chart
   bbChart = bb.generate({
     bindto: '#chart',
     data: {
