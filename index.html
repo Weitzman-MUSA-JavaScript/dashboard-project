@@ -1,0 +1,92 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Hawaii Sea Level Rise Dashboard</title>
+    
+    <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/billboard.js/dist/billboard.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=News+Cycle:wght@400;700&display=swap" rel="stylesheet">
+  </head>
+
+  <body>
+    <header>
+        <h1>Hawaii Climate Change Risk Assessment</h1>
+    </header>
+
+    <main>
+      <section class="map-section">
+        <div id="map" class="map"></div>
+      </section>
+
+      <div class="sidebar">
+        <div class="sidebar-tabs">
+          <button id="tab-economic" class="tab-btn active">Economic</button>
+          <button id="tab-climate" class="tab-btn">Climate</button>
+        </div>
+
+        <div id="panel-economic" class="economic-analysis panel active">
+          <h1>Economic Analysis Controls</h1>
+          <fieldset class="map-search-controls">
+            <h2>Island Filters</h2>
+              <select id="island-select" name="Island" aria-label="Search around different islands">
+                  <option value="all">All Islands</option>
+                  <option value="hawaii">Hawai'i</option>
+                  <option value="maui">Maui</option>
+                  <option value="oahu">O'ahu</option>
+                  <option value="kauai">Kaua'i</option>
+              </select>
+              <h2>3D Button</h2>
+              <button id="generate-3d">Press for 3D View</button>
+          </fieldset>
+
+          <fieldset class="scenario-controls">
+            <h2>Choose Scenario</h2>
+            <label><input type="checkbox" id="worstcase"> 3.2 Ft Scenario</label>
+            <label><input type="checkbox" id="badcase"> 2 Ft Scenario</label>
+            <label><input type="checkbox" id="goodcase"> 1.1 Ft Scenario</label>
+            <label><input type="checkbox" id="bestcase"> 0.5 Ft Scenario</label>
+          </fieldset>
+
+          <fieldset class="chart-section">
+            <h2>Chart</h2>
+            <div id="chart"></div>
+          </fieldset>
+        </div>
+
+        <div id="panel-climate" class="climate-analysis panel">
+           <h1>Climate Analysis Controls</h1>
+           <fieldset class="year-control">
+            <h2>Year Select</h2>
+              <label for="year-slider">
+                Minimum Year: <span id="mag-value">1950</span>
+              </label>
+              <input type="range" id="year-slider" min="1950" max="2025" value="2000" step="1">
+              <label for="year-slider">
+                Maximum Year: <span id="mag-value">2025</span>
+              </label>
+           </fieldset>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <p id="footnote">
+          <strong>Hawaii Data Source:</strong> <a href="https://opendata.hawaii.gov/group/geospatial">Hawaii Open Data</a>
+      </p>
+    </footer>
+
+    <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@turf/turf@6.5.0/turf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/d3@7.8.5/dist/d3.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/billboard.js@3.10.3/dist/billboard.min.js"></script>
+    <script src="js/main.js" type="module"></script>
+  </body>
+
+</html>
