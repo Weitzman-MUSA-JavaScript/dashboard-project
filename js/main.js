@@ -41,15 +41,29 @@ map.getPane('maskPane').style.pointerEvents = 'none';
 map.createPane('storePane');
 map.getPane('storePane').style.zIndex = 450;
 
-const [tracts, stores, mask, boundary, blocks, stops, city] = await Promise.all([
-  fetch('data/tracts.geojson').then((r) => r.json()),
-  fetch('data/stores.geojson').then((r) => r.json()),
-  fetch('data/harris-mask.geojson').then((r) => r.json()),
-  fetch('data/harris-boundary.geojson').then((r) => r.json()),
-  fetch('data/blocks.json').then((r) => r.json()),
-  fetch('data/stops.json').then((r) => r.json()),
-  fetch('data/houston-city.geojson').then((r) => r.json()),
-]);
+const statusEl = document.getElementById('map-status');
+
+async function getJson(path) {
+  const r = await fetch(path);
+  if (!r.ok) { throw new Error(`${path} returned ${r.status}`); }
+  return r.json();
+}
+
+// If any file fails, say so on the map instead of leaving "Loading" up forever.
+let data;
+try {
+  data = await Promise.all([
+    'data/tracts.geojson', 'data/stores.geojson', 'data/harris-mask.geojson',
+    'data/harris-boundary.geojson', 'data/blocks.json', 'data/stops.json',
+    'data/houston-city.geojson',
+  ].map(getJson));
+} catch (err) {
+  statusEl.textContent = "The map data didn't load. Check your connection and reload the page.";
+  statusEl.classList.add('is-error');
+  throw err;
+}
+statusEl.hidden = true;
+const [tracts, stores, mask, boundary, blocks, stops, city] = data;
 const legendEl = document.getElementById('legend');
 const tractsById = new Map(tracts.features.map((f) => [f.properties.geoid, f.properties]));
 

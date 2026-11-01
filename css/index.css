@@ -932,8 +932,79 @@ label.btn:has(+ input:focus-visible) {
   justify-content: flex-end;
 }
 
+.map-status {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 600;
+  max-width: 20rem;
+  margin: 0;
+  padding: 0.6rem 0.85rem;
+  border: 1px solid rgb(18 26 22 / 13%);
+  background-color: #fff;
+  font-size: 0.9rem;
+  text-align: center;
+  transform: translate(-50%, -50%);
+}
+
+.map-status.is-error {
+  border-color: #9b2c12;
+  color: #9b2c12;
+  font-weight: 600;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .budget-fill {
     transition: none;
+  }
+}
+
+/* Phone has map on top with controls scroll below it. */
+@media (width <= 760px) {
+  .app-content {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: 55vh auto;
+    height: auto;
+  }
+
+  .map-wrap {
+    order: -1;
+  }
+
+  .rail {
+    overflow-y: visible;
+    border-right: 0;
+  }
+
+  .legend {
+    right: 0.5rem;
+    bottom: 2.25rem;
+    padding: 0.4rem 0.55rem;
+    font-size: 0.68rem;
+  }
+
+  .tab,
+  .btn,
+  .layer-toggle,
+  .check,
+  .choice-row,
+  .site-picker select,
+  .plan-actions input[type='text'] {
+    min-height: 2.75rem;
+  }
+
+  .sources summary,
+  .assumptions summary {
+    padding-block: 0.7rem;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .row-actions .btn {
+    min-width: 2.75rem;
   }
 }
