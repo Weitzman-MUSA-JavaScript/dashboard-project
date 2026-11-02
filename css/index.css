@@ -822,6 +822,12 @@ h2 {
   white-space: nowrap;
 }
 
+.payback-note {
+  margin: 0 0 0.6rem;
+  color: #545e58;
+  font-size: 0.8rem;
+}
+
 .ledger {
   margin: 0;
   border-top: 1px solid rgb(18 26 22 / 13%);

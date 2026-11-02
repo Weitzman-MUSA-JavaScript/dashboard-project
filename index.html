@@ -183,10 +183,12 @@
                         <input type="number" id="a-value-full" min="0" step="1" value="12">
                         <label for="a-value-small">Taxable building value, neighborhood ($M)</label>
                         <input type="number" id="a-value-small" min="0" step="1" value="4">
-                        <label for="a-taxable">Share of sales that is taxable (%)</label>
-                        <input type="number" id="a-taxable" min="0" max="100" step="5" value="25">
+                        <label for="a-grocery-share">Groceries' share of store sales (%)</label>
+                        <input type="number" id="a-grocery-share" min="10" max="100" step="5" value="80">
+                        <label for="a-taxable-grocery">Share of groceries that is taxed (%)</label>
+                        <input type="number" id="a-taxable-grocery" min="0" max="100" step="1" value="10">
                     </div>
-                    <p class="note">City revenue: 1% sales tax on new nonfood sales, plus property tax at $0.519190 per $100. Sales: a Huff model over stores within 5 miles.</p>
+                    <p class="note">City tax revenue: 1% sales tax on everything but groceries, plus the taxed part of groceries (soda, candy, hot food), and property tax at $0.519190 per $100. Sales: a Huff model over stores within 5 miles, scaled to 2022 Census sales for Harris County.</p>
                 </details>
             </section>
 
@@ -243,6 +245,7 @@
                     <li><b>Grocery spending:</b> U.S. Bureau of Labor Statistics, Consumer Expenditure Survey 2024, food at home by income quintile, applied to each tract's households by median family income.</li>
                     <li><b>Opportunity Zones.</b> Office of the Texas Governor, Economic Development and Tourism, Opportunity Zone 2.0 nominated and eligible tracts, September 2026.</li>
                     <li><b>Neighborhoods:</b> City of Houston Planning and Development, Super Neighborhoods. Outside the city, U.S. Census Bureau 2020 incorporated and census-designated places.</li>
+                    <li><b>Store sales:</b> U.S. Census Bureau, 2022 Economic Census, retail trade sales for Harris County; Texas Comptroller, sales tax receipts by retail subsector, 2022.</li>
                     <li><b>Tax rates:</b> City of Houston, tax year 2025 adopted property tax rate; Texas Comptroller, sales tax on grocery and convenience stores.</li>
                     <li><b>Transit:</b> Metropolitan Transit Authority of Harris County, GTFS schedule data, August 30, 2026 service change.</li>
                     <li><i>A tract is low access when at least 500 people, or a third of its residents, live more than 1 mile from a store (10 miles in rural tracts), measured from 2020 census block centers. Low income comes from the USDA's definition.</i></li>

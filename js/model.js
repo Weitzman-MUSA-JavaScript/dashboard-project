@@ -14,11 +14,15 @@ const DEFAULT_ASSUMPTIONS = {
   incentive: { full: 3e6, small: 1e6 },
   floor: { full: 15e6, small: 5e6 },
   buildingValue: { full: 12e6, small: 4e6 },
-  taxableShare: 0.25,
+  groceryShare: 0.8,
+  taxableGroceryShare: 0.1,
 };
 
 const CITY_SALES_TAX = 0.01;
 const CITY_PROPERTY_TAX = 0.0051919;
+// Scales food spending to match 2022 Census grocery and supercenter sales in Harris County.
+const FOOD_SCALE = 1.39;
+
 
 const HUFF_MI = 5;
 const MIN_MI = 0.25;
@@ -80,19 +84,31 @@ function evaluate(plan, { blocks, tracts, stops, inCity }) {
   let cost = 0;
   let sales = 0;
   let shifted = 0;
+  let taxable = 0;
   let cityRevenue = 0;
+  let newCityRevenue = 0;
+  // Kept between 10% and 100% so a blank or zero entry can't divide by zero.
+  const groceryShare = Math.min(Math.max(a.groceryShare, 0.1), 1);
   for (const s of stores) {
+    // Food spending, scaled to real food sales, then grossed up to the whole store.
+    const shiftedShare = s.sales ? s.shifted / s.sales : 0;
+    s.sales = (s.sales * FOOD_SCALE) / groceryShare;
+    s.shifted = s.sales * shiftedShare;
     s.cost = a.incentive[s.format];
     s.viable = s.sales >= a.floor[s.format];
-    // Sales taken from existing stores were already taxed, so only the rest is new.
-    const netNew = Math.max(s.sales - s.shifted, 0);
-    s.cityRevenue = s.inCity
-      ? netNew * a.taxableShare * CITY_SALES_TAX + a.buildingValue[s.format] * CITY_PROPERTY_TAX
-      : 0;
+    // Everything but groceries is taxed, plus the taxed part of groceries (soda, candy, hot food).
+    s.taxable = s.sales * (1 - groceryShare + groceryShare * a.taxableGroceryShare);
+    const propertyTax = a.buildingValue[s.format] * CITY_PROPERTY_TAX;
+    // Collected counts every sale. New leaves out sales taken from existing stores,
+    // which the city was already taxing.
+    s.cityRevenue = s.inCity ? s.taxable * CITY_SALES_TAX + propertyTax : 0;
+    s.newCityRevenue = s.inCity ? s.taxable * (1 - shiftedShare) * CITY_SALES_TAX + propertyTax : 0;
     cost += s.cost;
     sales += s.sales;
     shifted += s.shifted;
+    taxable += s.taxable;
     cityRevenue += s.cityRevenue;
+    newCityRevenue += s.newCityRevenue;
   }
 
   return {
@@ -100,8 +116,11 @@ function evaluate(plan, { blocks, tracts, stops, inCity }) {
     cost,
     sales,
     shifted,
+    taxable,
     cityRevenue,
+    newCityRevenue,
     payback: cityRevenue > 0 ? cost / cityRevenue : null,
+    newPayback: newCityRevenue > 0 ? cost / newCityRevenue : null,
     newlyReached,
     desertReached,
     carFreeReached,

@@ -69,7 +69,8 @@ function createPlanner({ map, tracts, blocks, stops, city }) {
     ['a-floor-small', (v) => { assumptions.floor.small = v * 1e6; }, () => assumptions.floor.small / 1e6],
     ['a-value-full', (v) => { assumptions.buildingValue.full = v * 1e6; }, () => assumptions.buildingValue.full / 1e6],
     ['a-value-small', (v) => { assumptions.buildingValue.small = v * 1e6; }, () => assumptions.buildingValue.small / 1e6],
-    ['a-taxable', (v) => { assumptions.taxableShare = v / 100; }, () => assumptions.taxableShare * 100],
+    ['a-grocery-share', (v) => { assumptions.groceryShare = v / 100; }, () => assumptions.groceryShare * 100],
+    ['a-taxable-grocery', (v) => { assumptions.taxableGroceryShare = v / 100; }, () => assumptions.taxableGroceryShare * 100],
   ];
 
   // Read the current values of the assumption inputs.
