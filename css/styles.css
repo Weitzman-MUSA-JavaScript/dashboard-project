@@ -73,6 +73,23 @@ input:focus-visible {
   width: 100%;
 }
 
+.data-credit {
+  padding: 10px 20px 15px;
+  background: #f5f5f5;
+  color: #222;
+  border-top: 1px solid #d9d9d9;
+  font-size: 0.9rem;
+}
+
+.data-credit p {
+  margin: 0;
+}
+
+.data-credit a {
+  color: #1f4fa3;
+  font-weight: 600;
+}
+
 .route-filter {
   display: flex;
   align-items: center;

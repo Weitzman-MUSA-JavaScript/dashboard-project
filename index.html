@@ -26,12 +26,20 @@
             <img class="page-logo" src="images/logo.png" alt="">
             <div class="header-copy">
                 <h1>Did Your SEPTA Bus Route Change?</h1>
-                <h2> Select your bus route and see if it changed during SEPTA's bus overhaul in August 2026. </h2>
+                <h2> Visualize SEPTA bus routes before and after the major August 2026 system changes. </h2>
             </div>
         </div>
     </header>
     
     <main id="map" aria-label="Philadelphia" tabindex="-1"></main>
+    <footer class="data-credit" aria-label="Data source credit">
+        <p>
+            Data Sources:
+            <a href="https://data-septa.opendata.arcgis.com/datasets/SEPTA::summer-2026-stop-summary-bus/about" target="_blank" rel="noreferrer">SEPTA Summer 2026 Bus Stops</a>
+            and
+            <a href="https://data-septa.opendata.arcgis.com/datasets/SEPTA::transit-stops-fall-2026/about" target="_blank" rel="noreferrer">SEPTA Fall 2026 Bus Stops</a>.
+        </p>
+    </footer>
     <div id="story"></div>
 
     <script src="js/config.js"></script>
