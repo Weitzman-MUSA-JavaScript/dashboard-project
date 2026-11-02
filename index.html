@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset='utf-8' />
+    <title>SEPTA Bus Route Visualizer</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1' />
+    <link rel="stylesheet" href="https://cdn.maptiler.com/maptiler-sdk-js/v4.2.0/maptiler-sdk.css">
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script type="importmap">
+        {
+            "imports": {
+                "@maptiler/sdk": "https://cdn.jsdelivr.net/npm/@maptiler/sdk@4.2.0/+esm"
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+    <a class="skip-link" href="#map">Skip to main content</a>
+
+    <header class="page-header">
+        <div class="title-row">
+            <img class="page-logo" src="images/logo.png" alt="">
+            <div class="header-copy">
+                <h1>Did Your SEPTA Bus Route Change?</h1>
+                <h2> Visualize SEPTA bus routes before and after the major August 2026 system changes. </h2>
+            </div>
+        </div>
+    </header>
+    
+    <main id="map" aria-label="Philadelphia" tabindex="-1"></main>
+    <footer class="data-credit" aria-label="Data source credit">
+        <p>
+            Data Sources:
+            <a href="https://data-septa.opendata.arcgis.com/datasets/SEPTA::summer-2026-stop-summary-bus/about" target="_blank" rel="noreferrer">SEPTA Summer 2026 Bus Stops</a>
+            and
+            <a href="https://data-septa.opendata.arcgis.com/datasets/SEPTA::transit-stops-fall-2026/about" target="_blank" rel="noreferrer">SEPTA Fall 2026 Bus Stops</a>.
+        </p>
+    </footer>
+    <div id="story"></div>
+
+    <script src="js/config.js"></script>
+    <script type="module" src="js/map.js"></script>
+
+</body>
+
+</html>

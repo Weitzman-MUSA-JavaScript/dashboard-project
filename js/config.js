@@ -1,0 +1,1 @@
+window.MAPTILER_API_KEY = 'y39Ad36WBYbUxwwOi9zJ';
