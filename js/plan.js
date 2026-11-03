@@ -91,7 +91,6 @@ function createPlanner({ map, tracts, blocks, stops, city }) {
     return stores.reduce((sum, s) => sum + assumptions.incentive[s.format], 0);
   }
 
-
   function place(latlng, known = null) {
     const tract = known ? null : findFeature(latlng.lng, latlng.lat, tracts);
     const p = known || (tract && tract.properties);
@@ -318,7 +317,6 @@ function createPlanner({ map, tracts, blocks, stops, city }) {
   for (const [id] of ASSUME_INPUTS) {
     el(id).addEventListener('change', update);
   }
-
 
   const siteSelect = el('site-pick');
 

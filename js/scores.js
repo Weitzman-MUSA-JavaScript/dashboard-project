@@ -28,7 +28,7 @@ function milesBetween(a, b) {
 }
 
 // Highest scores first; with spacing on, skip any tract whose center sits
-// within `spacingMi` of a something already on the list, since a store would 
+// within `spacingMi` of a something already on the list, since a store would
 // serve both of those tracts.
 function shortlist(tracts, { size = 10, spacingMi = 0, desertsOnly = false } = {}) {
   const candidates = tracts.features

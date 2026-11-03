@@ -26,7 +26,6 @@ function itemHtml(p, i) {
     </li>`;
 }
 
-
 function createRanking({ map, tracts, state, onSelect, onChange }) {
   const spacingEl = document.getElementById('opt-spacing');
   const desertsEl = document.getElementById('opt-deserts');

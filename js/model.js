@@ -1,5 +1,5 @@
 // What-if model new stores. This model simulates who a new store reaches,
-// what sales they take / generate, and what the city gets back in tax revenue. 
+// what sales they take / generate, and what the city gets back in tax revenue.
 
 import { milesBetween } from './scores.js';
 
@@ -22,7 +22,6 @@ const CITY_SALES_TAX = 0.01;
 const CITY_PROPERTY_TAX = 0.0051919;
 // Scales food spending to match 2022 Census grocery and supercenter sales in Harris County.
 const FOOD_SCALE = 1.39;
-
 
 const HUFF_MI = 5;
 const MIN_MI = 0.25;
