@@ -2,6 +2,8 @@
 
 This is a decision support tool for decisionmakers to assess and plan where to put new grocery stores in and around the city of Houston. It maps where Harris County residents live far from a grocery store, ranks the places a new store would do the most good (based on the data available), and lets staff test a recruitment plan against a budget.
 
+The live tool is at https://gbd2.github.io/dashboard-project/.
+
 ## Who is this tool for?
 
 The main users are City of Houston and Harris County economic development staff, and the councils they report to who decide where/how recruitment incentives will get spent.
