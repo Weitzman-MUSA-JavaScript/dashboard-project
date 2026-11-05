@@ -1,0 +1,101 @@
+html {
+  font-size: 22px; 
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  font-family: Didot, serif;
+}
+
+main {
+  height: 100%;
+}
+
+.map-section {
+  position: relative; /* lets the search card and legend sit on top of the map */
+  height: 100%;
+}
+
+.map-container {
+  position: absolute;
+  inset: 0; /* fills .map-section */
+}
+
+.map {
+  width: 100%;
+  height: 100%;
+}
+
+.mapboxgl-popup {
+  z-index: 20;
+}
+
+/* Search card */
+
+.map-search-controls {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 10; /* above the map */
+  width: min(560px, calc(100% - 32px));
+  box-sizing: border-box;
+  margin: 0;
+  padding: 16px 18px;  
+  background: #fff;
+  border: 0;
+  border-radius: 8px;
+  box-shadow: 0 1px 6px rgb(0 0 0);
+}
+
+.search-title {
+  margin: 0 0 4px;
+  font-size: 1.15rem;
+  line-height: 1.2;
+}
+
+.search-help {
+  margin: 0 0 8px;
+  font-size: 0.85rem;
+  color: #555;
+}
+
+.map-search-controls input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px 14px;   /* taller box */
+  font-size: 1.1rem;    /* bigger typed text */
+}
+
+.map-search-controls,
+.map-search-controls input {
+  font-family: Didot, "Bodoni MT", serif;
+}
+
+.mapboxgl-popup button,
+.mapboxgl-popup input {
+  font-family: inherit;
+}
+
+/* keeps the legend for screen readers without showing it */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.mapboxgl-popup-content {
+  padding: 16px 18px;
+  border-radius: 10px;
+  box-shadow: 0 4px 16px rgb(0 0 0 / 35%);
+}
+
+.mapboxgl-popup-close-button {
+  font-size: 22px;
+  padding: 4px 10px;
+}
