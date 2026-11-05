@@ -27,7 +27,8 @@ const HISTORIC_TABLES = [
   },
 ];
 
-const MIN_ZONING_ZOOM = 15; // don't request zoning when zoomed out further than this
+const MIN_ZONING_ZOOM = 15; // do not request zoning when zoomed out further than this
+let zoningVisible = true; // controlled by the legend checkbox
 
 // field names confirmed against the live services
 const BASE_FIELDS = ['long_code', 'code']; // e.g. 'RSA-5', falling back to 'RSA5'
@@ -37,8 +38,22 @@ const OVERLAY_FIELDS = ['overlay_symbol']; // e.g. '/NE'; supplemental controls 
 const BLOCK_OVERLAYS_ALWAYS = ['FNE', 'NE']; // not permitted, even for historic structures
 const BLOCK_OVERLAYS_OTHER = ['FDO', 'VDO', 'NDO', 'EDO']; // not permitted unless historic
 const ALLOWED_BASE = ['RSA-5', 'CMX-1'];
+// plain-language names (from the L&I checklist and the Philadelphia zoning code)
+const OVERLAY_NAMES = {
+  FNE: 'Far Northeast',
+  NE: 'Northeast',
+  FDO: 'Fourth District',
+  VDO: 'Fifth District',
+  NDO: 'Ninth District',
+  EDO: 'Eighth District',
+};
+const BASE_NAMES = {
+  'RSA-5': 'Residential Single-Family Attached',
+  'CMX-1': 'Neighborhood Commercial Mixed-Use',
+};
 
 // Map
+const FONT = 'Didot, Bodoni MT, serif';
 
 const map = new mapboxgl.Map({
   container: 'map',
@@ -112,7 +127,7 @@ const pointParams = (lng, lat) => ({
 
 // districts inside the current map view (the colored overlay)
 async function loadZoningInView() {
-  if (map.getZoom() < MIN_ZONING_ZOOM) return;
+  if (!zoningVisible || map.getZoom() < MIN_ZONING_ZOOM) return;
   const b = map.getBounds();
   const data = await queryService(ZONING_URL, {
     geometry: [b.getWest(), b.getSouth(), b.getEast(), b.getNorth()].join(','),
@@ -166,133 +181,21 @@ async function historicAtPoint(lng, lat) {
   }
 }
 
-// ADU logic (walks the L&I flowchart)
+// Helpers
 
 const firstField = (props, names) => {
   for (const n of names) if (props?.[n]) return String(props[n]);
   return null;
 };
 const normalizeOverlay = (s) => s.trim().replace(/^\//, '').toUpperCase();
+// 'NE' -> 'Northeast Overlay District (/NE)'; codes without a known name fall back to '/CTR overlay district'
+const overlayName = (code) =>
+  OVERLAY_NAMES[code] ? `${OVERLAY_NAMES[code]} Overlay District (/${code})` : `/${code} overlay district`;
 
-// Follows the flowchart top to bottom and stops at the first terminal answer.
-// answer: 'yes' | 'no' | '' (unanswered). Returns { nodes, end }.
-function walk(state) {
-  const { base, overlays, historicHits } = state;
-  const hit = (list) => overlays?.filter((o) => list.includes(o)) ?? [];
-  const slashed = (list) => hit(list).map((o) => '/' + o).join(', ');
-  const yn = (b) => (b ? 'yes' : 'no');
-  const overlayAnswer = (list) => (overlays === null ? '' : yn(hit(list).length));
+// 'RSA-5' -> 'Residential Single-Family Attached (RSA-5)'
+const baseName = (code) => (BASE_NAMES[code] ? `${BASE_NAMES[code]} (${code})` : code ?? 'unknown');
 
-  const nodes = [
-    {
-      id: 'fne',
-      question: 'Is the property in the /FNE or /NE overlay?',
-      answer: overlayAnswer(BLOCK_OVERLAYS_ALWAYS),
-      detail: overlays === null ? 'overlay lookup failed' : slashed(BLOCK_OVERLAYS_ALWAYS),
-      stopOn: 'yes',
-      stopText: `In the ${slashed(BLOCK_OVERLAYS_ALWAYS)} overlay. No exception, even for historic structures.`,
-      blocking: true,
-      pendingText: 'Overlay districts could not be loaded, so this cannot be checked automatically.',
-    },
-    {
-      id: 'historic',
-      question: 'Is the ADU within a historic structure (14-604(11)(d)(.1))?',
-      answer: state.historic,
-      manual: true,
-      // what the register data suggests; used to flag answers that were changed by hand
-      suggested: historicHits?.length ? 'yes' : '',
-      detail:
-        historicHits === null
-          ? 'Register lookup unavailable'
-          : historicHits.length
-            ? 'Register: ' + historicHits.join('; ')
-            : 'No register match found',
-      stopOn: 'yes',
-      stopStatus: 'yes',
-      stopText: 'Historic structure, so the remaining overlay and zoning checks are skipped.',
-    },
-    {
-      id: 'other-overlay',
-      question: 'Is the property in the /FDO, /VDO, /NDO or /EDO overlay?',
-      answer: overlayAnswer(BLOCK_OVERLAYS_OTHER),
-      detail: slashed(BLOCK_OVERLAYS_OTHER),
-      stopOn: 'yes',
-      stopText: `In the ${slashed(BLOCK_OVERLAYS_OTHER)} overlay.`,
-    },
-    {
-      id: 'base',
-      question: 'Is the property in an RSA-5 or CMX-1 zoning district?',
-      answer: yn(ALLOWED_BASE.includes(base)),
-      detail: base ?? 'unknown',
-      stopOn: 'no',
-      stopText: `Base district ${base ?? 'unknown'} is not RSA-5 or CMX-1.`,
-    },
-    {
-      id: 'structure',
-      question: 'Is the principal structure semi-detached or detached?',
-      answer: state.structure,
-      manual: true,
-      stopOn: 'no',
-      stopText: 'Principal structure must be detached or semi-detached.',
-      blocking: true,
-      pendingText: 'Answer the highlighted question to finish the check.',
-    },
-    {
-      id: 'lot',
-      question: 'Is the lot at least 1,600 sq ft AND is no more than one dwelling unit otherwise permitted?',
-      answer: state.lot,
-      manual: true,
-      stopOn: 'no',
-      stopText: 'Lot must be at least 1,600 sq ft and allow no more than one dwelling unit.',
-      blocking: true,
-      pendingText: 'Answer the highlighted question to finish the check.',
-    },
-  ];
-
-  let end = null;
-  for (const n of nodes) {
-    n.reached = !end;
-    if (end) continue;
-    if (n.answer === n.stopOn) {
-      end = { status: n.stopStatus ?? 'no', text: n.stopText, at: n.id };
-    } else if (n.answer === '' && n.blocking) {
-      end = { status: 'unknown', text: n.pendingText, at: n.id };
-    }
-  }
-  if (!end) {
-    end = { status: 'yes', text: 'Passed every check in the flowchart.', at: 'end' };
-  } else if (end.status === 'no' && end.at !== 'fne' && state.historic === '') {
-    end.text += ' Unless the ADU is within a historic structure (answer above).';
-  }
-  // true once the flowchart says 'permitted' AND every additional requirement is checked
-  end.confirmed = end.status === 'yes' && state.step3?.every(Boolean) === true;
-  return { nodes, end };
-}
-
-// Popup report
-
-const COLORS = { yes: '#2b8a3e', no: '#c92a2a', unknown: '#868e96' };
-
-// 'permitted, pending additional requirements': yellow background, dark text for contrast
-const PENDING = { bg: '#ffd43b', text: '#212529', accent: '#b08800' };
-
-// headline shown in the banner at the top of the popup
-const HEADLINE = {
-  yes: 'ADU permitted, pending additional requirements',
-  no: 'ADU not permitted',
-  unknown: 'Check incomplete',
-};
-const HEADLINE_CONFIRMED = 'ADU permitted';
-
-// marker shown in the flow where the path stops (no verdict text, the banner has that)
-const END_MARK = {
-  yes: 'End of flowchart: confirm the Additional Code Requirements below',
-  no: 'End of flowchart',
-  unknown: 'Answer this step to continue',
-};
-
-let popup = null;
-let marker = null;
+const joinOr = (items) => items.join(' or ');
 
 function el(tag, text, props = {}) {
   const e = document.createElement(tag);
@@ -301,19 +204,241 @@ function el(tag, text, props = {}) {
   return e;
 }
 
-function yesNoButtons(node, state, rerender) {
-  const wrap = el('div');
-  wrap.style.cssText = 'display:flex;gap:6px;margin-top:4px;align-items:center;flex-wrap:wrap';
-  for (const v of ['yes', 'no']) {
-    const on = state[node.id] === v;
-    const b = el('button', v === 'yes' ? 'Yes' : 'No', { type: 'button' });
-    b.style.cssText =
-      `padding:2px 14px;border-radius:.92em;cursor:pointer;font-size:.92em;` +
-      `border:1px solid ${COLORS[v]};background:${on ? COLORS[v] : '#fff'};color:${on ? '#fff' : COLORS[v]}`;
-    b.addEventListener('click', () => { state[node.id] = on ? '' : v; rerender(); }); // click again to clear
-    wrap.append(b);
+// Step 1: spatial check (automatic, follows the top of the L&I flowchart)
+
+// Runs the four map-based checks in flowchart order and stops at the first failure.
+// Each check has a status: 'pass' | 'fail' | 'none' | 'skip' | 'unknown'.
+function spatialCheck(state) {
+  const { base, overlays, historic, historicHits } = state;
+  const hit = (list) => overlays?.filter((o) => list.includes(o)) ?? [];
+  const names = (list) => hit(list).map(overlayName).join(', ');
+
+  const checks = [
+    {
+      id: 'fne',
+      label: `Not in the ${joinOr(BLOCK_OVERLAYS_ALWAYS.map(overlayName))}`,
+    },
+    { id: 'historic', label: 'The structure is historic (14-604(11)(d)(.1))' },
+    {
+      id: 'other-overlay',
+      label: `Not in the ${joinOr(BLOCK_OVERLAYS_OTHER.map(overlayName))}`,
+    },
+    {
+      id: 'base',
+      label: `Base zoning district is ${joinOr(ALLOWED_BASE.map(baseName))}`,
+    },
+  ].map((c) => ({ ...c, status: 'skip', detail: 'not reached' }));
+  const [fne, hist, other, baseCheck] = checks;
+
+  if (overlays === null) {
+    fne.status = 'unknown';
+    fne.detail = 'Overlay districts could not be loaded';
+    return {
+      checks,
+      outcome: 'unknown',
+      reason: 'Overlay districts could not be loaded, so this cannot be checked automatically.',
+    };
   }
-  return wrap;
+
+  // 1. /FNE or /NE: no exception, not even for historic structures
+  if (hit(BLOCK_OVERLAYS_ALWAYS).length) {
+    fne.status = 'fail';
+    fne.detail = `The property is in the ${names(BLOCK_OVERLAYS_ALWAYS)}`;
+    return {
+      checks,
+      outcome: 'blocked',
+      canBeHistoric: false,
+      reason: `The property is in the ${names(BLOCK_OVERLAYS_ALWAYS)}. ADUs are not allowed there, even for historic structures.`,
+    };
+  }
+  fne.status = 'pass';
+  fne.detail = '';
+
+  // 2. historic structure skips the remaining spatial checks
+  if (historicHits === null) hist.detail = 'Register lookup unavailable';
+  else if (historicHits.length) hist.detail = `Register: ${historicHits.join('; ')}`;
+  else hist.detail = 'No register match found';
+
+  if (historic) {
+    hist.status = 'pass';
+    other.detail = 'skipped (historic structure)';
+    baseCheck.detail = 'skipped (historic structure)';
+    return {
+      checks,
+      outcome: 'pass',
+      reason: 'The structure is historic, so the remaining overlay and zoning checks are skipped.',
+    };
+  }
+  hist.status = 'none';
+
+  // 3. /FDO /VDO /NDO /EDO
+  if (hit(BLOCK_OVERLAYS_OTHER).length) {
+    other.status = 'fail';
+    other.detail = `The property is in the ${names(BLOCK_OVERLAYS_OTHER)}`;
+    return {
+      checks,
+      outcome: 'blocked',
+      canBeHistoric: true,
+      reason: `The property is in the ${names(BLOCK_OVERLAYS_OTHER)}. ADUs are not allowed there unless the structure is historic.`,
+    };
+  }
+  other.status = 'pass';
+  other.detail = '';
+
+  // 4. base district
+  if (!ALLOWED_BASE.includes(base)) {
+    baseCheck.status = 'fail';
+    baseCheck.detail = `The base zoning district is ${baseName(base)}`;
+    return {
+      checks,
+      outcome: 'blocked',
+      canBeHistoric: true,
+      reason: `The base zoning district is ${baseName(base)}. An ADU needs ${joinOr(ALLOWED_BASE.map(baseName))}.`,
+    };
+  }
+  baseCheck.status = 'pass';
+  baseCheck.detail = baseName(base);
+
+  return {
+    checks,
+    outcome: 'pass',
+    reason: 'The overlay districts and base zoning district allow an ADU. Next, tell us about the property.',
+  };
+}
+
+// Step 2: user input (statements the user selects)
+
+const PROPERTY_ITEMS = [
+  {
+    id: 'structure',
+    text: 'The principal structure is semi-detached or detached',
+    blocker: 'Principal structure must be detached or semi-detached',
+  },
+  {
+    id: 'lot',
+    text: 'The lot is at least 1,600 sq ft AND no more than one dwelling unit is otherwise permitted',
+    hint: 'Check your deed or a survey for lot area, and the use table in 14-602 for permitted units.',
+    blocker: 'Lot must be at least 1,600 sq ft and allow no more than one dwelling unit',
+  },
+];
+
+const REQUIREMENT_ITEMS = [
+  { id: 'owner-lives', group: 'Owner occupied', text: 'The owner lives in the principal unit or the ADU' },
+  {
+    id: 'owner-deed',
+    group: 'Owner occupied',
+    text: 'Owner will record an affidavit and deed restriction before final occupancy',
+  },
+  { id: 'one-adu', group: 'Maximum of one ADU', text: 'No more than one ADU on the lot' },
+  {
+    id: 'floor-area',
+    group: 'Floor area',
+    text: 'The ADU is 800 sq ft or less',
+    historicText: 'The ADU may exceed 800 sq ft (historic structure)',
+  },
+  {
+    id: 'entrances',
+    group: 'Number of entrances',
+    text: 'Only one entrance on the street-facing front façade, unless the building already had an additional one before the ADU',
+  },
+  {
+    id: 'location',
+    group: 'Location',
+    text: 'The ADU is inside the principal building or an existing detached accessory building (e.g. a detached garage)',
+  },
+];
+
+// the 800 sq ft limit does not apply to historic structures
+const itemText = (item, state) => (item.historicText && state.historic ? item.historicText : item.text);
+
+// Step 3: result
+
+function evaluate(state) {
+  const spatial = spatialCheck(state);
+  const hint = 'Unless the ADU is within a historic structure. You can change this in step 1.';
+
+  if (spatial.outcome === 'unknown') {
+    return { status: 'unknown', headline: 'Check incomplete', summary: spatial.reason };
+  }
+  if (spatial.outcome === 'blocked') {
+    return {
+      status: 'no',
+      headline: 'ADU not permitted',
+      summary: 'You cannot build an ADU on this property.',
+      reasons: [spatial.reason],
+      hint: spatial.canBeHistoric ? hint : '',
+    };
+  }
+
+  // structure type and lot size are skipped for historic structures
+  const reasons = state.historic
+    ? []
+    : PROPERTY_ITEMS.filter((i) => !state.picked[i.id]).map((i) => `${i.blocker} (not selected)`);
+  if (reasons.length) {
+    return {
+      status: 'no',
+      headline: 'ADU not permitted',
+      summary: 'You cannot build an ADU on this property as answered.',
+      reasons,
+      hint,
+    };
+  }
+
+  const unmet = REQUIREMENT_ITEMS.filter((i) => !state.picked[i.id]).map((i) => itemText(i, state));
+  if (unmet.length) {
+    return {
+      status: 'pending',
+      headline: 'ADU permitted, pending additional requirements',
+      summary: 'You can build an ADU once these requirements are met.',
+      unmet,
+    };
+  }
+
+  return {
+    status: 'yes',
+    headline: 'ADU permitted',
+    summary: 'You can build an ADU on this property.',
+    note: 'All checks passed and all additional code requirements are confirmed. L&I verifies these during review.',
+  };
+}
+
+// Popup report
+
+const COLORS = { yes: '#2b8a3e', no: '#c92a2a', unknown: '#868e96' };
+
+// 'permitted, pending additional requirements': yellow background, dark text for contrast
+const PENDING = { bg: '#ffd43b', text: '#212529' };
+
+const STAGE_NAMES = ['Spatial check', 'Your answers', 'Result'];
+
+const STATUS_STYLE = {
+  pass: { icon: '✓', bg: '#d3f9d8', color: COLORS.yes },
+  fail: { icon: '✕', bg: '#ffe3e3', color: COLORS.no },
+  none: { icon: '–', bg: '#f1f3f5', color: COLORS.unknown },
+  skip: { icon: '–', bg: '#f1f3f5', color: '#adb5bd' },
+  unknown: { icon: '?', bg: '#f1f3f5', color: COLORS.unknown },
+};
+
+let popup = null;
+let marker = null;
+
+function button(text, onClick, { primary = false, disabled = false, small = false } = {}) {
+  const b = el('button', text, { type: 'button', disabled });
+  b.style.cssText =
+    `padding:${small ? '2px 10px' : '7px 16px'};border-radius:999px;font:inherit;` +
+    `font-size:${small ? '.8em' : '.92em'};font-weight:600;` +
+    `cursor:${disabled ? 'not-allowed' : 'pointer'};opacity:${disabled ? 0.5 : 1};` +
+    `border:1.5px solid ${primary ? '#1971c2' : '#ced4da'};` +
+    `background:${primary ? '#1971c2' : '#fff'};color:${primary ? '#fff' : '#212529'}`;
+  if (onClick && !disabled) b.addEventListener('click', onClick);
+  return b;
+}
+
+function actionsRow(...buttons) {
+  const row = el('div');
+  row.style.cssText = 'display:flex;justify-content:flex-end;gap:8px;margin-top:12px';
+  row.append(...buttons);
+  return row;
 }
 
 // small tag shown when the answer differs from what the data suggested
@@ -327,155 +452,240 @@ function manualTag() {
   return tag;
 }
 
-function answerChip(node) {
-  const label = node.answer === 'yes' ? 'Yes' : node.answer === 'no' ? 'No' : 'Unavailable';
-  const blocked = node.answer === node.stopOn && (node.stopStatus ?? 'no') === 'no';
-  const bg = blocked ? COLORS.no : node.answer ? '#495057' : COLORS.unknown;
+// the three-step progress bar at the top of the popup
+function stepper(state) {
+  const skipAnswers = spatialCheck(state).outcome !== 'pass';
+  const wrap = el('div');
+  wrap.style.cssText = 'display:flex;gap:6px;margin:8px 0 12px';
 
-  const chip = el('span', node.detail ? `${label} — ${node.detail}` : label);
-  chip.style.cssText =
-    `display:inline-block;margin-top:4px;padding:2px .75em;border-radius:.92em;` +
-    `font-size:.92em;color:#fff;background:${bg}`;
-  return chip;
-}
+  STAGE_NAMES.forEach((name, i) => {
+    const n = i + 1;
+    const current = n === state.stage;
+    const skipped = n === 2 && skipAnswers && state.stage === 3;
+    const done = n < state.stage && !skipped;
 
-// draws the flowchart into `box`; returns { nodes, end }
-function renderFlow(box, state, rerender) {
-  const flow = walk(state);
-  box.replaceChildren();
+    let prefix = `${n}`;
+    if (done) prefix = '✓';
+    if (skipped) prefix = '–';
 
-  flow.nodes.forEach((n, i) => {
-    const row = el('div');
-    const active = n.reached && flow.end.at === n.id && flow.end.status === 'unknown';
-    row.style.cssText =
-      `border-left:3px solid ${n.reached ? '#1971c2' : '#ced4da'};margin-left:6px;padding:4px 0 .75em .75em;` +
-      `opacity:${n.reached ? 1 : 0.4};${active ? 'background:#fff9db;' : ''}`;
-
-    const q = el('div', `${i + 1}. ${n.question}`);
-    q.style.cssText = 'font-size:1em;font-weight:600';
-    row.append(q);
-
-    if (!n.reached) {
-      const skip = el('div', 'not reached');
-      skip.style.cssText = 'font-size:.85em;color:#868e96';
-      row.append(skip);
-    } else if (n.manual) {
-      const buttons = yesNoButtons(n, state, rerender);
-      // flag answers that disagree with the data (only steps that have a data suggestion)
-      if (n.suggested !== undefined && n.answer && n.answer !== n.suggested) {
-        buttons.append(manualTag());
-      }
-      row.append(buttons);
-      if (n.detail) {
-        const d = el('div', n.detail);
-        d.style.cssText = 'font-size:.85em;color:#666;margin-top:3px';
-        row.append(d);
-      }
-    } else {
-      row.append(answerChip(n));
+    let bg = '#f1f3f5';
+    let color = '#868e96';
+    if (current) {
+      bg = '#212529';
+      color = '#fff';
+    } else if (done) {
+      bg = '#d3f9d8';
+      color = COLORS.yes;
     }
-    box.append(row);
 
-    // end marker goes right after the step that stopped the walk
-    if (flow.end.at === n.id) box.append(endBox(flow.end));
+    const pill = el('div', `${prefix} ${name}`);
+    pill.style.cssText =
+      `flex:1;text-align:center;padding:5px 4px;border-radius:999px;font-size:.8em;font-weight:600;` +
+      `background:${bg};color:${color}`;
+    wrap.append(pill);
   });
-  if (flow.end.at === 'end') box.append(endBox(flow.end));
-  return flow;
+  return wrap;
 }
 
-function endBox(end) {
-  const pending = end.status === 'yes' && !end.confirmed;
-  const color = pending ? PENDING.accent : COLORS[end.status];
-  const text =
-    end.status === 'yes' && end.confirmed
-      ? 'End of flowchart: all additional requirements confirmed'
-      : END_MARK[end.status];
-  const b = el('div', '→ ' + text);
-  b.style.cssText =
-    `margin:2px 0 8px 6px;padding:6px .75em;border-radius:.75em;font-size:.92em;font-weight:600;` +
-    `border:1.5px dashed ${color};color:${color};background:transparent`;
-  return b;
-}
+function checkRow(check, state, rerender) {
+  const s = STATUS_STYLE[check.status];
+  const row = el('div');
+  row.style.cssText =
+    `display:flex;gap:10px;align-items:flex-start;margin:8px 0;opacity:${check.status === 'skip' ? 0.5 : 1}`;
 
-// Additional Code Requirements checklist
+  const icon = el('div', s.icon);
+  icon.style.cssText =
+    'flex:none;width:1.6em;height:1.6em;border-radius:50%;display:flex;align-items:center;' +
+    `justify-content:center;font-weight:700;font-size:.9em;background:${s.bg};color:${s.color}`;
 
-const STEP3_ITEMS = [
-  { group: 'Owner occupied', text: 'The owner lives in the principal unit or the ADU' },
-  { group: 'Owner occupied', text: 'Owner will record an affidavit and deed restriction before final occupancy' },
-  { group: 'Maximum of one ADU', text: 'No more than one ADU on the lot' },
-  {
-    group: 'Floor area',
-    text: 'The ADU is 800 sq ft or less',
-    historicText: 'The ADU may exceed 800 sq ft (historic structure)',
-  },
-  {
-    group: 'Number of entrances',
-    text: 'Only one entrance on the street-facing front façade, unless the building already had an additional one before the ADU',
-  },
-  {
-    group: 'Location',
-    text: 'The ADU is inside the principal building or an existing detached accessory building (e.g. a detached garage)',
-  },
-];
+  const text = el('div');
+  const label = el('div', check.label);
+  label.style.cssText = 'font-weight:600';
+  text.append(label);
 
-// returns { box, update(end) }; checked boxes are remembered in state.step3
-// onChange is called after any checkbox changes so the banner and flow can refresh
-function buildStep3(state, onChange) {
-  state.step3 = state.step3 ?? STEP3_ITEMS.map(() => false);
-
-  const box = el('div');
-  box.style.cssText = 'margin-top:.75em;border-top:1px solid #dee2e6;padding-top:8px';
-
-  const title = el('div');
-  title.style.cssText = 'font-size:1em;font-weight:600';
-  const hint = el('div', 'Available once the flowchart above says an ADU is permitted.');
-  hint.style.cssText = 'font-size:.85em;color:#868e96;margin:2px 0 4px';
-  const list = el('div');
-  box.append(title, hint, list);
-
-  const checkboxes = [];
-  const labels = [];
-  let lastGroup = null;
-
-  STEP3_ITEMS.forEach((item, i) => {
-    if (item.group !== lastGroup) {
-      const h = el('div', item.group);
-      h.style.cssText = 'font-size:.85em;font-weight:600;color:#495057;margin:6px 0 0;text-transform:uppercase';
-      list.append(h);
-      lastGroup = item.group;
-    }
-    const label = el('label');
-    label.style.cssText = 'display:flex;gap:6px;align-items:flex-start;font-size:.92em;margin:3px 0 3px 2px';
-    const cb = el('input', null, { type: 'checkbox', checked: state.step3[i] });
-    cb.addEventListener('change', () => { state.step3[i] = cb.checked; onChange(); });
-    const text = el('span', item.text);
-    label.append(cb, text);
-    list.append(label);
-    checkboxes.push(cb);
-    labels.push(text);
-  });
-
-  function update(end) {
-    const open = end.status === 'yes';
-    const done = state.step3.filter(Boolean).length;
-    const all = done === STEP3_ITEMS.length;
-
-    title.textContent = `Additional Code Requirements (${done}/${STEP3_ITEMS.length})`;
-    title.style.color = open && all ? COLORS.yes : '#212529';
-    hint.style.display = open ? 'none' : 'block';
-    list.style.opacity = open ? 1 : 0.45;
-    checkboxes.forEach((cb) => { cb.disabled = !open; });
-
-    // the 800 sq ft limit doesn't apply to historic structures
-    STEP3_ITEMS.forEach((item, i) => {
-      if (item.historicText) labels[i].textContent = state.historic === 'yes' ? item.historicText : item.text;
-    });
+  if (check.detail) {
+    const detail = el('div', check.detail);
+    detail.style.cssText = 'font-size:.85em;color:#666;margin-top:2px';
+    text.append(detail);
   }
 
-  return { box, update };
+  // the historic answer can be changed by hand if the register data is wrong or out of date
+  if (check.id === 'historic' && check.status !== 'skip' && check.status !== 'unknown') {
+    const controls = el('div');
+    controls.style.cssText = 'display:flex;gap:6px;align-items:center;margin-top:4px;flex-wrap:wrap';
+    controls.append(
+      button(
+        state.historic ? 'Mark as not historic' : 'Mark as historic',
+        () => {
+          state.historic = !state.historic;
+          rerender();
+        },
+        { small: true },
+      ),
+    );
+    if (state.historic !== state.suggestedHistoric) controls.append(manualTag());
+    text.append(controls);
+  }
+
+  row.append(icon, text);
+  return row;
 }
 
-// true when there's room to open the report beside the pin
+function renderSpatial(box, state, rerender, go) {
+  const spatial = spatialCheck(state);
+
+  const facts = el('p');
+  facts.style.cssText = 'font-size:1em;margin:4px 0 8px';
+  facts.append(
+  el('strong', 'Base zoning district: '), baseName(state.base), el('br'),
+  el('strong', 'Overlay districts: '),
+  state.overlays === null
+    ? 'unavailable'
+    : state.overlays.length ? state.overlays.map(overlayName).join(', ') : 'none',
+  );
+  box.append(facts);
+
+  for (const check of spatial.checks) box.append(checkRow(check, state, rerender));
+
+  const titles = {
+    pass: 'Passed the spatial checks',
+    blocked: 'Stopped by a spatial check',
+    unknown: 'Spatial check incomplete',
+  };
+  const tone = { pass: COLORS.yes, blocked: COLORS.no, unknown: COLORS.unknown };
+  const banner = el('div');
+  banner.style.cssText =
+    `margin:12px 0 0;padding:8px 10px;border-radius:6px;font-size:.92em;color:#fff;background:${tone[spatial.outcome]}`;
+  banner.append(el('strong', titles[spatial.outcome]), el('br'), spatial.reason);
+  box.append(banner);
+
+  if (spatial.outcome === 'pass') {
+    box.append(actionsRow(button('Next: your answers', () => go(2), { primary: true })));
+  } else if (spatial.outcome === 'blocked') {
+    box.append(actionsRow(button('See result', () => go(3), { primary: true })));
+  } else {
+    box.append(actionsRow(button('Next', null, { disabled: true })));
+  }
+}
+
+// a statement the user taps; it turns green when selected
+function pickRow(item, text, state, rerender) {
+  const on = Boolean(state.picked[item.id]);
+  const row = el('button', null, { type: 'button' });
+  row.setAttribute('role', 'checkbox');
+  row.setAttribute('aria-checked', String(on));
+  row.style.cssText =
+    'display:block;width:100%;text-align:left;margin:5px 0;padding:8px 10px;border-radius:8px;' +
+    `cursor:pointer;font:inherit;font-size:.92em;font-weight:${on ? 600 : 400};` +
+    `border:1.5px solid ${on ? COLORS.yes : '#ced4da'};background:${on ? '#d3f9d8' : '#fff'};` +
+    `color:${on ? '#1b5e20' : '#212529'}`;
+
+  row.append(el('span', `${on ? '✓ ' : ''}${text}`));
+  if (item.hint) {
+    const hint = el('span', item.hint);
+    hint.style.cssText = 'display:block;font-weight:400;font-size:.85em;color:#666;margin-top:2px';
+    row.append(hint);
+  }
+
+  row.addEventListener('click', () => {
+    state.picked[item.id] = !on;
+    rerender();
+  });
+  return row;
+}
+
+function sectionHeading(text) {
+  const h = el('div', text);
+  h.style.cssText = 'font-weight:700;margin:12px 0 2px';
+  return h;
+}
+
+function groupHeading(text) {
+  const h = el('div', text);
+  h.style.cssText = 'font-size:.8em;font-weight:600;color:#495057;margin:8px 0 0;text-transform:uppercase';
+  return h;
+}
+
+function renderAnswers(box, state, rerender, go) {
+  const intro = el('p', 'Select each statement that is true for your property. Selected statements turn green.');
+  intro.style.cssText = 'font-size:.92em;color:#495057;margin:4px 0 0';
+  box.append(intro);
+
+  if (state.historic) {
+    const skip = el('p', 'Structure type and lot size are skipped for historic structures.');
+    skip.style.cssText = 'font-size:.85em;color:#666;margin:8px 0 0';
+    box.append(skip);
+  } else {
+    box.append(sectionHeading('About the property'));
+    for (const item of PROPERTY_ITEMS) box.append(pickRow(item, item.text, state, rerender));
+  }
+
+  box.append(sectionHeading('Additional code requirements'));
+  let lastGroup = null;
+  for (const item of REQUIREMENT_ITEMS) {
+    if (item.group !== lastGroup) {
+      box.append(groupHeading(item.group));
+      lastGroup = item.group;
+    }
+    box.append(pickRow(item, itemText(item, state), state, rerender));
+  }
+
+  box.append(
+    actionsRow(
+      button('Back', () => go(1)),
+      button('See result', () => go(3), { primary: true }),
+    ),
+  );
+}
+
+function bulletList(items) {
+  const ul = el('ul');
+  ul.style.cssText = 'margin:6px 0;padding-left:1.2em;font-size:.92em';
+  for (const text of items) ul.append(el('li', text));
+  return ul;
+}
+
+function renderResult(box, state, rerender, go) {
+  const r = evaluate(state);
+  const pending = r.status === 'pending';
+
+  const banner = el('div');
+  banner.style.cssText =
+    `padding:10px 12px;border-radius:6px;margin:6px 0;background:${pending ? PENDING.bg : COLORS[r.status]};` +
+    `color:${pending ? PENDING.text : '#fff'}`;
+  const headline = el('div', r.headline);
+  headline.style.cssText = 'font-size:1.15em;font-weight:700';
+  const summary = el('div', r.summary);
+  summary.style.cssText = 'font-size:.92em;margin-top:2px';
+  banner.append(headline, summary);
+  box.append(banner);
+
+  if (r.reasons) {
+    box.append(el('strong', 'Why not:'), bulletList(r.reasons));
+  }
+  if (r.unmet) {
+    box.append(el('strong', 'Still to meet:'), bulletList(r.unmet));
+  }
+  if (r.hint) {
+    const hint = el('p', r.hint);
+    hint.style.cssText = 'font-size:.92em;margin:6px 0';
+    box.append(hint);
+  }
+  if (r.note) {
+    const note = el('p', r.note);
+    note.style.cssText = 'font-size:.92em;margin:6px 0';
+    box.append(note);
+  }
+
+  const footnote = el('p', 'Historic status is confirmed by the Historical Commission during L&I review.');
+  footnote.style.cssText = 'font-size:.85em;color:#666;margin:10px 0 0';
+  box.append(footnote);
+
+  const backTo = spatialCheck(state).outcome === 'pass' ? 2 : 1;
+  box.append(actionsRow(button('Back', () => go(backTo))));
+}
+
+// true when there is room to open the report beside the pin
 const hasSideRoom = () => map.getContainer().clientWidth >= 700;
 
 function showReport({ place, lngLat, zoning, overlays, historicHits }) {
@@ -484,57 +694,39 @@ function showReport({ place, lngLat, zoning, overlays, historicHits }) {
 
   const root = el('div');
   root.style.cssText =
-    'font-family:sans-serif;font-size:17px;width:min(560px, 85vw);max-height:68vh;overflow-y:auto;padding-right:4px';
+  `font-family:${FONT};font-size:17px;width:min(560px, 85vw);max-height:68vh;overflow-y:auto;padding-right:4px`;
 
   if (!zoning) {
     root.append(el('p', place ? 'No zoning district found at that address.' : 'Address not found in Philadelphia.'));
   } else {
-    const base = firstField(zoning.properties, BASE_FIELDS);
-    // a register match pre-fills 'yes'; no match leaves it unanswered (register data may be incomplete)
-    const state = { base, overlays, historicHits, historic: historicHits?.length ? 'yes' : '', structure: '', lot: '' };
-
-    root.append(el('h3', place?.properties?.full_address ?? 'Zoning report'));
-
-    const facts = el('p');
-    facts.style.cssText = 'font-size:1em;margin:4px 0';
-    facts.append(
-      el('strong', 'Base district: '), base ?? 'unknown', el('br'),
-      el('strong', 'Overlays: '),
-      overlays === null ? 'unavailable' : overlays.length ? overlays.map((o) => '/' + o).join(', ') : 'none',
-    );
-
-    // summary banner: headline + one line of reasoning, visible without scrolling
-    const verdict = el('div');
-    verdict.style.cssText = 'padding:8px;border-radius:4px;margin:8px 0';
-
-    const flow = el('div');
-    const step3 = buildStep3(state, () => rerender());
-
-    const rerender = () => {
-      const { end } = renderFlow(flow, state, rerender);
-      const pending = end.status === 'yes' && !end.confirmed;
-
-      verdict.replaceChildren();
-      const headline = el('div', end.confirmed ? HEADLINE_CONFIRMED : HEADLINE[end.status]);
-      headline.style.cssText = 'font-size:1.15em;font-weight:700';
-      const reason = el(
-        'div',
-        end.confirmed
-          ? 'All additional code requirements confirmed. L&I verifies these during review.'
-          : end.text,
-      );
-      reason.style.cssText = 'font-size:.92em;margin-top:2px';
-      verdict.append(headline, reason);
-
-      verdict.style.background = pending ? PENDING.bg : COLORS[end.status];
-      verdict.style.color = pending ? PENDING.text : '#fff';
-      step3.update(end);
+    const suggestedHistoric = Boolean(historicHits?.length);
+    const state = {
+      base: firstField(zoning.properties, BASE_FIELDS),
+      overlays,
+      historicHits,
+      suggestedHistoric, // what the register data says
+      historic: suggestedHistoric, // what the user has chosen (starts at the register answer)
+      picked: {}, // statement id -> true when the user selects it
+      stage: 1,
     };
 
-    const note = el('p', 'Historic status is confirmed by the Historical Commission during L&I review.');
-    note.style.cssText = 'font-size:.85em;color:#666;margin:6px 0';
+    const progress = el('div');
+    const body = el('div');
 
-    root.append(facts, verdict, flow, step3.box, note);
+    const rerender = () => {
+      progress.replaceChildren(stepper(state));
+      body.replaceChildren();
+      if (state.stage === 1) renderSpatial(body, state, rerender, go);
+      else if (state.stage === 2) renderAnswers(body, state, rerender, go);
+      else renderResult(body, state, rerender, go);
+    };
+    const go = (stage) => {
+      state.stage = stage;
+      rerender();
+      root.scrollTop = 0;
+    };
+
+    root.append(el('h3', place?.properties?.full_address ?? 'Zoning report'), progress, body);
     rerender();
   }
 
@@ -627,12 +819,12 @@ map.on('load', () => {
   map.on('moveend', () => loadZoningInView().catch(console.error));
 });
 
-// Legend
+// Legend (with the zoning layer toggle)
 
 const legend = document.createElement('div');
 legend.style.cssText =
   'position:absolute;bottom:30px;right:50px;background:#fff;padding:.7em .9em;border-radius:6px;' +
-  'font:14px sans-serif;box-shadow:0 1px 4px rgba(0,0,0,.3)';
+  `font:14px ${FONT};box-shadow:0 1px 4px rgb(0 0 0 / 30%)`;
 
 function legendRow(color, label) {
   const row = document.createElement('div');
@@ -643,11 +835,37 @@ function legendRow(color, label) {
   return row;
 }
 
+// checkbox that shows or hides the zoning layer
+const toggleLabel = document.createElement('label');
+toggleLabel.style.cssText = 'display:flex;align-items:center;gap:.6em;font-weight:600;cursor:pointer';
+const toggle = document.createElement('input');
+toggle.type = 'checkbox';
+toggle.checked = true;
+toggleLabel.append(toggle, 'Zoning districts');
+
+const toggleHint = document.createElement('div');
+toggleHint.textContent = 'Zoom in to see districts';
+toggleHint.style.cssText = 'font-size:.85em;color:#666;margin:.15em 0 .3em';
+
 // one row per zoning group
+const zoningRows = document.createElement('div');
 for (const [name, color] of Object.entries(GROUP_COLORS)) {
-  legend.append(legendRow(color, name.split('/')[0])); // 'Residential', 'Commercial', ...
+  zoningRows.append(legendRow(color, name.split('/')[0])); // 'Residential', 'Commercial', ...
 }
-legend.append(legendRow('#f1b6da', 'Base Zoning District Box'));
+
+function setZoningVisible(visible) {
+  zoningVisible = visible;
+  zoningRows.style.display = visible ? '' : 'none';
+  if (!map.getLayer('zoning-fill')) return; // map has not finished loading yet
+  for (const id of ['zoning-fill', 'zoning-outline']) {
+    map.setLayoutProperty(id, 'visibility', visible ? 'visible' : 'none');
+  }
+  if (visible) loadZoningInView().catch(console.error); // districts were not fetched while hidden
+}
+toggle.addEventListener('change', () => setZoningVisible(toggle.checked));
+
+// the searched district outline stays visible whether the zoning layer is on or off
+legend.append(toggleLabel, toggleHint, zoningRows, legendRow('#f1b6da', 'Base Zoning District Box'));
 
 map.getContainer().append(legend);
 
