@@ -10,12 +10,21 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     <link rel="stylesheet" href="css/styles.css">
 </head>
+
+
 <body>
     <header>
         <h1>France Wine Map</h1>
         <p class="info">Explore the regions and appellations of French wine</p>
     </header>
-    
+
+      <div id="infoPopup" class="popup">
+    <div class="popup-content">
+      <p>This dashboard helps you explore potential wine region based on your needs in food pairing and flavor preferences. Feel free to click based on type, pairing and flavors.</p>
+      <button id="closeBtn">Close</button>
+    </div>
+  </div>
+
     <div class="selection-panel" id="filter-panel">
       <h3>Filter by Wine Type</h3>
       <label><input type="checkbox" name="type" value="Red"> Red</label>
@@ -36,6 +45,7 @@
          <option value="">All Flavors</option>
          <option value="blackberry">Blackberry</option>
          <option value="cherry">Cherry</option>
+         <option value="green apple">Green Apple</option>
          <option value="plum">Plum</option>
          <option value="peach">Peach</option>
          <option value="citrus">Citrus</option>

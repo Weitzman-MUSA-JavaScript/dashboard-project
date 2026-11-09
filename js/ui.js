@@ -1,5 +1,4 @@
 import { filterWineData } from './filter.js';
-import { updateWineLayer } from './wine-map.js';
 
 function initForm(el, regions, onFilter = null) {
   const containEL = typeof el === 'string' ? document.getElementById(el) : el;

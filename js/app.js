@@ -1,6 +1,14 @@
 import { initFranceWineMap, loadwinelayer, updateWineLayer } from './wine-map.js';
 
 const map = initFranceWineMap('map');
+const popup = document.getElementById('infoPopup');
+const closeBtn = document.getElementById('closeBtn');
+
+if (closeBtn) {
+  closeBtn.addEventListener('click', () => {
+    popup?.classList.add('hidden');
+  });
+}
 
 loadwinelayer(map).then((layer) => {
   window.winelayer = layer;

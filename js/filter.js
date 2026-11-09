@@ -1,5 +1,5 @@
 /**
- * Helper to normalize strings (removes accents like é -> e, and converts to lowercase)
+ * Helper to normalize strings
  */
 const normalizeText = (str) =>
   (str || '')
@@ -9,7 +9,7 @@ const normalizeText = (str) =>
     .trim();
 
 /**
- * Filter wine features by wine type (Red, White, Rosé, Sparkling, etc.)
+ * Filter wine features
  */
 function filtertype(selectedTypes = [], features = []) {
   if (selectedTypes.length === 0) return features;
@@ -25,9 +25,6 @@ function filtertype(selectedTypes = [], features = []) {
   });
 }
 
-/**
- * Filter wine features by grape variety (Syrah, Chardonnay, etc.)
- */
 function filterfood(selectedfood = [], features = []) {
   if (selectedfood.length === 0) return features;
 

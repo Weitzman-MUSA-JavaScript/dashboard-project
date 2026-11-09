@@ -103,3 +103,48 @@ div.selection-panel h3 {
   border-radius: 6px;
   transition: all 0.2s ease;
 }
+
+.hidden {
+  display: none !important;
+}
+
+
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  /* stylelint-disable-next-line color-function-alias-notation */
+  background-color: rgb(0 0 0 / 50%); /* Dim background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000; /* Above Leaflet map */
+}
+
+.popup-content {
+  background-color: #fff;
+  color: #333;
+  padding: 1.5rem 2rem;
+  border-radius: 8px;
+  /* stylelint-disable-next-line color-function-alias-notation */
+  box-shadow: 0 4px 15px rgb(0 0 0 / 30%);
+  text-align: center;
+}
+
+/* stylelint-disable-next-line selector-id-pattern */
+#closeBtn {
+  margin-top: 1rem;
+  padding: 0.4rem 1.2rem;
+  background-color: #78232d;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* stylelint-disable-next-line selector-id-pattern */
+#closeBtn:hover {
+  background-color: #5e111a;
+}
