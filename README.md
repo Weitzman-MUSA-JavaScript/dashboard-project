@@ -1,1 +1,1 @@
-Add a readme for your dashboard here. Include content overview, data citations, and any relevant technical details.
+This dashboard is used to help people with few wineknowledge to choose wine from france depends on their needs in wine type, foodpairing and wine flavor. The specific recommendation result will end in wine production region, as different wineary would have slight differences in making wine, and there are too many winearies to map.  
