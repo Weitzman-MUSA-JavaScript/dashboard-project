@@ -27,7 +27,7 @@ const map = new maplibregl.Map({
   zoom: INITIAL_ZOOM,
   minZoom: 9.75,
   maxZoom: 20,
-  attributionControl: false   // we'll add it ourselves
+  attributionControl: false   
 });
 
 const popup = new maplibregl.Popup({
