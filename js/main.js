@@ -7,7 +7,6 @@ import { showProfile } from './profile.js';
 import { createRanking } from './rank.js';
 import { createPlanner } from './plan.js';
 
-
 const state = {
   mode: 'access',
   definition: 'grocery',
