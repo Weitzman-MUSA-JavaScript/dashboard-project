@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fixing the Houston Grocery Gap</title>
+    <meta name="description" content="A decision support tool for deciding where Houston should recruit new grocery stores.">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    <main class="app-content">
+        <aside class="rail" aria-label="Controls and tract details">
+            <header class="rail-header">
+                <h1>Where should Houston's next grocery stores go?</h1>
+            </header>
+
+            <div class="tabs" role="tablist" aria-label="Tool steps">
+                <button class="tab" type="button" role="tab" id="tab-access" aria-controls="panel-access" aria-selected="true">Find gaps</button>
+                <button class="tab" type="button" role="tab" id="tab-rank" aria-controls="panel-rank" aria-selected="false" tabindex="-1">Rank locations</button>
+                <button class="tab" type="button" role="tab" id="tab-plan" aria-controls="panel-plan" aria-selected="false" tabindex="-1">Test plans</button>
+            </div>
+            <section class="panel" id="panel-access" role="tabpanel" aria-labelledby="tab-access">
+                <h2 id="definition-heading">What do we count as a grocery store?</h2>
+                <fieldset class="choice" aria-labelledby="definition-heading">
+                    <legend class="visually-hidden">Food access definition</legend>
+                    <p class="choice-head" aria-hidden="true">Food desert tracts</p>
+                    <label class="choice-row">
+                        <input type="radio" name="definition" value="grocery" checked>
+                        <span class="choice-text">
+                            <span class="choice-name">Grocery stores only</span>
+                            <span class="choice-meta">Supermarkets, supercenters and large grocers, <span data-count="grocery">726</span> in and near the county</span>
+                        </span>
+                        <span class="choice-count" data-desert="grocery"></span>
+                    </label>
+                    <label class="choice-row">
+                        <input type="radio" name="definition" value="usda">
+                        <span class="choice-text">
+                            <span class="choice-name">Any SNAP store</span>
+                            <span class="choice-meta">USDA's 2025 map; adds convenience, dollar and drug stores</span>
+                        </span>
+                        <span class="choice-count" data-desert="usda"></span>
+                    </label>
+                </fieldset>
+
+                <div class="headline" id="headline" aria-live="polite"></div>
+
+                <p class="note" id="definition-note"></p>
+            </section>
+
+            <section class="panel" id="panel-rank" role="tabpanel" aria-labelledby="tab-rank" hidden>
+                <h2>What is important when ranking new locations?</h2>
+                <p class="note">Set how much each factor counts. Scores run 0 to 100 and count only grocery stores as food access.</p>
+
+                <div class="weights">
+                    <div class="weight">
+                        <label for="w-need">
+                            <span class="weight-name">Need</span>
+                            <span class="weight-value" id="w-need-value">33%</span>
+                        </label>
+                        <input type="range" id="w-need" min="0" max="5" step="1" value="3" aria-describedby="w-need-help">
+                        <p class="weight-help" id="w-need-help">Residents beyond reach of a grocery store, car-free households among them, and poverty.</p>
+                    </div>
+                    <div class="weight">
+                        <label for="w-viability">
+                            <span class="weight-name">Viability</span>
+                            <span class="weight-value" id="w-viability-value">33%</span>
+                        </label>
+                        <input type="range" id="w-viability" min="0" max="5" step="1" value="3" aria-describedby="w-viability-help">
+                        <p class="weight-help" id="w-viability-help">Grocery spending by unserved residents within 2 miles, the sales a new store could win.</p>
+                    </div>
+                    <div class="weight">
+                        <label for="w-leverage">
+                            <span class="weight-name">Incentives</span>
+                            <span class="weight-value" id="w-leverage-value">33%</span>
+                        </label>
+                        <input type="range" id="w-leverage" min="0" max="5" step="1" value="3" aria-describedby="w-leverage-help">
+                        <p class="weight-help" id="w-leverage-help">Opportunity Zone status: 100 for 2027 nominees, 50 for eligible tracts, 0 otherwise.</p>
+                    </div>
+                </div>
+
+                <div class="shortlist-options">
+                    <label class="check">
+                        <input type="checkbox" id="opt-spacing" checked>
+                        Spread picks at least 2 miles apart
+                    </label>
+                    <label class="check">
+                        <input type="checkbox" id="opt-deserts">
+                        Only food desert tracts
+                    </label>
+                </div>
+
+                <h2 class="shortlist-heading">Top 10 sites</h2>
+                <ol class="shortlist" id="shortlist" aria-live="polite"></ol>
+            </section>
+
+            <section class="panel" id="panel-plan" role="tabpanel" aria-labelledby="tab-plan" hidden>
+                <h2>What would a plan buy?</h2>
+                <p class="note">Click a shaded tract to place a store, or add one from the list below. Drag a store to move it.</p>
+
+                <fieldset class="format-choice">
+                    <legend>Store type</legend>
+                    <label class="format">
+                        <input type="radio" name="format" value="full" checked>
+                        <span class="format-name">Full supermarket</span>
+                        <span class="format-meta">Large footprint, <span data-cost="full">$3M</span> incentive</span>
+                    </label>
+                    <label class="format">
+                        <input type="radio" name="format" value="small">
+                        <span class="format-name">Neighborhood grocer</span>
+                        <span class="format-meta">Smaller footprint, <span data-cost="small">$1M</span> incentive</span>
+                    </label>
+                </fieldset>
+
+                <div class="site-picker">
+                    <label for="site-pick">Or add one at a top-ranked site</label>
+                    <div class="site-picker-row">
+                        <select id="site-pick"></select>
+                        <button type="button" class="btn nowrap" id="site-add">Add store</button>
+                    </div>
+                </div>
+
+                <div class="budget">
+                    <div class="budget-line">
+                        <span>Recruitment fund</span>
+                        <span class="budget-amount" id="budget-text">$0 of $10M committed</span>
+                    </div>
+                    <div class="budget-track" aria-hidden="true"><span class="budget-fill" id="budget-fill"></span></div>
+                </div>
+
+                <p class="plan-message" id="plan-message" role="status"></p>
+                <div class="results" id="plan-results"></div>
+                <h3 class="sub-heading">Stores in this plan</h3>
+                <ol class="plan-stores" id="plan-stores"></ol>
+                <p class="note" id="plan-empty">No stores placed yet.</p>
+
+                <div class="plan-actions">
+                    <label class="visually-hidden" for="plan-name">Plan name</label>
+                    <input type="text" id="plan-name" placeholder="Name this plan" maxlength="40">
+                    <button type="button" class="btn primary" id="plan-save">Save</button>
+                    <button type="button" class="btn" id="plan-clear">Clear</button>
+                </div>
+
+                <h3 class="sub-heading">Saved plans</h3>
+                <div class="compare-wrap" tabindex="0" role="region" aria-label="Saved plans compared">
+                    <table class="compare" id="compare">
+                        <thead>
+                            <tr>
+                                <th scope="col">Plan</th>
+                                <th scope="col" class="num">Stores</th>
+                                <th scope="col" class="num">Cost</th>
+                                <th scope="col" class="num">Newly in reach</th>
+                                <th scope="col" class="num">City tax revenue a year</th>
+                                <th scope="col"><span class="visually-hidden">Actions</span></th>
+                            </tr>
+                        </thead>
+                        <tbody id="compare-rows"></tbody>
+                    </table>
+                </div>
+                <div class="plan-actions">
+                    <button type="button" class="btn" id="plan-export">Export plans</button>
+                    <label class="btn" for="plan-import">Import plans</label>
+                    <input type="file" id="plan-import" accept="application/json,.json" class="visually-hidden">
+                </div>
+
+                <details class="assumptions">
+                    <summary>Planning assumptions</summary>
+                    <div class="assume-grid">
+                        <label for="a-budget">Recruitment fund ($M)</label>
+                        <input type="number" id="a-budget" min="0" step="0.5" value="10">
+                        <label for="a-incentive-full">Incentive, full supermarket ($M)</label>
+                        <input type="number" id="a-incentive-full" min="0" step="0.25" value="3">
+                        <label for="a-incentive-small">Incentive, neighborhood grocer ($M)</label>
+                        <input type="number" id="a-incentive-small" min="0" step="0.25" value="1">
+                        <label for="a-floor-full">Sales needed to stay open, full ($M a year)</label>
+                        <input type="number" id="a-floor-full" min="0" step="1" value="15">
+                        <label for="a-floor-small">Sales needed to stay open, neighborhood ($M a year)</label>
+                        <input type="number" id="a-floor-small" min="0" step="1" value="5">
+                        <label for="a-value-full">Taxable building value, full ($M)</label>
+                        <input type="number" id="a-value-full" min="0" step="1" value="12">
+                        <label for="a-value-small">Taxable building value, neighborhood ($M)</label>
+                        <input type="number" id="a-value-small" min="0" step="1" value="4">
+                        <label for="a-grocery-share">Groceries' share of store sales (%)</label>
+                        <input type="number" id="a-grocery-share" min="10" max="100" step="5" value="80">
+                        <label for="a-taxable-grocery">Share of groceries that is taxed (%)</label>
+                        <input type="number" id="a-taxable-grocery" min="0" max="100" step="1" value="10">
+                    </div>
+                    <p class="note">City tax revenue: 1% sales tax on everything but groceries, plus the taxed part of groceries (soda, candy, hot food), and property tax at $0.519190 per $100. Sales: a Huff model over stores within 5 miles, scaled to 2022 Census sales for Harris County.</p>
+                </details>
+            </section>
+
+            <section class="panel profile" id="profile" aria-labelledby="profile-heading" aria-live="polite">
+                <h2 id="profile-heading">Tract details</h2>
+                <p class="note" id="profile-empty">Select a tract on the map to see who lives there and how far they are from groceries.</p>
+                <div id="profile-body" hidden></div>
+            </section>
+
+            <section class="panel" aria-labelledby="layers-heading">
+                <h2 id="layers-heading">Map layers</h2>
+                <ul class="layer-list">
+                    <li>
+                        <label class="layer-toggle">
+                            <input type="checkbox" name="layer" value="grocery" checked>
+                            <span class="swatch dot" data-cat="grocery"></span>
+                            <span class="layer-name">Grocery stores</span>
+                            <span class="layer-count" data-count="grocery"></span>
+                        </label>
+                    </li>
+                    <li>
+                        <label class="layer-toggle">
+                            <input type="checkbox" name="layer" value="small">
+                            <span class="swatch dot" data-cat="small"></span>
+                            <span class="layer-name">Small grocers</span>
+                            <span class="layer-count" data-count="small"></span>
+                        </label>
+                    </li>
+                    <li>
+                        <label class="layer-toggle">
+                            <input type="checkbox" name="layer" value="dollar">
+                            <span class="swatch dot" data-cat="dollar"></span>
+                            <span class="layer-name">Dollar stores and pharmacies</span>
+                            <span class="layer-count" data-count="dollar"></span>
+                        </label>
+                    </li>
+                    <li>
+                        <label class="layer-toggle">
+                            <input type="checkbox" name="layer" value="convenience">
+                            <span class="swatch dot" data-cat="convenience"></span>
+                            <span class="layer-name">Convenience stores</span>
+                            <span class="layer-count" data-count="convenience"></span>
+                        </label>
+                    </li>
+                </ul>
+            </section>
+            <details class="panel sources">
+                <summary>About the data</summary>
+                <ul class="source-list">
+                    <li><b>Grocery access:</b> USDA Economic Research Service, Food Access Research Atlas: SNAP-authorized Retailer Access Map, 2025 (released July 2026), on 2020 census tracts.</li>
+                    <li><b>Store locations:</b> USDA Food and Nutrition Service, Historical SNAP Retailer Locator Data, stores authorized as of December 31, 2025, within 10 miles of the county line, since residents near the edge of the boundary may shop outside city limits. "Grocery stores" are the supermarket, super store and large grocery store types, which matches USDA's Large Retailer Access Map.</li>
+                    <li><b>Population data:</b> U.S. Census Bureau, 2020 Census block populations, via TIGERweb.</li>
+                    <li><b>Income, poverty and vehicles:</b> American Community Survey 2020 to 2024 5-year estimates, as published in the USDA file above.</li>
+                    <li><b>Grocery spending:</b> U.S. Bureau of Labor Statistics, Consumer Expenditure Survey 2024, food at home by income quintile, applied to each tract's households by median family income.</li>
+                    <li><b>Opportunity Zones:</b> Office of the Texas Governor, Economic Development and Tourism, Opportunity Zone 2.0 nominated and eligible tracts, September 2026.</li>
+                    <li><b>Neighborhoods:</b> City of Houston Planning and Development, Super Neighborhoods. Outside the city, U.S. Census Bureau 2020 incorporated and census-designated places.</li>
+                    <li><b>Store sales:</b> U.S. Census Bureau, 2022 Economic Census, retail trade sales for Harris County; Texas Comptroller, sales tax receipts by retail subsector, 2022.</li>
+                    <li><b>Tax rates:</b> City of Houston, tax year 2025 adopted property tax rate; Texas Comptroller, sales tax on grocery and convenience stores.</li>
+                    <li><b>Transit:</b> Metropolitan Transit Authority of Harris County, GTFS schedule data, August 30, 2026 service change.</li>
+                    <li><i>A tract is low access when at least 500 people, or a third of its residents, live more than 1 mile from a store (10 miles in rural tracts), measured from 2020 census block centers. Low income comes from the USDA's definition.</i></li>
+                    <li><i>Plan sales come from a Huff model: each block's grocery spending is split among stores within 5 miles by store size over distance squared. Sales a new store takes from existing stores move around the city instead of adding to it, so only the remainder counts as new city sales tax. Groceries for home use are exempt from Texas sales tax, so only nonfood and prepared items are taxed.</i></li>
+                </ul>
+            </details>
+        </aside>
+        <div class="map-wrap">
+            <div id="map" class="map" role="region" aria-label="Map of Harris County census tracts and food stores"></div>
+            <p class="map-status" id="map-status" role="status">Loading map data</p>
+            <div class="legend" id="legend" aria-hidden="true"></div>
+        </div>
+    </main>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>
