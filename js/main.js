@@ -7,6 +7,7 @@ import { showProfile } from './profile.js';
 import { createRanking } from './rank.js';
 import { createPlanner } from './plan.js';
 
+
 const state = {
   mode: 'access',
   definition: 'grocery',
@@ -40,6 +41,26 @@ map.getPane('maskPane').style.zIndex = 420;
 map.getPane('maskPane').style.pointerEvents = 'none';
 map.createPane('storePane');
 map.getPane('storePane').style.zIndex = 450;
+
+// Some browsers make every tract shape and store dot a tab stop
+// Tract details are reachable from the shortlist, so keep the
+// shapes out of the tab order.
+map.on('layeradd', (e) => {
+  const el = e.layer.getElement && e.layer.getElement();
+  if (el instanceof SVGElement) { el.setAttribute('tabindex', '-1'); }
+});
+
+// Once the page itself is pinch-zoomed on a phone, let pinches
+// and drags on the map move the page instead, so people can
+// zoom the page back out.
+if (window.visualViewport) {
+  window.visualViewport.addEventListener('resize', () => {
+    const pageZoomed = window.visualViewport.scale > 1.01;
+    for (const handler of [map.dragging, map.touchZoom]) {
+      if (pageZoomed) { handler.disable(); } else { handler.enable(); }
+    }
+  });
+}
 
 const statusEl = document.getElementById('map-status');
 
